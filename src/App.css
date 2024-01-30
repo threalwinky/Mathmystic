@@ -52,16 +52,17 @@ body {
 
 .header {
   margin: 1rem;
-  display: grid;
+  display: inline-grid;
   align-items: center;
   align-self: center;
-  grid-template-columns: 100px 100px 100px;
-  grid-gap: 3px;
-  column-gap: 5px;
+  grid-template-columns: 80px 100px 100px;
+  grid-gap: 0px;
+  column-gap: 0px;
+  padding-left: 42%;
 }
 
 .header img {
-  width: 5rem;
+  width: 60px;
 }
 
 .header h1 {
