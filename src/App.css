@@ -54,7 +54,9 @@ body {
   margin: 1rem;
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 9fr 0fr;
+  align-self: center;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 3px;
   column-gap: 5px;
 }
 
