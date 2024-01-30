@@ -37,6 +37,9 @@
   }
 } */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
@@ -47,8 +50,22 @@ body {
   background-color: #f7f5ee;
 }
 
-.header{
-  margin: 2rem;
+.header {
+  margin: 1rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 9fr 0fr;
+  column-gap: 5px;
+}
+
+.header img {
+  width: 5rem;
+}
+
+.header h1 {
+  text-shadow: -1px 0 rgb(168, 127, 127), 0 1px rgb(157, 156, 156), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: x-large;
 }
 
 .container {
@@ -58,7 +75,7 @@ body {
 
 .nav {
   background-color: #f1ebdd;
-  color: white;
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -68,6 +85,7 @@ body {
 
 .site-title {
   font-size: 2rem;
+
 }
 
 .nav ul {

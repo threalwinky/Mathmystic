@@ -180,12 +180,14 @@ import Pricing from "./components/UI/Price"
 import Home from "./components/UI/Home"
 import About from "./components/UI/About"
 import { Route, Routes } from "react-router-dom"
-
+import favicon from './components/img/favicon.jpg';
 function App() {
   return (
     <>
       <div className="header">
-        ge
+        <img src={favicon} className="rounded-full" />
+        <h1>MATHMYSTIC</h1>
+        {/* <img src="{require('./components/img/favicon.jpg')}"/> */}
       </div>
       <Navbar />
       <div className="container">
