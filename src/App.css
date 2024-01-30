@@ -109,9 +109,10 @@ body {
 }
 
 .nav li.active {
-  background-color: #555;
+  text-decoration: overline;
 }
 
 .nav li:hover {
-  background-color: #777;
+  text-decoration: overline;
+  font-weight: 700;
 }
