@@ -7,6 +7,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
 
   const signUp = (e) => {
+    console.log(123)
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -22,7 +23,7 @@ const SignUp = () => {
       <form onSubmit={signUp}>
         <h1>Create Account</h1>
         <input
-          type="email"
+          type="text"
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
