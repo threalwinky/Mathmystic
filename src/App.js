@@ -176,9 +176,12 @@
 // export default App;
 
 import Navbar from "./components/UI/Navbar"
-import Pricing from "./components/UI/Price"
 import Home from "./components/UI/Home"
 import About from "./components/UI/About"
+import Intro from "./components/UI/Intro"
+import Doc from "./components/UI/Doc"
+import Contact from "./components/UI/Contact"
+import Store from "./components/UI/Store"
 import { Route, Routes } from "react-router-dom"
 import favicon from './components/img/favicon.jpg';
 function App() {
@@ -194,8 +197,11 @@ function App() {
         
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/intro" element={<Intro />} />
           <Route path="/about" element={<About />} />
+          <Route path="/doc" element={<Doc />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         
       </div>

@@ -4,11 +4,15 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-        Site Name
+       
       </Link>
       <ul>
-        <CustomLink to="/pricing">Pricing</CustomLink>
-        <CustomLink to="/about">About</CustomLink>
+        <CustomLink to="/">Trang chủ</CustomLink>
+        <CustomLink to="/intro">Giới thiệu</CustomLink>
+        <CustomLink to="/about">Mô hình toán học</CustomLink>
+        <CustomLink to="/doc">Tài liệu học tập</CustomLink>
+        <CustomLink to="/store">Cửa hàng</CustomLink>
+        <CustomLink to="/contact">Liên hệ</CustomLink>
       </ul>
     </nav>
   )
