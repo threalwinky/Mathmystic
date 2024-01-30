@@ -106,13 +106,19 @@ body {
   display: flex;
   align-items: center;
   padding: .25rem;
+  font-size: x-large;
 }
 
 .nav li.active {
-  text-decoration: overline;
+  /* text-decoration: overline; */
+  transition-duration: 1s;
+  background-color: rgb(54, 51, 51);
+  color: #f1ebdd;
 }
 
 .nav li:hover {
-  text-decoration: overline;
-  font-weight: 700;
+  /* text-decoration: overline; */
+  transition-duration: 1s;
+  background-color: rgb(107, 98, 98);
+  color: #f1ebdd;
 }
