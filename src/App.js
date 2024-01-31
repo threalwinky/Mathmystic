@@ -182,6 +182,8 @@ import Intro from "./components/UI/Intro"
 import Doc from "./components/UI/Doc"
 import Contact from "./components/UI/Contact"
 import Store from "./components/UI/Store"
+
+import Products from "./components/auth/Products"
 import { Route, Routes } from "react-router-dom"
 import favicon from './components/img/favicon.jpg';
 function App() {
