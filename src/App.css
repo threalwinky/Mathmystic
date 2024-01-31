@@ -84,6 +84,7 @@ body {
   align-items: center;
   gap: 2rem;
   padding: 0 1rem;
+  text-align: center;
 }
 
 .site-title {
