@@ -30,7 +30,7 @@ export default function Home() {
 
       <div className="third">
         <h1>Bộ sưu tập</h1>
-        <Products></Products>
+        {/* <Products></Products> */}
       </div>
 
       <div className="fourth">

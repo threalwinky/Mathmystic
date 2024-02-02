@@ -3,16 +3,16 @@ import girl from "../img/girl.webp";
 const products = [
     {
       id: 1,
-      name: 'Basic Tee',
+      name: 'Bộ dụng cụ hình học cho học sinh khiếm thị',
       href: '',
       imageSrc: '../img/p2.webp',
       imageAlt: ".",
-      price: '249000đ',
+      price: 'Hết tồn kho',
       color: '',
     },
     {
         id: 2,
-        name: 'Basic Tee',
+        name: 'Bộ dụng cụ hình học',
         href: '',
         imageSrc: '../img/p3.webp',
         imageAlt: ".",
@@ -25,7 +25,7 @@ const products = [
   export default function Products() {
     return (
       <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-5 lg:max-w-7xl lg:px-8">
           {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2> */}
   
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
@@ -48,11 +48,14 @@ const products = [
                     </h3>
                     <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                  
                 </div>
+                
               </div>
+              
             ))}
           </div>
+          
         </div>
       </div>
     )
