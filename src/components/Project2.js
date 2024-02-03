@@ -6,6 +6,7 @@ import projImg3 from "../assets/img/project-img3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
+import { translate, Trans, withTranslation } from 'react-i18next';
 
 export const Project2 = () => {
   const projects = [
@@ -53,7 +54,7 @@ export const Project2 = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h2>Introduce</h2>
+                  <h2><Trans>Introduce</Trans></h2>
                   {/* <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> */}
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav
