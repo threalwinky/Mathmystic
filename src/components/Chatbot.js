@@ -39,7 +39,7 @@ const steps = [
 export const ThemedExample = () => {
     return(
         <ThemeProvider theme={theme} >
-        <ChatBot steps={steps} className="chatbot" floating={true}/>;
+        <ChatBot steps={steps} className="chatbot" floating={true} style={{height : 520}} />;
       </ThemeProvider>
     )
 }
