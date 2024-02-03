@@ -88,7 +88,7 @@ nav.navbar {
   width: 100%;
   top: 0;
   z-index: 9999;
-  transition:  0.32s ease-in-out;
+  transition:  0.5s ease-in-out;
 }
 nav.navbar.scrolled {
   padding: 0px 0;
@@ -107,6 +107,7 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   text-align: center;
   align-items: center;
   justify-content: center;
+  
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover{
 /* nav.navbar .navbar-nav a.nav-link.navbar-link.active { */
@@ -115,7 +116,9 @@ nav.navbar .navbar-nav a.nav-link.navbar-link:hover{
     border-radius: 20px;
     /* border-color: #000000; */
     /* color: red; */
-    background-color: #fba77c;
+    
+    background-color: #ff722c;
+    
 }
 span.navbar-text {
     display: flex;

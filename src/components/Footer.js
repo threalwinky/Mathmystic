@@ -15,9 +15,8 @@ export const Footer = () => {
             {/* <img src={logo} alt="Logo" /> */}
             <h4>Liên hệ</h4>
             <br></br>
-            Nội dung: thu799416 (Trương Thanh Thư)
+            Email : mathmystic12345@gmail.com
             <br></br>
-            Kỹ thuật: winky (Võ Quang Vũ)
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">
             <div className="social-icon">

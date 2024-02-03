@@ -8,6 +8,7 @@ import { Skills2 } from "./components/Skills2";
 import { Project2 } from "./components/Project2";
 import { Projects } from "./components/Projects";
 import { Project3 } from "./components/Project3";
+import { Project4 } from "./components/Project4";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ThemedExample } from "./components/Chatbot";
@@ -28,7 +29,9 @@ function App() {
       <Projects />
       <Project3 />
       <Skills2 />
+      <Project4 />
       <Contact />
+      
       <Footer />
       <ThemedExample />
       
