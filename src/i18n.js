@@ -42,7 +42,8 @@ i18n
           "WINGS OF THOUGHT" : "CHẮP CÁNH TƯ DUY",
           "CONNECTING KNOWLEDGE" : "KẾT NỐI TRI THỨC",
           "LIGHT FOR EVERY HEART" : "ÁNH SÁNG CHO MỌI TRÁI TIM",
-          "Introduce" : "Giới thiệu"
+          "Introduce" : "Giới thiệu",
+          "Chat" : "Diễn đàn"
         }
       }
     },
