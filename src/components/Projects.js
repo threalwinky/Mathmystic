@@ -7,39 +7,43 @@ import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
+import hctgd from "../assets/img/hctgd.jpg"
+
+
 export const Projects = () => {
 
   const projects = [
     {
-      title: "Hình chóp tứ giác",
+      title: "Hình chóp đáy tứ giác",
       description: "Design & Development",
-      imgUrl: "https://static.wixstatic.com/media/ce0c23_b5de02f1401c482b91a636d58bc5593d~mv2.jpg/v1/fill/w_280,h_337,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/z4869686102273_0c0209212da4e87c51ce2cdec.jpg",
+      // imgUrl: "https://static.wixstatic.com/media/ce0c23_b5de02f1401c482b91a636d58bc5593d~mv2.jpg/v1/fill/w_280,h_337,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/z4869686102273_0c0209212da4e87c51ce2cdec.jpg",
+      imgUrl: "https://i.imgur.com/AaZklDh.jpeg"
     },
     {
-      title: "Hình chóp tam giác",
+      title: "Hình chóp đáy tam giác",
       description: "Design & Development",
-      imgUrl: "https://static.wixstatic.com/media/ce0c23_74bdb2ae8e4a4293abbac3eb5ed750fd~mv2.jpg/v1/crop/x_0,y_125,w_1926,h_2318/fill/w_280,h_337,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/z4870005613373_2bb1b32fb5e64e667a5ef2a9be3abc43.jpg",
+      imgUrl: "https://i.imgur.com/qBeArT2.jpeg",
     },
     {
-      title: "Hình hộp",
+      title: "Tam giác",
       description: "Design & Development",
-      imgUrl: "https://static.wixstatic.com/media/ce0c23_98108f8d0be24d42b1d209660b1e95c5~mv2.jpg/v1/crop/x_0,y_35,w_2068,h_2489/fill/w_280,h_337,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/z4869760232479_f5bc173b15fec7f7e399273dccbc5f5e.jpg",
+      imgUrl: "https://i.imgur.com/6mZIlnE.jpeg",
     },
     {
       title: "Khối lăng trụ xiên",
       description: "Design & Development",
-      imgUrl: "https://static.wixstatic.com/media/ce0c23_a4537172529a41c5bece4df7dd5f611f~mv2.jpg/v1/crop/x_112,y_0,w_2125,h_2558/fill/w_280,h_337,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/z4870058130745_31628de0d9357669f6b1262d7a997921.jpg",
+      imgUrl: "https://i.imgur.com/NbQAUyM.jpeg",
     },
     {
       title: "Khối tứ diện có cạnh vuông với đáy",
       description: "Design & Development",
-      imgUrl: "https://static.wixstatic.com/media/ce0c23_f9f28c0eb5854fda8c3c883afce553c6~mv2.jpg/v1/crop/x_0,y_125,w_1926,h_2318/fill/w_280,h_337,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/z4869775196834_057713b635ccb6d5c7ebf192aa6eac73.jpg",
+      imgUrl: "https://i.imgur.com/tHzdPFn.jpeg",
     },
-    {
-      title: "Khối chóp cụt",
-      description: "Design & Development",
-      imgUrl: "https://static.wixstatic.com/media/ce0c23_9f38198976084003b469c590b1c9f04f~mv2.jpg/v1/crop/x_0,y_125,w_1926,h_2318/fill/w_280,h_337,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/z4870078441139_33306a7529abc72758897718d23fad5e.jpg",
-    },
+    // {
+    //   title: "Khối chóp cụt",
+    //   description: "Design & Development",
+    //   imgUrl: "https://static.wixstatic.com/media/ce0c23_9f38198976084003b469c590b1c9f04f~mv2.jpg/v1/crop/x_0,y_125,w_1926,h_2318/fill/w_280,h_337,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/z4870078441139_33306a7529abc72758897718d23fad5e.jpg",
+    // },
   ];
 
   return (

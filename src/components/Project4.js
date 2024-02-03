@@ -4,6 +4,10 @@ import projImg1 from "../assets/img/project-img1.png";
 import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
+
+import hctgd from "../assets/img/hctgd.jpg"
+
+
 import chat from "../assets/img/chat.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -19,7 +23,7 @@ export const Project4 = () => {
     {
       title: "Hình chóp tam giác",
       description: "Design & Development",
-      imgUrl: "https://static.wixstatic.com/media/ce0c23_74bdb2ae8e4a4293abbac3eb5ed750fd~mv2.jpg/v1/crop/x_0,y_125,w_1926,h_2318/fill/w_280,h_337,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/z4870005613373_2bb1b32fb5e64e667a5ef2a9be3abc43.jpg",
+      imgUrl: {hctgd},
     },
     {
       title: "Hình hộp",
