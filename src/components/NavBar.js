@@ -4,16 +4,27 @@ import logo from '../assets/img/logo.png';
 import navIcon1 from '../assets/img/vn.png';
 import navIcon2 from '../assets/img/en.webp';
 import navIcon3 from '../assets/img/en.webp';
+import { translate, Trans, withTranslation } from 'react-i18next';
+
 import { HashLink } from 'react-router-hash-link';
 import {
   BrowserRouter as Router
 } from "react-router-dom";
 
 export const NavBar = () => {
+  // const { t, i18n } = this.props;
+
+  // const changeLanguage = (lng) => {
+  //   i18n.changeLanguage(lng);
+  // }
 
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  // const { t, i18n } = this.props;
 
+  // const changeLanguage = (lng) => {
+  //   i18n.changeLanguage(lng);
+  // }
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY > 50) {
@@ -57,9 +68,13 @@ export const NavBar = () => {
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
-                <a><img src={navIcon1} style={{width : 25}} alt="Vietnamese" /></a>
+                {/* <a onClick={() => changeLanguage("vn")}><img src={navIcon1} style={{width : 25}} alt="Vietnamese" /></a> */}
+                <a ><img src={navIcon1} style={{width : 25}} alt="Vietnamese" /></a>
+
                 {/* <a href="#"><img src={navIcon2} alt="" /></a> */}
-                <a><img src={navIcon3} style={{width : 25}} alt="English" /></a>
+                {/* <a onClick={() => changeLanguage("vn")}><img src={navIcon3} style={{width : 25}} alt="English" /></a> */}
+                <a ><img src={navIcon3} style={{width : 25}} alt="English" /></a>
+
               </div>
               <HashLink to='#connect'>
                 {/* <button className="vvd"><span>Let’s Connect</span></button> */}

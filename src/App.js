@@ -13,7 +13,10 @@ import { Footer } from "./components/Footer";
 import { ThemedExample } from "./components/Chatbot";
 import { CB } from "./components/ChatbotButton";
 import {Routes, Route, useNavigate} from 'react-router-dom';
+import { translate, Trans, withTranslation } from 'react-i18next';
+import React, { Component } from "react";
 function App() {
+  
   return (
     <div className="App">
       <NavBar />
@@ -32,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default withTranslation("translations")(App);
