@@ -36,8 +36,8 @@ i18n
           "What differentiates the project is the combination of model kits and a learning guide website to create a comprehensive learning experience.": "Điểm khác biệt của dự án là việc kết hợp bộ dụng cụ mô hình và trang web hướng dẫn học tập để tạo ra một trải nghiệm học tập toàn diện. ",
           "The lectures are designed by the project team to be simple but full of resources for learning geometry, thereby encouraging group work in parallel with forming self-study habits.": "Các bài giảng được nhóm dự án thiết kế đơn giản nhưng đầy đủ các tài nguyên phục vụ cho việc học tập hình học, từ đó khuyến khích làm việc nhóm song song với hình thành thói quen tự học.",
         
-          "Welcome to Mathmystic" : "Chào mừng đến với Mathmystic"
-        
+          "Welcome to Mathmystic" : "Chào mừng đến với Mathmystic",
+          "Let’s Connect" : "Cùng đi nào!"
         
         }
       }

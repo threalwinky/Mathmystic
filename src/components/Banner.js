@@ -90,7 +90,7 @@ export const Banner = () => {
 
 
                   </p>
-                  <a href="#intro" style={{textDecoration: "none"}}><button >Let’s Connect <ArrowRightCircle size={25} /></button>
+                  <a href="#intro" style={{textDecoration: "none"}}><button ><Trans>Let’s Connect</Trans> <ArrowRightCircle size={25} /></button>
                     </a>
               </div>}
             </TrackVisibility>
