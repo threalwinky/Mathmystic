@@ -13,7 +13,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(200);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "WINGS OF THOUGHT", "KẾT NỐI TRI THỨC" , "ÁNH SÁNG CHO MỌI TRÁI TIM" ];
+  const toRotate = [ "WINGS OF THOUGHT", "CONNECTING KNOWLEDGE" , "LIGHT FOR EVERY HEART" ];
   const period = 2000;
 
   useEffect(() => {

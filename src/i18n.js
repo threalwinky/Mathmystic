@@ -39,7 +39,9 @@ i18n
           "Welcome to Mathmystic" : "Chào mừng đến với Mathmystic",
           "Let’s Connect" : "Cùng đi nào!",
         
-          "WINGS OF THOUGHT" : "CHẮP CÁNH TƯ DUY"
+          "WINGS OF THOUGHT" : "CHẮP CÁNH TƯ DUY",
+          "CONNECTING KNOWLEDGE" : "KẾT NỐI TRI THỨC",
+          "LIGHT FOR EVERY HEART" : "ÁNH SÁNG CHO MỌI TRÁI TIM"
 
         }
       }
