@@ -37,8 +37,10 @@ i18n
           "The lectures are designed by the project team to be simple but full of resources for learning geometry, thereby encouraging group work in parallel with forming self-study habits.": "Các bài giảng được nhóm dự án thiết kế đơn giản nhưng đầy đủ các tài nguyên phục vụ cho việc học tập hình học, từ đó khuyến khích làm việc nhóm song song với hình thành thói quen tự học.",
         
           "Welcome to Mathmystic" : "Chào mừng đến với Mathmystic",
-          "Let’s Connect" : "Cùng đi nào!"
+          "Let’s Connect" : "Cùng đi nào!",
         
+          "WINGS OF THOUGHT" : "CHẮP CÁNH TƯ DUY"
+
         }
       }
     },

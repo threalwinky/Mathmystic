@@ -50,7 +50,7 @@ export const NavBar = () => {
           <Navbar.Brand href="/">
             <div className="header">
             <img src={logo} alt="Logo" style={{width: 50}}/>
-            <h1>MATHMYSTIC</h1>
+            <h1 style={{marginTop : 10}}>MATHMYSTIC</h1>
             </div>
             
           </Navbar.Brand>

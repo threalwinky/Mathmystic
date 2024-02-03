@@ -8,34 +8,13 @@ import { translate, Trans, withTranslation } from 'react-i18next';
 
 export const Banner = () => {
 
-  const [activeLink, setActiveLink] = useState('home');
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    }
-
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [])
-
-  const onUpdateActiveLink = (value) => {
-    setActiveLink(value);
-  }
-  
   const [loopNum, setLoopNum] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(0);
   const [text, setText] = useState('');
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
+  const [delta, setDelta] = useState(200);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "CHẮP CÁNH TƯ DUY", "KẾT NỐI TRI THỨC" , "ÁNH SÁNG CHO MỌI TRÁI TIM" ];
-  const period = 500;
+  const toRotate = [ "WINGS OF THOUGHT", "KẾT NỐI TRI THỨC" , "ÁNH SÁNG CHO MỌI TRÁI TIM" ];
+  const period = 2000;
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -64,11 +43,12 @@ export const Banner = () => {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
       setIndex(1);
-      setDelta(500);
+      setDelta(50);
     } else {
       setIndex(prevIndex => prevIndex + 1);
     }
   }
+
 
   return (
     <section className="banner" id="home">
@@ -79,7 +59,7 @@ export const Banner = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline"><Trans>Welcome to Mathmystic</Trans></span>
-                <h1>{` `} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "b", "a", "ÁNH SÁNG CHO MỌI TRÁI TIM" ]'><span className="wrap">{text}</span></span></h1>
+                <h1>{` `} <span className="txt-rotate" dataPeriod="100" data-rotate='[ "b", "a", "ÁNH SÁNG CHO MỌI TRÁI TIM" ]'><span className="wrap"><Trans>{text}</Trans></span></span></h1>
                   <p >
                     {/* <Trans>a</Trans> */}
                     <li style={{color: "#0f4135"}}><Trans>We will introduce a unique math product to all students and teachers. More than a product, it is a new, creative and fun way to learn and experience geometry.</Trans></li>
