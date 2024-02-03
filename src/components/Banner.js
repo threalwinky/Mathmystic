@@ -4,6 +4,7 @@ import headerImg from "../assets/img/pet4.png";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { translate, Trans, withTranslation } from 'react-i18next';
 
 export const Banner = () => {
 
@@ -77,15 +78,15 @@ export const Banner = () => {
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to Mathmystic</span>
+                <span className="tagline"><Trans>Welcome to Mathmystic</Trans></span>
                 <h1>{` `} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "b", "a", "ÁNH SÁNG CHO MỌI TRÁI TIM" ]'><span className="wrap">{text}</span></span></h1>
                   <p >
-                    
-                    <li style={{color: "#0f4135"}}>Chúng tôi sẽ giới thiệu một sản phẩm toán học độc đáo cho tất cả các bạn học sinh và giáo viên. Hơn cả một sản phẩm, đây còn là một cách thức mới, sáng tạo và thú vị để tìm hiểu và trải nghiệm hình học</li>
+                    {/* <Trans>a</Trans> */}
+                    <li style={{color: "#0f4135"}}><Trans>We will introduce a unique math product to all students and teachers. More than a product, it is a new, creative and fun way to learn and experience geometry.</Trans></li>
                     <br></br>
-                    <li style={{color: "#0f4135"}}>Điểm khác biệt của dự án là việc kết hợp bộ dụng cụ mô hình và trang web hướng dẫn học tập để tạo ra một trải nghiệm học tập toàn diện. </li>
+                    <li style={{color: "#0f4135"}}><Trans>What differentiates the project is the combination of model kits and a learning guide website to create a comprehensive learning experience.</Trans> </li>
                     <br></br>
-                    <li style={{color: "#0f4135"}}>Các bài giảng được nhóm dự án thiết kế đơn giản nhưng đầy đủ các tài nguyên phục vụ cho việc học tập hình học, từ đó khuyến khích làm việc nhóm song song với hình thành thói quen tự học</li>
+                    <li style={{color: "#0f4135"}}><Trans>The lectures are designed by the project team to be simple but full of resources for learning geometry, thereby encouraging group work in parallel with forming self-study habits.</Trans></li>
 
 
                   </p>

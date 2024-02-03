@@ -20,6 +20,8 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+
+
       <Banner />
       <Project2 />
       <Skills />
@@ -29,7 +31,6 @@ function App() {
       <Contact />
       <Footer />
       <ThemedExample />
-      {/* <CB/> */}
       
     </div>
   );

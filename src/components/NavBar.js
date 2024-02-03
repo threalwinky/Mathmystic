@@ -10,13 +10,13 @@ import { HashLink } from 'react-router-hash-link';
 import {
   BrowserRouter as Router
 } from "react-router-dom";
-
+import i18n from '../i18n'
 export const NavBar = () => {
   // const { t, i18n } = this.props;
 
-  // const changeLanguage = (lng) => {
-  //   i18n.changeLanguage(lng);
-  // }
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  }
 
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
@@ -59,21 +59,18 @@ export const NavBar = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-              <Nav.Link href="#intro" className={activeLink === 'intro' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('intro')}>Introduction</Nav.Link>
-              <Nav.Link href="#about" className={activeLink === 'about' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('about')}>About</Nav.Link>
-              <Nav.Link href="#doc" className={activeLink === 'doc' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('doc')}>Documentation</Nav.Link>
-              <Nav.Link href="#store" className={activeLink === 'store' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('store')}>Store</Nav.Link>
-              <Nav.Link href="#connect" className={activeLink === 'connect' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('connect')}>Contact</Nav.Link>
+              <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}><Trans>Home</Trans></Nav.Link>
+              <Nav.Link href="#intro" className={activeLink === 'intro' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('intro')}><Trans>Introduction</Trans></Nav.Link>
+              <Nav.Link href="#about" className={activeLink === 'about' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('about')}><Trans>About</Trans></Nav.Link>
+              <Nav.Link href="#doc" className={activeLink === 'doc' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('doc')}><Trans>Documentation</Trans></Nav.Link>
+              <Nav.Link href="#store" className={activeLink === 'store' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('store')}><Trans>Store</Trans></Nav.Link>
+              <Nav.Link href="#connect" className={activeLink === 'connect' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('connect')}><Trans>Contact</Trans></Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
-                {/* <a onClick={() => changeLanguage("vn")}><img src={navIcon1} style={{width : 25}} alt="Vietnamese" /></a> */}
-                <a ><img src={navIcon1} style={{width : 25}} alt="Vietnamese" /></a>
+                <a onClick={() => changeLanguage("vn")}><img src={navIcon1} style={{width : 25}} alt="Vietnamese" /></a>
 
-                {/* <a href="#"><img src={navIcon2} alt="" /></a> */}
-                {/* <a onClick={() => changeLanguage("vn")}><img src={navIcon3} style={{width : 25}} alt="English" /></a> */}
-                <a ><img src={navIcon3} style={{width : 25}} alt="English" /></a>
+                <a onClick={() => changeLanguage("en")}><img src={navIcon3} style={{width : 25}} alt="English" /></a>
 
               </div>
               <HashLink to='#connect'>
