@@ -56,7 +56,7 @@ export const Project4 = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
                 <h2>Diễn đàn</h2>
-                <img src={chat} style={{width: 1300, borderRadius: 40}}></img>
+                {/*<img src={chat} style={{width: 1300, borderRadius: 40}}></img>*/}
                 <p>
                 {/* <li>Bước 1:Ta cần dựng đáy của hình tùy ý cố định bằng cách chọn các lỗ bảng gỗ rồi gắn các nút gỗ vào</li> */}
                 {/* <li>Bước 2: Dùng dây thun tái chế bọc quanh tạo hình dạng cho mặt đáy.</li> */}
