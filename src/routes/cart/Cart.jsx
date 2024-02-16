@@ -134,66 +134,68 @@ const Cart = () => {
                   </span>
                 </div>
                 <div className='mmt__cart-list'>
+                  {localStorage.getItem('user') == undefined ? "Vui long dat hang qua facebook hoac sdt hoac dang nhap de dat hang online " :
 
-                  {/* {foundUser.name} */}
+                    <div>
 
-                  {foundProduct?.map((product, index) => (
-                    <p key={index}>
 
-                      <div className='mmt__productInCart-container'>
-                        <input type="checkbox" checked={product.pick} onClick={() => { updateCartPick(product.id, product.pick) }} />
-                        <div className='mmt__productInCart-info'>
-                          <img src={product.product.imgUrl[0]} alt="" />
-                          <p>{product.product.name}</p>
-                        </div>
-                        <div className='mmt__productInCart-control'>
-                          <div className='mmt__productInCart-count'>
-                            <button
-                              size={10}
-                              onClick={() => updateCart(product.id, product.productCount - 1)}
-                              disabled={product.productCount == 0}
-                            >-</button>
-                            {product.productCount}
-                            <button
-                              size={10}
-                              onClick={() => updateCart(product.id, product.productCount + 1)}
 
-                            >+</button>
+                      {/* {foundUser.name} */}
+
+                      {foundProduct?.map((product, index) => (
+                        <p key={index}>
+
+                          <div className='mmt__productInCart-container'>
+                            <input type="checkbox" checked={product.pick} onClick={() => { updateCartPick(product.id, product.pick) }} />
+                            <div className='mmt__productInCart-info'>
+                              <img src={product.product.imgUrl[0]} alt="" />
+                              <p>{product.product.name}</p>
+                            </div>
+                            <div className='mmt__productInCart-control'>
+                              <div className='mmt__productInCart-count'>
+                                <button
+                                  size={10}
+                                  onClick={() => updateCart(product.id, product.productCount - 1)}
+                                  disabled={product.productCount == 0}
+                                >-</button>
+                                {product.productCount}
+                                <button
+                                  size={10}
+                                  onClick={() => updateCart(product.id, product.productCount + 1)}
+
+                                >+</button>
+                              </div>
+                              <div className='mmt__productInCart-pricePerProduct'>
+                                <p>gia tien 1 bo</p>
+                                <p>{changeMoney(product.product.price)}₫</p>
+                              </div>
+                              <div className='mmt__productInCart-pricePerProduct'>
+                                <p>tong gia tien</p>
+                                <p>{changeMoney(product.product.price * product.productCount)}₫</p>
+                              </div>
+                              <div className='mmt__productInCart-count'>
+                                <button size={10} onClick={() => deleteCart(product.id)}>Delete</button>
+
+                              </div>
+                            </div>
+
                           </div>
-                          <div className='mmt__productInCart-pricePerProduct'>
-                            <p>gia tien 1 bo</p>
-                            <p>{changeMoney(product.product.price)}₫</p>
-                          </div>
-                          <div className='mmt__productInCart-pricePerProduct'>
-                            <p>tong gia tien</p>
-                            <p>{changeMoney(product.product.price * product.productCount)}₫</p>
-                          </div>
-                          <div className='mmt__productInCart-count'>
-                            <button size={10} onClick={() => deleteCart(product.id)}>Delete</button>
-
-                          </div>
-                        </div>
-
-                      </div>
-
-                      {/* {product.product.imgUrl[0]}
-                      {product.createdAt}
-                      {product.product.name}
-                      {product.product.price}
-                      {product.productCount} */}
 
 
+                        </p>
 
-                    </p>
+                      ))}
 
-                  ))}
+                    </div>
 
+                  }
                 </div>
+
                 <div className='mmt__cart-control'>
 
                   <button className='info'>Tong Cong : {changeMoney(totalPrice)}₫</button>
                   <button onClick={() => { addBuy(foundUser.name, changeMoney(totalPrice)) }}
-> Buy</button>
+                  > Buy</button>
                   {/* <Modal
                     closeIcon
                     open2={open2}

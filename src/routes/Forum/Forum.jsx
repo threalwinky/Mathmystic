@@ -19,7 +19,6 @@ import { TbTriangleInvertedFilled } from "react-icons/tb";
 import { IoEyeSharp } from "react-icons/io5";
 
 const Forum = () => {
-    if (localStorage.getItem('user') == undefined) window.location.href = '/'
 
     const [chats, setChats] = useState([])
     const [loading, setLoading] = useState(0)

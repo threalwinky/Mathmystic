@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import db from '../../firebase'
 import { onSnapshot, collection, deleteDoc, doc, getDocs, addDoc, Timestamp, query } from 'firebase/firestore'
 import { useState } from 'react';
-import { Loading, NotFound } from '../../containers'
+import { Loading, NotFound, PopUp } from '../../containers'
 import { Link, useParams } from "react-router-dom";
 import './Chat.css'
 import { FooterWoutMail, NavBarWoutMenuLogo } from "../../components";
@@ -82,12 +82,19 @@ const Chat = ({ chatId }) => {
     }, [])
 
     const addMessage = () => {
-        addDoc(collection(db, 'message'), {
-            content: messageContent,
-            createdAt: Timestamp.now().seconds,
-            createdBy: foundUser,
-            chatInclude: chatId
-        })
+        if (localStorage.getItem('user') == undefined) {
+            PopUp('Vui long dang nhap de gui cau tra loi')
+        }
+        else{
+            addDoc(collection(db, 'message'), {
+                content: messageContent,
+                createdAt: Timestamp.now().seconds,
+                createdBy: foundUser,
+                chatInclude: chatId
+            })
+        }
+
+        
     }
 
     const deleteMessage = (idDeleteMessage) => {
