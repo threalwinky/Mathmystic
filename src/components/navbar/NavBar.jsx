@@ -1,148 +1,131 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import React, { useEffect, useState, useContext } from 'react'
+import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
+import { CiUser } from "react-icons/ci";
+import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
+import { TbTriangleInvertedFilled } from "react-icons/tb";
+import { Trans } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { FaUser } from "react-icons/fa";
+import { MenuContext } from "react-flexible-sliding-menu";
+import { useMediaQuery } from 'react-responsive'
 
-import UserAvatar from '../../assets/UserAvatar.jpg'
+import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
+import VietnamLanguage from '../../assets/img/VietnamLanguage.png'
+import EnglishLanguage from '../../assets/img/EnglishLanguage.webp'
+import i18n from '../../i18n'
+import './NavBar.css'
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const NavBar = () => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1050px)'
+  })
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  }
+  const [scrolled, setScrolled] = useState(false);
+  if (localStorage.getItem('lang') === null) localStorage.setItem('lang','en')
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    }
 
-function NavBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+    window.addEventListener("scroll", onScroll);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [])
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  const [isMenuShow, setIsMenuShow] = useState(false)
+  const Menu = () => {
+    return (
+      <>
+        <a href='/#home'><p><Trans>Home</Trans></p></a>
+        <a href='/#introduction'><p>Introduction</p></a>
+        <a href='/#about'><p>About</p></a>
+        <a href='/#document'><p>Document</p></a>
+        <a href='/#store'><p>Store</p></a>
+        <a href='/#contact'><p>Contact</p></a>
+      </>
+    )
+  }
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const UserMenu = () => {
+    return (
+      <>
+        <a href='#document'><p>Profile</p></a>
+        <a href='#home'><p>Cart</p></a>
+        <a href='#introduction'><p>Bill</p></a>
+        <a href='#introduction'><p>Chat</p></a>
+        <a href='#store'><p>Setting</p></a>
+        <a href='#contact'><p>Log Out</p></a>
+      </>
+    )
+  }
+
+  const UserPhoneMenu = () => {
+    return (
+      <>
+        <p>
+          <a href='#document' onClick={() => setIsMenuShow(!isMenuShow)}>
+            {isMenuShow ? <GoTriangleUp /> : <GoTriangleDown />} User
+          </a>
+        </p>
+      </>
+    )
+  }
+
+  const MixedMenu = () => {
+    return (
+      <>
+        <Menu />
+        <UserPhoneMenu />
+        {isMenuShow ? <UserMenu /> : ""}
+      </>
+    )
+  }
+  const { toggleMenu } = useContext(MenuContext);
+  const [userToggleMenu, setUserToggleMenu] = useState(false)
+  const [userPhoneToggleMenu, setUserPhoneToggleMenu] = useState(false)
+  const [language, setLanguage] = useState(localStorage.getItem('lang') == 'en' ? 0 : 1)
+
+  const cl = () =>{
+    const l = localStorage.getItem('lang')
+    if (l == 'en'){
+      localStorage.setItem('lang', 'vn')
+      changeLanguage('vn')
+      setLanguage(!language)
+    }
+    else{
+      localStorage.setItem('lang', 'en')
+      changeLanguage('en')
+      setLanguage(!language)
+    }
+  }
 
   return (
-    <AppBar position="static" color="">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          
+    <div>
+      <div className={`mmt__navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className='mmt__navbar-links'>
+          <div className='mmt__navbar-links_logo'>
+            <img src={MathmysticLogo} alt='logo' />
+            <h1>MATHMYSTIC</h1>
+          </div>
+          <div className='mmt__navbar-container_links'>
+            <Menu />
+          </div>
+        </div>
+        <div className='mmt__navbar-sign'>
+          <img onClick={() => {cl()}}  src={language ? VietnamLanguage : EnglishLanguage}/>
+          <img src={localStorage.getItem('userAvatar') == undefined ? "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" : localStorage.getItem('userAvatar')} alt="" onClick={() => { localStorage.setItem('open', '1'); toggleMenu(); }} style={{ fontSize: 35 }} />
+          {((!isDesktopOrLaptop) || !(localStorage.getItem('open2') == '1')) ? <RiMenu3Line onClick={() => { localStorage.setItem('open', '2'); toggleMenu(); }} style={{ fontSize: 35 }} className='mmt__navbar-sign_user'></RiMenu3Line> : ""}
+        </div>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src={UserAvatar} />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
-  );
+      </div>
+    </div>
+  )
 }
-export default NavBar;
+
+export default NavBar
