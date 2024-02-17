@@ -73,32 +73,22 @@ function Menu() {
 
   return (
     <div className="mmt__menu">
-      {(!(localStorage.getItem('open2') == '1')) ? ((localStorage.getItem('open') == '1') ?
-        <div>
-          <span>
-            <img src={localStorage.getItem('userAvatar')} alt="" style={{ width: 50, margin: 10, borderRadius: 50 }} />
-            <h4>{localStorage.getItem('userName')}</h4>
-          </span>
-        </div> :
-        <div>
-          
-        </div>
-      ) :
+      
         <span className="mmt__menu-info">
-          {(!(localStorage.getItem('user') == undefined) && localStorage.getItem('open') == '1') ? 
+          {(!(localStorage.getItem('user') == undefined) && localStorage.getItem('open') == '1') ?
             <>
-              <img src={localStorage.getItem('userAvatar')} style={{ width: 50, height:50, margin: 0, borderRadius: 50 }} />
-          <h4>{localStorage.getItem('userName')}</h4>
+              <img src={localStorage.getItem('userAvatar')} style={{ width: 50, height: 50, margin: 0, borderRadius: 50 }} />
+              <h4>{localStorage.getItem('userName')}</h4>
             </>
-          
-          : <h3/>}
-          
+
+            : <h3>123</h3>}
+
           <button onClick={closeMenu}>
             <IoCloseSharp size={35} className="mmt__menu-close-button" />
           </button>
         </span>
 
-      }
+      
       {((!isDesktopOrLaptop) || !(localStorage.getItem('open2') == '1')) ?
         ((localStorage.getItem('open') == '1') ?
           <CheckLogInMenu /> : <HomeMenu />) : <CheckLogInMenu />}
