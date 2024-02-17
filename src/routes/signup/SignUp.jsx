@@ -97,7 +97,7 @@ const SignUp = () => {
                 email,
                 password,
                 products: [],
-                avatar: "https://i.pinimg.com/564x/88/68/d7/8868d7b09e6eff73db538eee5e077816.jpg"
+                avatar: "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg"
               });
               console.log('Account created')
               window.alert('Account created')
