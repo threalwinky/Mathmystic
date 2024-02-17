@@ -81,11 +81,11 @@ function Menu() {
           </span>
         </div> :
         <div>
-
+          
         </div>
       ) :
         <span className="mmt__menu-info">
-          {!(localStorage.getItem('user') == undefined) ? 
+          {(!(localStorage.getItem('user') == undefined) && localStorage.getItem('open') == '1') ? 
             <>
               <img src={localStorage.getItem('userAvatar')} style={{ width: 50, height:50, margin: 0, borderRadius: 50 }} />
           <h4>{localStorage.getItem('userName')}</h4>
