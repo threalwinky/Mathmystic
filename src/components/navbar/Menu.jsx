@@ -81,7 +81,7 @@ function Menu() {
               <h4>{localStorage.getItem('userName')}</h4>
             </>
 
-            : <h3>123</h3>}
+            : <h3></h3>}
 
           <button onClick={closeMenu}>
             <IoCloseSharp size={35} className="mmt__menu-close-button" />
