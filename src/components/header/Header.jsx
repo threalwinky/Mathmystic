@@ -59,7 +59,7 @@ const Header = () => {
         <div className='mmt__header-content_left'>
           <span className="mmt__header-tagline"><Trans>Welcome to Mathmystic</Trans></span>
           <h1>{` `}
-            <span className="txt-rotate" dataPeriod="100" data-rotate='[ "b", "a", "ÁNH SÁNG CHO MỌI TRÁI TIM" ]'>
+            <span className="txt-rotate" dataPeriod="100" data-rotate='[ "WINGS OF THOUGHT", "CONNECTING KNOWLEDGE", "LIGHT FOR EVERY HEART" ]'>
               <span className="wrap">
                 <Trans>{text}</Trans>
               </span>

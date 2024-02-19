@@ -5,7 +5,6 @@ import { useMediaQuery } from 'react-responsive'
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import { CiLogin } from "react-icons/ci";
-
 import './NavBar.css'
 
 var LogOut = () => {
@@ -18,7 +17,7 @@ var LogOut = () => {
 }
 
 function Menu() {
-
+  const l = localStorage.getItem('lang') == 'en'
   const { closeMenu } = useContext(MenuContext);
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1050px)'
@@ -26,24 +25,24 @@ function Menu() {
   const HomeMenu = () => {
     return (
       <>
-        <a href='/#home'><p><Trans>Home</Trans></p></a>
-        <a href='/#introduction'><p>Introduction</p></a>
-        <a href='/#about'><p>About</p></a>
-        <a href='/#document'><p>Document</p></a>
-        <a href='/#store'><p>Store</p></a>
-        <a href='/#contact'><p>Contact</p></a>
+        <a href='/#home'><p><Trans>{l ? 'Home' : 'Trang chủ'}</Trans></p></a>
+        <a href='/#introduction'><p><Trans>{l ? 'Introduction' : 'Giới thiệu'}</Trans></p></a>
+        <a href='/#about'><p><Trans>{l ? 'About' : 'Thông tin'}</Trans></p></a>
+        <a href='/#document'><p><Trans>{l ? 'Document' : 'Tài liệu'}</Trans></p></a>
+        <a href='/#store'><p><Trans>{l ? 'Store' : 'Cửa hàng'}</Trans></p></a>
+        <a href='/#contact'><p><Trans>{l ? 'Contact' : 'Liên hệ'}</Trans></p></a>
       </>
     )
   }
   const UserMenu = () => {
     return (
       <>
-        <a href='/profile'><p>Profile</p></a>
-        <a href='/playground'><p>Playground</p></a>
-        <a href='/cart'><p>Cart</p></a>
-        <a href='/forum'><p>Forum</p></a>
-        <a href='/setting'><p>Setting</p></a>
-        <a href='/' onClick={LogOut}><p>Log Out</p></a>
+        <a href='/profile'><p><Trans>{l ? 'Profile' : 'Hồ sơ'}</Trans></p></a>
+        <a href='/playground'><p>{l ? 'Playground' : 'Sân chơi'}</p></a>
+        <a href='/cart'><p>{l ? 'Cart' : 'Giỏ hàng'}</p></a>
+        <a href='/forum'><p>{l ? 'Forum' : 'Diễn đàn'}</p></a>
+        <a href='/setting'><p>{l ? 'Setting' : 'Cài đặt'}</p></a>
+        <a href='/' onClick={LogOut}><p>{l ? 'Log Out' : 'Đăng xuất'}</p></a>
       </>
     )
   }
@@ -51,12 +50,12 @@ function Menu() {
   const LogInMenu = () => {
     return (
       <>
-        <a href='/login'><p>Log In</p></a>
-        <a href='/signup'><p>Sign Up</p></a>
-        <a href='/playground'><p>Playground</p></a>
-        <a href='/cart'><p>Cart</p></a>
-        <a href='/forum'><p>Forum</p></a>
-        <a href='/setting'><p>Setting</p></a>
+        <a href='/login'><p>{l ? 'Log In' : 'Đăng nhập'}</p></a>
+        <a href='/signup'><p>{l ? 'Sign Up' : 'Đăng ký'}</p></a>
+        <a href='/playground'><p>{l ? 'PLayground' : 'Sân chơi'}</p></a>
+        <a href='/cart'><p>{l ? 'Cart' : 'Giỏ hàng'}</p></a>
+        <a href='/forum'><p>{l ? 'Forum' : 'Diễn đàn'}</p></a>
+        <a href='/setting'><p>{l ? 'Setting' : 'Cài đặt'}</p></a>
       </>
     )
   }

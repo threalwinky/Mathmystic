@@ -1,5 +1,5 @@
 /************ Custom Font ************/
-@font-face {
+/* @font-face {
     font-family: Centra;
     src: url('./assets/font/CentraNo2-Bold.ttf');
     font-weight: 700;
@@ -15,7 +15,7 @@
     font-family: Centra;
     src: url('./assets/font/CentraNo2-Book.ttf');
     font-weight: 400;
-}
+} */
 
 /*Default CSS*/
 * {
@@ -27,8 +27,8 @@
 
 body {
     background-color: rgb(255, 255, 255);
-    font-family: 'Centra', sans-serif !important;
-   
+    font-family: 'Poppins', sans-serif !important;
+    /* font-weight: 500; */
 }
 
 a {

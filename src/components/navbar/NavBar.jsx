@@ -43,11 +43,11 @@ const NavBar = () => {
     return (
       <>
         <a href='/#home'><p><Trans>Home</Trans></p></a>
-        <a href='/#introduction'><p>Introduction</p></a>
-        <a href='/#about'><p>About</p></a>
-        <a href='/#document'><p>Document</p></a>
-        <a href='/#store'><p>Store</p></a>
-        <a href='/#contact'><p>Contact</p></a>
+        <a href='/#introduction'><p><Trans>Introduction</Trans></p></a>
+        <a href='/#about'><p><Trans>About</Trans></p></a>
+        <a href='/#document'><p><Trans>Document</Trans></p></a>
+        <a href='/#store'><p><Trans>Store</Trans></p></a>
+        <a href='/#contact'><p><Trans>Contact</Trans></p></a>
       </>
     )
   }
@@ -55,12 +55,12 @@ const NavBar = () => {
   const UserMenu = () => {
     return (
       <>
-        <a href='#document'><p>Profile</p></a>
-        <a href='#home'><p>Cart</p></a>
-        <a href='#introduction'><p>Bill</p></a>
-        <a href='#introduction'><p>Chat</p></a>
-        <a href='#store'><p>Setting</p></a>
-        <a href='#contact'><p>Log Out</p></a>
+        <a href='#document'><p><Trans>Profile</Trans></p></a>
+        <a href='#home'><p><Trans>Cart</Trans></p></a>
+        <a href='#introduction'><p><Trans>Bill</Trans></p></a>
+        <a href='#introduction'><p><Trans>Chat</Trans></p></a>
+        <a href='#store'><p><Trans>Setting</Trans></p></a>
+        <a href='#contact'><p><Trans>Log Out</Trans></p></a>
       </>
     )
   }
