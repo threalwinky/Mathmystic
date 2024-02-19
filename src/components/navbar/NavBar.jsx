@@ -50,8 +50,9 @@ const NavBar = () => {
         <a href='/#store'><p><Trans>Store</Trans></p></a>
         <a href='/#about'><p><Trans>Mathematical model</Trans></p></a>
         <a href='/#document'><p><Trans>Document</Trans></p></a>
-       
         <a href='/#contact'><p><Trans>Contact</Trans></p></a>
+        <a href='/cart'><p><Trans>Cart</Trans></p></a>
+        <a href='/forum'><p><Trans>Forum</Trans></p></a>
       </>
     )
   }

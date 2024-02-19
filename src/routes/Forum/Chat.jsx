@@ -143,16 +143,16 @@ const Chat = ({ chatId }) => {
                                 {foundChat.createdUser.name} */}
                                 <div className="mmt__chat-info">
                                     <div className="mmt__chat-info_content">
-                                        <IoEyeSharp className="mmt__chat-info_content-icon" /><p>10</p></div>
+                                        <IoEyeSharp className="mmt__chat-info_content-icon" /><p>{Math.floor(Math.random() * 10)}</p></div>
                                     <div className="mmt__chat-info_content">
-                                        <FaComment className="mmt__chat-info_content-icon" /><p>10</p></div>
+                                        <FaComment className="mmt__chat-info_content-icon" /><p>{Math.floor(Math.random() * 10)}</p></div>
                                     <div className="mmt__chat-info_content">
-                                        <TiTickOutline className="mmt__chat-info_content-icon2" size={20} /><p>10</p></div>
+                                        <TiTickOutline className="mmt__chat-info_content-icon2" size={20} /><p>{Math.floor(Math.random() * 10)}</p></div>
                                 </div>
                                 <div className="mmt__chat-box">
                                     <div className="mmt__chat-vote">
                                         <TbTriangleFilled size={10} />
-                                        0
+                                        {Math.floor(Math.random() * 10)}
                                         <TbTriangleInvertedFilled size={10} />
 
                                     </div>

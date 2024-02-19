@@ -169,14 +169,14 @@ const Forum = () => {
                                                                 <div className="mmt__forum-list-list_box-box-left-triangle">
                                                                     <TbTriangleFilled size={10} style={{ marginRight: 5 }} /><TbTriangleInvertedFilled size={10} />
                                                                 </div>
-                                                                <p>10</p>
+                                                                <p>{Math.floor(Math.random() * 10)}</p>
                                                             </div>
                                                             <div className="mmt__forum-list-list_box-box-left_content">
-                                                                <IoEyeSharp /><p>10</p></div>
+                                                                <IoEyeSharp /><p>{Math.floor(Math.random() * 10)}</p></div>
                                                             <div className="mmt__forum-list-list_box-box-left_content">
-                                                                <FaComment /><p>10</p></div>
+                                                                <FaComment /><p>{Math.floor(Math.random() * 10)}</p></div>
                                                             <div className="mmt__forum-list-list_box-box-left_content">
-                                                                <TiTickOutline size={20} /><p>10</p></div>
+                                                                <TiTickOutline size={20} /><p>{Math.floor(Math.random() * 10)}</p></div>
 
                                                         </div>
                                                         <div className="mmt__forum-list-list_box-box-right">

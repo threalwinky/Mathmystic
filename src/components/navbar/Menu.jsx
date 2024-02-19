@@ -31,6 +31,8 @@ function Menu() {
         <a href='/#document'><p><Trans>{l ? 'Document' : 'Tài liệu'}</Trans></p></a>
         <a href='/#store'><p><Trans>{l ? 'Store' : 'Cửa hàng'}</Trans></p></a>
         <a href='/#contact'><p><Trans>{l ? 'Contact' : 'Liên hệ'}</Trans></p></a>
+        <a href='/cart'><p><Trans>Cart</Trans></p></a>
+        <a href='/forum'><p><Trans>Forum</Trans></p></a>
       </>
     )
   }
