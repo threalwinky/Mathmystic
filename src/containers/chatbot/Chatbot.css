@@ -25,6 +25,7 @@
         position: fixed;
         transition: 0.1s ease-in-out;
         border-radius: 20px;
+        border-color: rgb(181, 187, 187);
         > .content{
             display: flex;
             flex-direction: column;
@@ -32,8 +33,8 @@
             > p{
                 background-color: var(--color-magenta);
                 padding: 15px 0px 15px 30px;
-                border-top-left-radius: 20px;
-                border-top-right-radius: 20px;
+                border-top-left-radius: 17px;
+                border-top-right-radius: 17px;
                 color: rgb(255, 255, 255);
                 font-size: 20px;
                 font-weight: 600;
@@ -99,11 +100,14 @@
                 width: 100%;
                 display: flex;
                 flex-direction: row;
-
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
                 input{
                     padding: 5px;
                     margin: 10px;
                     border: none;
+                    
+                    background-color: rgb(255, 255, 255);
                 }
                 button{
                     position: absolute;
