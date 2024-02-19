@@ -107,10 +107,10 @@ const Cart = () => {
 
   const addBuy = (a, b) => {
     if (localStorage.getItem('user') == null) {
-      PopUp('Vui long dang nhap de dat hang')
+      PopUp('Vui lòng đăng nhập để đặt hàng')
     }
     else {
-      PopUp('Don hang da duoc dat thanh cong! Chung toi se lien he voi ban')
+      PopUp('Đơn hàng đã được đặt thành công! Chúng tôi sẽ giao hàng trong thời gian sớm nhất')
       addDoc(collection(db, "buy"), {
         a, b
       });

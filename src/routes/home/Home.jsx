@@ -14,11 +14,11 @@ const Home = () => {
 
     useEffect(() => {
         if (localStorage.getItem('loggedin') == '1') {
-            PopUp('dang nhap thanh cong')
+            PopUp('Đăng nhập thành công')
             localStorage.setItem('loggedin', '2')
         }
         if (localStorage.getItem('loggedin') == '3') {
-            PopUp('dang xuat thanh cong')
+            PopUp('Đăng xuất thành công')
             localStorage.setItem('loggedin', '0')
         }
     }, {

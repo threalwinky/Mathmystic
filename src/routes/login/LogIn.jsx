@@ -93,7 +93,7 @@ const LogIn = () => {
                     console.log(foundUser)
                     if (foundUser !== undefined) {
                         if (password !== foundUser.password) {
-                            PopUp('Wrong password')
+                            PopUp('Sai mật khẩu rùi')
                         }
                         else {
                             console.log('right')
@@ -105,7 +105,7 @@ const LogIn = () => {
                         }
                     }
                     else {
-                        PopUp('Account not found')
+                        PopUp('Không tìm thấy tài khoản')
                     }
                 })
 
