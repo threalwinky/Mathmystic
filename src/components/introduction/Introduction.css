@@ -1,0 +1,132 @@
+.mmt__introduction {
+    padding: 80px 0;
+    position: relative;
+    background: linear-gradient(90.21deg, #f79d7f -.91%, #f7d483 61.58%);
+    text-align: center;
+    h1 {
+        margin: auto;
+        font-size: 50px;
+        font-weight: 700;
+        text-align: center;
+        color: black;
+        width: fit-content;
+        padding: 20px;
+        background: linear-gradient(90.21deg, #ffd676 -0.91%, #ff8a63 61.58%);
+        border-radius: 30px;
+        box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58);
+        -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.58);
+        -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58);
+    }
+
+    p {
+        color: #682e2e;
+        font-size: 25px;
+        letter-spacing: 0.8px;
+        line-height: 1.5em;
+        margin: 14px auto 30px auto;
+        width: 56%;
+    }
+
+    .nav.nav-pills {
+        width: 72%;
+        margin: 0 auto;
+        border-radius: 50px;
+        background-color: rgb(255 255 255 / 10%);
+        overflow: hidden;
+    }
+
+    .nav.nav-pills .nav-item {
+        width: 33.33333%;
+    }
+
+    .nav.nav-pills .nav-link {
+        background-color: transparent;
+        border-radius: 0;
+        padding: 17px 0;
+        color: #fff;
+        width: 100%;
+        font-size: 17px;
+        letter-spacing: 0.8px;
+        font-weight: 500;
+        position: relative;
+        transition: 0.3s ease-in-out;
+        text-align: center;
+        z-index: 0;
+    }
+
+    .nav.nav-pills .nav-link::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90.21deg, #AA367C -5.91%, #d00022 111.58%);
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav.nav-pills .nav-link.active::before {
+        width: 100% !important;
+    }
+
+    .nav.nav-pills .nav-link.active {
+        border: 1px solid rgba(255, 255, 255, 1);
+    }
+}
+
+.mmt__introduction-container {
+    display: flex;
+}
+
+.mmt__introduction-container_thumbnail {
+    padding: 3rem 4rem;
+    width: 700px;
+    border-radius: 80px;
+}
+
+.mmt__introduction-container_content {
+    padding: 6rem 3rem;
+
+    h2 {
+        font-size: 30px;
+        font-weight: 700;
+        text-align: center;
+        color: black;
+        margin: -.5rem;
+    }
+
+    p {
+        width: 100%;
+        text-align: left;
+        font-size: 18px;
+        color: black;
+    }
+}
+
+/*Phone and pad ver*/
+@media screen and (max-width: 1050px) {
+
+    .mmt__introduction-container {
+        display: block;
+    }
+
+    .mmt__introduction-container_thumbnail {
+        padding: 3rem 3rem;
+        width: 100%;
+    }
+
+    .mmt__introduction-container_content {
+        padding: 1rem 3rem;
+
+        p {
+            width: 100%;
+        }
+    }
+
+}
+
+@media screen and (max-width: 550px) {}
+
+/*PC*/
+@media screen and (max-width: 1050px) {}

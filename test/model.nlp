@@ -1,0 +1,470 @@
+{
+  "settings": {
+    "languages": [
+      "en",
+      "vn"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en",
+      "vn"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "hello": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "hi": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "good,morn": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "hey": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "afternoon,good": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "fine": {
+            "intent": "feeling",
+            "domain": "default"
+          },
+          "good": {
+            "intent": "feeling",
+            "domain": "default"
+          },
+          "feel,good": {
+            "intent": "feeling",
+            "domain": "default"
+          },
+          "am,fine,i": {
+            "intent": "feeling",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greeting": "default",
+          "feeling": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "fine",
+            "intent": "feeling"
+          },
+          {
+            "domain": "default",
+            "utterance": "good",
+            "intent": "feeling"
+          },
+          {
+            "domain": "default",
+            "utterance": "Feeling good",
+            "intent": "feeling"
+          },
+          {
+            "domain": "default",
+            "utterance": "I'm fine",
+            "intent": "feeling"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "hello": 1,
+              "hi": 1,
+              "good": 1,
+              "morn": 1,
+              "hey": 1,
+              "afternoon": 1,
+              "fine": 1,
+              "feel": 1,
+              "i": 1,
+              "am": 1
+            },
+            "intents": {
+              "greeting": 1,
+              "feeling": 1
+            },
+            "intentFeatures": {
+              "greeting": {
+                "hello": 1,
+                "hi": 1,
+                "good": 1,
+                "morn": 1,
+                "hey": 1,
+                "afternoon": 1
+              },
+              "feeling": {
+                "fine": 1,
+                "good": 1,
+                "feel": 1,
+                "i": 1,
+                "am": 1
+              }
+            },
+            "featuresToIntent": {
+              "hello": [
+                "greeting"
+              ],
+              "hi": [
+                "greeting"
+              ],
+              "good": [
+                "greeting",
+                "feeling"
+              ],
+              "morn": [
+                "greeting"
+              ],
+              "hey": [
+                "greeting"
+              ],
+              "afternoon": [
+                "greeting"
+              ],
+              "fine": [
+                "feeling"
+              ],
+              "feel": [
+                "feeling"
+              ],
+              "i": [
+                "feeling"
+              ],
+              "am": [
+                "feeling"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "hello",
+                "hi",
+                "good",
+                "morn",
+                "hey",
+                "afternoon",
+                "fine",
+                "feel",
+                "i",
+                "am"
+              ],
+              "intents": [
+                "greeting",
+                "feeling"
+              ],
+              "perceptrons": [
+                [
+                  8.211962699890137,
+                  8.211605072021484,
+                  -5.931484699249268,
+                  14.096122741699219,
+                  8.208523750305176,
+                  14.093246459960938,
+                  -6.563457012176514,
+                  -5.001941680908203,
+                  -1.1384207010269165,
+                  -1.1384207010269165,
+                  6.066652509830386
+                ],
+                [
+                  -4.031867980957031,
+                  -4.031356334686279,
+                  9.908299446105957,
+                  -13.855437278747559,
+                  -4.02644681930542,
+                  -13.847249031066895,
+                  10.268108367919922,
+                  0.42044776678085327,
+                  -0.014016881585121155,
+                  -0.014016881585121155,
+                  4.042856723309184
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "vn": {
+        "settings": {
+          "locale": "vn",
+          "trainByDomain": false,
+          "tag": "domain-manager-vn",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "chao,xin": {
+            "intent": "greeting-vn",
+            "domain": "default"
+          },
+          "chao": {
+            "intent": "greeting-vn",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greeting-vn": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "xin chao",
+            "intent": "greeting-vn"
+          },
+          {
+            "domain": "default",
+            "utterance": "chao",
+            "intent": "greeting-vn"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "vn",
+              "tag": "nlu-vn",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "xin": 1,
+              "chao": 1
+            },
+            "intents": {
+              "greeting-vn": 1
+            },
+            "intentFeatures": {
+              "greeting-vn": {
+                "xin": 1,
+                "chao": 1
+              }
+            },
+            "featuresToIntent": {
+              "xin": [
+                "greeting-vn"
+              ],
+              "chao": [
+                "greeting-vn"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "vn",
+                "tag": "nlu-vn",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "xin",
+                "chao"
+              ],
+              "intents": [
+                "greeting-vn"
+              ],
+              "perceptrons": [
+                [
+                  0.18811246752738953,
+                  9.451024055480957,
+                  4.727433768265745
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "fine"
+      ],
+      [
+        "en",
+        "good"
+      ],
+      [
+        "en",
+        "Feeling good"
+      ],
+      [
+        "en",
+        "I'm fine"
+      ],
+      [
+        "vn",
+        "xin chao"
+      ],
+      [
+        "vn",
+        "chao"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "greeting": [
+          {
+            "answer": "Hi"
+          },
+          {
+            "answer": "Hi there"
+          },
+          {
+            "answer": "Hi! How are you? "
+          }
+        ],
+        "feeling": [
+          {
+            "answer": "Great! What do you want"
+          },
+          {
+            "answer": "Great!"
+          }
+        ]
+      },
+      "vn": {
+        "greeting-vn": [
+          {
+            "answer": "Xin chao"
+          },
+          {
+            "answer": "Chao ban"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
