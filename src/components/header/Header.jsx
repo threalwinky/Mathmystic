@@ -16,6 +16,8 @@ const Header = () => {
   const [delta, setDelta] = useState(400);
   const [index, setIndex] = useState(1);
   const toRotate = ["WINGS OF THOUGHT", "CONNECTING KNOWLEDGE", "LIGHT FOR EVERY HEART"];
+  const toRotate2 = ["CHẮP CÁNH TƯ DUY", "KẾT NỐI TRI THỨC", "ÁNH SÁNG CHO MỌI TRÁI TIM"];
+
   const period = 2000;
 
   useEffect(() => {
@@ -27,8 +29,9 @@ const Header = () => {
   }, [text])
 
   const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
+    const l = localStorage.getItem('lang') == 'en' ? toRotate : toRotate2
+    let i = loopNum % l.length;
+    let fullText = l[i];
     let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
 
     setText(updatedText);
@@ -59,7 +62,7 @@ const Header = () => {
         <div className='mmt__header-content_left'>
           <span className="mmt__header-tagline"><Trans>Welcome to Mathmystic</Trans></span>
           <h1>{` `}
-            <span className="txt-rotate" dataPeriod="100" data-rotate='[ "WINGS OF THOUGHT", "CONNECTING KNOWLEDGE", "LIGHT FOR EVERY HEART" ]'>
+            <span className="txt-rotate" dataPeriod="100">
               <span className="wrap">
                 <Trans>{text}</Trans>
               </span>

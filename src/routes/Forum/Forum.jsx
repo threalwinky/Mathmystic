@@ -188,7 +188,7 @@ const Forum = () => {
                                                             <Link to={chat.id}>
                                                                 <div className="mmt__forum-list-list_box-box-right-content">
                                                                     <h1>{chat.name}</h1>
-                                                                    <h5>{chat.description}</h5>
+                                                                    <h3>{chat.description}</h3>
                                                                     <h5>{changeDate(Timestamp.now().seconds - chat.createdAt)}</h5>
                                                                 </div>
                                                             </Link>

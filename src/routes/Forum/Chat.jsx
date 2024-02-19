@@ -15,7 +15,9 @@ import 'semantic-ui-css/semantic.min.css'
 import { Button, Popup } from "semantic-ui-react";
 import { MdOutlineArrowCircleLeft } from "react-icons/md";
 import { Cursor } from "react-bootstrap-icons";
+import { Trans, useTranslation } from "react-i18next";
 const Chat = ({ chatId }) => {
+    const [t, i18n] = useTranslation()
     const [loading, setLoading] = useState(0)
     const [messages, setMessages] = useState([])
     const [chats, setChats] = useState([])
@@ -101,18 +103,27 @@ const Chat = ({ chatId }) => {
         deleteDoc(doc(db, 'message', idDeleteMessage))
     }
 
-    function changeDate(dateStr) {
+    const deleteChat = async(idDeleteMessage) => {
+        
+        await deleteDoc(doc(db, 'chat', idDeleteMessage)).then(() => {
+            window.location.href = '/forum'
+        })
+        
+    }
+
+    function changeDate(dateStr){
+        const l = localStorage.getItem('lang')
         const day = 0
         const hour = 0
         const minute = 0
-        var t = dateStr / (24 * 60 * 60)
-        if (t > 1) return `Da dang ${parseInt(t)} ngay truoc`
-        t = dateStr / (60 * 60)
-        if (t > 1) return `Da dang ${parseInt(t)} gio truoc`
-        t = dateStr / (60)
-        if (t > 1) return `Da dang ${parseInt(t)} phut truoc`
+        var t = dateStr/(24*60*60)
+        if (t > 1) return (l == 'en') ?  `Posted ${parseInt(t)} days ago` : `Đã đăng ${parseInt(t)} ngày trước`
+        t = dateStr/(60*60)
+        if (t > 1) return (l == 'en') ?  `Posted ${parseInt(t)} hours ago` : `Đã đăng ${parseInt(t)} giờ trước`
+        t = dateStr/(60)
+        if (t > 1) return (l == 'en') ?  `Posted ${parseInt(t)} minutes ago` : `Đã đăng ${parseInt(t)} phút trước`
         t = dateStr
-        if (t > 1) return `Da dang ${parseInt(t)} giay truoc`
+        if (t > 1) return (l == 'en') ?  `Posted ${parseInt(t)} seconds ago` : `Đã đăng ${parseInt(t)} giây trước`
     }
 
     return (
@@ -153,13 +164,16 @@ const Chat = ({ chatId }) => {
                                         <div className="mmt__chat-ask_content">
                                             <h1>{foundChat.name}</h1>
                                             <h5>{foundChat.description}</h5>
+                                            
                                         </div>
+                                        
                                     </div>
+                                    <button style={{position: "absolute", right: 50, top: 100}} className="abc" onClick={() => deleteChat(chatId)}> <Trans>Delete</Trans></button>
                                 </div>
 
                                 <div />
                                 <div className="mmt__chat-ans_count">
-                                    <h2><span>Co {messages.length} cau tra loi</span></h2>
+                                    <h2><span>{localStorage.getItem('lang') == 'en' ? `Include ${messages.length} answers` : `Co ${messages.length} cau tra loi`}</span></h2>
                                 </div>
                                 <div className="mmt__chat-ans-container">
                                     {
@@ -196,9 +210,10 @@ const Chat = ({ chatId }) => {
                                                         >Delete</button> */}
                                                         
                                                         <Popup
-                                                            content='I will not flip!'
+                                                            content={  <button className="abc" onClick={() => deleteMessage(message.id)}> <Trans>Delete</Trans></button>}
                                                             on='click'
                                                             pinned
+                                                            position="top right"
                                                             trigger={<BsThreeDotsVertical size={20} />}>
                                                         </Popup>
                                                     </div>
@@ -215,8 +230,8 @@ const Chat = ({ chatId }) => {
                                     }
                                 </div>
                                 <div className="mmt__forum-list-new_post_box-bottom2">
-                                    <textarea placeholder="Message" type="text" onChange={evt => { setMessageContent(evt.target.value); }} />
-                                    <button onClick={addMessage}>Send</button>
+                                    <textarea placeholder={t("Message")} type="text" onChange={evt => { setMessageContent(evt.target.value); }} />
+                                    <button style={{borderStyle:"solid", borderColor: '#c5c7c5'}} onClick={addMessage}> <Trans>Send</Trans> </button>
                                 </div>
 
 
