@@ -3,7 +3,6 @@ import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import ReactPlayer from 'react-player/file'
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import { Trans } from 'react-i18next'
 import 'react-slideshow-image/dist/styles.css'
 import { Fade, Slide } from 'react-slideshow-image';
 
@@ -36,7 +35,7 @@ import DocVn7 from '../../assets/img/Doc/Vn/DocVn7.png'
 import DocVn8 from '../../assets/img/Doc/Vn/DocVn8.png'
 import DocVn9 from '../../assets/img/Doc/Vn/DocVn9.png'
 import DocVn10 from '../../assets/img/Doc/Vn/DocVn10.png'
-
+import { Trans } from 'react-i18next';
 
 const Document = () => {
 
@@ -73,13 +72,13 @@ const Document = () => {
         <Tab.Container id="projects-tabs" defaultActiveKey="first">
           <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
             <Nav.Item>
-              <Nav.Link eventKey="first" >Sổ tay toán học(Tiếng Việt)</Nav.Link>
+              <Nav.Link eventKey="first" ><Trans>Handbook(Vietnamese)</Trans></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="second">Sổ tay toán học(Tiếng Anh)</Nav.Link>
+              <Nav.Link eventKey="second"><Trans>Handbook(English)</Trans></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="third">Video hướng dẫn sử dụng<></> </Nav.Link>
+              <Nav.Link eventKey="third"><Trans>Instructional video</Trans></Nav.Link>
             </Nav.Item>
           </Nav>
           <Tab.Content id="slideInUp" >

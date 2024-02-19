@@ -32,7 +32,7 @@ const Store = () => {
 
   return (
     <div className='mmt__store' id='store'>
-      <h1 >Store</h1>
+      <h1 ><Trans>Store</Trans></h1>
       <div>
         <Carousel
           responsive={responsive}
@@ -41,15 +41,15 @@ const Store = () => {
           <Link to={'/product/bo-dung-cu-hoc-tap-hinh-hoc-cho-hoc-sinh-khiem-thi'}>
             <div className="item">
               <img src={Store1_1} alt="Image" />
-              <h5><Trans>Bo dung cu hoc tap hinh hoc cho hoc sinh khiem thi</Trans></h5>
-              <h3><Trans>Het hang</Trans></h3>
+              <h5><Trans>Geometry learning kit for visually impaired students</Trans></h5>
+              <h3><Trans>Out of stock</Trans></h3>
             </div>
           </Link>
 
           <Link to={'/product/bo-dung-cu-hinh-hoc'}>
             <div className="item">
               <img src={Store2_1} alt="Image" />
-              <h5><Trans>Bo dung cu hinh hoc</Trans></h5>
+              <h5><Trans>Geometry learning kit</Trans></h5>
               <h3><Trans>249,000₫</Trans></h3>
             </div>
           </Link>

@@ -63,13 +63,16 @@ Documentation and examples: In addition to instructions, the site also provides 
         <div className='mmt__introduction-container_content'>
           <h2><Trans>CULTIVATE THINKING, CONNECT KNOWLEDGE,</Trans></h2> <br /><h2>ÁNH SÁNG CHO MỌI TRÁI TIM</h2>
           <p>
-            Điểm đặc biệt của dự án này nằm ở việc đây là một sản phẩm hoàn
-            toàn mới trên thị trường, giúp tạo ra một phương tiện giảng dạy
-            hình học dễ tiếp cận. Một phần lợi nhuận từ dự án này sẽ được
-            trích vào Quỹ Tạo Mô Hình, nhằm hỗ trợ các bạn khiếm thị trong
-            việc tiếp cận giáo dục về hình học và thúc đẩy sự sáng tạo của
-            mỗi cá nhân. Chúng tôi cam kết đóng góp cho cộng đồng, xã hội
-            và công tác giáo dục.
+            <Trans>
+            The special feature of this project is that it is a finished product
+            completely new to the market, helping to create a teaching medium
+            accessible geometry. Part of the profits from this project will be
+            Dedicated to the Model Creation Fund, to support visually impaired people
+            access to geometry education and promote creativity
+            each person. We are committed to contributing to the community and society
+            and educational work.
+            </Trans>
+            
           </p>
         </div>
 

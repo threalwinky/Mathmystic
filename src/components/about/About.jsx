@@ -45,25 +45,35 @@ const About = () => {
 
     return (
         <div className='mmt__about' id='about'>
-            <h1>Mô hình toán học</h1>
+            <h1><Trans>Mathematical model</Trans></h1>
             <div className='mmt__about-bx'>
                 <div className='mmt__about-howto'>
-                    <h2>HOW TO USE</h2>
+                    <h2><Trans>HOW TO USE</Trans></h2>
                     <p>
                         <li>
-                            Bước 1:Ta cần dựng đáy của hình tùy ý cố định bằng cách chọn các lỗ bảng gỗ rồi gắn các nút gỗ vào
+                            <Trans>
+                                Step 1: We need to make the bottom of the shape arbitrarily fixed by selecting the wooden board holes and then attaching wooden buttons</Trans>
+
                         </li>
                         <li>
-                            Bước 2: Dùng dây thun tái chế bọc quanh tạo hình dạng cho mặt đáy.
+                            <Trans>
+                                Step 2: Use recycled elastic band to wrap around to create shape for the bottom.
+                            </Trans>
+
                         </li>
                         <li>
-                            Bước 3: Dựng chân đường cao cho mô hình bằng ăng ten điều chỉnh chiều cao cho phù hợp.
+                            <Trans>
+
+                                Step 3: Build the height of the model's base with the antenna adjusting the height accordingly.(if needed)
+                            </Trans>
                         </li>
                         <li>
-                            Bước 4: Nối những dây thun từ đỉnh ăng ten xuống các bấc gỗ tạo cạnh bên cho mô hình
+                            <Trans>
+                                Step 4: Connect the elastic bands from the top of the antenna to the wooden wicks to create the side edges of the model
+                            </Trans>
                         </li>
                     </p>
-                    <h2>COLLECTION</h2>
+                    <h2><Trans>COLLECTION</Trans></h2>
 
                 </div>
 
@@ -114,7 +124,7 @@ const About = () => {
 
                 <div className="item">
                     <img src={HinhChopTamGiac} alt="Image" />
-                    <h5><Trans>Regular triangular pyramid </Trans></h5>
+                    <h5><Trans>Regular triangular pyramid</Trans></h5>
                 </div>
 
                 <div className="item">
@@ -134,7 +144,7 @@ const About = () => {
 
                 <div className="item">
                     <img src={HinhLangTruTuGiac} alt="Image" />
-                    <h5><Trans>Regular triangular prism</Trans></h5>
+                    <h5><Trans>Regular quadrangular prism</Trans></h5>
                 </div>
 
                 <div className="item">

@@ -33,9 +33,10 @@ const Home = () => {
                 </div>
                 <Header />
                 <Introduction />
+                <Store />
                 <About />
                 <Document />
-                <Store />
+                
                 <Contact />
                 <Footer />
                 <Chatbot />

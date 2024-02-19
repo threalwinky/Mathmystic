@@ -16,7 +16,7 @@ import i18n from '../../i18n'
 import './NavBar.css'
 import { MdOutlineArrowCircleLeft } from 'react-icons/md';
 
-const NavBarWoutMenuLogo = () => {
+const NavBar = () => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1050px)'
   })
@@ -24,8 +24,11 @@ const NavBarWoutMenuLogo = () => {
     i18n.changeLanguage(lng);
   }
   const [scrolled, setScrolled] = useState(false);
-  if (localStorage.getItem('lang') === null) localStorage.setItem('lang','en')
+  if (localStorage.getItem('lang') === null) localStorage.setItem('lang','vn')
+
   useEffect(() => {
+    if (localStorage.getItem('lang') === 'en') changeLanguage('en')
+
     const onScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
@@ -43,12 +46,7 @@ const NavBarWoutMenuLogo = () => {
   const Menu = () => {
     return (
       <>
-        <a href='/#home'><p><Trans>Home</Trans></p></a>
-        <a href='/#introduction'><p>Introduction</p></a>
-        <a href='/#about'><p>About</p></a>
-        <a href='/#document'><p>Document</p></a>
-        <a href='/#store'><p>Store</p></a>
-        <a href='/#contact'><p>Contact</p></a>
+        
       </>
     )
   }
@@ -56,12 +54,12 @@ const NavBarWoutMenuLogo = () => {
   const UserMenu = () => {
     return (
       <>
-        <a href='#document'><p>Profile</p></a>
-        <a href='#home'><p>Cart</p></a>
-        <a href='#introduction'><p>Bill</p></a>
-        <a href='#introduction'><p>Chat</p></a>
-        <a href='#store'><p>Setting</p></a>
-        <a href='#contact'><p>Log Out</p></a>
+        <a href='#document'><p><Trans>Profile</Trans></p></a>
+        <a href='#home'><p><Trans>Cart</Trans></p></a>
+        <a href='#introduction'><p><Trans>Bill</Trans></p></a>
+        <a href='#introduction'><p><Trans>Chat</Trans></p></a>
+        <a href='#store'><p><Trans>Setting</Trans></p></a>
+        <a href='#contact'><p><Trans>Log Out</Trans></p></a>
       </>
     )
   }
@@ -90,10 +88,11 @@ const NavBarWoutMenuLogo = () => {
   const { toggleMenu } = useContext(MenuContext);
   const [userToggleMenu, setUserToggleMenu] = useState(false)
   const [userPhoneToggleMenu, setUserPhoneToggleMenu] = useState(false)
-  const [language, setLanguage] = useState(localStorage.getItem('lang') == 'en' ? 0 : 1)
+  const [language, setLanguage] = useState(localStorage.getItem('lang') == 'vn' ? 0 : 1)
 
   const cl = () =>{
     const l = localStorage.getItem('lang')
+    console.log(localStorage.getItem('i18lng'))
     if (l == 'en'){
       localStorage.setItem('lang', 'vn')
       changeLanguage('vn')
@@ -109,18 +108,17 @@ const NavBarWoutMenuLogo = () => {
   return (
     <div>
       <div className={`mmt__navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className='mmt__navbar-links'>
+      <div className='mmt__navbar-links'>
         <Link to={'/forum'} style={{zIndex: 1, Cursor: 'pointer'}}><MdOutlineArrowCircleLeft size={40} color="black"/></Link>
 
           <div className='mmt__navbar-container_links'>
           </div>
           
         </div>
-        
         <div className='mmt__navbar-sign'>
-          <img onClick={() => {cl()}}  src={language ? VietnamLanguage : EnglishLanguage}/>
+          <img onClick={() => {cl()}}  src={language ? EnglishLanguage : VietnamLanguage}/>
           <img src={localStorage.getItem('userAvatar') == undefined ? "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" : localStorage.getItem('userAvatar')} alt="" onClick={() => { localStorage.setItem('open', '1'); toggleMenu(); }} style={{ fontSize: 35 }} />
-          <RiMenu3Line onClick={() => { localStorage.setItem('open', '2'); toggleMenu(); }} style={{ fontSize: 35 }} className='mmt__navbar-sign_user'></RiMenu3Line>
+          {((!isDesktopOrLaptop) || !(localStorage.getItem('open2') == '1')) ? <RiMenu3Line onClick={() => { localStorage.setItem('open', '2'); toggleMenu(); }} style={{ fontSize: 35 }} className='mmt__navbar-sign_user'></RiMenu3Line> : ""}
         </div>
 
       </div>
@@ -128,4 +126,4 @@ const NavBarWoutMenuLogo = () => {
   )
 }
 
-export default NavBarWoutMenuLogo
+export default NavBar

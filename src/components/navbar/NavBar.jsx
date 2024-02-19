@@ -24,7 +24,10 @@ const NavBar = () => {
   }
   const [scrolled, setScrolled] = useState(false);
   if (localStorage.getItem('lang') === null) localStorage.setItem('lang','vn')
+
   useEffect(() => {
+    if (localStorage.getItem('lang') === 'en') changeLanguage('en')
+
     const onScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
@@ -44,9 +47,10 @@ const NavBar = () => {
       <>
         <a href='/#home'><p><Trans>Home</Trans></p></a>
         <a href='/#introduction'><p><Trans>Introduction</Trans></p></a>
-        <a href='/#about'><p><Trans>About</Trans></p></a>
-        <a href='/#document'><p><Trans>Document</Trans></p></a>
         <a href='/#store'><p><Trans>Store</Trans></p></a>
+        <a href='/#about'><p><Trans>Mathematical model</Trans></p></a>
+        <a href='/#document'><p><Trans>Document</Trans></p></a>
+       
         <a href='/#contact'><p><Trans>Contact</Trans></p></a>
       </>
     )
