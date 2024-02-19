@@ -118,7 +118,7 @@ const NavBar = () => {
           </div>
         </div>
         <div className='mmt__navbar-sign'>
-          <img onClick={() => {cl()}}  src={language ? VietnamLanguage : EnglishLanguage}/>
+          <img onClick={() => {cl()}}  src={language ? EnglishLanguage : VietnamLanguage}/>
           <img src={localStorage.getItem('userAvatar') == undefined ? "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" : localStorage.getItem('userAvatar')} alt="" onClick={() => { localStorage.setItem('open', '1'); toggleMenu(); }} style={{ fontSize: 35 }} />
           {((!isDesktopOrLaptop) || !(localStorage.getItem('open2') == '1')) ? <RiMenu3Line onClick={() => { localStorage.setItem('open', '2'); toggleMenu(); }} style={{ fontSize: 35 }} className='mmt__navbar-sign_user'></RiMenu3Line> : ""}
         </div>
