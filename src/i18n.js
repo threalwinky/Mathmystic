@@ -89,7 +89,27 @@ i18n
           "Get In Touch" : "Liên Hệ",
           "Location : 18, Le Thuc Hoach Street, Phu Tho Hoa Ward, Tan Phu District, Ho Minh City" : "Địa chỉ : Số 18, đường Lê Thúc Hoạch, P. Phú Thọ Hoà, Q. Tân Phú, Tp. Hồ Chí Minh",
           "Phone number" : "Số điện thoại",
-
+          "1 Wooden hole board 20*20cm": "1 Bảng lỗ gỗ 20*20cm",
+          "2 Round elastic bands" : "2 Cọng dây thun tròn",
+          "6 Long elastic bands with 2 holes" : "6 Cọng dây thun dài 2 lỗ",
+          "4 Antennas" : "4 Cây ăng ten",
+          "3 Round rings" : "3 Khoen tròn ",
+          "1 Geometry flashcard" : "1 Flashcard hình học",
+          "1 Mathematics handbook (2 versions)" : "1 Sổ tay toán học ( 2 phiên bản )",
+          "1 Instructional book" : "1 Sách hướng dẫn",
+          "Add to cart" : "Thêm vào giỏ hàng",
+          "Out of stock" : "Hết hàng",
+          "Cart" : "Giỏ hàng",
+          "Price per product" : "Giá 1 sản phẩm",
+          "Total price" : "Tổng giá tiền",
+          "Delete" : "Xóa",
+          "Total" : "Tổng cộng",
+          "Buy" : "Mua",
+          "New Post" : "Cuộc trò chuyện mới",
+          "Search a post" : "Tìm kiếm cuộc trò chuyện",
+          "Post description" : "Thông tin cuộc trò chuyện",
+          "Post title" : "Tiêu đề",
+          "Add" : "Thêm"
         }
       }
     },

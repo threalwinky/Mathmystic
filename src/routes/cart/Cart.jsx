@@ -16,6 +16,7 @@ import {
   Modal,
   Icon,
 } from 'semantic-ui-react'
+import { Trans } from 'react-i18next'
 const Cart = () => {
   const [open2, setOpen2] = React.useState(false)
 
@@ -128,9 +129,9 @@ const Cart = () => {
               <div className='mmt__cart-container'>
                 <div className='mmt__product-direct-link'>
                   <span>
-                    <span><HashLink to={'/#home'}>Trang chu</HashLink></span>
+                    <span><HashLink to={'/#home'}> <Trans>Home</Trans></HashLink></span>
                     <span>/</span>
-                    <span><HashLink to={'/cart'}>Cart</HashLink></span>
+                    <span><HashLink to={'/cart'}><Trans>Cart</Trans></HashLink></span>
                   </span>
                 </div>
                 <div className='mmt__cart-list'>
@@ -149,7 +150,7 @@ const Cart = () => {
                             <input type="checkbox" checked={product.pick} onClick={() => { updateCartPick(product.id, product.pick) }} />
                             <div className='mmt__productInCart-info'>
                               <img src={product.product.imgUrl[0]} alt="" />
-                              <p>{product.product.name}</p>
+                              <p>  <Trans>{product.product.name}</Trans> </p>
                             </div>
                             <div className='mmt__productInCart-control'>
                               <div className='mmt__productInCart-count'>
@@ -166,15 +167,15 @@ const Cart = () => {
                                 >+</button>
                               </div>
                               <div className='mmt__productInCart-pricePerProduct'>
-                                <p>gia tien 1 bo</p>
+                                <p><Trans>Price per product</Trans></p>
                                 <p>{changeMoney(product.product.price)}₫</p>
                               </div>
                               <div className='mmt__productInCart-pricePerProduct'>
-                                <p>tong gia tien</p>
+                                <p><Trans>Total price</Trans></p>
                                 <p>{changeMoney(product.product.price * product.productCount)}₫</p>
                               </div>
                               <div className='mmt__productInCart-count'>
-                                <button size={10} onClick={() => deleteCart(product.id)}>Delete</button>
+                                <button size={10} onClick={() => deleteCart(product.id)}> <Trans>Delete</Trans> </button>
 
                               </div>
                             </div>
@@ -193,9 +194,9 @@ const Cart = () => {
 
                 <div className='mmt__cart-control'>
 
-                  <button className='info'>Tong Cong : {changeMoney(totalPrice)}₫</button>
+                  <button className='info'> <Trans>Total</Trans> : {changeMoney(totalPrice)}₫</button>
                   <button onClick={() => { addBuy(foundUser.name, changeMoney(totalPrice)) }}
-                  > Buy</button>
+                  > <Trans>Buy</Trans></button>
                   {/* <Modal
                     closeIcon
                     open2={open2}

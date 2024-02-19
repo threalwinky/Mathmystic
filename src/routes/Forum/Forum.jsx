@@ -17,9 +17,10 @@ import { TbTriangleFilled } from "react-icons/tb";
 import { TbTriangleInvertedFilled } from "react-icons/tb";
 
 import { IoEyeSharp } from "react-icons/io5";
+import { Trans, useTranslation } from "react-i18next";
 
 const Forum = () => {
-
+    const [t, i18n]= useTranslation();
     const [chats, setChats] = useState([])
     const [loading, setLoading] = useState(0)
     const [chatName, setChatName] = useState('')
@@ -102,17 +103,18 @@ const Forum = () => {
     }
 
     function changeDate(dateStr){
+        const l = localStorage.getItem('lang')
         const day = 0
         const hour = 0
         const minute = 0
         var t = dateStr/(24*60*60)
-        if (t > 1) return `Da dang ${parseInt(t)} ngay truoc`
+        if (t > 1) return (l == 'en') ?  `Posted ${parseInt(t)} days ago` : `Đã đăng ${parseInt(t)} ngày trước`
         t = dateStr/(60*60)
-        if (t > 1) return `Da dang ${parseInt(t)} gio truoc`
+        if (t > 1) return (l == 'en') ?  `Posted ${parseInt(t)} hours ago` : `Đã đăng ${parseInt(t)} giờ trước`
         t = dateStr/(60)
-        if (t > 1) return `Da dang ${parseInt(t)} phut truoc`
+        if (t > 1) return (l == 'en') ?  `Posted ${parseInt(t)} minutes ago` : `Đã đăng ${parseInt(t)} phút trước`
         t = dateStr
-        if (t > 1) return `Da dang ${parseInt(t)} giay truoc`
+        if (t > 1) return (l == 'en') ?  `Posted ${parseInt(t)} seconds ago` : `Đã đăng ${parseInt(t)} giây trước`
     }
 
     return (
@@ -132,24 +134,24 @@ const Forum = () => {
                                             className="mmt__forum-list-seach_box-input"
                                             onChange={evt => { updateChat(evt.target.value) }}
                                             type="text"
-                                            placeholder="Search a post"
+                                            placeholder={t('Search a post')}
                                         />
                                     </span>
-                                    <button onClick={() => { setShowNewPost(!showNewPost) }} className="mmt__forum-list-seach_box-new_post_button">New Post</button>
+                                    <button onClick={() => { setShowNewPost(!showNewPost) }} className="mmt__forum-list-seach_box-new_post_button"><Trans>New Post</Trans></button>
                                 </div>
                                 {!showNewPost ? "" :
                                     <div className="mmt__forum-list-new_post_box">
                                         <textarea
                                             onChange={evt => { setChatDescription(evt.target.value); }}
-                                            placeholder="Post Description"
+                                            placeholder={t('Post description')}
                                             className="mmt__forum-list-new_post_box-top"
                                         />
                                         <div className="mmt__forum-list-new_post_box-bottom">
                                             <input
                                                 onChange={evt => { setChatName(evt.target.value); }}
-                                                placeholder="Post title"
+                                                placeholder={t('Post title')}
                                             />
-                                            <button onClick={addChat}>Add</button>
+                                            <button onClick={addChat}><Trans>Add</Trans></button>
                                         </div>
 
                                     </div>

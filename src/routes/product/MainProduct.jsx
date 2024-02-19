@@ -64,10 +64,10 @@ const MainProduct = ({ productInfo }) => {
         <div className='mmt__product' id='home'>
           <div className='mmt__product-direct-link'>
             <span>
-              <span><HashLink to={'/#home'}>Trang chu</HashLink></span>
+              <span><HashLink to={'/#home'}><Trans>Home</Trans></HashLink></span>
               <span>/</span>
-              <span><HashLink to={'/#contact'}>Store</HashLink></span><span>/</span>
-              <span>{productInfo.name}</span>
+              <span><HashLink to={'/#store'}><Trans>Store</Trans></HashLink></span><span>/</span>
+              <span><Trans>{productInfo.name}</Trans></span>
             </span>
 
           </div>
@@ -85,12 +85,12 @@ const MainProduct = ({ productInfo }) => {
           <div className='mmt__product-content'>
             <div className='main'>
               <span>{productInfo.description}</span>
-              <h1>{productInfo.name}</h1>
+              <h1><Trans>{productInfo.name}</Trans></h1>
             </div>
             <p className='intro'>
               {productInfo.about.map((img, index) => (
                 <div key={index}>
-                  <li>{img}</li>
+                  <li><Trans>{img}</Trans></li>
                 </div>
               ))}
             </p>
@@ -101,7 +101,7 @@ const MainProduct = ({ productInfo }) => {
                 <span>{productCount}</span>
                 <button disabled={productInfo.available == "0"} onClick={() => setProductCount(productCount + 1)}>+</button>
               </div>
-              <button onClick={addProductToCart} disabled={productInfo.available == "0"}>{productInfo.available == "0" ? "Het hang" : "Add to cart"}</button>
+              <button onClick={addProductToCart} disabled={productInfo.available == "0"}> <Trans>{productInfo.available == "0" ? "Out of stock" : "Add to cart"}</Trans> </button>
             </div>
           </div>
         </div>
