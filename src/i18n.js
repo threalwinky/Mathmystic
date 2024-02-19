@@ -8,12 +8,14 @@ i18n
       en: {
         translations: {
           "Hello": "Hello world.",
-          "i18n": "This is I18n"
+          "i18n": "This is I18n",
+
         }
       },
       vn: {
         translations: {
-          "Home": "Trang chủ",
+          "Home" : "Trang chủ",
+          
           "Introduction": "Giới thiệu",
           "About": "Thông tin",
           "Document": "Tài liệu",
@@ -40,7 +42,8 @@ i18n
         }
       }
     },
-    fallbackLng: 'vn',
+    fallbackLng: 'en',
+    lng: 'vn',
     ns: ['translations'],
     defaultNS: 'translations',
     keySeparator: false,

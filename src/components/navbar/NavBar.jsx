@@ -23,7 +23,7 @@ const NavBar = () => {
     i18n.changeLanguage(lng);
   }
   const [scrolled, setScrolled] = useState(false);
-  if (localStorage.getItem('lang') === null) localStorage.setItem('lang','en')
+  if (localStorage.getItem('lang') === null) localStorage.setItem('lang','vn')
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY > 50) {
@@ -89,10 +89,11 @@ const NavBar = () => {
   const { toggleMenu } = useContext(MenuContext);
   const [userToggleMenu, setUserToggleMenu] = useState(false)
   const [userPhoneToggleMenu, setUserPhoneToggleMenu] = useState(false)
-  const [language, setLanguage] = useState(localStorage.getItem('lang') == 'en' ? 0 : 1)
+  const [language, setLanguage] = useState(localStorage.getItem('lang') == 'vn' ? 0 : 1)
 
   const cl = () =>{
     const l = localStorage.getItem('lang')
+    console.log(localStorage.getItem('i18lng'))
     if (l == 'en'){
       localStorage.setItem('lang', 'vn')
       changeLanguage('vn')
@@ -109,10 +110,10 @@ const NavBar = () => {
     <div>
       <div className={`mmt__navbar ${scrolled ? "scrolled" : ""}`}>
         <div className='mmt__navbar-links'>
-          <div className='mmt__navbar-links_logo'>
+          <a href='/'  className='mmt__navbar-links_logo' style={{cursor: 'pointer'}}>
             <img src={MathmysticLogo} alt='logo' />
             <h1>MATHMYSTIC</h1>
-          </div>
+          </a>
           <div className='mmt__navbar-container_links'>
             <Menu />
           </div>
