@@ -9,11 +9,11 @@ import { Fade, Slide } from 'react-slideshow-image';
 import { DocumentCard } from "./DocumentCard";
 import './Document.css'
 
-import Document1 from '../../assets/vid/Document1.mp4'
-import Document2 from '../../assets/vid/Document2.mp4'
-import Document3 from '../../assets/vid/Document3.mp4'
-import Document4 from '../../assets/vid/Document4.mp4'
-
+import Document1 from '../../assets/vid/V1.mp4'
+import Document2 from '../../assets/vid/V2.mp4'
+import Document3 from '../../assets/vid/V3.mp4'
+import Document4 from '../../assets/vid/V4.mp4'
+import Document5 from '../../assets/vid/V5.mp4'
 import DocEn1 from '../../assets/img/Doc/En/DocEn1.png'
 import DocEn2 from '../../assets/img/Doc/En/DocEn2.png'
 import DocEn3 from '../../assets/img/Doc/En/DocEn3.png'
@@ -64,6 +64,18 @@ const Document = () => {
     { imgUrl : DocEn9 },
     { imgUrl : DocEn10 },
   ];
+  const projects3 = [
+    { imgUrl : DocEn1 },
+    { imgUrl : DocEn2 },
+    { imgUrl : DocEn3 },
+    { imgUrl : DocEn4 },
+    { imgUrl : DocEn5 },
+    { imgUrl : DocEn6 },
+    { imgUrl : DocEn7 },
+    { imgUrl : DocEn8 },
+    { imgUrl : DocEn9 },
+    { imgUrl : DocEn10 },
+  ];
 
   return (
     <div className='mmt__document' id='document'>
@@ -78,7 +90,10 @@ const Document = () => {
               <Nav.Link eventKey="second"><Trans>Handbook(English)</Trans></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="third"><Trans>Instructional video</Trans></Nav.Link>
+              <Nav.Link eventKey="third"><Trans>Manual</Trans></Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="fourth"><Trans>Instructional video</Trans></Nav.Link>
             </Nav.Item>
           </Nav>
           <Tab.Content id="slideInUp" >
@@ -107,6 +122,18 @@ const Document = () => {
               </div>
             </Tab.Pane>
             <Tab.Pane eventKey="third">
+              <div className="slide-container mmt__document-slide">
+                <Slide {...{ duration: 100, autoplay: false, indicators: true }}>
+                  {projects3.map((fadeImage, index) => (
+                    <div key={index}>
+                      <img style={{ width: '100%', borderRadius: 30 }} src={fadeImage.imgUrl} />
+                      {/* <h2>{fadeImage.caption}</h2> */}
+                    </div>
+                  ))}
+                </Slide>
+              </div>
+            </Tab.Pane>
+            <Tab.Pane eventKey="fourth">
               <div className="slide-container mmt__document-slide2">
                 <Slide {...{ duration: 100, autoplay: false, infinite: false,indicators:true  }}>
                   <ReactPlayer
@@ -128,6 +155,10 @@ const Document = () => {
                    {...{ controls: true, width: '80%', height: '80%' }}
                     style={{ margin: 'auto' }}
                     url={Document4} />
+                    <ReactPlayer
+                   {...{ controls: true, width: '80%', height: '80%' }}
+                    style={{ margin: 'auto' }}
+                    url={Document5} />
                 </Slide>
               </div>
             </Tab.Pane>

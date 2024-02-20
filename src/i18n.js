@@ -32,6 +32,7 @@ i18n
           "LIGHT FOR EVERY HEART": "ÁNH SÁNG CHO MỌI TRÁI TIM",
           "Introduce": "Giới thiệu",
           "Chat": "Diễn đàn",
+          "Manual" : "Hướng dẫn sử dụng",
 
 
           "FEATURES OF THE WEBSITE" : "TÍNH NĂNG CỦA WEBSITE",
