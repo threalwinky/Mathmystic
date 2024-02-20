@@ -89,7 +89,7 @@ const Chat = ({ chatId }) => {
         }
         else{
             addDoc(collection(db, 'message'), {
-                content: messageContent,
+                content: messageContent.replace(/\n/g, "<br/>"),
                 createdAt: Timestamp.now().seconds,
                 createdBy: foundUser,
                 chatInclude: chatId

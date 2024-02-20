@@ -17,6 +17,7 @@ import './NavBar.css'
 import { MdOutlineArrowCircleLeft } from 'react-icons/md';
 
 const NavBar = () => {
+  const l = localStorage.getItem('lang') == 'en'
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1050px)'
   })
@@ -60,8 +61,8 @@ const NavBar = () => {
         <a href='#introduction'><p><Trans>Chat</Trans></p></a>
         <a href='#store'><p><Trans>Setting</Trans></p></a>
         <a href='#contact'><p><Trans>Log Out</Trans></p></a>
-        <a href='/cart'><p><Trans>Cart</Trans></p></a>
-        <a href='/forum'><p><Trans>Forum</Trans></p></a>
+        <a href='/cart'><p>{l ? 'Cart' : 'Giỏ hàng'}</p></a>
+        <a href='/forum'><p>{l ? 'Forum' : 'Diễn đàn'}</p></a>
       </>
     )
   }
@@ -120,7 +121,7 @@ const NavBar = () => {
         <div className='mmt__navbar-sign'>
           <img onClick={() => {cl()}}  src={language ? EnglishLanguage : VietnamLanguage}/>
           <img src={localStorage.getItem('userAvatar') == undefined ? "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" : localStorage.getItem('userAvatar')} alt="" onClick={() => { localStorage.setItem('open', '1'); toggleMenu(); }} style={{ fontSize: 35 }} />
-          {((!isDesktopOrLaptop) || !(localStorage.getItem('open2') == '1')) ? <RiMenu3Line onClick={() => { localStorage.setItem('open', '2'); toggleMenu(); }} style={{ fontSize: 35 }} className='mmt__navbar-sign_user'></RiMenu3Line> : ""}
+          {((!isDesktopOrLaptop) || 1) ? <RiMenu3Line onClick={() => { localStorage.setItem('open', '2'); toggleMenu(); }} style={{ fontSize: 35 }} className='mmt__navbar-sign_user'></RiMenu3Line> : ""}
         </div>
 
       </div>

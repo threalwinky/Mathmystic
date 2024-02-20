@@ -15,7 +15,8 @@ import EnglishLanguage from '../../assets/img/EnglishLanguage.webp'
 import i18n from '../../i18n'
 import './NavBar.css'
 
-const NavBar = () => {
+const NavBarWoutMenu = () => {
+  const l = localStorage.getItem('lang') == 'en'
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1050px)'
   })
@@ -119,7 +120,7 @@ const NavBar = () => {
         <div className='mmt__navbar-sign'>
           <img onClick={() => {cl()}}  src={language ? EnglishLanguage : VietnamLanguage}/>
           <img src={localStorage.getItem('userAvatar') == undefined ? "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" : localStorage.getItem('userAvatar')} alt="" onClick={() => { localStorage.setItem('open', '1'); toggleMenu(); }} style={{ fontSize: 35 }} />
-          {((!isDesktopOrLaptop) || !(localStorage.getItem('open2') == '1')) ? <RiMenu3Line onClick={() => { localStorage.setItem('open', '2'); toggleMenu(); }} style={{ fontSize: 35 }} className='mmt__navbar-sign_user'></RiMenu3Line> : ""}
+          {((!isDesktopOrLaptop) || 1) ? <RiMenu3Line onClick={() => { localStorage.setItem('open', '2'); toggleMenu(); }} style={{ fontSize: 35 }} className='mmt__navbar-sign_user'></RiMenu3Line> : ""}
         </div>
 
       </div>
@@ -127,4 +128,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default NavBarWoutMenu
