@@ -1,0 +1,19 @@
+.buy{
+    /* background-color: rgb(255, 255, 255); */
+    width: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    /* background-color: aqua; */
+    > .count{
+        
+        position: absolute;
+        /* margin-left: 40px; */
+        
+        background-color: red;
+        padding: 0 6px;
+        border-radius: 50%;
+        color: white;
+        /* width: 100%; */
+        /* aspect-ratio: 1/1; */
+    }
+}
