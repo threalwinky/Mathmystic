@@ -55,7 +55,14 @@ const MainProduct = ({ productInfo }) => {
       });
     }
   }
+  const changeMoney = (money) => {
+    var m = ((money).toLocaleString(
+      undefined,
 
+      { minimumFractionDigits: 2 }
+    ))
+    return m.substring(0, m.length - 3)
+  }
   return (
     <div>
       {!loading ? <Loading /> :
@@ -94,7 +101,7 @@ const MainProduct = ({ productInfo }) => {
                 </div>
               ))}
             </p>
-            <h6 className='price'>{productInfo.price}₫</h6>
+            <h6 className='price'>{changeMoney(productInfo.price)}₫</h6>
             <div className='sub'>
               <div className='content'>
                 <button disabled={productInfo.available == "0" || productCount == 1} onClick={() => setProductCount(productCount - 1)}>-</button>

@@ -4,8 +4,8 @@ import 'react-multi-carousel/lib/styles.css';
 import { Trans } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import Store1_1 from '../../assets/img/Store/Store1/Store1_1.webp';
-import Store2_1 from '../../assets/img/Store/Store2/Store2_1.webp';
+import Store1_1 from '../../assets/img/Store/Store1/Store1_1.jpeg';
+import Store2_1 from '../../assets/img/Store/Store2/Store2_1.png';
 import './Store.css'
 import PopUp from '../../containers/popup/PopUp'
 
@@ -29,7 +29,14 @@ const Store = () => {
       items: 1
     }
   };
+  const changeMoney = (money) => {
+    var m = ((money).toLocaleString(
+      undefined,
 
+      { minimumFractionDigits: 2 }
+    ))
+    return m.substring(0, m.length - 3)
+  }
   return (
     <div className='mmt__store' id='store'>
       <h1 ><Trans>Store</Trans></h1>
@@ -42,7 +49,7 @@ const Store = () => {
             <div className="item">
               <img src={Store1_1} alt="Image" />
               <h5><Trans>Geometry learning kit for visually impaired students</Trans></h5>
-              <h3><Trans>Out of stock</Trans></h3>
+              <h3><Trans>249,000đ</Trans></h3>
             </div>
           </Link>
 

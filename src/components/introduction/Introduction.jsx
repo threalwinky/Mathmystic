@@ -61,7 +61,7 @@ Documentation and examples: In addition to instructions, the site also provides 
       <div className='mmt__introduction-container'>
         <img src={Introduction3} className='mmt__introduction-container_thumbnail' />
         <div className='mmt__introduction-container_content'>
-          <h2><Trans>CULTIVATE THINKING, CONNECT KNOWLEDGE,</Trans></h2> <br /><h2>ÁNH SÁNG CHO MỌI TRÁI TIM</h2>
+          <h2><Trans>CULTIVATE THINKING, CONNECT KNOWLEDGE,</Trans></h2> <br /><h2><Trans>LIGHT FOR EVERY HEART</Trans></h2>
           <p>
             <Trans>
             The special feature of this project is that it is a finished product
