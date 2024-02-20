@@ -89,7 +89,7 @@ const Chat = ({ chatId }) => {
         }
         else{
             addDoc(collection(db, 'message'), {
-                content: messageContent.replace(/\n/g, "<br/>"),
+                content: messageContent.replace(/\n/g, "<br>"),
                 createdAt: Timestamp.now().seconds,
                 createdBy: foundUser,
                 chatInclude: chatId
@@ -197,7 +197,7 @@ const Chat = ({ chatId }) => {
 
                                                         <div className="mmt__chat-ask_content2">
                                                             {/* <h1>{foundChat.name}</h1> */}
-                                                            <h5>{message.content}</h5>
+                                                            <h5>{message.content.replace(/<br>/g, <br/>)}</h5>
                                                             {/* <h5>11111111111111111111111111111111111111111</h5> */}
                                                         </div>
                                                         {/* 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */}

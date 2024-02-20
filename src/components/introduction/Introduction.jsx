@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 
 import './Introduction.css'
 import Introduction1 from '../../assets/img/Introduction1.png'
-import Introduction2 from '../../assets/img/Introduction2.webp'
+import Introduction2 from '../../assets/img/Introduction2.jpeg'
 import Introduction3 from '../../assets/img/Introduction3.webp'
 import { useMediaQuery } from 'react-responsive'
 import { Trans } from 'react-i18next'

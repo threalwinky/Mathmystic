@@ -90,7 +90,7 @@ function Menu() {
         </span>
 
       
-      {((!isDesktopOrLaptop) || !(localStorage.getItem('open2') == '1')) ?
+      {((!isDesktopOrLaptop) || 1) ?
         ((localStorage.getItem('open') == '1') ?
           <CheckLogInMenu /> : <HomeMenu />) : <CheckLogInMenu />}
 
