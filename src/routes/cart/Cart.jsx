@@ -276,7 +276,7 @@ const Cart = () => {
                 <div className='cart-control'>
 
                   <button className='info'> <Trans>Total</Trans> : {changeMoney(totalPrice)}₫</button>
-                  <button onClick={() => { addBuy(foundUser.name, changeMoney(totalPrice)) }}
+                  <button className='buy-button' onClick={() => { addBuy(foundUser.name, changeMoney(totalPrice)) }}
                   > <Trans>Buy</Trans></button>
                   {/* <Modal
                     closeIcon

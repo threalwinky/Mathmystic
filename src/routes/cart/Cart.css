@@ -37,19 +37,20 @@
     background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: end;
-    button{
+    .buy-button{
         width:100px;
         border-radius: 30px;
         background-color: rgb(189, 189, 255);
         font-size: 25px
     }
-    button:hover{
+    .buy-button:hover{
         background-color: rgb(156, 156, 255);
     }
 
     .info{
         width: 100%;
         font-size: 20px;
+        font-family: lora;
         text-align: center;
         justify-self: center;
         text-align: center;

@@ -163,7 +163,7 @@ const Forum = () => {
 
                                     </div>
                                 }
-                                <div className="test">
+                                <div className="">
                                     <div className="mmt__forum-list-list_box-container">
                                         {
 
