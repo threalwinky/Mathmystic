@@ -84,7 +84,7 @@ p{
     justify-content: space-between;
     gap: 20px;
 
-    >a {
+    a {
         display: flex;
         font-size: 20px;
         font-family: mulish, sans-serif;
@@ -96,7 +96,7 @@ p{
         display: flex;
     }
 
-    >a:hover {
+    a:hover {
         background-color: white;
         border-radius: 10px;
 
