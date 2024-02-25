@@ -1,4 +1,4 @@
-.mmt__document {
+.document {
     margin-top: 0;
     background: radial-gradient(circle at 10% 12%, rgba(62, 197, 254, 1) 0%, rgba(193, 227, 246, 1) 100%);
     background: linear-gradient(90.21deg, #b5e7fe -5.91%, #3ec5fe 111.58%);
@@ -29,7 +29,7 @@
 }
 
 
-.mmt__document p {
+.document p {
     color: #682e2e;
     font-size: 25px;
     letter-spacing: 0.8px;
@@ -38,19 +38,101 @@
     width: 56%;
 }
 
-.mmt__document .nav.nav-pills {
-    width: 72%;
+.nav-pills-phone {
+    width: auto;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 10px 50px;
+    border: none;
+    background: linear-gradient(90.21deg, #c7d6f8 20.91%, #5e92e6 111.58%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: black;
+    text-align: center;
+}
+
+.nav-pills-phone-option {
+    color: red;
+}
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
+
+.custom-select select {
+    display: none;
+    /*hide original SELECT element:*/
+}
+
+.select-selected {
+    background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.document .nav.nav-pills {
+    width: 100%;
     margin: 0 auto;
     border-radius: 50px;
     background-color: rgb(255 255 255 / 10%);
     overflow: hidden;
+    /* display: grid; */
 }
 
-.mmt__document .nav.nav-pills .nav-item {
+.document .nav.nav-pills .nav-item {
     width: 25%;
+    
 }
 
-.mmt__document .nav.nav-pills .nav-link {
+.document .nav.nav-pills .nav-link {
     background-color: transparent;
     border-radius: 0;
     padding: 17px 0;
@@ -63,9 +145,11 @@
     transition: 0.3s ease-in-out;
     text-align: center;
     z-index: 0;
+    font-family: mulish;
+    font-weight: 650;
 }
 
-.mmt__document .nav.nav-pills .nav-link::before {
+.document .nav.nav-pills .nav-link::before {
     content: "";
     position: absolute;
     width: 0;
@@ -77,25 +161,33 @@
     transition: 0.3s ease-in-out;
 }
 
-.mmt__document .nav.nav-pills .nav-link.active::before {
+.document .nav.nav-pills .nav-link.active::before {
     width: 100% !important;
 }
 
-.mmt__document .nav.nav-pills .nav-link.active {
+.document .nav.nav-pills .nav-link.active {
     border: 1px solid rgba(255, 255, 255, 1);
 }
 
-.mmt__document-slide{
+.document-slide {
     width: 70%;
     margin: auto;
     border-radius: 100px;
 }
 
-.mmt__document-slide2{
+.document-slide2 {
     width: 40%;
     margin: auto;
     border-radius: 100px;
+    h3{
+        margin: 20px;
+        font-family: lora, sans-serif;
+        font-size: 23px;
+        color: #000;
+    }
 }
+
+
 
 .nav-link#projects-tabs-tab-first {
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -184,7 +276,8 @@
     overflow: hidden;
     margin-bottom: 24px;
     color: #000;
-    img{
+
+    img {
         /* margin: 20px; */
         width: 100%;
         height: 100%;
@@ -240,16 +333,18 @@
     z-index: -4;
 }
 
+
+
 /*Phone and pad ver*/
 @media screen and (max-width: 1050px) {
 
-    .mmt__document-slide{
+    .document-slide {
         width: 90%;
         margin: auto;
         border-radius: 100px;
     }
 
-    .mmt__document-slide2{
+    .document-slide2 {
         width: 100%;
         margin: auto;
         border-radius: 100px;
@@ -258,13 +353,13 @@
 
 @media screen and (max-width: 550px) {
 
-    .mmt__document-slide{
+    .document-slide {
         width: 90%;
         margin: auto;
         border-radius: 100px;
     }
 
-    .mmt__document-slide2{
+    .document-slide2 {
         width: 100%;
         margin: auto;
         border-radius: 100px;
@@ -272,6 +367,4 @@
 }
 
 /*PC*/
-@media screen and (max-width: 1050px) {
-
-}
+@media screen and (max-width: 1050px) {}

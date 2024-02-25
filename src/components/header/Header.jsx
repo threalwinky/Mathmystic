@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import { translate, Trans, withTranslation } from 'react-i18next';
+import { Trans, withTranslation } from 'react-i18next';
 
 import './Header.css'
 import MathmysticPet from '../../assets/img/MathmysticPet.png';
@@ -56,11 +56,11 @@ const Header = () => {
 
 
   return (
-    <div className='mmt__header' id='home'>
-      <div className='mmt__header-content'>
+    <div className='header' id='home'>
+      <div className='header-content'>
 
-        <div className='mmt__header-content_left'>
-          <span className="mmt__header-tagline"><Trans>Welcome to Mathmystic</Trans></span>
+        <div className='header-content_left'>
+          <span className="header-tagline"><Trans>Welcome to Mathmystic</Trans></span>
           <h1>{` `}
             <span className="txt-rotate" dataPeriod="100">
               <span className="wrap">
@@ -84,10 +84,10 @@ const Header = () => {
               </Trans>
             </li>
           </p>
-          <a href="#introduction" style={{ textDecoration: "none" }}><button ><Trans>Let’s Connect</Trans> <ArrowRightCircle size={25} /></button>
+          <a href="#introduction" style={{ textDecoration: "none" }} ><button ><Trans>Let’s Connect</Trans> <ArrowRightCircle size={25} /></button>
           </a>
         </div>
-        <div className='mmt__header-content_right'>
+        <div className='header-content_right'>
           <img src={MathmysticPet} alt="Mathmystic Pet" style={{ width: 350 }} />
         </div>
       </div>

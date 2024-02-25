@@ -1,0 +1,76 @@
+.sign_in {
+    background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.sign_in-container {
+    /* padding: 10px; */
+    /* margin-top: 20px; */
+    top: 20%;
+    position: relative;
+    background: linear-gradient(90.21deg, #b5e7fe -5.91%, #3ec5fe 111.58%);;
+    width: fit-content;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.sign_in-container h1{
+    align-self: center;
+    padding: 15px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.sign_in-input{
+    margin: 5px 0px;
+}
+
+.sign_in-show_password{
+    margin: 10px 0px;
+    display: flex;
+}
+
+.sign_in-submit_button{
+    background-color: rgb(2, 154, 255);
+    border-color: #b5f4ff;
+    color: white;
+    background: linear-gradient(to left, rgb(2, 154, 255) 50%, #b5f4ff 50%) right;
+    background-size: 200%;
+    transition: .5s ease-out;
+    padding: 10px;
+}
+
+.sign_in-submit_button:hover{
+    background-color: rgb(20, 200, 255);
+    border-color: #3ec5fe;
+    background-position: left;
+    color: black;
+}
+
+
+.sign_in-google_log_in{
+    align-self: center;
+    margin: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    >p{
+        font-size: 15px;
+        font-family: lora;
+        margin-bottom: 15px;
+    }
+}
+
+.sign_in-google_log_in-icon{
+    cursor: pointer;
+    align-self: center;
+}
+
+@media screen and (max-width: 1050px) {}

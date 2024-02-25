@@ -14,6 +14,9 @@ import db from '../../firebase'
 import { addDoc, onSnapshot, collection, doc, getDocs } from 'firebase/firestore'
 import { toast } from 'react-toastify';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import PopupSuccessSignUp1 from '../../containers/modal/PopupSuccessSignUp1';
+import PopupFailSignUp2 from '../../containers/modal/PopupFailSignUp2';
+import PopupFailSignUp1 from '../../containers/modal/PopupFailSignUp1';
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
 const SignUp = () => {
@@ -23,7 +26,9 @@ const SignUp = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [rpassword, setRpassword] = useState('')
-
+  const [isOpenPopupSuccessSignUp1, setIsOpenPopupSuccessSignUp1] = useState(0)
+  const [isOpenPopupFailSignUp1, setIsOpenPopupFailSignUp1] = useState(0)
+  const [isOpenPopupFailSignUp2, setIsOpenPopupFailSignUp2] = useState(0)
   var GoogleAuthentication = () => {
     signInWithPopup(auth, provider)
         .then((result) => {
@@ -51,8 +56,9 @@ const SignUp = () => {
                             localStorage.setItem('user', userEmail)
                             localStorage.setItem('userAvatar', user.photoURL)
                             localStorage.setItem('userName', user.displayName)
-                            window.location.href = '/'
+                            // window.location.href = '/'
                             localStorage.setItem('loggedin', '1')
+                            
                         }, 500)
                     }
                     else {
@@ -78,7 +84,8 @@ const SignUp = () => {
     try {
 
       if (password !== rpassword) {
-        window.alert(`Password don't match`)
+        setIsOpenPopupFailSignUp1(1)
+        // window.alert(`Password don't match`)
       }
       else {
         await getDocs(collection(db, "account"))
@@ -89,7 +96,8 @@ const SignUp = () => {
             const foundUser = (newData.find(x => x.email == email))
             console.log(foundUser)
             if (foundUser !== undefined) {
-              window.alert('Email have been taken')
+              setIsOpenPopupFailSignUp2(1)
+              // window.alert('Email have been taken')
             }
             else {
               const docRef = addDoc(collection(db, "account"), {
@@ -99,8 +107,9 @@ const SignUp = () => {
                 products: [],
                 avatar: "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg"
               });
-              console.log('Account created')
-              window.alert('Account created')
+              setIsOpenPopupSuccessSignUp1(1)
+              // console.log('Account created')
+              // window.alert('Account created')
             }
             // deleteDoc(doc(db, 'account', newData.find(x => x.username === "vv3").id))
           })
@@ -116,21 +125,21 @@ const SignUp = () => {
         <div className='gradient__bg'>
           <NavBarWoutMenu />
         </div>
-        <Form className='mmt__sign_up'>
-          <div className='mmt__sign_up-container'>
+        <Form className='sign_up'>
+          <div className='sign_up-container'>
             <h1>Sign Up</h1>
 
             <Form.Control
               type="text"
               placeholder='Name'
-              className='mmt__sign_up-input'
+              className='sign_up-input'
               onChange={e => setName(e.target.value)} 
             />
 
             <Form.Control
               type="text"
               placeholder=' Email'
-              className='mmt__sign_up-input'
+              className='sign_up-input'
               required={true}
               onChange={e => setEmail(e.target.value)} 
             />
@@ -138,7 +147,7 @@ const SignUp = () => {
             <Form.Control
               type={showPassword ? "text" : "password"}
               placeholder=' Password'
-              className='mmt__sign_up-input' 
+              className='sign_up-input' 
               onChange={e => setPassword(e.target.value)} 
               />
               
@@ -146,29 +155,34 @@ const SignUp = () => {
             <Form.Control
               type={showPassword ? "text" : "password"}
               placeholder='Repeat Password'
-              className='mmt__sign_up-input' 
+              className='sign_up-input' 
               onChange={e => setRpassword(e.target.value)}
               />
 
-            <div className='mmt__log_in-show_password'>
+            <div className='sign_up-show_password'>
               <Form.Check
                 type="checkbox"
                 onClick={() => { setShowPassword(!showPassword) }}
                 label='Show Password'
               />
             </div>
-            <Button type='submit' className='mmt__sign_up-submit_button' onClick={addUser}>Sign Up</Button>
-            <div className='mmt__sign_up-google_sign_up'>
+            <Button type='submit' className='sign_up-submit_button' onClick={addUser}>Sign Up</Button>
+            <div className='sign_up-google_sign_up'>
               <p>Or sign up and log in with </p>
-              <FcGoogle onClick={GoogleAuthentication} size={25} className='mmt__sign_up-google_sign_up-icon' />
+              <FcGoogle onClick={GoogleAuthentication} size={25} className='sign_up-google_sign_up-icon' />
             </div>
             <div>
               <span>Already have an account?</span>
-              <Link to={'/login'} style={{ textDecoration: 'underline' }}> Log In</Link>
+              <Link to={'/signin'} style={{ textDecoration: 'underline' }}> Log In</Link>
             </div>
           </div>
 
         </Form>
+        {isOpenPopupSuccessSignUp1 && <PopupSuccessSignUp1 setIsOpenPopupSuccessSignUp1={setIsOpenPopupSuccessSignUp1} />}
+
+        {isOpenPopupFailSignUp1 && <PopupFailSignUp1 setIsOpenPopupFailSignUp1={setIsOpenPopupFailSignUp1} />}
+
+        {isOpenPopupFailSignUp2 && <PopupFailSignUp2 setIsOpenPopupFailSignUp2={setIsOpenPopupFailSignUp2} />}
       </div>
     </div>
   )

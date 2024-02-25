@@ -1,7 +1,7 @@
-.mmt__store {
+.store {
     padding: 80px 0;
     position: relative;
-    background: linear-gradient(90.21deg, #f7d483 -.91%, #f79d7f 61.58%);
+    background: linear-gradient(90.21deg, #ecce87 -.91%, #db7959 130.58%);
 
     text-align: center;
 
@@ -12,7 +12,7 @@
         text-align: center;
         color: black;
         margin-bottom: 0rem;
-
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         width: fit-content;
         padding: 20px;
         background: linear-gradient(90.21deg, #ff8a63 -0.91%, #ffd676 61.58%);
@@ -23,7 +23,7 @@
         margin-bottom: 50px;
     }
 
-    p {
+    >p {
         color: #682e2e;
         font-size: 25px;
         letter-spacing: 0.8px;
@@ -33,7 +33,7 @@
     }
 }
 
-.mmt__store-bx {
+.store-bx {
     /* background: linear-gradient(90.21deg, #fea580 -5.91%, rgba(78,0,26,255) 81.58%);;
       border-radius: 64px;
       text-align: center;
@@ -45,7 +45,7 @@
 
 }
 
-.mmt__store-howto {
+.store-howto {
     /* background: linear-gradient(90.21deg, #fea580 -5.91%, rgba(78,0,26,255) 81.58%);;
       border-radius: 64px;
       text-align: center;
@@ -69,7 +69,7 @@
     }
 }
 
-.mmt__store-skill-slider {
+.store-skill-slider {
     width: 80%;
     margin: 0 auto;
     position: relative;
@@ -79,50 +79,80 @@
     border-radius: 50px;
 }
 
-.mmt__store-skill-slider .item img {
+.store-skill-slider .item img {
     width: 90%;
     height: 250px;
     margin: 0 auto 15px auto;
     border: 10px;
     /* border-style: solid; */
     /* border-color: #ffffff; */
-   
+
 
 }
 
-.mmt__store-skill-slider .item {
+.store-skill-slider .item {
     padding: 5px;
     padding-top: 20px;
     margin: 20px;
     height: 100%;
-    background-color: #ffebd1;
+    background-color: #ffffff;
     cursor: pointer;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transform: scale(1);
 
-   
-	transform: scale(1);
+    >.info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        justify-self: flex-end;
+        padding-bottom: 20px;
+
+        .stars {
+
+            display: flex;
+            padding-left: 25px;
+            padding-top: 20px;
+            background-color: #ffffff;
+            color: rgb(216, 216, 23);
+        }
+
+        >.sold {
+
+            padding-top: 20px;
+            padding-right: 25px;
+
+            >p {
+                font-size: 15px;
+            }
+        }
+    }
+
 }
 
-.mmt__store-skill-slider .item:hover {
+.store-skill-slider .item:hover {
     cursor: pointer;
     /* opacity: .5; */
     transition-duration: 1s;
-   
-	transform: scale(1.1);
+
+    transform: scale(1.1);
 }
 
-.mmt__store-skill-slider .item h5 {
+.store-skill-slider .item h5 {
     width: 100%;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     color: rgb(0, 0, 0);
     text-align: start;
+    font-family: lora, sans-serif;
+
     padding-left: 25px;
     padding-right: 10px
-    
 }
 
-.mmt__store-skill-slider .item h4 {
+.store-skill-slider .item h4 {
     width: 100%;
     font-size: 20px;
     font-weight: 400;
@@ -132,7 +162,7 @@
     padding-right: 10px
 }
 
-.mmt__store-skill-slider .item h3 {
+.store-skill-slider .item h3 {
     width: 100%;
     font-size: 15px;
     font-weight: 400;
@@ -145,17 +175,17 @@
 /*Phone and pad ver*/
 @media screen and (max-width: 1050px) {
 
-    .mmt__introduction-container {
+    .introduction-container {
         display: block;
     }
 
-    .mmt__introduction-container_thumbnail {
+    .introduction-container_thumbnail {
         padding: 3rem 3rem;
         width: 100%;
         /* height: 600px; */
     }
 
-    .mmt__introduction-container_content {
+    .introduction-container_content {
         padding: 1rem 3rem;
 
         p {

@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
-import { FooterWoutMail, NavBarWoutMenu } from '../../components';
+import { Footer, NavBarWoutMenu } from '../../components';
 import { Loading, NotFound, Chatbot } from '../../containers'
 import MainProduct from './MainProduct'
 import Store1_1 from '../../assets/img/Store/Store1/Store1_1.webp'
@@ -115,7 +115,7 @@ const Product = () => {
                             </div>
                             <MainProduct productInfo={foundProduct} />
                             <Chatbot />
-                            <FooterWoutMail />
+                            <Footer />
                         </div>
                         : <NotFound />}
                 </div>

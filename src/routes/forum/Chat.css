@@ -1,0 +1,220 @@
+a{
+    color: #000;
+}
+
+.mmt__chat-body {
+    width: 100vw;
+    background-color: var(--color-green);
+    padding: 20px;
+}
+
+.mmt__chat-container {
+    /* padding: 20px; */
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    padding: 20px 30px 20px 20px;
+}
+
+.mmt__chat-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.mmt__chat-info {
+    margin-left: 50px;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 10px;
+    p{
+        font-size: 15px;
+    }
+}
+
+.mmt__chat-info_content {
+    /* align-items: center; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3px;
+    background-color: rgb(255, 255, 255);
+}
+
+.mmt__chat-info_content-icon {
+    margin: 4px;
+    
+}
+
+.mmt__chat-ans_count{
+    margin-top: 20px
+}
+
+.mmt__chat-ans_count2{
+    margin-top: 20px
+}
+
+.mmt__chat-ans_count h2 {
+    /* display: flex; */
+    /* flex-direction: row; */
+    width: 100%;
+    border-bottom: 1px solid #000;
+    line-height: 2em;
+    margin: 40px 0 40px 0px;
+    font-size: 15px;
+    /* margin: 20px; */
+    text-align: center;
+    height: 1em;
+}
+
+.mmt__chat-ans_count2 h2 {
+    /* display: flex; */
+    /* flex-direction: row; */
+    width: 100%;
+    border-bottom: 0.1px solid #000;
+    border-width: 0.001em;
+    line-height: 0.02em;
+    margin: 40px 0 20px;
+    font-weight: 200;
+    /* margin: 20px; */
+    text-align: center;
+    backdrop-filter: blur(50);
+    border-color: rgb(209, 209, 209);
+}
+
+.mmt__chat-ans_count h2 span{
+    background:#fff; 
+    padding:20px 10px; 
+}
+
+.mmt__chat-vote {
+
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.mmt__chat-ask_all{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* background-color: aquamarine; */
+}
+
+.mmt__chat-ask{
+    h6{
+        font-size: 10px;
+    }
+}
+
+.mmt__chat-ask_info {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+}
+
+.mmt__chat-ask_info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.mmt__chat-ask_info p {
+    margin-left: 10px;
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    font-family: lora;
+}
+
+.mmt__chat-ask_content2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    h5{
+        font-size: 15px;
+        font-weight: 500;
+        word-break: break-all;
+    }
+}
+
+.mmt__chat-ask_content{
+    padding-left: 5px;
+    h1{
+        font-family: lora;
+        border: none;
+        /* line-height: 0; */
+        padding: 0;
+        margin: 0;
+        height: auto;
+        width: auto;
+        font-size: 15px;
+    }
+    h5{
+        font-family: lora;
+        border: none;
+        /* line-height: 0; */
+        padding: 0;
+        margin: 0;
+        height: auto;
+        width: auto;
+        font-weight: 400;
+        font-size: 15px;
+    }
+    
+}
+
+.mmt__chat-ans-container{
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+    padding: 20px 20px 20px 30px;
+    max-height: 30vh;
+    overflow: scroll;
+}
+
+.mmt__chat-ans-box{
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+}
+
+.mmt__chat-ans_info{
+    justify-content: space-between;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: auto;
+    flex-direction: column;
+    padding: 20px;
+    h6{
+        font-size: 10px;
+    }
+}
+
+.mmt__chat-ans_info h5{
+    font-size: 12px;
+}
+
+.mmt__chat-ask_menu{
+    margin: 0 0 0 auto;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+}
+.abc{
+     /* background-color: aqua; */
+     height: fit-content;
+     width: fit-content;
+     padding: 5px 10px;
+     /* padding-bottom: 10px; */
+     border-radius: 20px;
+     /* margin: 2px; */
+     margin: 10px;
+     background-color: var(--color-green);
+}

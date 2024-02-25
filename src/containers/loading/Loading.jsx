@@ -1,24 +1,12 @@
 import React from 'react'
-import { Audio, TailSpin } from 'react-loader-spinner'
-
 import './Loading.css'
-
 const Loading = () => {
-  return (
-    <div className='mmt__loading'>
-      <TailSpin
-        visible={true}
-        height="300"
-        width="300"
-        color="#000"
-        ariaLabel="tail-spin-loading"
-        radius="1"
-        wrapperStyle={{}}
-        wrapperClass=""
-        className=""
-      />
-    </div>
-  )
+    return (
+        <div className='loading-container'>
+            {/* 123 */}
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+    )
 }
 
 export default Loading

@@ -1,43 +1,37 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import { MenuContext } from 'react-flexible-sliding-menu';
-import { translate, Trans, withTranslation } from 'react-i18next';
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import 'react-toastify/dist/ReactToastify.css';
+import { translate, Trans, withTranslation } from 'react-i18next';
 
-import { Header, Introduction, NavBar, Footer, About, Document, Store, Contact } from './components'
-import { PopUp, Loading, NotFound, Chatbot } from './containers'
-import { Cart, Home, Product, LogIn, SignUp, Forum, Bill, UpdateProduct, Test } from './routes'
+import { NavBar } from './components';
+import { Home, SignIn, SignUp, Product, UpdateProduct, Cart, Forum, Profile, Study } from './routes'
 import './App.css'
-
-const App = () => {
-
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true)
-  }, [])
-
-  
+import Test from './routes/test/Test';
+import { Modal, NotFound } from './containers';
+import Purchase from './routes/purchase/Purchase';
+function App() {
 
   return (
     <div>
-      
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={ <div>{!loading ? <Loading /> : <Home/>}</div> }/>
-          <Route path="login" element={<LogIn />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="forum" element={<Forum />} />
-          <Route path="forum/:id" element={<Forum />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/test" element={<Test/>} />
+          <Route path="/modal" element={<Modal/>} />
+          <Route path="/signin" element={<SignIn/>} />
+          <Route path="/signup" element={<SignUp/>} />
           <Route path="product/:id" element={<Product />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="bill" element={<Bill />} />
-          <Route path="updateproduct" element={<UpdateProduct />} />
-          <Route path="test" element={<Test />} />
+          <Route path="up" element={<UpdateProduct />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/purchase" element={<Purchase />} />
+          <Route path="/forum" element={<Forum />} />
+          <Route path="forum/:id" element={<Forum />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="study" element={<Study />} />
         </Routes>
-        <ToastContainer autoClose={5000} />
+        
       </BrowserRouter>
+
     </div>
   )
 }

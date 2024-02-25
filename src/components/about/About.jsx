@@ -44,10 +44,10 @@ const About = () => {
     };
 
     return (
-        <div className='mmt__about' id='about'>
+        <div className='about' id='about'>
             <h1><Trans>Mathematical model</Trans></h1>
-            <div className='mmt__about-bx'>
-                <div className='mmt__about-howto'>
+            <div className='about-bx'>
+                <div className='about-howto'>
                     <h2><Trans>HOW TO USE</Trans></h2>
                     <p>
                         <li>

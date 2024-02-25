@@ -1,48 +1,36 @@
-import React, { useEffect } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
+import React, { useEffect, useState } from 'react'
 
-import './Home.css'
-import { Header, Introduction, NavBar, Footer, About, Document, Store, Contact } from '../../components';
-import { PopUp, Loading, NotFound, Chatbot } from '../../containers'
-
+import { NavBar, Header, Introduction, Store, About, Document, Footer, Contact } from "../../components";
+import { Modal, Loading, Chatbot } from "../../containers";
 const Home = () => {
+  const [loading, setLoading] = useState(0)
 
-    localStorage.setItem('open2', '1')
-    if (localStorage.getItem('loggedin') == null)
-        localStorage.setItem('loggedin', '0')
-    console.log(localStorage.getItem('loggedin'))
+  useEffect(() => {
+    setLoading(1)
+  }, [])
 
-    useEffect(() => {
-        if (localStorage.getItem('loggedin') == '1') {
-            PopUp('Đăng nhập thành công')
-            localStorage.setItem('loggedin', '2')
-        }
-        if (localStorage.getItem('loggedin') == '3') {
-            PopUp('Đăng xuất thành công')
-            localStorage.setItem('loggedin', '0')
-        }
-    }, {
-    })
+  return (
+    <div>
+      {!loading ? <Loading /> :
 
-
-    return (
         <div>
-            <div className='App'>
-                <div className='gradient__bg'>
-                    <NavBar />
-                </div>
-                <Header />
-                <Introduction />
-                <Store />
-                <About />
-                <Document />
-                
-                <Contact />
-                <Footer />
-                <Chatbot />
-            </div>
+
+          <NavBar></NavBar>
+          <Header></Header>
+          <Introduction></Introduction>
+          <Store></Store>
+          <About></About>
+          <Document></Document>
+          <Contact></Contact>
+          <Footer></Footer>
+          <Chatbot></Chatbot>
         </div>
-    )
+
+      }
+
+
+    </div>
+  )
 }
 
 export default Home

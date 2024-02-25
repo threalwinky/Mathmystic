@@ -1,4 +1,4 @@
-.mmt__sign_up {
+.sign_up {
     background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);;
     height: 100vh;
     justify-content: center;
@@ -6,7 +6,7 @@
     overflow: auto;
 }
 
-.mmt__sign_up-container {
+.sign_up-container {
     /* padding: 10px; */
     /* margin-top: 20px; */
     top: 20%;
@@ -21,20 +21,24 @@
     box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
-.mmt__sign_up-container h1{
+.sign_up-container h1{
     align-self: center;
     padding-bottom: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
-.mmt__sign_up-input{
+.sign_up-input{
+    margin: 5px 0px;
+}
+
+.sign_up-show_password{
     margin: 10px 0px;
+    display: flex;
 }
 
-.mmt__sign_up-show_password{
-    margin: 10px 0px;
-}
-
-.mmt__sign_up-submit_button{
+.sign_up-submit_button{
     background-color: rgb(2, 154, 255);
     border-color: #b5f4ff;
     color: white;
@@ -44,21 +48,26 @@
     padding: 10px;
 }
 
-.mmt__sign_up-submit_button:hover{
+.sign_up-submit_button:hover{
     background-color: rgb(20, 200, 255);
     border-color: #3ec5fe;
     background-position: left;
     color: black;
 }
 
-.mmt__sign_up-google_sign_up{
+.sign_up-google_sign_up{
     align-self: center;
     margin: 20px 20px;
     display: flex;
     flex-direction: column;
+    >p{
+        font-size: 15px;
+        font-family: lora;
+        margin-bottom: 15px;
+    }
 }
 
-.mmt__sign_up-google_sign_up-icon{
+.sign_up-google_sign_up-icon{
     cursor: pointer;
     align-self: center;
 }

@@ -26,7 +26,7 @@ const Chatbot = () => {
 
         messages.push(['user-message', message])
         setMessages(messages)
-        messages.push(['bot-message', message])
+        messages.push(['bot-message', '123'])
         setMessages(messages)
         setTimeout(() => {
             var objDiv = document.getElementById("messages");

@@ -1,4 +1,4 @@
-export { default as PopUp } from './popup/PopUp'
+export { default as Modal } from './modal/Modal'
 export { default as Loading } from './loading/Loading'
-export { default as NotFound } from './notfound/NotFound'
 export { default as Chatbot } from './chatbot/Chatbot'
+export { default as NotFound } from './notfound/NotFound'

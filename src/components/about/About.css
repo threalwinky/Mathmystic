@@ -1,7 +1,7 @@
-.mmt__about {
+.about {
   padding: 80px 20px;
   position: relative;
-  background: linear-gradient(90.21deg, #c93c74 -5.91%, #eba38b 111.58%);
+  background: linear-gradient(90.21deg, #c93c74 -5.91%, #e08364 111.58%);
   ;
   text-align: center;
 
@@ -16,6 +16,7 @@
     padding: 20px;
     background: linear-gradient(90.21deg, #eba38b -5.91%, #c93c74 61.58%);
     border-radius: 30px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58);
     -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.58);
     -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58);
@@ -33,14 +34,14 @@
 }
 
 
-.mmt__about-bx {
+.about-bx {
   display: flex;
   justify-content: center;
   align-items: center;
 
 }
 
-.mmt__about-howto {
+.about-howto {
   padding: 3rem 3rem;
 
   h2 {
@@ -48,6 +49,7 @@
     font-weight: 700;
     text-align: center;
     color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin-bottom: 0rem;
   }
 
@@ -56,6 +58,7 @@
     text-align: start;
     font-size: 18px;
     color: black;
+    font-family: lora, sans-serif;
   }
 }
 
@@ -65,7 +68,7 @@
   position: relative;
   padding: 2rem 0rem;
   padding-top: 4rem;
-  background: linear-gradient(90deg, rgb(255, 154, 118) 0%, rgba(78, 0, 26, 1) 100%);
+  background: linear-gradient(90deg, rgb(218, 128, 95) 0%, rgba(78, 0, 26, 1) 100%);
   border-radius: 50px;
 }
 
@@ -82,4 +85,5 @@
   font-size: 25px;
   font-weight: 400;
   color: rgb(255, 255, 255);
+  font-family: lora, sans-serif;
 }
