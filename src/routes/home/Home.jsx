@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Modal, Loading, Chatbot } from "../../containers";
 
 import { NavBar, Header, Introduction, Store, About, Document, Footer, Contact } from "../../components";
-import { Modal, Loading, Chatbot } from "../../containers";
 const Home = () => {
   const [loading, setLoading] = useState(0)
 
