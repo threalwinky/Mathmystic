@@ -688,7 +688,7 @@ const NavBarWoutMenuLogo = () => {
         <div className='navbar-right'>
 
           <p>
-            <img onClick={() => cl()} className='flag-icon' src={language ? EnglishLanguage : VietnamLanguage} alt="" width={35} />
+            <img onClick={() => cl()} className='flag-icon' src={language ? EnglishLanguage : VietnamLanguage} alt="" width={35} height={35} />
           </p>
 
           <a href="/cart">
