@@ -14,7 +14,7 @@ const Home = () => {
       {!loading ? <Loading /> :
 
         <div>
-
+          <Chatbot></Chatbot>
           <NavBar></NavBar>
           <Header></Header>
           <Introduction></Introduction>
@@ -23,7 +23,6 @@ const Home = () => {
           <Document></Document>
           <Contact></Contact>
           <Footer></Footer>
-          <Chatbot></Chatbot>
         </div>
 
       }
