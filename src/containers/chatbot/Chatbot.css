@@ -1,9 +1,12 @@
 .chatbot{
+    /* z-index: 9999; */
     > .toggle-button{
         position: fixed;
         right: 3rem;
         bottom: 3rem;
         width: fit-content;
+        height: fit-content;
+        /* height: 450px; */
         padding: 1.5rem;
         border-radius: 50%;
         background-color: var(--color-magenta);
