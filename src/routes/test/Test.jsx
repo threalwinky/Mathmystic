@@ -7,8 +7,7 @@ const Test = () => {
 
   return (
     <div>
-      {s}
-      <div dangerouslySetInnerHTML={{__html: s}}></div>
+  
     </div>
   )
 }
