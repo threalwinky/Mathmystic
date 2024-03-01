@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Chatbot.css'
 import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
-
+// const {NLPManager} = require('node-nlp')
+// import { NlgManager } from 'node-nlp'
 const choose = (a, b, c) => (a ? b : c);
 
 const Chatbot = () => {
@@ -12,10 +13,44 @@ const Chatbot = () => {
 
     const [messages, setMessages] = useState([['bot-message', 'Hi! How can i help you?']])
 
-    function sendMessage(e) {
+    useEffect(() => {
+        const fetchMessage = async (msg) => {
+            fetch(`http://threalwinky.pythonanywhere.com/abc/${msg}`)
+                .then(response => response.json())
+                .then(json => console.log(json))
+        }
+        fetchMessage()
+    }, [])
+    // const f = async() => {
+    //     await fetch('https://rdclmm-3000.csb.app/?message=hello')
+    //         .then((res) => {
+    //             console.log(res)
+    //         })
+    //         // .then((data) => {
+    //         //     console.log(data);
+
+    //         // });
+    // }
+    var c = ''
+    const f = async(msg) => {
+        await fetch(`http://threalwinky.pythonanywhere.com/abc/${msg}`)
+        .then((response) => response.json())
+        .then(data => {
+            // console.log(data)
+            // c = data
+            return data;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    
+    }
+
+    const sendMessage = async(e) => {
         e.preventDefault()
+        // f()
         if (message == '') return
-        if (message == 'clear'){
+        if (message == 'clear') {
             setMessages([])
             setMessage('')
             return
@@ -23,10 +58,16 @@ const Chatbot = () => {
         var objDiv = document.getElementById("messages");
         objDiv.scrollTop = objDiv.scrollHeight;
         setMessage('')
+        
+        
 
         messages.push(['user-message', message])
         setMessages(messages)
-        messages.push(['bot-message', '123'])
+        var fe = await f(message)
+        
+        // setTimeout(() => {}, 1000)
+        console.log(fe)
+        messages.push(['bot-message', 123])
         setMessages(messages)
         setTimeout(() => {
             var objDiv = document.getElementById("messages");
@@ -80,12 +121,12 @@ const Chatbot = () => {
                             messages?.map((msg, index) => (
                                 <div key={index}>
                                     <div className={msg[0]}>
-                                        <img style={{borderRadius: '50%'}} src={msg[0] == 'bot-message' ?MathmysticLogo :
-                                        
-                                        (localStorage.getItem('userAvatar') == undefined ? "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" : localStorage.getItem('userAvatar'))
-                                        
-                                        } 
-                                         />
+                                        <img style={{ borderRadius: '50%' }} src={msg[0] == 'bot-message' ? MathmysticLogo :
+
+                                            (localStorage.getItem('userAvatar') == undefined ? "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" : localStorage.getItem('userAvatar'))
+
+                                        }
+                                        />
                                         <p>{msg[1]}</p>
                                     </div>
                                 </div>
