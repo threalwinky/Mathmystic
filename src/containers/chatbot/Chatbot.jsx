@@ -84,8 +84,9 @@ const Chatbot = () => {
   async function processMessage(newMessage) {
     console.log(newMessage)
     // console.log(newMessages.content)
-    const API_URL = "http://threalwinky.pythonanywhere.com"
-    await fetch(`${API_URL}/abc/${newMessage}`,
+    const API_URL = `http://threalwinky.pythonanywhere.com/abc/${newMessage}`
+    console.log(API_URL)
+    await fetch(`${API_URL}`,
       {
         method: "GET",
       }).then((data) => {
