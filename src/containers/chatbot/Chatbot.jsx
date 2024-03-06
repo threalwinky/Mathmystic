@@ -1,85 +1,116 @@
 import React, { useEffect, useState } from 'react'
 import './Chatbot.css'
-import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
-// const {NLPManager} = require('node-nlp')
+ // const {NLPManager} = require('node-nlp')
 // import { NlgManager } from 'node-nlp'
+import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
+
 const choose = (a, b, c) => (a ? b : c);
 
 const Chatbot = () => {
 
     const [toggle, setToggle] = useState(1)
 
-    const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('')
 
-    const [messages, setMessages] = useState([['bot-message', 'Hi! How can i help you?']])
-
-    useEffect(() => {
-        const fetchMessage = async (msg) => {
-            fetch(`http://threalwinky.pythonanywhere.com/abc/${msg}`)
-                .then(response => response.json())
-                .then(json => console.log(json))
-        }
-        fetchMessage()
-    }, [])
-    // const f = async() => {
-    //     await fetch('https://rdclmm-3000.csb.app/?message=hello')
-    //         .then((res) => {
-    //             console.log(res)
-    //         })
-    //         // .then((data) => {
-    //         //     console.log(data);
-
-    //         // });
-    // }
-    var c = ''
-    const f = async(msg) => {
-        await fetch(`http://threalwinky.pythonanywhere.com/abc/${msg}`)
-        .then((response) => response.json())
-        .then(data => {
-            // console.log(data)
-            // c = data
-            return data;
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    
+  const [messages, setMessages] = useState([
+    {
+      type: 'bot',
+      content: 'Hi! How can i help you?'
     }
 
-    const sendMessage = async(e) => {
-        e.preventDefault()
-        // f()
-        if (message == '') return
-        if (message == 'clear') {
-            setMessages([])
-            setMessage('')
-            return
-        }
-        var objDiv = document.getElementById("messages");
-        objDiv.scrollTop = objDiv.scrollHeight;
-        setMessage('')
-        
-        
+  ])
 
-        messages.push(['user-message', message])
-        setMessages(messages)
-        var fe = await f(message)
-        
+  useEffect(() => {
+    const fetchMessage = async (msg) => {
+      fetch(`https://threalwinky.pythonanywhere.com/abc/${msg}`)
+        .then(response => response.json())
+        .then(json => console.log(123))
+    }
+
+  }, [])
+
+  var c = ''
+  const f = async (message) => {
+    await fetch(`http://threalwinky.pythonanywhere.com/abc/${message}`)
+      .then((response) => response.json())
+      .then(async (data) => {
+        console.log(data.answer)
+        // c = data
+        await messages.push({ type: 'user', content: message })
+        setMessages([...messages, { type: 'user', content: message }])
         // setTimeout(() => {}, 1000)
-        console.log(fe)
-        messages.push(['bot-message', 123])
-        setMessages(messages)
+        // console.log(fe)
+        await messages.push({ type: 'bot', content: '123' })
+        await setMessages(messages)
         setTimeout(() => {
-            var objDiv = document.getElementById("messages");
-            objDiv.scrollTop = objDiv.scrollHeight;
+          var objDiv = document.getElementById("messages");
+          objDiv.scrollTop = objDiv.scrollHeight;
         }, 10)
+        return data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
 
+  }
+
+  const sendMessage = async (e) => {
+    e.preventDefault()
+    setMessage('')
+    const newMessage = message
+    if (message == '') return
+    if (message == 'clear') {
+      setMessages([])
+      return
     }
+
+    const newMessages = [...messages, { type: 'user', content: newMessage }];
+    messages.push({ type: 'user', content: newMessage })
+    setMessages(newMessages);
+    setTimeout(() => {
+      var objDiv = document.getElementById("messages");
+      objDiv.scrollTop = objDiv.scrollHeight;
+    }, 10)  
+    
+    // var objDiv = document.getElementById("messages");
+    // objDiv.scrollTop = objDiv.scrollHeight;
+    // messages.push({ type: 'user', content: message })
+    // setMessages([...messages, { type: 'user', content: message }])
+    // messages.push({ type: 'bot', content: message })
+    // setMessages(messages)
+    
+    await processMessage(newMessage)
+  }
+  async function processMessage(newMessage) {
+    console.log(newMessage)
+    // console.log(newMessages.content)
+    await fetch(`http://threalwinky.pythonanywhere.com/abc/${newMessage}`,
+      {
+        method: "GET",
+      }).then((data) => {
+        return data.json();
+      }).then((data) => {
+        console.log(data);
+        // setMessages([...chatMessages, {
+        //   message: data.choices[0].message.content,
+        //   sender: "ChatGPT"
+        // }]);
+        // setIsTyping(false);
+        const newMessages = [...messages, { type: 'bot', content: data.answer }];
+        messages.push({ type: 'bot', content : data.answer })
+
+        setMessages(newMessages);
+        setTimeout(() => {
+          var objDiv = document.getElementById("messages");
+          objDiv.scrollTop = objDiv.scrollHeight;
+        }, 10) 
+      });
+
+  }
 
     return (
         <div className='chatbot'>
             <div className='toggle-button' onClick={() => setToggle(!toggle)}>
-
 
                 {choose(toggle,
 
@@ -120,14 +151,16 @@ const Chatbot = () => {
                         {
                             messages?.map((msg, index) => (
                                 <div key={index}>
-                                    <div className={msg[0]}>
-                                        <img style={{ borderRadius: '50%' }} src={msg[0] == 'bot-message' ? MathmysticLogo :
+                                    <div className={msg.type}>
+                                        <img style={{ borderRadius: '50%' }} src={msg.type == 'bot' ? MathmysticLogo :
 
-                                            (localStorage.getItem('userAvatar') == undefined ? "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" : localStorage.getItem('userAvatar'))
+                                            (localStorage.getItem('userAvatar') == undefined ?
+                                                "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" :
+                                                localStorage.getItem('userAvatar'))
 
                                         }
                                         />
-                                        <p>{msg[1]}</p>
+                                        <p><div dangerouslySetInnerHTML={{__html : msg.content}}/></p>
                                     </div>
                                 </div>
                             ))

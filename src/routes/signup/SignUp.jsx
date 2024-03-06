@@ -178,11 +178,9 @@ const SignUp = () => {
           </div>
 
         </Form>
-        {isOpenPopupSuccessSignUp1 && <PopupSuccessSignUp1 setIsOpenPopupSuccessSignUp1={setIsOpenPopupSuccessSignUp1} />}
-
-        {isOpenPopupFailSignUp1 && <PopupFailSignUp1 setIsOpenPopupFailSignUp1={setIsOpenPopupFailSignUp1} />}
-
-        {isOpenPopupFailSignUp2 && <PopupFailSignUp2 setIsOpenPopupFailSignUp2={setIsOpenPopupFailSignUp2} />}
+        {isOpenPopupSuccessSignUp1 ? <PopupSuccessSignUp1 setIsOpenPopupSuccessSignUp1={setIsOpenPopupSuccessSignUp1} /> : ""}
+        {isOpenPopupFailSignUp1 ? <PopupFailSignUp1 setIsOpenPopupFailSignUp1={setIsOpenPopupFailSignUp1} /> : ""}
+        {isOpenPopupFailSignUp2 ? <PopupFailSignUp2 setIsOpenPopupFailSignUp2={setIsOpenPopupFailSignUp2} /> : ""}
       </div>
     </div>
   )

@@ -176,12 +176,9 @@ const SignIn = () => {
 
                     </Form>
                     {/* <button onClick={() => setIsOpenPopupSuccess(true)}>Open Popup</button> */}
-                    {isOpenPopupSuccess && <PopupSuccess setIsOpenPopupSuccess={setIsOpenPopupSuccess} />}
-
-                    {isOpenPopupFail1 && <PopupFailLogIn1 setIsOpenPopupFail1={setIsOpenPopupFail1} />}
-
-
-                    {isOpenPopupFail2 && <PopupFailLogIn2 setIsOpenPopupFail2={setIsOpenPopupFail2} />}
+                    {isOpenPopupSuccess ? <PopupSuccess setIsOpenPopupSuccess={setIsOpenPopupSuccess} /> : ""}
+                    {isOpenPopupFail1 ? <PopupFailLogIn1 setIsOpenPopupFail1={setIsOpenPopupFail1} /> : ""}
+                    {isOpenPopupFail2 ? <PopupFailLogIn2 setIsOpenPopupFail2={setIsOpenPopupFail2} /> : ""}
                 </div>
                 
             </div>}

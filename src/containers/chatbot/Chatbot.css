@@ -44,10 +44,10 @@
                 margin-bottom: 0px;
             }
             > .messages{
-                height: calc(80% - 1.2rem);
+                height: calc(80% - 1rem);
                 background-color: rgb(255, 255, 255);
-                overflow: scroll;
-                .bot-message{
+                overflow-y: scroll;
+                .bot{
                     display: flex;
                     padding: 15px;
                     width: 100%;
@@ -59,7 +59,7 @@
                     }
                     > p{
                         background-color: var(--color-magenta);
-                        max-width: 10rem;
+                        max-width: calc(100% - 1rem);
                         height: auto;
                         margin: 0 5px;
                         color: white;
@@ -71,7 +71,7 @@
                         word-wrap: break-word;
                     }
                 }
-                .user-message{
+                .user{
                     display: flex;
                     flex-direction: row-reverse;
                     padding: 15px;
