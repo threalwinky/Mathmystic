@@ -105,8 +105,10 @@ const Chatbot = () => {
           var objDiv = document.getElementById("messages");
           objDiv.scrollTop = objDiv.scrollHeight;
         }, 10) 
+      })
+      .catch(error => {
+        console.error(error);
       });
-
   }
 
     return (
