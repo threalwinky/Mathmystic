@@ -3,7 +3,7 @@ import './Chatbot.css'
  // const {NLPManager} = require('node-nlp')
 // import { NlgManager } from 'node-nlp'
 import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
-
+// import fetch from 'node-fetch'
 const choose = (a, b, c) => (a ? b : c);
 
 const Chatbot = () => {
