@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Loading } from '../../containers'
 import './Test.css'
 import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
-import {unidecode} from 'unidecode'
+import { unidecode } from 'unidecode'
 const choose = (a, b, c) => (a ? b : c);
 
 const Test = () => {
@@ -69,15 +69,15 @@ const Test = () => {
     setTimeout(() => {
       var objDiv = document.getElementById("messages");
       objDiv.scrollTop = objDiv.scrollHeight;
-    }, 10)  
-    
+    }, 10)
+
     // var objDiv = document.getElementById("messages");
     // objDiv.scrollTop = objDiv.scrollHeight;
     // messages.push({ type: 'user', content: message })
     // setMessages([...messages, { type: 'user', content: message }])
     // messages.push({ type: 'bot', content: message })
     // setMessages(messages)
-    
+
     await processMessage(newMessage)
   }
   async function processMessage(newMessage) {
@@ -96,19 +96,19 @@ const Test = () => {
         // }]);
         // setIsTyping(false);
         const newMessages = [...messages, { type: 'bot', content: data.answer }];
-        messages.push({ type: 'bot', content : data.answer })
+        messages.push({ type: 'bot', content: data.answer })
 
         setMessages(newMessages);
         setTimeout(() => {
           var objDiv = document.getElementById("messages");
           objDiv.scrollTop = objDiv.scrollHeight;
-        }, 10) 
+        }, 10)
       });
 
   }
   return (
-    <div className='chatbot'>
-      <div className='toggle-button' onClick={() => setToggle(!toggle)}>
+    <div className='doccc'>
+      {/* <div className='toggle-button' onClick={() => setToggle(!toggle)}>
 
         {choose(toggle,
 
@@ -186,7 +186,11 @@ const Test = () => {
 
           </div>
         </div>
-      </div>
+      </div> */}
+      <iframe scrolling="no" 
+      title="KHỐI LĂNG TRỤ" 
+      src="https://www.geogebra.org/material/iframe/id/nf6e6pad/width/1432/height/778/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false" 
+      width="100%" height="100%" style={{border:"0px"}}> </iframe>
     </div>
   )
 }
