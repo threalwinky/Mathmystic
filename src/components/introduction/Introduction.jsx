@@ -1,18 +1,24 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+/*Module before File after */
+import { useState, useEffect, React } from 'react'
+import { Trans, withTranslation, useTranslation } from 'react-i18next';
+import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
+import { useMediaQuery } from 'react-responsive'
 
+
+import db from '../../../firebase'
 import './Introduction.css'
+import MathmysticPet from '../../assets/img/MathmysticPet.png';
+import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
 import Introduction1 from '../../assets/img/Introduction1.png'
 import Introduction2 from '../../assets/img/Introduction2.png'
 import Introduction3 from '../../assets/img/Introduction3.webp'
-import { useMediaQuery } from 'react-responsive'
-import { Trans } from 'react-i18next'
 const Introduction = () => {
-
+    /* Necessary function */
+    const [t, i18n] = useTranslation()
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1050px)'
     })
+
 
     return (
         <div className='introduction' id='introduction'>

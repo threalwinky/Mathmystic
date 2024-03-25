@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { Container, Row, Col, Tab, Nav, Form } from "react-bootstrap";
-import ReactPlayer from 'react-player/file'
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
-import 'react-slideshow-image/dist/styles.css'
-import { Fade, Slide } from 'react-slideshow-image';
+/*Module before File after */
+import { useState, useEffect, React } from 'react'
+import { Trans, withTranslation, useTranslation } from 'react-i18next';
+import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, setDoc, updateDoc } from 'firebase/firestore'
 import { useMediaQuery } from 'react-responsive'
+import { Fade, Slide } from 'react-slideshow-image';
+import { Worker } from '@react-pdf-viewer/core';
+import ReactPlayer from 'react-player/file'
+import 'react-slideshow-image/dist/styles.css'
 
-import { DocumentCard } from "./DocumentCard";
+import db from '../../../firebase'
 import './Document.css'
-import { Trans } from 'react-i18next';
-
+import MathmysticPet from '../../assets/img/MathmysticPet.png';
+import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
 import Document1 from '../../assets/vid/V1.mp4'
 import Document2 from '../../assets/vid/V2.mp4'
 import Document3 from '../../assets/vid/V3.mp4'
@@ -46,9 +47,14 @@ import Ins4 from '../../assets/img/Doc/Ins/Ins4.png'
 import Ins5 from '../../assets/img/Doc/Ins/Ins5.png'
 
 const Document = () => {
+  /* Necessary function */
+  const [t, i18n] = useTranslation()
   const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 800px)'
+    query: '(min-width: 1050px)'
   })
+
+  const [choose, setChoose] = useState(1)
+
   const [docContent, setDocContent] = useState('1')
   // const [value, setValue] = useState('1')
   const projects = [
@@ -86,7 +92,7 @@ const Document = () => {
   ];
 
   useEffect(() => {
-    console.log(docContent)
+    // console.log(docContent)
 
   }, [])
 
@@ -110,30 +116,42 @@ const Document = () => {
   const DocElement1 = () => {
     return (
       <>
-      <iframe
-      allowfullscreen="allowfullscreen"
-      scrolling="no" class="fp-iframe"
-      style={{ border: "1px solid lightgray", width: isDesktopOrLaptop ? "80%" : '90%', height: isDesktopOrLaptop ? "1000px" : "250px", padding: 20 }}
-      src="https://heyzine.com/flip-book/11dd3247df.html">
-    </iframe>
+      <div className="slide-container document-slide">
+        <iframe
+          allowFullScreen="allowfullscreen"
+          scrolling="no" className="fp-iframe"
+          style={{ border: "1px solid lightgray", width: isDesktopOrLaptop ? "80%" : '90%', height: isDesktopOrLaptop ? "1000px" : "250px", padding: 20 }}
+          src="https://heyzine.com/flip-book/2ac410fc4e.html">
+        </iframe>
+        {/* <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 1px solid lightgray; width: 100%; height: 400px;" src="https://heyzine.com/flip-book/2ac410fc4e.html"></iframe> */}
+          {/* <div>
+            213
+          </div> */}
+</div>
       </>
     )
-    
+
   }
 
   const DocElement2 = () => {
     return (
       <>
-        <div className="slide-container document-slide">
+        {/* <div className="slide-container document-slide">
           <Slide {...{ duration: 100, autoplay: false, indicators: true }}>
             {projects2.map((fadeImage, index) => (
               <div key={index}>
                 <img style={{ width: '100%', borderRadius: 30 }} src={fadeImage.imgUrl} />
-                {/* <h2>{fadeImage.caption}</h2> */}
               </div>
             ))}
           </Slide>
-        </div>
+        </div> */}
+        <iframe
+          allowfullscreen="allowfullscreen"
+          scrolling="no" className="fp-iframe"
+          style={{ border: "1px solid lightgray", width: isDesktopOrLaptop ? "80%" : '90%', height: isDesktopOrLaptop ? "1000px" : "250px", padding: 20 }}
+          src="https://heyzine.com/flip-book/9f0a65b367.html">
+        </iframe>
+        {/* <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 1px solid lightgray; width: 100%; height: 400px;" src=""></iframe> */}
       </>
     )
   }
@@ -142,14 +160,19 @@ const Document = () => {
     return (
       <>
         <div className="slide-container document-slide">
-          <Slide {...{ duration: 100, autoplay: false, indicators: true }}>
+          {/* <Slide {...{ duration: 100, autoplay: false, indicators: true }}>
             {projects3.map((fadeImage, index) => (
               <div key={index}>
                 <img style={{ width: '50%', borderRadius: 30 }} src={fadeImage.imgUrl} />
-                {/* <h2>{fadeImage.caption}</h2> */}
               </div>
             ))}
-          </Slide>
+          </Slide> */}
+          <iframe
+          allowfullscreen="allowfullscreen"
+          scrolling="no" clasName="fp-iframe"
+          style={{ border: "1px solid lightgray", width: isDesktopOrLaptop ? "80%" : '90%', height: isDesktopOrLaptop ? "1000px" : "250px", padding: 20 }}
+          src="https://heyzine.com/flip-book/9f0a65b367.html">
+        </iframe>
         </div>
       </>
     )
@@ -201,7 +224,6 @@ const Document = () => {
     )
   }
 
-  const DocElement = [DocElement1]
   const Choose = () => {
     if (docContent == '1') return (
       <DocElement1></DocElement1>
@@ -219,70 +241,33 @@ const Document = () => {
   return (
     <div className='document' id='document'>
       <h1><Trans>Document</Trans></h1>
-      <div className='document-content'>
-        <Tab.Container id="projects-tabs" defaultActiveKey="first">
-          {!isDesktopOrLaptop ?
+      <div className='document-choose-container'>
+        <div className='document-choose'>
+          <div
+            className={'document-choose-box document-choose-box-1' + (choose == 1 ? ' choose' : '')}
+            onClick={() => { setChoose(1), setDocContent(1) }}
+          >
+            So tay dien tu
+          </div>
+          <div
+            className={'document-choose-box document-choose-box-2' + (choose == 2 ? ' choose' : '')}
+            onClick={() => {setChoose(2), setDocContent(3)}}
+          >
+            Huong dan su dung
+          </div>
+          <div
+            className={'document-choose-box document-choose-box-3' + (choose == 3 ? ' choose' : '')}
+            onClick={() => {setChoose(3), setDocContent(4)}}
+          >
+            Video huong dan
+          </div>
 
-            <div>
-              <select
-                value={docContent}
-                // onChange={this.handleChange} 
-                aria-label="Default select example"
-                className='nav-pills-phone'
-                onChange={e => setDocContent(e.target.value)}
-              >
-                {/* <option value="">123</option> */}
-                <option value='1' onClick={() => setDocContent(1)}>
-
-                  <Nav.Item>
-                    <Nav.Link eventKey="first" ><Trans>
-
-                      Handbook
-                    </Trans>
-                    </Nav.Link>
-                  </Nav.Item>
-                </option >
-                {/* <option value='2' onClick={() => setDocContent(2)}>
-                  <Nav.Item>
-                    <Nav.Link eventKey="second" ><Trans>Handbook(English)</Trans></Nav.Link>
-                  </Nav.Item>
-                </option > */}
-                <option value='3' onClick={() => setDocContent(3)}><Trans>Manual</Trans></option>
-                <option value="4" onClick={() => setDocContent(4)}><Trans>Instructional video</Trans></option>
-
-              </select>
-
-            </div>
-
-            : <div>
-              <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                <Nav.Item>
-                  <Nav.Link eventKey={"first"} onClick={() => setDocContent('1')} ><Trans>Handbook</Trans></Nav.Link>
-                </Nav.Item>
-                {/* <Nav.Item>
-                  <Nav.Link eventKey={"second"} onClick={() => setDocContent('2')} ><Trans>Handbook(English)</Trans></Nav.Link>
-                </Nav.Item> */}
-                <Nav.Item>
-                  <Nav.Link eventKey={"third"} onClick={() => setDocContent('3')} ><Trans>Manual</Trans></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey={"fourth"} onClick={() => setDocContent('4')} ><Trans>Instructional video</Trans></Nav.Link>
-                </Nav.Item>
-              </Nav>
-
-            </div>}
-
-          <Tab.Content id="slideInUp" >
-
-            <Choose>
-
-            </Choose>
-
-
-          </Tab.Content>
-        </Tab.Container>
+        </div>
       </div>
 
+      <div className='document-content'>
+        <Choose></Choose>
+      </div>
     </div>
   )
 }

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { getDocs, collection } from 'firebase/firestore';
+
 import { useMediaQuery } from 'react-responsive'
 import { Trans } from 'react-i18next';
 
-import db from '../../firebase'
-import { getDocs, collection } from 'firebase/firestore';
 
-import i18n from '../../i18n'
+import db from '../../../firebase'
+import i18n from '../../../i18n'
 import VietnamLanguage from '../../assets/img/VietnamLanguage3.jpeg'
 import EnglishLanguage from '../../assets/img/EnglishLanguage3.png'
 import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
@@ -36,6 +37,7 @@ const NavBar = () => {
   })
 
   var LogOut = () => {
+    if (localStorage.getItem('user') == 'Guest') return
     localStorage.removeItem('user')
     localStorage.removeItem('userAvatar')
     localStorage.removeItem('userName')
@@ -83,7 +85,8 @@ const NavBar = () => {
           setFoundUser(foundUser2)
           // console.log((foundUser2.email).includes('0'))
           // if (localStorage.getItem('user') == undefined) setFe()
-          setFe(String(foundUser2.email.endsWith('2')) ? String(foundUser2.email.substr(0, foundUser2.email.length - 1)) : String(foundUser2.email))
+          setFe((foundUser2.email.endsWith('2')) ? String(foundUser2.email.substr(0, foundUser2.email.length - 1)) : String(foundUser2.email))
+          // console.log(String(foundUser2.email.endsWith('2')))
         }
         // console.log(foundUser2)
         // setLoading(1)
@@ -347,7 +350,7 @@ const NavBar = () => {
             <Trans>Forum</Trans>
           </p>
         </a>
-        <a href='#store'>
+        <a href='/setting'>
           <svg
             viewBox="0 0 512 512"
             fill="currentColor"
@@ -368,7 +371,7 @@ const NavBar = () => {
             <Trans>Setting</Trans>
           </p>
         </a>
-        <a onClick={LogOut}>
+        <a onClick={LogOut} style={{cursor: 'pointer'}}>
           <svg
             viewBox="0 0 21 21"
             fill="currentColor"
@@ -468,7 +471,7 @@ const NavBar = () => {
             <Trans>Forum</Trans>
           </p>
         </a>
-        <a href='#store'>
+        <a href='/setting'>
           <svg
             viewBox="0 0 512 512"
             fill="currentColor"
@@ -518,6 +521,14 @@ const NavBar = () => {
     <div>
 
       <>
+
+        <div className={"modal-left-fade" + ((modalLeft) ? ' ' : ' modal-left-fade-show')}
+
+          onClick={() => { setModalLeft(!modalLeft) }}
+        >
+
+        </div>
+
         <div className={'modal-left' + ((modalLeft) ? ' slide-right' : ' slide-left')} onClick={() => { setModalLeft(!modalLeft) }}>
           <div
             onClick={(e) => e.stopPropagation()}
@@ -575,6 +586,13 @@ const NavBar = () => {
           </div> */}
         </div>
 
+        <div className={"modal-right-fade" + ((modalRight) ? ' ' : ' modal-right-fade-show')}
+
+          onClick={() => { setModalRight(!modalRight) }}
+        >
+
+        </div>
+
         <div className={'modal-right' + ((modalRight) ? ' slide-left' : ' slide-right')}
           onClick={() => { setModalRight(!modalRight) }}
         >
@@ -583,10 +601,10 @@ const NavBar = () => {
           >
             <div className='modal-right-content-header'>
               <div className='modal-right-content-header-info'>
-                <img width={45} height={45} src={foundUser.avatar} alt="" style={{ borderRadius: '50%' }} />
+                <img referrerPolicy="no-referrer" width={45} height={45} src={foundUser.avatar} alt="" style={{ borderRadius: '50%' }} />
                 <div className='modal-right-content-header-info-text'>
-                  <h1>{foundUser.name}</h1>
-                  <p>{fe}</p>
+                  <h1><Trans>{foundUser.name}</Trans></h1>
+                  <p><Trans>{fe}</Trans></p>
                 </div>
               </div>
 
@@ -605,7 +623,7 @@ const NavBar = () => {
 
             </div>
             <div className='modal-right-content-topic'>
-              {localStorage.getItem('user') == undefined ? <UserMenuSignIn /> : <UserMenu />}
+              {localStorage.getItem('user') == 'Guest' ? <UserMenuSignIn /> : <UserMenu />}
 
             </div>
             <div className='modal-right-content-footer'>
@@ -683,7 +701,7 @@ const NavBar = () => {
         <div className='navbar-right'>
 
           <p>
-            <img  onClick={() => cl()} className='flag-icon' src={language ? EnglishLanguage : VietnamLanguage} alt="" width={35} height={35} />
+            <img onClick={() => cl()} className='flag-icon' src={language ? EnglishLanguage : VietnamLanguage} alt="" width={35} height={35} />
           </p>
 
           <a href="/cart">

@@ -21,7 +21,8 @@
 
 .header-content_left {
     h1 {
-        font-size: 60px;
+        margin-top: 10px;
+        font-size: var(--font-large);
         font-weight: 700;
         letter-spacing: 0.8px;
         line-height: 1;
@@ -31,7 +32,7 @@
 
     p {
         color: #B8B8B8;
-        font-size: 18px;
+        font-size: var(--font-small);
         line-height: 1.5em;
         width: 96%;
         margin: 0;
@@ -48,7 +49,7 @@
     button {
         color: #890036;
         font-weight: 700;
-        font-size: 20px;
+        font-size: var(--font-small);
         margin-top: 60px;
         letter-spacing: 0.8px;
         display: flex;
@@ -58,6 +59,8 @@
         padding: 1rem;
         cursor: pointer;
         font-family: mulish;
+        border-radius: 10px;
+        border: 1px solid #890036;
     }
 
     button:hover {
@@ -66,7 +69,7 @@
     }
 
     button svg {
-        font-size: 25px;
+        font-size: var(--font-small);
         margin-left: 10px;
         transition: 0.3s ease-in-out;
         line-height: 1;
@@ -77,12 +80,13 @@
     }
 
     .header-tagline {
+        
         font-weight: 700;
         letter-spacing: 0.8px;
         padding: 8px 10px;
         background: linear-gradient(90.21deg, rgba(142, 0, 54, 255) -5.91%, rgba(78, 0, 26, 255) 111.58%);
         border: 1px solid rgba(255, 255, 255, 0.5);
-        font-size: 20px;
+        font-size: var(--font-small);
         margin-bottom: 16px;
         display: inline-block;
         color: rgb(233, 211, 211);

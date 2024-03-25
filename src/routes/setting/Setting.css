@@ -1,0 +1,49 @@
+/* .setting{
+    height: 100vh;
+}
+
+.circle-background{
+    fill: none;
+    stroke: #ddd;
+}
+
+.circle-progress{
+    fill: none;
+    stroke: rgb(255, 255, 155);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+input{
+    border: none;
+    outline: none;
+    
+} */
+
+.clock{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
+
+.setting{
+    height: 100vh;
+}
+
+.circle-background{
+    fill: none;
+    stroke: #ddd;
+}
+
+.circle-progress{
+    fill: none;
+    /* stroke: rgb(125, 166, 255); */
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+input{
+    border: none;
+    outline: none;
+    
+}

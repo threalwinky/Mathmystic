@@ -116,7 +116,13 @@ i18n
           "Search a post" : "Tìm kiếm cuộc trò chuyện",
           "Post description" : "Thông tin cuộc trò chuyện",
           "Post title" : "Tiêu đề",
-          "Add" : "Thêm"
+          "Add" : "Thêm",
+          "Guest" : "Khách",
+          "Please sign in to use our service": "vui lòng đăng nhập để sử dụng trang web",
+          "Hi! How can i help you?" : "Xin chào! Chúng tôi có thể giúp gì cho bạn?",
+          "Push a comment" : "Thêm bình luận",
+          "Product Review" : "Đánh giá sản phẩm",
+          
         }
       }
     },

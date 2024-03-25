@@ -1,5 +1,5 @@
 import { AiOutlineCloseSquare } from "react-icons/ai";
-import db from '../../firebase'
+import db from '../../../firebase'
 import './Popup.css'
 import PopupSuccessCart2 from "./PopupSuccessCart2";
 import { useState } from "react";

@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import db from '../../firebase'
-import { onSnapshot, collection, deleteDoc, doc, getDocs, addDoc, Timestamp, query, updateDoc } from 'firebase/firestore'
-import { useState } from 'react';
-import { Loading, NotFound } from '../../containers'
+/*Module before File after */
+import { useState, useEffect, React } from 'react'
+import { Trans, withTranslation, useTranslation } from 'react-i18next';
+import { Timestamp, addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
+import { useMediaQuery } from 'react-responsive'
+import { Headpage, Loading, NotFound } from '../../containers'
 import { Link, useParams } from "react-router-dom";
 import './Chat.css'
 import { Footer, NavBarWoutMenuLogo } from "../../components";
@@ -11,14 +12,24 @@ import { IoEyeSharp } from "react-icons/io5";
 import { FaComment } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import 'semantic-ui-css/semantic.min.css'
-import { Button, Popup } from "semantic-ui-react";
 import { MdOutlineArrowCircleLeft } from "react-icons/md";
-import { Cursor } from "react-bootstrap-icons";
-import { Trans, useTranslation } from "react-i18next";
 import PopupFailChat1 from "../../containers/modal/PopupFailChat1";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
+import db from '../../../firebase'
+import './Chat.css'
+import MathmysticPet from '../../assets/img/MathmysticPet.png';
+import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
+
 const Chat = ({ chatId }) => {
+    /* Necessary function */
     const [t, i18n] = useTranslation()
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 1050px)'
+    })
+
+
     const [loading, setLoading] = useState(0)
     const [messages, setMessages] = useState([])
     const [chats, setChats] = useState([])
@@ -73,7 +84,8 @@ const Chat = ({ chatId }) => {
                     const newData = querySnapshot.docs
                         .map((doc) => ({ ...doc.data(), id: doc.id }));
                     setChats(newData);
-                    setLoading(1)
+                    setTimeout(() => {setLoading(1)}, 200)
+                    
                     const foundChat2 = (newData.find(x => x.id == chatId))
                     setFoundChat(foundChat2)
                     // console.log(foundChat)
@@ -96,7 +108,7 @@ const Chat = ({ chatId }) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({ ...doc.data(), id: doc.id }));
                 setChats(newData);
-                setLoading(1)
+                setTimeout(() => {setLoading(1)}, 200)
                 const foundChat2 = (newData.find(x => x.id == chatId))
                 setFoundChat(foundChat2)
                 // console.log(foundChat)
@@ -180,132 +192,155 @@ const Chat = ({ chatId }) => {
             {foundChat == undefined ? <NotFound /> :
 
                 <div>
-                    {!loading ? <Loading /> :
-                    <div>
-                        <NavBarWoutMenuLogo />
-                    
-                    
-                        <div className="mmt__chat-body">
-                            
+                    {!loading ? <Headpage /> :
+                        <div>
+                            <NavBarWoutMenuLogo />
 
-                            <div className="mmt__chat-container">
-                                {/* {messages.length}
+
+                            <div className="chat-body">
+
+
+                                <div className="chat-container">
+                                    {/* {messages.length}
                                 {foundChat.description}
                                 {foundChat.name}
                                 {foundChat.createdUser.avatar}
                                 {foundChat.createdUser.name} */}
-                                <div className="mmt__chat-info">
-                                    <div className="mmt__chat-info_content">
-                                        <IoEyeSharp className="mmt__chat-info_content-icon" /><p>{foundChat.seen}</p></div>
-                                    <div className="mmt__chat-info_content">
-                                        <FaComment className="mmt__chat-info_content-icon" /><p>{foundChat.comment}</p></div>
-                                    <div className="mmt__chat-info_content">
-                                        <TiTickOutline className="mmt__chat-info_content-icon2" size={20} /><p>{foundChat.solved}</p></div>
-                                </div>
-                                <div className="mmt__chat-box">
-                                    <div className="mmt__chat-vote">
-                                        <TbTriangleFilled size={10} style={{ cursor: "pointer" }} onClick={upvote} />
-                                        {foundChat.vote}
-                                        <TbTriangleInvertedFilled size={10} style={{ cursor: "pointer" }} onClick={downvote} />
-
+                                    <div className="chat-info">
+                                        <div className="chat-info_content">
+                                            <IoEyeSharp className="chat-info_content-icon" /><p>{foundChat.seen}</p></div>
+                                        <div className="chat-info_content">
+                                            <FaComment className="chat-info_content-icon" /><p>{foundChat.comment}</p></div>
+                                        <div className="chat-info_content">
+                                            <TiTickOutline className="chat-info_content-icon2" size={24} /><p>{foundChat.solved}</p></div>
                                     </div>
-                                    <div className="mmt__chat-ask_all">
-                                        <div className="mmt__chat-ask">
-                                            <div className="mmt__chat-ask_info">
-                                                <img src={foundChat.createdUser.avatar} />
-                                                <p>{foundChat.createdUser.name}</p>
-
-                                            </div>
-                                            <h6>{changeDate(Timestamp.now().seconds - foundChat.createdAt)}</h6>
-                                            <div className="mmt__chat-ask_content">
-                                                <h1>{foundChat.name}</h1>
-                                                <h5>{foundChat.description}</h5>
-                                            </div>
+                                    <div className="chat-box">
+                                        <div className="chat-vote">
+                                            <TbTriangleFilled size={10} style={{ cursor: "pointer" }} onClick={upvote} />
+                                            {foundChat.vote}
+                                            <TbTriangleInvertedFilled size={10} style={{ cursor: "pointer" }} onClick={downvote} />
 
                                         </div>
-                                        {/* <button style={{ position: "absolute", right: 50, top: 100 }} className="abc" onClick={() => deleteChat(chatId)}> <Trans>Delete</Trans></button> */}
-                                        <button className="abc" onClick={() => deleteChat(chatId)}> <Trans>Delete</Trans></button>
+                                        <div className="chat-ask_all">
+                                            <div className="chat-ask">
+                                                <div className="chat-ask_info">
+                                                    <img src={foundChat.createdUser.avatar} />
+                                                    <p>{foundChat.createdUser.name}</p>
+
+                                                </div>
+                                                <h6>{changeDate(Timestamp.now().seconds - foundChat.createdAt)}</h6>
+                                                <div className="chat-ask_content">
+                                                    <h1><div dangerouslySetInnerHTML={{ __html: foundChat.name }} /></h1>
+                                                    <h5><div dangerouslySetInnerHTML={{ __html: foundChat.description }} /></h5>
+                                                </div>
+
+                                            </div>
+                                            {/* <button style={{ position: "absolute", right: 50, top: 100 }} className="abc" onClick={() => deleteChat(chatId)}> <Trans>Delete</Trans></button> */}
+
+                                            {!(foundChat.createdUser.email == localStorage.getItem('user')) ?
+                                                "" :
+                                                <button className="abc" onClick={() => deleteChat(chatId)}> <Trans>Delete</Trans></button>
+                                            }
+
+
+
+                                        </div>
 
                                     </div>
 
-                                </div>
+                                    <div />
+                                    <div className="chat-ans_count">
+                                        <h2><span>{localStorage.getItem('lang') == 'en' ? `Include ${messages.length} answers` : `Co ${messages.length} cau tra loi`}</span></h2>
+                                    </div>
+                                    <div className="chat-ans-container">
+                                        {
+                                            messages?.map((message, id) => (
+                                                <p key={id}>
 
-                                <div />
-                                <div className="mmt__chat-ans_count">
-                                    <h2><span>{localStorage.getItem('lang') == 'en' ? `Include ${messages.length} answers` : `Co ${messages.length} cau tra loi`}</span></h2>
-                                </div>
-                                <div className="mmt__chat-ans-container">
-                                    {
-                                        messages?.map((message, id) => (
-                                            <p key={id}>
-
-                                                <div className="mmt__chat-ans-box">
-                                                    <div className="mmt__chat-vote">
-                                                        <TbTriangleFilled size={10} />
-                                                        0
-                                                        <TbTriangleInvertedFilled size={10} />
-                                                    </div>
-                                                    <div className="mmt__chat-ans">
-                                                        <div className="mmt__chat-ans_info">
-                                                            <div className='mmt__chat-ask_info'>
-                                                                <img src={message.createdBy.avatar} />
-                                                                <p>{message.createdBy.name}</p>
-                                                                
-                                                            </div>
-                                                            <h6>{changeDate(Timestamp.now().seconds - message.createdAt)}</h6>
+                                                    <div className="chat-ans-box">
+                                                        <div className="chat-vote">
+                                                            <TbTriangleFilled size={10} />
+                                                            0
+                                                            <TbTriangleInvertedFilled size={10} />
                                                         </div>
-
-                                                        <div className="mmt__chat-ask_content2">
-                                                            {/* <h1>{foundChat.name}</h1> */}
-                                                            <h5>
-
-                                                                <div dangerouslySetInnerHTML={{ __html: message.content }}>
+                                                        <div className="chat-ans">
+                                                            <div className="chat-ans_info">
+                                                                <div className='chat-ask_info'>
+                                                                    <img src={message.createdBy.avatar} />
+                                                                    <p>{message.createdBy.name}</p>
 
                                                                 </div>
+                                                                <h6>{changeDate(Timestamp.now().seconds - message.createdAt)}</h6>
+                                                            </div>
 
-                                                            </h5>
-                                                            {/* <h5>11111111111111111111111111111111111111111</h5> */}
+                                                            <div className="chat-ask_content2">
+                                                                {/* <h1>{foundChat.name}</h1> */}
+                                                                <h5>
+
+                                                                    <div dangerouslySetInnerHTML={{ __html: message.content }}>
+
+                                                                    </div>
+
+                                                                </h5>
+                                                                {/* <h5>11111111111111111111111111111111111111111</h5> */}
+                                                            </div>
+                                                            {/* 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */}
                                                         </div>
-                                                        {/* 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */}
-                                                    </div>
 
-                                                    <div className="mmt__chat-ask_menu">
-                                                        {/* <button
+                                                        <div className="chat-ask_menu">
+                                                            {/* <button
                                                             onClick={() => { deleteMessage(message.id) }}
-                                                            className="mmt__chat-ask_menu-button"
+                                                            className="chat-ask_menu-button"
                                                         >Delete</button> */}
 
-                                                        <Popup
+                                                            {/* <Popup
                                                             content={<button className="abc" onClick={() => deleteMessage(message.id)}> <Trans>Delete</Trans></button>}
                                                             on='click'
                                                             pinned
                                                             position="top right"
                                                             trigger={<BsThreeDotsVertical size={20} />}>
-                                                        </Popup>
+                                                        </Popup> */}
+
+                                                            <Popup
+                                                                trigger={open =>
+                                                                (
+                                                                    <button><BsThreeDotsVertical /></button>
+
+                                                                )
+
+                                                                }
+                                                                position="top center" closeOnDocumentClick  >
+                                                                <span><button className="abc"
+                                                                    onClick={() => deleteMessage(message.id)}
+                                                                >
+                                                                    <Trans>Delete</Trans></button></span>
+
+                                                            </Popup>
+
+                                                        </div>
+
+
+
+
                                                     </div>
+                                                    <div className="chat-ans_count2">
+                                                        <h2></h2>
+                                                    </div>
+                                                </p>
+                                            ))
+                                        }
+                                    </div>
+                                    <div className="chat-input">
+                                        <textarea rows={5} value={messageContent} placeholder={t("Message")} type="text" onChange={evt => { setMessageContent(evt.target.value); }} />
+                                        <button style={{ borderStyle: "solid", borderColor: '#c5c7c5' }} onClick={addMessage}> <Trans>Send</Trans> </button>
+                                    </div>
 
 
-
-
-                                                </div>
-                                                <div className="mmt__chat-ans_count2">
-                                                    <h2></h2>
-                                                </div>
-                                            </p>
-                                        ))
-                                    }
                                 </div>
-                                <div className="mmt__forum-list-new_post_box-bottom2">
-                                    <textarea value={messageContent} placeholder={t("Message")} type="text" onChange={evt => { setMessageContent(evt.target.value); }} />
-                                    <button style={{ borderStyle: "solid", borderColor: '#c5c7c5' }} onClick={addMessage}> <Trans>Send</Trans> </button>
-                                </div>
-
 
                             </div>
+                        </div>
 
-                        </div>
-                        </div>
-                        
                     }
                     {isOpenPopupFailChat1 ? <PopupFailChat1 setIsOpenPopupFailChat1={setIsOpenPopupFailChat1} /> : ""}
                 </div>

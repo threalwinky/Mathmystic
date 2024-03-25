@@ -1,25 +1,73 @@
-import React from 'react'
+/*Module before File after */
+import { useState, useEffect, React } from 'react'
+import { Trans, withTranslation, useTranslation } from 'react-i18next';
+import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
+import { useMediaQuery } from 'react-responsive'
+import NavBarWoutMenu from '../../components/navbar/NavBarWoutMenu'
+
+
+import db from '../../../firebase'
+import './Study.css'
+import MathmysticPet from '../../assets/img/MathmysticPet.png';
+import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
+import { Loading } from '../../containers';
+import Footer from '../../components/footer/Footer';
+import StudyFree from './StudyFree';
+import StudyPro from './StudyPro';
 
 const Study = () => {
+  /* Necessary function */
+  const [t, i18n] = useTranslation()
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1050px)'
+  })
+  const [loading, setLoading] = useState(0)
+  const [mode, setMode] = useState('no')
+  const [choose, setChoose] = useState(1)
+  useEffect(() => {
+    setLoading(1)
+
+  }, [])
   return (
     <div>
-      <iframe 
-      allowfullscreen="allowfullscreen" 
-      scrolling="no" class="fp-iframe" 
-      style={{border: "1px solid lightgray", width: "40%", height: "400px", padding: 20}}
-      src="https://heyzine.com/flip-book/11dd3247df.html">
-      </iframe>
+      {!loading ? <Loading /> :
 
-      {/* <iframe allowfullscreen="allowfullscreen"
-       scrolling="no" class="fp-iframe" 
-       style="border: 0px; width: 100%; height: 400px;"
-        src="https://heyzine.com/flip-book/11dd3247df.html"></iframe> */}
+        <div>
+          <NavBarWoutMenu />
 
-      {/* <a href="https://heyzine.com/flip-book/11dd3247df.html"
-       target="_BLANK" class="heyzine-link fp-link">
-        <img src="https://cdnc.heyzine.com/flip-book/cover/11dd3247df.jpg" 
-        class="fp-thumb"
-         style="border: 1px solid lightgray; box-shadow: lightgray 0px 0px 4px 1px; width: 250px;"></a> */}
+          <div className='study'>
+123
+          </div>
+
+          <div className='study-toolbar'>
+            <div 
+            className={'elm ' + (choose == 1 ? "choose" : " ")}
+            onClick={() => {setChoose(1)}} >
+              
+              <p>Mo hinh</p>
+            </div>
+            <div className={'elm ' + (choose == 2 ? "choose" : " ")}
+            onClick={() => {setChoose(2)}} >
+              <p>Am thanh</p>
+            </div>
+            <div className={'elm ' + (choose == 3 ? "choose" : " ")}
+            onClick={() => {setChoose(3)}}>
+              Tai lieu
+            </div>
+            <div className={'elm ' + (choose == 4 ? "choose" : " ")}
+            onClick={() => {setChoose(4)}}>
+              
+              3D AR
+            </div>
+          </div>
+
+          <Footer>
+
+          </Footer>
+
+        </div>
+
+      }
     </div>
   )
 }

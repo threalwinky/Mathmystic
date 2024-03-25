@@ -7,12 +7,11 @@
 
     h1 {
         margin: auto;
-        font-size: 50px;
+        font-size: var(--font-normal);
         font-weight: 700;
         text-align: center;
         color: black;
-        margin-bottom: 0rem;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
         width: fit-content;
         padding: 20px;
         background: linear-gradient(90.21deg, #ff8a63 -0.91%, #ffd676 61.58%);
@@ -20,12 +19,12 @@
         box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58);
         -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.58);
         -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58);
-        margin-bottom: 50px;
+        
     }
 
     >p {
         color: #682e2e;
-        font-size: 25px;
+        font-size: var(--font-small);
         letter-spacing: 0.8px;
         line-height: 1.5em;
         margin: 14px auto 30px auto;
@@ -54,7 +53,7 @@
     padding: 3rem 3rem;
 
     h2 {
-        font-size: 30px;
+        font-size: var(--font-small);
         font-weight: 700;
         text-align: center;
         color: black;
@@ -64,14 +63,14 @@
     p {
         width: 100%;
         text-align: start;
-        font-size: 18px;
+        font-size: var(--font-small);
         color: black;
     }
 }
 
 .store-skill-slider {
-    width: 80%;
-    margin: 0 auto;
+    width: 85%;
+    margin: 50px auto;
     position: relative;
     padding: 5rem 0rem;
     padding-top: 4rem;
@@ -81,7 +80,7 @@
 
 .store-skill-slider .item img {
     width: 90%;
-    height: 250px;
+    height: 300px;
     margin: 0 auto 15px auto;
     border: 10px;
     /* border-style: solid; */
@@ -125,7 +124,7 @@
             padding-right: 25px;
 
             >p {
-                font-size: 15px;
+                font-size: var(--font-small);
             }
         }
     }
@@ -137,16 +136,16 @@
     /* opacity: .5; */
     transition-duration: 1s;
 
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .store-skill-slider .item h5 {
     width: 100%;
-    font-size: 20px;
+    font-size: var(--font-small);
     font-weight: 600;
     color: rgb(0, 0, 0);
     text-align: start;
-    font-family: lora, sans-serif;
+    /* font-family: lora, sans-serif; */
 
     padding-left: 25px;
     padding-right: 10px
@@ -154,7 +153,7 @@
 
 .store-skill-slider .item h4 {
     width: 100%;
-    font-size: 20px;
+    font-size: var(--font-small);
     font-weight: 400;
     color: rgb(0, 0, 0);
     text-align: start;
@@ -164,7 +163,7 @@
 
 .store-skill-slider .item h3 {
     width: 100%;
-    font-size: 15px;
+    font-size: var(--font-small);
     font-weight: 400;
     color: rgb(0, 0, 0);
     text-align: start;

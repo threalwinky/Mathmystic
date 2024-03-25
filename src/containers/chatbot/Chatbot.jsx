@@ -1,116 +1,143 @@
-import React, { useEffect, useState } from 'react'
+/*Module before File after */
+import { useState, useEffect, React, useRef } from 'react'
+import { Trans, withTranslation, useTranslation } from 'react-i18next';
+import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
+import { useMediaQuery } from 'react-responsive'
+
+import db from '../../../firebase'
 import './Chatbot.css'
- // const {NLPManager} = require('node-nlp')
-// import { NlgManager } from 'node-nlp'
+import MathmysticPet from '../../assets/img/MathmysticPet.png';
 import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
-// import fetch from 'node-fetch'
-const choose = (a, b, c) => (a ? b : c);
 
 const Chatbot = () => {
+    /* Necessary function */
+
+    const choose = (a, b, c) => (a ? b : c);
+
+    const [t, i18n] = useTranslation()
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 1050px)'
+    })
+
 
     const [toggle, setToggle] = useState(1)
 
-  const [message, setMessage] = useState('')
+    const [message, setMessage] = useState('')
 
-  const [messages, setMessages] = useState([
-    {
-      type: 'bot',
-      content: 'Hi! How can i help you?'
+    const [messages, setMessages] = useState([
+        {
+            type: 'bot',
+            content: 'Hi! How can i help you?'
+        }
+
+    ])
+    const bottomRef = useRef(null);
+    useEffect(() => {
+        const fetchMessage = async (msg) => {
+            fetch(`https://threalwinky.pythonanywhere.com/abc/${msg}`)
+                .then(response => response.json())
+                .then(json => console.log(123))
+        }
+        setInterval(
+            () =>
+              setMessages(current => [
+                ...current,
+              ]),
+            600,
+          );
+    }, [])
+
+    var c = ''
+    const f = async (message) => {
+        await fetch(`http://threalwinky.pythonanywhere.com/abc/${message}`)
+            .then((response) => response.json())
+            .then(async (data) => {
+                console.log(data.answer)
+                // c = data
+                await messages.push({ type: 'user', content: message })
+                setMessages([...messages, { type: 'user', content: message }])
+                // setTimeout(() => {}, 1000)
+                // console.log(fe)
+                await messages.push({ type: 'bot', content: '123' })
+                await setMessages(messages)
+                setTimeout(() => {
+                    var objDiv = document.getElementById("messages");
+                    objDiv.scrollTop = objDiv.scrollHeight;
+                }, 10)
+                return data;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
     }
 
-  ])
+    const sendMessage = async (e) => {
+        e.preventDefault()
+        setMessage('')
+        const newMessage = message
+        if (message == '') return
+        if (message == 'clear') {
+            setMessages([])
+            return
+        }
 
-  useEffect(() => {
-    const fetchMessage = async (msg) => {
-      fetch(`https://threalwinky.pythonanywhere.com/abc/${msg}`)
-        .then(response => response.json())
-        .then(json => console.log(123))
-    }
-
-  }, [])
-
-  var c = ''
-  const f = async (message) => {
-    await fetch(`http://threalwinky.pythonanywhere.com/abc/${message}`)
-      .then((response) => response.json())
-      .then(async (data) => {
-        console.log(data.answer)
-        // c = data
-        await messages.push({ type: 'user', content: message })
-        setMessages([...messages, { type: 'user', content: message }])
-        // setTimeout(() => {}, 1000)
-        // console.log(fe)
-        await messages.push({ type: 'bot', content: '123' })
-        await setMessages(messages)
-        setTimeout(() => {
-          var objDiv = document.getElementById("messages");
-          objDiv.scrollTop = objDiv.scrollHeight;
-        }, 10)
-        return data;
-      })
-      .catch(error => {
-        console.error(error);
-      });
-
-  }
-
-  const sendMessage = async (e) => {
-    e.preventDefault()
-    setMessage('')
-    const newMessage = message
-    if (message == '') return
-    if (message == 'clear') {
-      setMessages([])
-      return
-    }
-
-    const newMessages = [...messages, { type: 'user', content: newMessage }];
-    messages.push({ type: 'user', content: newMessage })
-    setMessages(newMessages);
-    setTimeout(() => {
-      var objDiv = document.getElementById("messages");
-      objDiv.scrollTop = objDiv.scrollHeight;
-    }, 10)  
-    
-    // var objDiv = document.getElementById("messages");
-    // objDiv.scrollTop = objDiv.scrollHeight;
-    // messages.push({ type: 'user', content: message })
-    // setMessages([...messages, { type: 'user', content: message }])
-    // messages.push({ type: 'bot', content: message })
-    // setMessages(messages)
-    
-    await processMessage(newMessage)
-  }
-  async function processMessage(newMessage) {
-    console.log(newMessage)
-    // console.log(newMessages.content)
-    const API_URL = `http://threalwinky.pythonanywhere.com/abc/${newMessage}`
-    console.log(API_URL)
-    await fetch(`${API_URL}`,
-      {
-        method: "GET",
-      }).then((data) => {
-        return data.json();
-      }).then((data) => {
-        console.log(data);
-        // setMessages([...chatMessages, {
-        //   message: data.choices[0].message.content,
-        //   sender: "ChatGPT"
-        // }]);
-        // setIsTyping(false);
-        const newMessages = [...messages, { type: 'bot', content: data.answer }];
-        messages.push({ type: 'bot', content : data.answer })
-
+        const newMessages = [...messages, { type: 'user', content: newMessage }];
+        messages.push({ type: 'user', content: newMessage })
         setMessages(newMessages);
         setTimeout(() => {
-          var objDiv = document.getElementById("messages");
-          objDiv.scrollTop = objDiv.scrollHeight;
-        }, 10) 
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
+            var objDiv = document.getElementById("messages");
+            // console.log(objDiv)
+            objDiv.scrollTop = objDiv.scrollHeight;
+        }, 100)
+
+        // var objDiv = document.getElementById("messages");
+        // objDiv.scrollTop = objDiv.scrollHeight;
+        // messages.push({ type: 'user', content: message })
+        // setMessages([...messages, { type: 'user', content: message }])
+        // messages.push({ type: 'bot', content: message })
+        // setMessages(messages)
+
+        await processMessage(newMessage)
+        setTimeout(() => {
+            var objDiv = document.getElementById("messages");
+            objDiv.scrollTop = objDiv.scrollHeight;
+        }, 100)
+    }
+    async function processMessage(newMessage) {
+        console.log(newMessage)
+        // console.log(newMessages.content)
+        const API_URL = `http://threalwinky.pythonanywhere.com/abc/${newMessage}`
+        console.log(API_URL)
+        await fetch(`${API_URL}`,
+            {
+                method: "GET",
+            }).then((data) => {
+                return data.json();
+            }).then((data) => {
+                console.log(data);
+                // setMessages([...chatMessages, {
+                //   message: data.choices[0].message.content,
+                //   sender: "ChatGPT"
+                // }]);
+                // setIsTyping(false);
+                const newMessages = [...messages, { type: 'bot', content: data.answer }];
+                messages.push({ type: 'bot', content: data.answer })
+
+                setMessages(newMessages);
+                setTimeout(() => {
+                    var objDiv = document.getElementById("messages");
+                    objDiv.scrollTop = objDiv.scrollHeight;
+                }, 100)
+            })
+            .catch(error => {
+                console.error(error);
+            });
+            setTimeout(() => {
+                var objDiv = document.getElementById("messages");
+                objDiv.scrollTop = objDiv.scrollHeight;
+            }, 100)
+    }
 
     return (
         <div className='chatbot'>
@@ -118,30 +145,39 @@ const Chatbot = () => {
 
                 {choose(toggle,
 
+                    // <svg
+                    //     fontSize={30}
+                    //     fill="currentColor"
+                    //     viewBox="0 0 16 16"
+                    //     height="1em"
+                    //     width="1em"
+                    //     className='logo'
+                    // >
+                    //     <path d="M2 0a2 2 0 00-2 2v12.793a.5.5 0 00.854.353l2.853-2.853A1 1 0 014.414 12H14a2 2 0 002-2V2a2 2 0 00-2-2H2z" />
+                    // </svg>
                     <svg
-                        fontSize={20}
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        height="1em"
-                        width="1em"
-                        className='logo'
-                    >
-                        <path d="M2 0a2 2 0 00-2 2v12.793a.5.5 0 00.854.353l2.853-2.853A1 1 0 014.414 12H14a2 2 0 002-2V2a2 2 0 00-2-2H2z" />
-                    </svg>
-
-                    ,
-
-                    <svg
-                        fontSize={20}
-                        fontWeight={30}
                         viewBox="0 0 512 512"
                         fill="currentColor"
                         height="1em"
                         width="1em"
-                        className='logo'
+                        fontSize={20}
                     >
-                        <path d="M400 145.49L366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49z" />
+                        <path d="M144 464a16 16 0 01-16-16v-64h-24a72.08 72.08 0 01-72-72V120a72.08 72.08 0 0172-72h304a72.08 72.08 0 0172 72v192a72.08 72.08 0 01-72 72H245.74l-91.49 76.29A16.05 16.05 0 01144 464z" />
                     </svg>
+                    ,
+
+                    <svg
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    height="1em"
+                    width="1em"
+                    fontSize={20}
+                    // style={{strokeWidth: 100}}
+                    // fontWeight={}
+
+                  >
+                    <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z" />
+                  </svg>
 
                 )}
 
@@ -164,11 +200,12 @@ const Chatbot = () => {
 
                                         }
                                         />
-                                        <p><div dangerouslySetInnerHTML={{__html : msg.content}}/></p>
+                                        <p><div dangerouslySetInnerHTML={{ __html: t(msg.content) }} /></p>
                                     </div>
                                 </div>
                             ))
                         }
+                        <div ref={bottomRef} />
                     </div>
                     <div className='typer'>
                         <form action="">

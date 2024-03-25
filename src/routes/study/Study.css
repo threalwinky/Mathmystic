@@ -1,0 +1,119 @@
+.study {
+    height: calc(fit-content);
+    background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25vh 0;
+    height: 120vh;
+}
+
+.study-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.study-confirm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    padding: 20px;
+    position: relative;
+    width: fit-content;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    /* height: 400px;
+    width: 200px; */
+    height: 400px;
+    justify-content: space-between;
+    input{
+        padding: 10px;
+        font-size: clamp(5px, 4vw, 10px);
+        border-radius: 5px;
+        border: none;
+        border: 1px solid rgb(206, 206, 206);
+        width: 100%;
+    }
+    button {
+        margin-top: 10px;
+        width: 100%;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(2, 154, 255);
+        border-color: #b5f4ff;
+        color: white;
+        background: linear-gradient(to left, rgb(2, 154, 255) 50%, #b5f4ff 50%) right;
+        background-size: 200%;
+        transition: .5s ease-out;
+        padding: 10px;
+        font-size: clamp(5px, 4vw, 10px);
+    }
+
+    button:hover {
+        background-color: rgb(20, 200, 255);
+        border-color: #3ec5fe;
+        background-position: left;
+        color: black;
+    }
+    
+    .study-confirm-top{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        div{
+            display: flex;
+            /* align-items: center; */
+            div{
+                margin-top: 4px;
+                margin-right: 10px;
+                width: 8px;
+                height: 8px;
+                background-color: rgb(126, 255, 126);
+                border-radius: 50%;
+                
+            }
+            h3{
+                width: 200px;
+                font-weight: 350;
+                font-size: clamp(5px, 4vw, 10px);
+            }
+        }
+        h1{
+            font-weight: 500;
+
+        }
+        h2{ 
+            font-weight: 400;
+        }
+    }
+
+}
+
+/*Tablet*/
+@media only screen and (min-width: 640px) {
+    .study {
+        height: calc(fit-content);
+        background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25vh 0;
+        height: 100vh;
+    }
+}
+
+/*Laptop*/
+@media only screen and (min-width: 1024px) {
+    
+}
+
+/*Desktop*/
+@media only screen and (min-width: 1280px) {}

@@ -83,18 +83,18 @@ const PopupSuccessSignUp1 = ({ setIsOpenPopupSuccessSignUp1 }) => {
 
           <div className="popup-headline">
             <p>
-              Sign out successfully
+              Sign up successfully
             </p>
 
           </div>
           <div className="popup-text">
-            <p>You have been successfully logged out </p>
+            <p>You have been successfully signed up </p>
             {/* <br /> */}
-            <p>Thank you and see you again </p>
+            <p>Please sign in again </p>
           </div>
           <div className="popup-button">
-            <button onClick={() => {window.location.href = '/'}}>
-              Go to the homepage
+            <button onClick={() => {window.location.href = '/signin'}}>
+              Go to the sign in page
             </button>
           </div>
         </div>

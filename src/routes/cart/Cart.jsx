@@ -1,31 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import { HashLink } from 'react-router-hash-link'
+/*Module before File after */
+import { useState, useEffect, React } from 'react'
+import { Trans, withTranslation, useTranslation } from 'react-i18next';
 import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
-import {
-  ModalHeader,
-  ModalDescription,
-  ModalContent,
-  ModalActions,
-  // Button,
-  Header,
-  Image,
-  Modal,
-  Icon,
-} from 'semantic-ui-react'
-import Button from 'react-bootstrap/Button';
-import { Trans } from 'react-i18next'
+import { useMediaQuery } from 'react-responsive'
+import { HashLink } from 'react-router-hash-link'
 
+import db from '../../../firebase'
 import './Cart.css'
+import MathmysticPet from '../../assets/img/MathmysticPet.png';
+import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
 import NavBarWoutMenu from '../../components/navbar/NavBarWoutMenu'
-import db from '../../firebase'
-import { Loading } from '../../containers'
+import { Headpage, Loading } from '../../containers'
 import PopupSuccessCart1 from '../../containers/modal/PopupSuccessCart1'
 import PopupSuccessCart2 from '../../containers/modal/PopupSuccessCart2'
 import PopupFailCart1 from '../../containers/modal/PopupFailCart1';
 import Store1_1 from '../../assets/img/Store/Store1/Store1_1.jpeg'
 
 const Cart = () => {
-  const [open2, setOpen2] = React.useState(false)
+  /* Necessary function */
+  const [t, i18n] = useTranslation()
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1050px)'
+  })
+
+
+  const [open2, setOpen2] = useState(false)
 
   const [foundUser, setFoundUser] = useState([])
   const [foundProduct, setFoundProduct] = useState([])
@@ -56,15 +55,20 @@ const Cart = () => {
         const newData2 = []
         var total = 0
         newData.forEach(element => {
+          // console.log(element.createdBy.email, localStorage.getItem('user'))
           if (element.createdBy.email == localStorage.getItem('user')) {
+            // console.log(element)
             newData2.push(element)
             total += element.product.price * element.productCount
           }
+          // console.log(total)
+          // console.log(newData2)
+          setTotalPrice(total)
+          // console.log(newData2)
+          setFoundProduct(newData2.sort(function (a, b) { return b.createdAt - a.createdAt }));
+          setLoading(1)
         });
-        setTotalPrice(total)
-        // console.log(newData2)
-        setFoundProduct(newData2.sort(function (a, b) { return b.createdAt - a.createdAt }));
-        setLoading(1)
+
       })
   }
 
@@ -83,11 +87,12 @@ const Cart = () => {
               newData2.push(element)
               total += element.product.price * element.productCount * element.pick
             }
-          });
-          setTotalPrice(total)
+            setTotalPrice(total)
           // console.log(newData2)
           setFoundProduct(newData2.sort(function (a, b) { return b.createdAt - a.createdAt }));
           setLoading(1)
+          });
+          
         })
     });
 
@@ -135,7 +140,7 @@ const Cart = () => {
 
   return (
     <div>
-      {!loading ? <Loading /> :
+      {!loading ? <Headpage /> :
 
         <div>
           <div>
@@ -162,17 +167,17 @@ const Cart = () => {
                       <br></br>
                       Số điện thoại : 0794746779
                       <br></br>
-                      hoac <a href="/signin" style={{textDecoration: "underline"}}>dang nhap</a> de dat hang online
+                      hoac <a href="/signin" style={{ textDecoration: "underline" }}>dang nhap</a> de dat hang online
                     </div>
 
                     :
 
                     <div className='cart-list2'>
 
-                      <section class="h-100" style={{ 'background-color': '#eee' }}>
-                        <div class="container h-100">
-                          <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col-10">
+                      <section className="h-100" style={{ 'backgroundColor': '#eee' }}>
+                        <div className="container h-100">
+                          <div className="row d-flex justify-content-center align-items-center h-100">
+                            <div className="col-10">
 
                               {/* <div class="d-flex justify-content-between align-items-center mb-4">
                                 <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
@@ -210,14 +215,16 @@ const Cart = () => {
                       {/* {foundUser.name} */}
 
                       {foundProduct?.map((product, index) => (
-                        <p key={index}>
-                          <div class="card rounded-3 mb-4">
+                        <div key={index}>
+                          {/* <p>1123</p> */}
+                          {/* <div class="card rounded-3 mb-4">
                             <div class="card-body p-4">
                               <div class="row d-flex justify-content-between align-items-center">
 
                                 <div class="col-md-2 col-lg-2 col-xl-2">
                                   <div className='d-flex'>
-                                    <input style={{ accentColor: 'rgb(189, 189, 255)' }} type="checkbox" checked={product.pick} onClick={() => { updateCartPick(product.id, product.pick) }} />                                 <img
+                                    <input style={{ accentColor: 'rgb(189, 189, 255)' }} type="checkbox" checked={product.pick} onClick={() => { updateCartPick(product.id, product.pick) }} />                        
+                                    <img
                                       src={product.product.imgUrl[0]}
                                       class="img-fluid rounded-3" alt="Cotton T-shirt" />
                                   </div>
@@ -225,8 +232,7 @@ const Cart = () => {
                                 </div>
                                 <div class="col-md-3 col-lg-3 col-xl-3">
                                   <p class="lead fw-normal mb-2"><Trans>{product.product.name}</Trans></p>
-                                  {/* <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
-                                   */}
+                                  
                                   <p style={{ fontSize: 15, color: 'GrayText' }}><span><Trans>Price per product</Trans> : {changeMoney(product.product.price)}₫</span></p>
                                 </div>
                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex mmt__productInCart-count">
@@ -254,7 +260,64 @@ const Cart = () => {
                                 </div>
                               </div>
                             </div>
+                          </div> */}
+
+
+                          {/* <p>{ product.productCount }</p> */}
+
+                          <div className='cart-elm'>
+                            <div className='cart-elm-content'>
+                              <div className='cart-elm-left'>
+                                <div className='cart-elm-left-1'>
+                                  <input
+                                    style={{ accentColor: 'rgb(189, 189, 255)' }}
+                                    type="checkbox" checked={product.pick}
+                                    onClick={() => { updateCartPick(product.id, product.pick) }} />
+                                  <img
+                                    src={product.product.imgUrl[0]}
+                                    className="img-fluid rounded-3" alt="Cotton T-shirt" />
+                                </div>
+                                <div className='cart-elm-left-2'>
+                                  <p className="lead fw-normal mb-2 text1"><Trans>{product.product.name}</Trans></p>
+
+                                  <p style={{  color: 'GrayText' }} className='text2'>
+                                    <span>
+                                      <Trans>Price per product</Trans> :
+                                      {changeMoney(product.product.price)}₫
+                                    </span>
+                                  </p>
+                                </div>
+                              </div>
+                              <div className='cart-elm-2'>
+                                <div className='cart-elm-center'>
+                                  <div className="col-md-3 col-lg-3 col-xl-2 d-flex mmt__productInCart-count">
+                                    <button
+                                      // fontSize={30}
+                                      className='prdt-btn'
+                                      onClick={() => updateCart(product.id, product.productCount - 1)}
+                                      disabled={product.productCount == 0}
+                                    >-</button>
+                                    <p>{product.productCount}</p>
+
+                                    <button
+                                      className='prdt-btn'
+                                      onClick={() => updateCart(product.id, product.productCount + 1)}
+
+                                    >+</button>
+                                  </div>
+                                </div>
+                                <div className='cart-elm-right'>
+                                  <h5 className="mb-0">{changeMoney(product.product.price * product.productCount)}₫ </h5>
+                                  <button className='prdt-btn' onClick={() => deleteCart(product.id)}>Delete</button>
+                                </div>
+                              </div>
+
+                            </div>
                           </div>
+
+
+
+
                           {/* <div className='pic-container'>
                             <div className='pic-img'>
                             <img src={product.product.imgUrl[0]} alt="" />
@@ -265,7 +328,7 @@ const Cart = () => {
                             
                             
                           </div> */}
-                        </p>
+                        </div>
                       ))}
 
                     </div>
@@ -310,7 +373,7 @@ const Cart = () => {
           {isOpenPopupSuccessCart1 ? <PopupSuccessCart1
             setIsOpenPopupSuccessCart1={setIsOpenPopupSuccessCart1}
             fu={foundUser}
-            imgUrl={Store1_1}
+            imgUrl={"https://firebasestorage.googleapis.com/v0/b/mathmystic-81270.appspot.com/o/store%2FStore2_1.png?alt=media&token=0b045f15-cd8e-4315-bb4d-fb409e05bf16"}
             totalMoney={totalPrice} /> : ""
 
           }
@@ -323,4 +386,5 @@ const Cart = () => {
     </div>
   )
 }
+
 export default Cart

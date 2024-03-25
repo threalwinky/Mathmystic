@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import db from '../../firebase'
-import { onSnapshot, collection, deleteDoc, doc, getDocs, Timestamp, addDoc, query } from 'firebase/firestore'
+/*Module before File after */
+import { useState, useEffect, React } from 'react'
+import { Trans, withTranslation, useTranslation } from 'react-i18next';
+import { Timestamp, addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
+import { useMediaQuery } from 'react-responsive'
 import './Forum.css'
-import { useState } from 'react';
-import { Chatbot, Loading } from '../../containers'
+import { Chatbot, Headpage, Loading } from '../../containers'
 import { Link, useParams } from "react-router-dom";
 import Chat from './Chat'
-import { Form } from "react-bootstrap";
 import { IoSearch } from "react-icons/io5";
 import { CiMenuKebab } from "react-icons/ci";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -15,12 +15,20 @@ import { FaComment } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import { TbTriangleFilled } from "react-icons/tb";
 import { TbTriangleInvertedFilled } from "react-icons/tb";
-
 import { IoEyeSharp } from "react-icons/io5";
-import { Trans, useTranslation } from "react-i18next";
+
+import db from '../../../firebase'
+import './Forum.css'
+import MathmysticPet from '../../assets/img/MathmysticPet.png';
+import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
 
 const Forum = () => {
-    const [t, i18n]= useTranslation();
+    /* Necessary function */
+    const [t, i18n] = useTranslation()
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 1050px)'
+    })
+    
     const [chats, setChats] = useState([])
     const [loading, setLoading] = useState(0)
     const [chatName, setChatName] = useState('')
@@ -72,6 +80,7 @@ const Forum = () => {
     const paramCheck = !(params.id == undefined)
 
     const addChat = () => {
+        if (chatName == '' || chatDescription == '') return
         addDoc(collection(db, 'chat'), {
             name: chatName,
             description: chatDescription.replace(/\n/g, "<br/>"),
@@ -128,27 +137,28 @@ const Forum = () => {
         <div className='App App-header'>
             {paramCheck < 1 ?
                 <div>
-                    {!loading ? <Loading /> :
+                    {!loading ? <Headpage /> :
 
                         <div className="mmt__forum">
                             <NavBarWoutMenu />
 
                             <div className="mmt__forum-list">
                                 <div className="mmt__forum-list-seach_box">
-                                    <span>
-                                        <IoSearch size={25} className="mmt__forum-list-seach_box-icon" title="search" />
+                                    
+                                        <IoSearch size={20} className="mmt__forum-list-seach_box-icon" title="search" />
                                         <input
                                             className="mmt__forum-list-seach_box-input"
                                             onChange={evt => { updateChat(evt.target.value) }}
                                             type="text"
                                             placeholder={t('Search a post')}
                                         />
-                                    </span>
+                                    
                                     <button onClick={() => { setShowNewPost(!showNewPost) }} className="mmt__forum-list-seach_box-new_post_button"><Trans>New Post</Trans></button>
                                 </div>
                                 {!showNewPost ? "" :
                                     <div className="mmt__forum-list-new_post_box">
                                         <textarea
+                                        rows={6}
                                             onChange={evt => { setChatDescription(evt.target.value); }}
                                             placeholder={t('Post description')}
                                             className="mmt__forum-list-new_post_box-top"

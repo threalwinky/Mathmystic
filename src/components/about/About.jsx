@@ -1,10 +1,16 @@
-import React from 'react'
+/*Module before File after */
+import { useState, useEffect, React } from 'react'
+import { Trans, withTranslation, useTranslation } from 'react-i18next';
+import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
+import { useMediaQuery } from 'react-responsive'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css';
-import { Trans } from 'react-i18next';
 
+import db from '../../../firebase'
 import './About.css'
 import MathmysticPet from '../../assets/img/MathmysticPet.png';
+import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
+
 import HinhBinhHanh from '../../assets/img/About/HinhBinhHanh.jpg';
 import HinhCau from '../../assets/img/About/HinhCau.jpg';
 import HinhChopTamGiac from '../../assets/img/About/HinhChopTamGiac.jpg';
@@ -23,7 +29,11 @@ import HinhTuGiac from '../../assets/img/About/HinhTuGiac.jpg';
 import HinhVuong from '../../assets/img/About/HinhVuong.jpg';
 
 const About = () => {
-
+    /* Necessary function */
+    const [t, i18n] = useTranslation()
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 1050px)'
+    })
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -42,7 +52,7 @@ const About = () => {
             items: 1
         }
     };
-
+    
     return (
         <div className='about' id='about'>
             <h1><Trans>Mathematical model</Trans></h1>
@@ -81,6 +91,7 @@ const About = () => {
             <Carousel
                 responsive={responsive}
                 className='owl-carousel owl-theme skill-slider'
+                
             >
                 <div className="item">
                     <img src={HinhTamGiac} alt="Image" />

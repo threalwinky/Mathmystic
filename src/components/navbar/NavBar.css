@@ -1,51 +1,27 @@
-p{
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    line-height: 0;
-    /* font-family: lora, sans-serif; */
-  }
-  
-  a{
-    margin: 0;
-    padding: 0;
-    line-height: 0;
-  }
-  
-  h1,h2,h3,h4,h5,h6{
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
-    font-family: mulish;
-  }
-
-
 .navbar {
     display: flex;
     align-items: center;
     background-color: none;
     position: fixed;
-    width: 100vw;
+    width: 100%;
+    height: auto;
     top: 0;
     z-index: 2000;
     transition: 0.5s ease-in-out;
-    padding: 1rem;
-    background-color: unset;
+    /* padding: 1rem; */
+    /* background-color: blue; */
     justify-content: space-between;
-    padding: 1.5rem 1rem;
+    padding: 1rem 1.5rem;
 }
 
 .scrolled {
     background-color: #6cd5ff;
-    padding: 1rem;
+    padding: 0.5rem 1.5rem;
 }
 
 .modal-left {
     height: 100vh;
-    /* background-color: black; */
-    min-width: 100vw;
-    /* width: max-content; */
-    /* width: 1000rem; */
+    min-width: auto;
     position: fixed;
     z-index: 2001;
     left: -6000px;
@@ -53,13 +29,21 @@ p{
     background-color: rgba(0, 0, 0, 0.6)
 }
 
+.modal-left-fade{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2001;
+    
+}
+
+.modal-left-fade-show{
+    display: none;
+}
+
 .modal-left-content {
-    /* min-width: 20rem; */
-    width: 20rem;
-    /* background-color: #6ad2ff; */
-    /* background: rgb(62, 177, 254); */
-    /* background: linear-gradient(90deg, rgba(62, 177, 254, 0.8897758932674632) 10%, rgba(195, 239, 255, 0.8841736523711047) 100%); */
-    /* border-top-right-radius: 20px; */
+    width: auto;
     background: rgb(62, 177, 254);
     background: linear-gradient(90deg, rgba(62, 177, 254, 1) 10%, rgb(162, 230, 255) 100%);
     border-style: solid;
@@ -71,6 +55,8 @@ p{
     justify-content: space-between;
     
 }
+
+
 
 .modal-left-content-header {
     display: flex;
@@ -87,8 +73,7 @@ p{
     a {
         display: flex;
         font-size: 20px;
-        font-family: mulish, sans-serif;
-        font-weight: 700;
+        font-weight: 400;
         padding: 5px 10px;
         align-items: center;
         flex-direction: row;
@@ -109,13 +94,12 @@ p{
         display: flex;
         align-items: center;
         gap: 2px;
-        font-family: mulish;
+        font-weight: 300
     }
 }
 
 .modal-left-expand {
     background-color: rgb(0, 0, 0);
-    /* min-width: 90%; */
     filter: opacity(0.7);
     opacity: 0.7;
 }
@@ -123,7 +107,7 @@ p{
 .modal-right {
     height: 100vh;
     background-color: unset;
-    min-width: 100vw;
+    min-width: auto;
     position: fixed;
     z-index: 2001;
     right: -6000px;
@@ -132,12 +116,21 @@ p{
     background-color: rgba(0, 0, 0, 0.6)
 }
 
+.modal-right-fade{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2001;
+    
+}
+
+.modal-right-fade-show{
+    display: none;
+}
+
 .modal-right-content {
     min-width: 15rem;
-    /* background-color: #6ad2ff; */
-    /* background: rgb(62, 177, 254); */
-    /* background: linear-gradient(-90deg, rgba(62, 177, 254, 0.8897758932674632) 10%, rgba(195, 239, 255, 0.8841736523711047) 100%); */
-    /* border-top-right-radius: 20px; */
     background: rgb(62, 177, 254);
     background: linear-gradient(90deg, rgba(62, 177, 254, 1) 10%, rgb(162, 230, 255) 100%);
     border-style: solid;
@@ -151,7 +144,6 @@ p{
 
 .modal-right-expand {
     background-color: rgb(0, 0, 0);
-    /* min-width: 90%; */
     filter: opacity(0.7);
     opacity: 0.7;
 }
@@ -161,8 +153,6 @@ p{
     align-items: center;
     justify-content: space-between;
 }
-
-
 
 .modal-right-content-header-info {
     display: flex;
@@ -174,15 +164,12 @@ p{
 
     h1 {
         font-weight: 400;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
-
         font-size: 25px;
         margin: 0;
     }
 
     p {
         font-size: 15px;
-        font-family: lora, sans-serif;
     }
 }
 
@@ -194,8 +181,7 @@ p{
 
     >a {
         font-size: 20px;
-        font-family: mulish, sans-serif;
-        font-weight: 700;
+        font-weight: 400;
         padding: 10px 10px;
         display: flex;
         align-items: center;
@@ -220,13 +206,12 @@ p{
         display: flex;
         align-items: center;
         gap: 2px;
-        font-family: mulish;
+        font-weight: 300
     }
 }
 
 .modal-right-expand {
     background-color: rgb(0, 0, 0);
-    /* min-width: 90%; */
     filter: opacity(0.7);
     opacity: 0.7;
 }
@@ -238,14 +223,12 @@ p{
 
 .navbar-links {
     display: flex;
-    /* background-color: #ffffff; */
     align-items: center;
     justify-content: center;
     flex-direction: row;  
 }
 
 .navbar-links-logo {
-    /* margin: 0.5rem; */
     display: flex;
     align-items: center;
     grid-template-columns: 100px 100px 100px;
@@ -278,14 +261,12 @@ p{
     margin: 0 10px;
 
     p {
-        font-family: mulish, sans-serif;
         font-weight: 600;
         font-size: 19px;
         margin-bottom: 0px;
     }
 
     p:hover {
-        font-family: mulish, sans-serif;
         font-weight: 700;
         font-size: 20px;
         border-style: solid;
@@ -376,7 +357,6 @@ p{
     img {
         border-radius: 8px;
         margin-bottom: 0;
-        /* width: 36.7px; */
     }
 }
 
@@ -453,7 +433,7 @@ p{
 @media only screen and (min-width: 1024px) {
     .navbar-links-logo h1 {
         text-shadow: -1px 0 rgb(168, 127, 127), 0 1px rgb(157, 156, 156), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
-        font-weight: 500;
+        font-weight: 400;
         font-size: x-large;
         user-select: none;
         padding: 0rem 0.2rem;
@@ -471,7 +451,7 @@ p{
 @media only screen and (min-width: 1280px) {
     .navbar-links-logo h1 {
         text-shadow: -1px 0 rgb(168, 127, 127), 0 1px rgb(157, 156, 156), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
-        font-weight: 500;
+        font-weight: 400;
         font-size: x-large;
         user-select: none;
         padding: 0rem 0.2rem;
