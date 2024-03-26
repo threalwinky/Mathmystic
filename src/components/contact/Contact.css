@@ -64,19 +64,18 @@
                     font-size: var(--font-small);
                     letter-spacing: 0.8px;
                     font-weight: 350;
+                    &::placeholder{
+                        color: white;
+                    }
                 }
-                input:placeholder{
-                    color: red;
-                }
+                
                 input:focus {
                     background: rgba(255, 255, 255, 1);
                     color: black;
                     
                 }
 
-                input:focus::placeholder{
-                    color: black;
-                }
+                
             }
 
             .contact-box-form-textarea {
@@ -107,6 +106,9 @@
                     padding: 18px;
                     font-size: var(--font-small);
                     font-weight: 350;
+                    &::placeholder{
+                        color: white;
+                    }
                 }
 
                 textarea:focus {
@@ -115,9 +117,7 @@
                     
                 }
 
-                textarea:focus::placeholder{
-                    color: black;
-                }
+            
             }
 
             .contact-box-form-button {
@@ -302,6 +302,9 @@
                         padding: 18px;
                         font-size: var(--font-small);
                         font-weight: 300;
+                        &::placeholder{
+                            color: white;
+                        }
                     }
     
                     textarea:focus {

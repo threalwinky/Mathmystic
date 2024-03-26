@@ -308,7 +308,7 @@ const Cart = () => {
                                 </div>
                                 <div className='cart-elm-right'>
                                   <h5 className="mb-0">{changeMoney(product.product.price * product.productCount)}₫ </h5>
-                                  <button className='prdt-btn' onClick={() => deleteCart(product.id)}>Delete</button>
+                                  <button className='prdt-btn' onClick={() => deleteCart(product.id)}><Trans>Delete</Trans></button>
                                 </div>
                               </div>
 

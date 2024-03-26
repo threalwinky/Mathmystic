@@ -5,10 +5,10 @@ import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateD
 import { useMediaQuery } from 'react-responsive'
 
 
-import db from '../../../firebase'
-import './Model.css'
-import MathmysticPet from '../../assets/img/MathmysticPet.png';
-import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
+import db from '../../../../firebase'
+// import './Model.css'
+import MathmysticPet from '../../../assets/img/MathmysticPet.png';
+import MathmysticLogo from '../../../assets/img/MathmysticLogo.png'
 
 const Model = () => {
     /* Necessary function */
@@ -19,8 +19,12 @@ const Model = () => {
 
     
     return (
-        <div>
+        <div style={{width: "90%", height: "60vh"}}>
+            <iframe src="https://www.geogebra.org/classic/nf6e6pad?embed" name="report" height="100%" width="100%" 
+                allowFullScreen style={{border: "1px solid #e4e4e4", borderRadius: 4}}
+                 frameBorder="0">
 
+                </iframe>     
         </div>
     )
 }

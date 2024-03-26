@@ -14,6 +14,8 @@ import { Loading } from '../../containers';
 import Footer from '../../components/footer/Footer';
 import StudyFree from './StudyFree';
 import StudyPro from './StudyPro';
+import Model from './component/Model';
+import AR from './component/AR';
 
 const Study = () => {
   /* Necessary function */
@@ -28,6 +30,24 @@ const Study = () => {
     setLoading(1)
 
   }, [])
+
+  const Choose = () =>{
+    if (choose == 1){
+      return <Model/>
+    }
+    if (choose == 2){
+      return 2
+    }
+    if (choose == 3){
+      return 3
+    }
+    if (choose == 4){
+      return (
+        <AR/>
+      )
+    }
+  }
+
   return (
     <div>
       {!loading ? <Loading /> :
@@ -36,7 +56,7 @@ const Study = () => {
           <NavBarWoutMenu />
 
           <div className='study'>
-123
+            <Choose/>
           </div>
 
           <div className='study-toolbar'>

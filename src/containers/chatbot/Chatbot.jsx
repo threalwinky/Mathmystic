@@ -200,7 +200,7 @@ const Chatbot = () => {
 
                                         }
                                         />
-                                        <p><div dangerouslySetInnerHTML={{ __html: t(msg.content) }} /></p>
+                                        <p dangerouslySetInnerHTML={{ __html: t(msg.content) }} ></p>
                                     </div>
                                 </div>
                             ))
