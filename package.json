@@ -18,6 +18,7 @@
     "i18next-browser-languagedetector": "^7.2.0",
     "pdfjs-dist": "3.4.120",
     "react": "^18.2.0",
+    "react-audio-player": "^0.17.0",
     "react-calendar-heatmap": "^1.9.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.1.0",
@@ -31,6 +32,7 @@
     "react-router-dom": "^6.22.3",
     "react-router-hash-link": "^2.4.3",
     "react-slideshow-image": "^4.3.1",
+    "react-web-ar": "1.0.0-beta2",
     "react-webcam": "^7.2.0",
     "reactjs-popup": "^2.0.6",
     "use-sound": "^4.0.1"

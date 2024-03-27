@@ -27,7 +27,21 @@ input{
 }
 
 .setting{
-    height: 100vh;
+    height: calc(fit-content);
+    background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25vh 0;
+    height: 120vh;
+    height: calc(fit-content);
+        background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
+    display: flex;
+        /* align-items: center; */
+        /* justify-content: center; */
+        padding: 25vh 0;
+        height: 100vh;
+        display: flex;
 }
 
 .circle-background{
@@ -46,4 +60,8 @@ input{
     border: none;
     outline: none;
     
+}
+
+.left-header{
+    display: flex;
 }

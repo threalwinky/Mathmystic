@@ -414,7 +414,7 @@ const NavBar = () => {
             <Trans>Profile</Trans>
           </p>
         </a>
-        <a href='/study' className=''>
+        <a href='/study/' className=''>
           <svg
             fill="currentColor"
             viewBox="0 0 16 16"

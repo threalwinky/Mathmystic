@@ -3,7 +3,7 @@ import { useState, useEffect, React, useRef } from 'react'
 import { Trans, withTranslation, useTranslation } from 'react-i18next';
 import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
 import { useMediaQuery } from 'react-responsive'
-import Webcam from 'react-webcam'
+import { AFrameRenderer, Marker } from 'react-web-ar'
 
 import db from '../../../../firebase'
 // import './AR.css'
@@ -17,27 +17,25 @@ const AR = () => {
         query: '(min-width: 1050px)'
     })
 
-    const webcamRef = useRef(null);
-    const [imgSrc, setImgSrc] = React.useState(null);
-
-    const capture = React.useCallback(() => {
-        const imageSrc = webcamRef.current.getScreenshot();
-        setImgSrc(imageSrc);
-    }, [webcamRef, setImgSrc]);
 
     return (
         <div>
-            <Webcam
-                audio={false}
-                ref={webcamRef}
-                screenshotFormat="image/jpeg"
+              {/* <AFrameRenderer inherent={true}>
+        <Marker parameters={{ preset: "hiro" }}>
+          <a-box color="blue" position="0 0.09 0" scale="0.4 0.8 0.8">
+            <a-animation
+              attribute="rotation"
+              to="360 0 0"
+              dur="2000"
+              easing="linear"
+              repeat="indefinite"
             />
-            <button onClick={capture}>Capture photo</button>
-            {imgSrc && (
-                <img
-                    src={imgSrc}
-                />
-            )}
+          </a-box>
+        </Marker>
+      </AFrameRenderer> */}
+
+      
+
         </div>
     )
 }

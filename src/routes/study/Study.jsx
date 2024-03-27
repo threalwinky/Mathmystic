@@ -16,6 +16,8 @@ import StudyFree from './StudyFree';
 import StudyPro from './StudyPro';
 import Model from './component/Model';
 import AR from './component/AR';
+import Audio from './component/Audio'
+import { useParams } from 'react-router-dom';
 
 const Study = () => {
   /* Necessary function */
@@ -30,23 +32,38 @@ const Study = () => {
     setLoading(1)
 
   }, [])
+  const params = useParams()
+  // useEffect(() => { if (params != {}) setChoose(2) })
+  const defaultParams = {id: 'hdtr1', check: 1}
+  // console.log)
+  const [cnt, setCnt] = useState(0)
+  useEffect(() => {
+    if (params.id != undefined && cnt == 0){
+      setChoose(2)
+      // window.location.href('/')
+    } 
+    setCnt(cnt+1);
+  }, [])
 
-  const Choose = () =>{
-    if (choose == 1){
-      return <Model/>
+  const Choose = () => {
+    if (choose == 1) {
+      return <Model />
     }
-    if (choose == 2){
-      return 2
+    if (choose == 2) {
+      return <Audio params={params.id == undefined ? defaultParams : params}  />
     }
-    if (choose == 3){
+    if (choose == 3) {
       return 3
     }
-    if (choose == 4){
+    if (choose == 4) {
       return (
-        <AR/>
+        <AR />
       )
     }
   }
+
+
+
 
   return (
     <div>
@@ -56,27 +73,29 @@ const Study = () => {
           <NavBarWoutMenu />
 
           <div className='study'>
-            <Choose/>
+            <Choose />
           </div>
 
           <div className='study-toolbar'>
-            <div 
-            className={'elm ' + (choose == 1 ? "choose" : " ")}
-            onClick={() => {setChoose(1)}} >
-              
+            <div
+              className={'elm ' + (choose == 1 ? "choose" : " ")}
+              onClick={() => { setChoose(1) }} >
+
               <p>Mo hinh</p>
             </div>
-            <div className={'elm ' + (choose == 2 ? "choose" : " ")}
-            onClick={() => {setChoose(2)}} >
+            
+              <div className={'elm ' + (choose == 2 ? "choose" : " ")}
+              onClick={() => { setChoose(2) }} >
               <p>Am thanh</p>
             </div>
+
             <div className={'elm ' + (choose == 3 ? "choose" : " ")}
-            onClick={() => {setChoose(3)}}>
+              onClick={() => { setChoose(3) }}>
               Tai lieu
             </div>
             <div className={'elm ' + (choose == 4 ? "choose" : " ")}
-            onClick={() => {setChoose(4)}}>
-              
+              onClick={() => { setChoose(4) }}>
+
               3D AR
             </div>
           </div>

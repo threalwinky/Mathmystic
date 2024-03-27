@@ -46,7 +46,6 @@ const Introduction = () => {
                         <li>
                             <Trans>
 
-
                                 Documentation and examples: In addition to instructions, the site also provides a rich documentation and examples. You can refer to them to enhance your knowledge and create unique models. Documentation and examples: In addition to instructions, the website also provides a rich set of documents and illustrative examples. You can refer to them to enhance your knowledge and create unique models.
 
 
