@@ -409,6 +409,7 @@ const Audio = ({ params }) => {
     const [selected, setSelected] = useState({ "pr": "123" })
     const audioRef = useRef(null);
     useEffect(() => {
+        // console.log(params)
         for (var i of audios) {
             // console.log(typeof params.id, typeof i.pr)
             if (i.pr == params.id) setSelected(i)
@@ -433,7 +434,7 @@ const Audio = ({ params }) => {
 
             <label for="cars">Choose audio:</label>
             {/* {params.check} */}
-            <select name="cars" id="cars" 
+            <select name="cars" id="cars" value={params.id} 
             onChange={evt => window.location.href = ((params.check != 1) ?  `${evt.target.value}` : `/study/audio/${evt.target.value}`)}>
                 <option value='hdtr1'>hdtr1</option>
                 <option value='hdtr2'>hdtr2</option>

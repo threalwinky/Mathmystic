@@ -1,0 +1,7 @@
+.study-document{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 80vh;
+    /* background-color: red; */
+}

@@ -37,6 +37,8 @@ const App = () => {
                     <Route path="forum/:id" element={<Forum />} />
                     <Route path="study" element={<Study/>}></Route>
                     <Route path="study/audio/:id" element={<Study/>}></Route>
+                    <Route path="study/doc/:id" element={<Study/>}></Route>
+                    <Route path="study/videos" element={<Study/>}></Route>
                     <Route path="setting" element={<Setting/>}></Route>
                 </Routes>
 

@@ -17,7 +17,9 @@ import StudyPro from './StudyPro';
 import Model from './component/Model';
 import AR from './component/AR';
 import Audio from './component/Audio'
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
+import Document from './component/Document';
+import Videos from './component/Videos';
 
 const Study = () => {
   /* Necessary function */
@@ -35,27 +37,54 @@ const Study = () => {
   const params = useParams()
   // useEffect(() => { if (params != {}) setChoose(2) })
   const defaultParams = {id: 'hdtr1', check: 1}
+
+  const defaultParamsDoc = {id: 'so-tay-hinh-hoc', check: 1}
+
   // console.log)
+  const loc = useLocation()
   const [cnt, setCnt] = useState(0)
   useEffect(() => {
-    if (params.id != undefined && cnt == 0){
+    // console.log(params.id.startsWith('h'))
+    
+    // console.log(test.pathname.includes("audio"))
+    if (loc.pathname.includes("audio") && params.id != undefined && cnt == 0){
       setChoose(2)
+      // window.location.href('/')
+    }
+    if (loc.pathname.includes("doc") && params.id != undefined && cnt == 0){
+      setChoose(3)
+      // window.location.href('/')
+    }
+    if (loc.pathname.includes("videos")){
+      setChoose(4)
       // window.location.href('/')
     } 
     setCnt(cnt+1);
   }, [])
 
+  
+
   const Choose = () => {
+    // const check = params.id == undefined || params.id.includes()
+
     if (choose == 1) {
       return <Model />
     }
     if (choose == 2) {
-      return <Audio params={params.id == undefined ? defaultParams : params}  />
+      console.log(loc.pathname.includes('doc'))
+      return <Audio
+       params={(params.id == undefined || loc.pathname.includes('doc')) ? 
+       defaultParams : params}  />
     }
     if (choose == 3) {
-      return 3
+      return <Document 
+      params={(params.id == undefined || loc.pathname.includes('audio')) ?
+       defaultParamsDoc : params}/>
     }
     if (choose == 4) {
+      return <Videos/>
+    }
+    if (choose == 5) {
       return (
         <AR />
       )
@@ -95,6 +124,10 @@ const Study = () => {
             </div>
             <div className={'elm ' + (choose == 4 ? "choose" : " ")}
               onClick={() => { setChoose(4) }}>
+              Video
+            </div>
+            <div className={'elm ' + (choose == 5 ? "choose" : " ")}
+              onClick={() => { setChoose(5) }}>
 
               3D AR
             </div>
