@@ -247,19 +247,19 @@ const Document = () => {
             className={'document-choose-box document-choose-box-1' + (choose == 1 ? ' choose' : '')}
             onClick={() => { setChoose(1), setDocContent(1) }}
           >
-            So tay dien tu
+            <Trans>Handbook</Trans>
           </div>
           <div
             className={'document-choose-box document-choose-box-2' + (choose == 2 ? ' choose' : '')}
             onClick={() => {setChoose(2), setDocContent(3)}}
           >
-            Huong dan su dung
+           <Trans>Guidebook</Trans>
           </div>
           <div
             className={'document-choose-box document-choose-box-3' + (choose == 3 ? ' choose' : '')}
             onClick={() => {setChoose(3), setDocContent(4)}}
           >
-            Video huong dan
+            <Trans>Videos</Trans>
           </div>
 
         </div>

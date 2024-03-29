@@ -1,5 +1,5 @@
 import { AiOutlineCloseSquare } from "react-icons/ai";
-
+import { Trans } from "react-i18next";
 import './Popup.css'
 
 const PopupFailCart1 = ({ setIsOpenPopupFailCart1 }) => {
@@ -84,17 +84,17 @@ const PopupFailCart1 = ({ setIsOpenPopupFailCart1 }) => {
 
           <div className="popup-headline">
             <p>
-              Adding Failed
+             <Trans>Adding Failed</Trans> 
             </p>
 
           </div>
           <div className="popup-text">
-            <p>Please sign in to add buy products</p>
+            <p> <Trans>Please sign in to add products</Trans> </p>
 
           </div>
           <div className="popup-button">
             <button onClick={setIsOpenPopupFailCart1.bind(this, false)}>
-              Ok
+              <Trans>Ok</Trans>
             </button>
             
           </div>

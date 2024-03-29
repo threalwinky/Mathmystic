@@ -121,7 +121,7 @@ const Store = () => {
               <div className='info'>
                 <Stars></Stars>
                 <div className='sold'>
-                  <p>Đã bán 0 sản phẩm</p>
+                <p><Trans>Sold</Trans> 2 <Trans>products</Trans></p>
                 </div>
               </div>
 
@@ -138,7 +138,7 @@ const Store = () => {
               <div className='info'>
                 <Stars></Stars>
                 <div className='sold'>
-                  <p>Đã bán 1 sản phẩm</p>
+                  <p><Trans>Sold</Trans> 1 <Trans>products</Trans></p>
                 </div>
               </div>
 

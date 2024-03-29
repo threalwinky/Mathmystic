@@ -110,21 +110,21 @@ const Study = () => {
               className={'elm ' + (choose == 1 ? "choose" : " ")}
               onClick={() => { setChoose(1) }} >
 
-              <p>Mô hình</p>
+              <p><Trans>Models</Trans></p>
             </div>
             
               <div className={'elm ' + (choose == 2 ? "choose" : " ")}
               onClick={() => { setChoose(2) }} >
-              <p>Âm thanh</p>
+              <p><Trans>Audios</Trans></p>
             </div>
 
             <div className={'elm ' + (choose == 3 ? "choose" : " ")}
               onClick={() => { setChoose(3) }}>
-              Tài liệu
+              <Trans>Document</Trans>
             </div>
             <div className={'elm ' + (choose == 4 ? "choose" : " ")}
               onClick={() => { setChoose(4) }}>
-              Video
+              Videos
             </div>
             <div className={'elm ' + (choose == 5 ? "choose" : " ")}
               onClick={() => { setChoose(5) }}>

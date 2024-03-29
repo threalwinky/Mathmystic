@@ -122,6 +122,12 @@ i18n
           "Hi! How can i help you?" : "Xin chào! Chúng tôi có thể giúp gì cho bạn?",
           "Push a comment" : "Thêm bình luận",
           "Product Review" : "Đánh giá sản phẩm",
+          "Sold": "Đã bán",
+          "products" : "sản phẩm",
+          "Handbook" : "Sổ tay điện tử",
+          "Guidebook" : "Sách hướng dẫn",
+          "Models" : "Mô hình",
+          "Audios" : "Âm thanh",
           
         }
       }
