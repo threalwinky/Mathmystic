@@ -116,11 +116,12 @@ const Store = () => {
             <div className="item">
               <img src={Store1_1} alt="Image" />
               <h5><Trans>Geometry learning kit for visually impaired students</Trans></h5>
-              <h3><Trans>249,000đ</Trans></h3>
+              <h3 style={{textDecoration: "line-through", color: "gray"}}><Trans>599,000đ</Trans></h3>
+              <h3><Trans>349,000đ</Trans></h3>
               <div className='info'>
                 <Stars></Stars>
                 <div className='sold'>
-                  <p>Da ban 1,2k</p>
+                  <p>Đã bán 10 sản phẩm</p>
                 </div>
               </div>
 
@@ -131,12 +132,13 @@ const Store = () => {
             <div className="item">
               <img src={Store2_1} alt="Image" />
               <h5><Trans>Geometry learning kit</Trans></h5>
-              <h3><Trans>249,000₫</Trans></h3>
+              <h3 style={{textDecoration: "line-through", color: "gray"}}><Trans>599,000đ</Trans></h3>
+              <h3><Trans>349,000đ</Trans></h3>
 
               <div className='info'>
                 <Stars></Stars>
                 <div className='sold'>
-                  <p>Da ban 1,2k</p>
+                  <p>Đã bán 15 sản phẩm</p>
                 </div>
               </div>
 

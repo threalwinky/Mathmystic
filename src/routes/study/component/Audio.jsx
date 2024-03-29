@@ -432,7 +432,7 @@ const Audio = ({ params }) => {
 
             {/* {selected.pr} */}
 
-            <label for="cars">Choose audio:</label>
+            <label for="cars">Chọn audio:</label>
             {/* {params.check} */}
             <select name="cars" id="cars" value={params.id} 
             onChange={evt => window.location.href = ((params.check != 1) ?  `${evt.target.value}` : `/study/audio/${evt.target.value}`)}>

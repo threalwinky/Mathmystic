@@ -138,10 +138,10 @@ const Videos = () => {
                 style={{ margin: 'auto' }}
                 url={Document1} /> */}
             <select name="" id="" value={selected} onChange={evt => setSelected(evt.target.value)}>
-                <option value="1">cach dung hinh chop</option>
-                <option value="2">cach dung hinh chop day tu giac</option>
-                <option value="3">cach dung hinh chop co canh ben vuong day</option>
-                <option value="4">cach dung hinh non</option>
+                <option value="1">Cách dựng hình chóp</option>
+                <option value="2">Cách dựng hình chóp đáy tứ giác</option>
+                <option value="3">Cách dựng hình chóp có cạnh bên vuông với đáy</option>
+                <option value="4">Cách dựng hình nón</option>
             </select>
             <Choose />
         </div>

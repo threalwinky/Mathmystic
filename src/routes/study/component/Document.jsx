@@ -35,8 +35,8 @@ setSelected(params.id)
             <select name="" id="" value={selected}
                 onChange={evt => setSelected(evt.target.value)}
             >
-                <option value="so-tay-hinh-hoc">so tay hinh hoc</option>
-                <option value="sach-huong-dan-su-dung">sach huong dan su dung</option>
+                <option value="so-tay-hinh-hoc">Sổ tay hình học</option>
+                <option value="sach-huong-dan-su-dung">Sách hướng dẫn sử dụng</option>
             </select>
             <iframe
                 allowFullScreen="allowfullscreen"
@@ -47,7 +47,7 @@ setSelected(params.id)
                       height: isDesktopOrLaptop ? "100%" : "100%", 
                     padding: 0
                 }}
-                src={ selected == "so-tay-hinh-hoc" ? "https://heyzine.com/flip-book/2ac410fc4e.html" : "https://heyzine.com/flip-book/9f0a65b367.html"}>
+                src={ selected == "so-tay-hinh-hoc" ? "https://heyzine.com/flip-book/2a810dd29f.html" : "https://heyzine.com/flip-book/9f0a65b367.html"}>
             </iframe>
         </div>
     )
