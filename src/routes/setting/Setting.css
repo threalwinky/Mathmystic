@@ -20,13 +20,13 @@ input{
     
 } */
 
-.clock{
+.clock {
     background-color: red;
     height: 100px;
     width: 100px;
 }
 
-.setting{
+.setting {
     height: calc(fit-content);
     background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
     display: flex;
@@ -35,33 +35,41 @@ input{
     padding: 25vh 0;
     height: 120vh;
     height: calc(fit-content);
-        background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
+    background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
     display: flex;
-        /* align-items: center; */
-        /* justify-content: center; */
-        padding: 25vh 0;
-        height: 100vh;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 25vh 0;
+    height: 100vh;
+    display: flex;
+    .setting-container{
         display: flex;
+        flex-direction: column;
+        gap: 10px;
+        input{
+            padding: 10px 20px;
+        }
+    }
 }
 
-.circle-background{
+.circle-background {
     fill: none;
     stroke: #ddd;
 }
 
-.circle-progress{
+.circle-progress {
     fill: none;
     /* stroke: rgb(125, 166, 255); */
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-input{
+input {
     border: none;
     outline: none;
-    
+
 }
 
-.left-header{
+.left-header {
     display: flex;
 }

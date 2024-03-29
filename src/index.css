@@ -58,3 +58,7 @@ code {
     height: fit-content !important;
     position: relative;
 }
+select{
+    padding: 10px 20px;
+    /* width: %; */
+}

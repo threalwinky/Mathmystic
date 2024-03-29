@@ -110,17 +110,17 @@ const Study = () => {
               className={'elm ' + (choose == 1 ? "choose" : " ")}
               onClick={() => { setChoose(1) }} >
 
-              <p>Mo hinh</p>
+              <p>Mô hình</p>
             </div>
             
               <div className={'elm ' + (choose == 2 ? "choose" : " ")}
               onClick={() => { setChoose(2) }} >
-              <p>Am thanh</p>
+              <p>Âm thanh</p>
             </div>
 
             <div className={'elm ' + (choose == 3 ? "choose" : " ")}
               onClick={() => { setChoose(3) }}>
-              Tai lieu
+              Tài liệu
             </div>
             <div className={'elm ' + (choose == 4 ? "choose" : " ")}
               onClick={() => { setChoose(4) }}>
