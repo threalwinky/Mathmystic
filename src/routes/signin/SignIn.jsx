@@ -172,12 +172,12 @@ const SignIn = () => {
                             </div>
                             <button type='submit' className='sign_in-submit_button' onClick={checkUser}>Sign In</button>
                             <div className='sign_in-google_log_in'>
-                                <p>Or log in with </p>
+                                <p><Trans>Or log in with</Trans> </p>
                                 <FcGoogle size={25} className='sign_in-google_log_in-icon' onClick={GoogleAuthentication} />
                             </div>
                             <div className='sign_in_ps'>
-                                <span>Dont have an account?</span>
-                                <Link to={'/signup'} style={{ textDecoration: 'underline' }}> Sign Up here</Link>
+                                <span><Trans>Dont have an account?</Trans></span>
+                                <Link to={'/signup'} style={{ textDecoration: 'underline' }}><Trans>Sign Up</Trans> </Link>
                             </div>
                         </div>
 

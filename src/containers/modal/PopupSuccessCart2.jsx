@@ -1,4 +1,5 @@
 import { AiOutlineCloseSquare } from "react-icons/ai";
+import { Trans } from "react-i18next";
 
 import './Popup.css'
 const PopupSuccessCart2 = ({ setIsOpenPopupSuccessCart2, setIsOpenPopupSuccessCart1 }) => {
@@ -83,21 +84,21 @@ const PopupSuccessCart2 = ({ setIsOpenPopupSuccessCart2, setIsOpenPopupSuccessCa
 
           <div className="popup-headline">
             <p>
-              Buying successfully
+              <Trans>Buying successfully</Trans>
             </p>
 
           </div>
           <div className="popup-text">
-            <p>You have been successfully bought our products </p>
+            <p><Trans>You have been successfully bought our products</Trans> </p>
             {/* <br /> */}
             <p> </p>
           </div>
           <div className="popup-button">
             <button onClick={() => {setIsOpenPopupSuccessCart1(false); setIsOpenPopupSuccessCart2(false)}}>
-              Continue
+              <Trans>Continue</Trans>
             </button>
           </div>
-          <a href="/purchase" style={{fontSize: 15, textDecoration: 'underline'}}>Or go to the purchase page</a>
+          <a href="/purchase" style={{fontSize: 15, textDecoration: 'underline'}}><Trans>Or go to the purchase page</Trans></a>
         </div>
 
         <div>

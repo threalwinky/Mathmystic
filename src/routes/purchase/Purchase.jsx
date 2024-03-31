@@ -258,8 +258,8 @@ const Purchase = () => {
                                                                 </div>
                                                                 <div className='cart-elm-left-2'>
 
-                                                                    <p className="lead fw-normal mb-2"><Trans>Don hang</Trans></p>
-                                                                    <p style={{ fontSize: 15, color: 'GrayText' }}><span><Trans>Trang thai</Trans> : {product.totalMoney.isDeliver ? 'Da giao' : 'Dang giao'}</span></p>
+                                                                    <p className="lead fw-normal mb-2"><Trans>Đơn hàng</Trans></p>
+                                                                    <p style={{ fontSize: 15, color: 'GrayText' }}><span><Trans>Trạng thái</Trans> : {product.totalMoney.isDeliver ? 'Da giao' : 'Đang giao'}</span></p>
 
                                                                     <p style={{ fontSize: 15, color: 'GrayText' }}><span><Trans>Total</Trans> : {changeMoney(product.totalMoney)}₫</span></p>
 
@@ -293,7 +293,7 @@ const Purchase = () => {
                                                                 </div> */}
                                                                 <div className='cart-elm-right'>
                                                                     {/* <h5 className="mb-0">{changeMoney(product.product.price * product.productCount)}₫ </h5> */}
-                                                                    <button className='prdt-btn' onClick={() => deletePurchase(product.id)}>Cancel</button>
+                                                                    <button className='prdt-btn' onClick={() => deletePurchase(product.id)}><Trans>Cancel</Trans></button>
                                                                 </div>
                                                             </div>
 

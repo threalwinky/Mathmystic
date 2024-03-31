@@ -98,7 +98,7 @@ const PopupFailCart1 = ({ setIsOpenPopupFailCart1 }) => {
             </button>
             
           </div>
-          <a href="/signin" style={{fontSize: 10, textDecoration: 'underline'}}>Go to the sign in page</a>
+          <a href="/signin" style={{fontSize: 10, textDecoration: 'underline'}}><Trans>Go to the sign in page</Trans></a>
         </div>
 
         <div>

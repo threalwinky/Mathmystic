@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
           <div>
             <p>
-              <Trans>Địa chỉ : Số 18, đường Lê Thúc Hoạch, P. Phú Thọ Hoà, Q. Tân Phú, Tp. Hồ Chí Minh</Trans>
+              <Trans>Location : 18, Le Thuc Hoach Street, Phu Tho Hoa Ward, Tan Phu District, Ho Chi Minh City</Trans>
             </p>
             <p>
               <Trans>
@@ -40,7 +40,7 @@ const Footer = () => {
             </p>
             <p>
               <Trans>
-                Số điện thoại : 0794746779
+              Phone number : 0794746779
               </Trans>
             </p>
           </div>

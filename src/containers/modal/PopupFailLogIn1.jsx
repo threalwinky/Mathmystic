@@ -1,4 +1,5 @@
 import { AiOutlineCloseSquare } from "react-icons/ai";
+import { Trans } from "react-i18next";
 
 import './Popup.css'
 const PopupFailLogIn1 = ({ setIsOpenPopupFail1 }) => {
@@ -83,12 +84,12 @@ const PopupFailLogIn1 = ({ setIsOpenPopupFail1 }) => {
 
           <div className="popup-headline">
             <p>
-              Login Failed
+              <Trans>Login Failed</Trans>
             </p>
 
           </div>
           <div className="popup-text">
-            <p>You have entered wrong password</p>
+            <p><Trans>You have entered wrong password</Trans></p>
 
           </div>
           <div className="popup-button">

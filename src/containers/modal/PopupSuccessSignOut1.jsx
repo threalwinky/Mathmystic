@@ -1,4 +1,5 @@
 import { AiOutlineCloseSquare } from "react-icons/ai";
+import { Trans } from "react-i18next";
 
 import './Popup.css'
 const PopupSuccessSignOut1 = ({ setIsOpenPopupSuccessSignOut1 }) => {
@@ -83,18 +84,18 @@ const PopupSuccessSignOut1 = ({ setIsOpenPopupSuccessSignOut1 }) => {
 
           <div className="popup-headline">
             <p>
-              Registration Completed
+              <Trans>Registration Completed</Trans>
             </p>
 
           </div>
           <div className="popup-text">
-            <p>You have successfully signed up </p>
+            <p><Trans>You have successfully signed up</Trans> </p>
             {/* <br /> */}
-            <p>Please sign in again </p>
+            <p><Trans>Please sign in again</Trans> </p>
           </div>
           <div className="popup-button">
             <button onClick={() => {window.location.href = '/signin'}}>
-              Go to the sign in page
+              <Trans>Go to the sign in page</Trans>
             </button>
           </div>
         </div>

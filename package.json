@@ -35,7 +35,8 @@
     "react-web-ar": "1.0.0-beta2",
     "react-webcam": "^7.2.0",
     "reactjs-popup": "^2.0.6",
-    "use-sound": "^4.0.1"
+    "use-sound": "^4.0.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

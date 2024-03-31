@@ -142,11 +142,12 @@ const SignUp = () => {
       </div>
       <form className='sign_up'>
         <div className='sign_up-container'>
-          <h1>Sign Up</h1>
+          <h1><Trans>Sign Up</Trans></h1>
 
           <input
             type="text"
-            placeholder='Name'
+            // placeholder='Name'
+            placeholder={t(' Name')}
             className='sign_up-input'
             onChange={e => setName(e.target.value)}
           />
@@ -161,7 +162,8 @@ const SignUp = () => {
 
           <input
             type={showPassword ? "text" : "password"}
-            placeholder=' Password'
+            // placeholder=' Password'
+            placeholder={t(' Password')}
             className='sign_up-input'
             onChange={e => setPassword(e.target.value)}
           />
@@ -169,8 +171,9 @@ const SignUp = () => {
 
           <input
             type={showPassword ? "text" : "password"}
-            placeholder='Repeat Password'
+            // placeholder='Repeat Password'
             className='sign_up-input'
+            placeholder={t(' Repeat Password')}
             onChange={e => setRpassword(e.target.value)}
             
           />
@@ -183,14 +186,14 @@ const SignUp = () => {
             />
             <label htmlFor=""><Trans>Show Password</Trans></label>
           </div>
-          <button type='submit' className='sign_up-submit_button' onClick={addUser}>Sign Up</button>
+          <button type='submit' className='sign_up-submit_button' onClick={addUser}><Trans>Sign Up</Trans></button>
           <div className='sign_up-google_sign_up'>
-            <p>Or sign up and log in with </p>
+            <p><Trans>Or log in with</Trans> </p>
             <FcGoogle onClick={GoogleAuthentication} size={25} className='sign_up-google_sign_up-icon' />
           </div>
           <div className='sign_up_ps'>
-            <span>Already have an account?</span>
-            <Link to={'/signin'} style={{ textDecoration: 'underline' }}> Log In</Link>
+            <span><Trans>Already have an account?</Trans></span>
+            <Link to={'/signin'} style={{ textDecoration: 'underline' }}> <Trans>Log In</Trans></Link>
           </div>
         </div>
 

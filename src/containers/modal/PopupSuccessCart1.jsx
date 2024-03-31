@@ -3,6 +3,8 @@ import db from '../../../firebase'
 import './Popup.css'
 import PopupSuccessCart2 from "./PopupSuccessCart2";
 import { useState } from "react";
+import { Trans } from "react-i18next";
+
 import { Timestamp, addDoc, collection } from "firebase/firestore";
 const PopupSuccessCart1 = ({ setIsOpenPopupSuccessCart1, totalMoney, imgUrl, fu}) => {
   const [isOpenPopupSuccessCart2, setIsOpenPopupSuccessCart2] = useState(0)
@@ -57,13 +59,13 @@ const PopupSuccessCart1 = ({ setIsOpenPopupSuccessCart1, totalMoney, imgUrl, fu}
 
           <div className="popup-headline">
             <p>
-              Please fill out information
+              <Trans>Please fill out information</Trans>
             </p>
 
           </div>
           <form>
             <div className="popup-text">
-              <p>You have been successfully added your product to cart </p>
+              <p><Trans>You have been successfully added your product to cart</Trans> </p>
               {/* <br /> */}
               <p> </p>
               <div className="popup-input">
@@ -90,7 +92,7 @@ const PopupSuccessCart1 = ({ setIsOpenPopupSuccessCart1, totalMoney, imgUrl, fu}
             </div>
             <div className="popup-button">
               <button onClick={(e) => { e.preventDefault(); addPurchase(); setClosePopup(0); setIsOpenPopupSuccessCart2(true) }}>
-                Confirm
+                <Trans>Confirm</Trans>
               </button>
             </div>
           </form>

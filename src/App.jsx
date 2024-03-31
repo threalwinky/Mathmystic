@@ -14,6 +14,7 @@ import { Chatbot, NotFound } from './containers';
 import MathmysticPet from './assets/img/MathmysticPet.png';
 import MathmysticLogo from './assets/img/MathmysticLogo.png'
 import Audio from './routes/study/component/Audio';
+import Test from './routes/test/Test';
 
 const App = () => {
     /* Necessary function */
@@ -40,6 +41,7 @@ const App = () => {
                     <Route path="study/doc/:id" element={<Study/>}></Route>
                     <Route path="study/videos" element={<Study/>}></Route>
                     <Route path="setting" element={<Setting/>}></Route>
+                    <Route path="test" element={<Test/>}></Route>
                 </Routes>
 
             </BrowserRouter>
