@@ -9,7 +9,7 @@ import db from '../../../../firebase'
 // import './AR.css'
 import MathmysticPet from '../../../assets/img/MathmysticPet.png';
 import MathmysticLogo from '../../../assets/img/MathmysticLogo.png'
-
+// import {a} from './index.html'
 const AR = () => {
     /* Necessary function */
     const [t, i18n] = useTranslation()
@@ -17,7 +17,10 @@ const AR = () => {
         query: '(min-width: 1050px)'
     })
 
-
+    // const a = "<iframe src='./index.html'/>"
+    // var __html = require('./template.html');
+    // var template = { __html: __html };
+    
     return (
         <div>
               {/* <AFrameRenderer inherent={true}>
@@ -31,11 +34,17 @@ const AR = () => {
               repeat="indefinite"
             />
           </a-box>
-        </Marker>
-      </AFrameRenderer> */}
+        </AFrameRenderer> */}
+        {/* </Marker> */}
 
-      
+        <div style={{height: '80vh', width: '80vw'}} >  
+              <iframe allow='camera' src={'https://coffee-alfy-27.tiiny.site/'} frameborder="0" scrolling='no' style={{height: '100%', width: '100%'}}></iframe>
 
+
+        </div>
+        {/* <div dangerouslySetInnerHTML={{__html : a}}> */}
+
+        {/* </div> */}
         </div>
     )
 }
