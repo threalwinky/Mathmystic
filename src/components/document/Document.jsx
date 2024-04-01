@@ -188,7 +188,7 @@ const Document = () => {
                 {...{ controls: true, width: '80%', height: '90%' }}
                 style={{ margin: 'auto' }}
                 url={Document1} />
-              <h3>Cach dung hinh tam giac</h3>
+              <h3>Cách dựng hình chóp</h3>
             </div>
 
             <div>
@@ -196,7 +196,7 @@ const Document = () => {
                 {...{ controls: true, width: '90%', height: '90%' }}
                 style={{ margin: 'auto' }}
                 url={Document2} />
-              <h3>Cach dung hinh tam giac</h3>
+              <h3>Cách dựng hình chóp đáy tứ giác</h3>
             </div>
 
             <div>
@@ -204,7 +204,7 @@ const Document = () => {
                 {...{ controls: true, width: '100%', height: '90%' }}
                 style={{ margin: 'auto' }}
                 url={Document3} />
-              <h3>Cach dung hinh tam giac</h3>
+              <h3>Cách dựng hình chóp có cạnh bên vuông đáy</h3>
             </div>
 
             <div>
@@ -212,7 +212,7 @@ const Document = () => {
                 {...{ controls: true, width: '100%', height: '90%' }}
                 style={{ margin: 'auto' }}
                 url={Document4} />
-              <h3>Cach dung hinh tam giac</h3>
+              <h3>Cách dựng hình nón</h3>
             </div>
             <ReactPlayer
               {...{ controls: true, width: '100%', height: '80%' }}
