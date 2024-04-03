@@ -70,10 +70,10 @@ const Setting = () => {
                             <div className='img-content'>
                                 <div className='img'>
                                     <img src={MathmysticLogo} alt="" width={200} />
-                                    <span class="caption">
+                                    <span className="caption">
                                         {/* <input type="file"  value={''}/> */}
 
-                                        <label for="image_uploads">
+                                        <label htmlFor="image_uploads">
 
                                             <svg
                                                 viewBox="0 0 1024 1024"

@@ -6,7 +6,7 @@ const PopupPaid = ({ setIsOpenPopupPaid }) => {
 
 
   const paidHandle = () =>{
-    
+    console.log(123)
   }
 
     return (
