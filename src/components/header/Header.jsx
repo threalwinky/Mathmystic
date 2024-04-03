@@ -63,6 +63,16 @@ const Header = () => {
     <div>
 
       <div className='header' id='home'>
+      <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
         <div className='header-content'>
 
           <div className='header-content_left'>

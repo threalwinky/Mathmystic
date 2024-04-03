@@ -55,7 +55,8 @@ const SignIn = () => {
                                     email: String(userEmail),
                                     password: "123456",
                                     products: 0,
-                                    avatar: user.photoURL
+                                    avatar: user.photoURL,
+                                    paid : 'free'
                                 });
 
                             setTimeout(() => {

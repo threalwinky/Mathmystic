@@ -57,7 +57,8 @@ const SignUp = () => {
                   email: String(userEmail),
                   password: "123456",
                   products: 0,
-                  avatar: user.photoURL
+                  avatar: user.photoURL,
+                  paid: 'free'
                 });
 
               setTimeout(() => {
@@ -114,7 +115,8 @@ const SignUp = () => {
                 email,
                 password,
                 products: [],
-                avatar: "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg"
+                avatar: "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg",
+                paid: 'free'
               });
               setIsOpenPopupSuccessSignUp1(1)
               // console.log('Account created')
