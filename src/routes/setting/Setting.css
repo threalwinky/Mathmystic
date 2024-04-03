@@ -1,24 +1,4 @@
-/* .setting{
-    height: 100vh;
-}
 
-.circle-background{
-    fill: none;
-    stroke: #ddd;
-}
-
-.circle-progress{
-    fill: none;
-    stroke: rgb(255, 255, 155);
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-input{
-    border: none;
-    outline: none;
-    
-} */
 
 .clock {
     background-color: red;
@@ -27,50 +7,41 @@ input{
 }
 
 .setting {
-    /* height: calc(fit-content); */
     background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
     display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* padding: 25vh 0; */
     height: 120vh;
     height: calc(fit-content);
     background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
-    display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* padding: 25vh 0; */
-    /* height: 100vh; */
-    /* flex-direction: column; */
     
     .setting-container{
-        margin-top: 150px;
+        margin-top: 100px;
         display: flex;
         flex-direction: column;
         width: 100%;
         padding: 30px;
         .left{
-            /* background-color: rgb(255, 212, 212); */
-            /* height: 100vh; */
+            /* background-color: red; */
             width: 100%;
             height: 60%;
-            /* background-color: red; */
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            /* align-items: center; */
+            /* justify-content: center; */
             .img-content{
-                
+                align-self: center;
+                    justify-self: center;
                 .img{
-                    /* background-color: red; */
                     display: inline-block;
+                    
+                    img{
+                        border-radius: 50%;
+                       
+                    }
                     .caption{
                         position: absolute;
                         color: white;
-                        margin-left: -60px;
+                        margin-left: -80px;
                         margin-top: 160px;
-                        /* top: 0; */
-                        /* left: 0; */
                         color: black;
                         background-color: rgb(255, 255, 255);
                         padding: 5px 15px;
@@ -90,14 +61,12 @@ input{
                 padding: 30px 30px;
                 display: flex;
                 flex-direction: column;
-                /* align-items: center; */
                 justify-content: center;
             }
         }
         .right{
             padding: 30px;
             width: 100%;
-            /* background-color: #7198a9; */
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -105,19 +74,20 @@ input{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                align-items: center;
                 input{
                     padding: 10px 20px;
                     outline: none;
                     border: none;
                     border-radius: 10px;
-                    width: 250px;
+                    width: 200px;
                 }
                 input:focus{
                     outline: none;
                     
                 }
                 button{
-                    width: 210px;
+                    width: 200px;
                 }
             }
         }
@@ -128,7 +98,7 @@ input{
 @media screen and (max-width: 1050px) {}
 
 /*PC ver*/
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 700px) {
     .setting{
         .setting-container{
             display: flex;

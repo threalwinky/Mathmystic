@@ -29,6 +29,8 @@ const Setting = () => {
 
     const [foundUser, setFoundUser] = useState([])
 
+    const [name, setName] = useState('')
+
     // const [c, setC] = useState(0)
     // const test = () => {
     //     const ad = new Audio(b)
@@ -51,6 +53,7 @@ const Setting = () => {
                     .map((doc) => ({ ...doc.data(), id: doc.id }));
                 const foundUser2 = (newData.find(x => x.email == localStorage.getItem('user')))
                 setFoundUser(foundUser2)
+                setName(foundUser2.name)
                 // setLoading(1)
             })
 
@@ -69,7 +72,7 @@ const Setting = () => {
                         <div className='left'>
                             <div className='img-content'>
                                 <div className='img'>
-                                    <img src={MathmysticLogo} alt="" width={200} />
+                                    <img src={foundUser.avatar} alt="" width={200} />
                                     <span className="caption">
                                         {/* <input type="file"  value={''}/> */}
 
@@ -111,7 +114,11 @@ const Setting = () => {
                         <div className='right'>
                             <div className='box'>
                                 <p>Ten</p>
-                                <input type="text" />
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={evt => {setName(evt.target.value)}}
+                                />
                             </div>
                             <div className='box'>
                                 <p>Email</p>
