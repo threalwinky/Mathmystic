@@ -56,7 +56,10 @@ const SignIn = () => {
                                     password: "123456",
                                     products: 0,
                                     avatar: user.photoURL,
-                                    paid : 'free'
+                                    paid: 'free',
+                                    realEmail: user.email,
+                                    addr: '',
+                                    pn: ''
                                 });
 
                             setTimeout(() => {
@@ -117,7 +120,7 @@ const SignIn = () => {
                             localStorage.setItem('user', foundUser.email)
                             localStorage.setItem('userAvatar', foundUser.avatar)
                             localStorage.setItem('userName', foundUser.name)
-                            
+
                             // window.location.href = '/'
                             localStorage.setItem('loggedin', '1')
                             setIsOpenPopupSuccess(true)
@@ -143,7 +146,7 @@ const SignIn = () => {
 
                 <div className='App'>
                     {/* <div className='gradient__bg'> */}
-                        <NavBarWoutMenu />
+                    <NavBarWoutMenu />
                     {/* </div> */}
                     <form className='sign_in'>
                         <div className='sign_in-container'>
@@ -157,16 +160,16 @@ const SignIn = () => {
                             <input
                                 type={showPassword ? "text" : "password"}
                                 placeholder={t(' Password')}
-                                className='sign_in-input' 
-                                 onChange={e => setPassword(e.target.value)}
-                             />
-                                
+                                className='sign_in-input'
+                                onChange={e => setPassword(e.target.value)}
+                            />
+
 
                             <div className='sign_in-show_password'>
                                 <input
                                     type="checkbox"
                                     onClick={() => { setShowPassword(!showPassword) }}
-                                    // ={t('Show Password')}
+                                // ={t('Show Password')}
 
                                 />
                                 <label htmlFor=""><Trans>Show Password</Trans></label>
@@ -188,7 +191,7 @@ const SignIn = () => {
                     {isOpenPopupFail1 ? <PopupFailLogIn1 setIsOpenPopupFail1={setIsOpenPopupFail1} /> : ""}
                     {isOpenPopupFail2 ? <PopupFailLogIn2 setIsOpenPopupFail2={setIsOpenPopupFail2} /> : ""}
                 </div>
-                
+
             </div>}
         </div>
     )

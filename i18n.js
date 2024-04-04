@@ -170,7 +170,8 @@ i18n
           "Signed Out" : "Đăng xuất thành công",
           "Or go to the cart page" : 'Hoặc đi đến giỏ hàng',
           "Or go to the purchase page" : 'Hoặc đi đến trang đơn mua',
-          "Cancel" : "Hủy"
+          "Cancel" : "Hủy",
+          "Game" : "Trò chơi"
         }
       }
     },

@@ -32,6 +32,7 @@
     "react-router-dom": "^6.22.3",
     "react-router-hash-link": "^2.4.3",
     "react-slideshow-image": "^4.3.1",
+    "react-toastify": "^10.0.5",
     "react-web-ar": "1.0.0-beta2",
     "react-webcam": "^7.2.0",
     "reactjs-popup": "^2.0.6",

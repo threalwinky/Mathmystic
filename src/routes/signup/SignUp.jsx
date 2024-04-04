@@ -58,7 +58,10 @@ const SignUp = () => {
                   password: "123456",
                   products: 0,
                   avatar: user.photoURL,
-                  paid: 'free'
+                  paid: 'free',
+                  realEmail: user.email,
+                  addr: '',
+                  pn: ''
                 });
 
               setTimeout(() => {
@@ -116,7 +119,10 @@ const SignUp = () => {
                 password,
                 products: [],
                 avatar: "https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg",
-                paid: 'free'
+                paid: 'free',
+                realEmail: email,
+                addr: '',
+                pn: ''
               });
               setIsOpenPopupSuccessSignUp1(1)
               // console.log('Account created')
@@ -132,82 +138,82 @@ const SignUp = () => {
   useEffect(() => {
     setLoading(1)
     localStorage.setItem('open2', '0')
-}, [])
+  }, [])
   return (
     <div>
-      {!loading ? <Loading/> : 
-      
-      
-      <div className='App'>
-      <div className='gradient__bg'>
-        <NavBarWoutMenu />
-      </div>
-      <form className='sign_up'>
-        <div className='sign_up-container'>
-          <h1><Trans>Sign Up</Trans></h1>
-
-          <input
-            type="text"
-            // placeholder='Name'
-            placeholder={t(' Name')}
-            className='sign_up-input'
-            onChange={e => setName(e.target.value)}
-          />
-
-          <input
-            type="text"
-            placeholder=' Email'
-            className='sign_up-input'
-            required={true}
-            onChange={e => setEmail(e.target.value)}
-          />
-
-          <input
-            type={showPassword ? "text" : "password"}
-            // placeholder=' Password'
-            placeholder={t(' Password')}
-            className='sign_up-input'
-            onChange={e => setPassword(e.target.value)}
-          />
+      {!loading ? <Loading /> :
 
 
-          <input
-            type={showPassword ? "text" : "password"}
-            // placeholder='Repeat Password'
-            className='sign_up-input'
-            placeholder={t(' Repeat Password')}
-            onChange={e => setRpassword(e.target.value)}
-            
-          />
-          
-          <div className='sign_up-show_password'>
-            <input
-              type="checkbox"
-              onClick={() => { setShowPassword(!showPassword) }}
-              label='Show Password'
-            />
-            <label htmlFor=""><Trans>Show Password</Trans></label>
+        <div className='App'>
+          <div className='gradient__bg'>
+            <NavBarWoutMenu />
           </div>
-          <button type='submit' className='sign_up-submit_button' onClick={addUser}><Trans>Sign Up</Trans></button>
-          <div className='sign_up-google_sign_up'>
-            <p><Trans>Or log in with</Trans> </p>
-            <FcGoogle onClick={GoogleAuthentication} size={25} className='sign_up-google_sign_up-icon' />
-          </div>
-          <div className='sign_up_ps'>
-            <span><Trans>Already have an account?</Trans></span>
-            <Link to={'/signin'} style={{ textDecoration: 'underline' }}> <Trans>Log In</Trans></Link>
-          </div>
+          <form className='sign_up'>
+            <div className='sign_up-container'>
+              <h1><Trans>Sign Up</Trans></h1>
+
+              <input
+                type="text"
+                // placeholder='Name'
+                placeholder={t(' Name')}
+                className='sign_up-input'
+                onChange={e => setName(e.target.value)}
+              />
+
+              <input
+                type="text"
+                placeholder=' Email'
+                className='sign_up-input'
+                required={true}
+                onChange={e => setEmail(e.target.value)}
+              />
+
+              <input
+                type={showPassword ? "text" : "password"}
+                // placeholder=' Password'
+                placeholder={t(' Password')}
+                className='sign_up-input'
+                onChange={e => setPassword(e.target.value)}
+              />
+
+
+              <input
+                type={showPassword ? "text" : "password"}
+                // placeholder='Repeat Password'
+                className='sign_up-input'
+                placeholder={t(' Repeat Password')}
+                onChange={e => setRpassword(e.target.value)}
+
+              />
+
+              <div className='sign_up-show_password'>
+                <input
+                  type="checkbox"
+                  onClick={() => { setShowPassword(!showPassword) }}
+                  label='Show Password'
+                />
+                <label htmlFor=""><Trans>Show Password</Trans></label>
+              </div>
+              <button type='submit' className='sign_up-submit_button' onClick={addUser}><Trans>Sign Up</Trans></button>
+              <div className='sign_up-google_sign_up'>
+                <p><Trans>Or log in with</Trans> </p>
+                <FcGoogle onClick={GoogleAuthentication} size={25} className='sign_up-google_sign_up-icon' />
+              </div>
+              <div className='sign_up_ps'>
+                <span><Trans>Already have an account?</Trans></span>
+                <Link to={'/signin'} style={{ textDecoration: 'underline' }}> <Trans>Log In</Trans></Link>
+              </div>
+            </div>
+
+          </form>
+          {isOpenPopupSuccessSignUp1 ? <PopupSuccessSignUp1 setIsOpenPopupSuccessSignUp1={setIsOpenPopupSuccessSignUp1} /> : ""}
+          {isOpenPopupFailSignUp1 ? <PopupFailSignUp1 setIsOpenPopupFailSignUp1={setIsOpenPopupFailSignUp1} /> : ""}
+          {isOpenPopupFailSignUp2 ? <PopupFailSignUp2 setIsOpenPopupFailSignUp2={setIsOpenPopupFailSignUp2} /> : ""}
         </div>
 
-      </form>
-      {isOpenPopupSuccessSignUp1 ? <PopupSuccessSignUp1 setIsOpenPopupSuccessSignUp1={setIsOpenPopupSuccessSignUp1} /> : ""}
-      {isOpenPopupFailSignUp1 ? <PopupFailSignUp1 setIsOpenPopupFailSignUp1={setIsOpenPopupFailSignUp1} /> : ""}
-      {isOpenPopupFailSignUp2 ? <PopupFailSignUp2 setIsOpenPopupFailSignUp2={setIsOpenPopupFailSignUp2} /> : ""}
-    </div>
-      
-      
+
       }
-     
+
     </div>
   )
 }

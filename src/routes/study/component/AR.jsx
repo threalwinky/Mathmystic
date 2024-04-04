@@ -38,7 +38,7 @@ const AR = () => {
         {/* </Marker> */}
 
         <div style={{height: '80vh', width: '80vw'}} >  
-              <iframe allow='camera' src={'https://coffee-alfy-27.tiiny.site/'} frameborder="0" scrolling='no' style={{height: '100%', width: '100%'}}></iframe>
+              <iframe allowFullScreen='yes' allow='camera' src={'https://coffee-alfy-27.tiiny.site/'} frameborder="0" scrolling='no' style={{height: '100%', width: '100%'}}></iframe>
 
 
         </div>

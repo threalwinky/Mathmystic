@@ -15,7 +15,10 @@ import MathmysticPet from './assets/img/MathmysticPet.png';
 import MathmysticLogo from './assets/img/MathmysticLogo.png'
 import Audio from './routes/study/component/Audio';
 import Test from './routes/test/Test';
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import Fight from './routes/fight/Fight';
+  
 const App = () => {
     /* Necessary function */
     const [t, i18n] = useTranslation()
@@ -42,8 +45,17 @@ const App = () => {
                     <Route path="study/videos" element={<Study/>}></Route>
                     <Route path="setting" element={<Setting/>}></Route>
                     <Route path="test" element={<Test/>}></Route>
+                    <Route path="fight" element={<Fight/>}></Route>
                 </Routes>
-
+                <ToastContainer 
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                closeOnClick={true}
+                pauseOnHover={true}
+                draggable={true}
+                progress={undefined}
+                />
             </BrowserRouter>
             {/* <Chatbot/> */}
         </div>

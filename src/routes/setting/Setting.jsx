@@ -13,6 +13,9 @@ import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
 import Headpage from '../../containers/headpage/Headpage';
 import NavBar from '../../components/navbar/NavBar';
 import PopupPaid from '../../containers/modal/PopupPaid';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Setting = () => {
     /* Necessary function */
     const [t, i18n] = useTranslation()
@@ -30,6 +33,12 @@ const Setting = () => {
     const [foundUser, setFoundUser] = useState([])
 
     const [name, setName] = useState('')
+
+    const [email, setEmail] = useState('')
+
+    const [addr, setAddr] = useState('')
+
+    const [pn, setPn] = useState('')
 
     // const [c, setC] = useState(0)
     // const test = () => {
@@ -54,12 +63,47 @@ const Setting = () => {
                 const foundUser2 = (newData.find(x => x.email == localStorage.getItem('user')))
                 setFoundUser(foundUser2)
                 setName(foundUser2.name)
+                setEmail(foundUser2.realEmail)
+                setAddr(foundUser2.addr)
+                setPn(foundUser2.pn)
                 // setLoading(1)
             })
-
+        const unsub = onSnapshot(query(collection(db, "account")), (doc) => {
+            getDocs(collection(db, "account"))
+                .then((querySnapshot) => {
+                    const newData = querySnapshot.docs
+                        .map((doc) => ({ ...doc.data(), id: doc.id }));
+                    const foundUser2 = (newData.find(x => x.email == localStorage.getItem('user')))
+                    setFoundUser(foundUser2)
+                    setName(foundUser2.name)
+                    setEmail(foundUser2.realEmail)
+                    setAddr(foundUser2.addr)
+                    setPn(foundUser2.pn)
+                })
+        });
         setTimeout(() => { setLoading(1) }, 1000)
 
     }, [])
+
+    const saveHandle = () => {
+        console.log(name, email, addr, pn)
+        if (addr != undefined)
+        updateDoc(doc(db, 'account', foundUser.id), {
+            addr,
+            
+        })
+        if (name != undefined)
+        updateDoc(doc(db, 'account', foundUser.id), {
+            name,
+            
+        })
+        if (pn != undefined)
+        updateDoc(doc(db, 'account', foundUser.id), {
+            pn,
+            
+        })
+        toast.success('Cập nhật thông tin thành công')
+    }
 
     return (
         <>
@@ -113,24 +157,40 @@ const Setting = () => {
                         </div>
                         <div className='right'>
                             <div className='box'>
+                                <p>Email</p>
+                                <input type="text"
+                                    value={email}
+                                    onChange={evt => { setEmail(evt.target.value) }}
+                                    disabled={1}
+                                />
+                            </div>
+                            <div className='box'>
                                 <p>Ten</p>
                                 <input
                                     type="text"
                                     value={name}
-                                    onChange={evt => {setName(evt.target.value)}}
+                                    onChange={evt => { setName(evt.target.value) }}
+                                />
+                            </div>
+
+                            <div className='box'>
+                                <p>Dia chi</p>
+                                <input type="text"
+                                    value={addr}
+                                    onChange={evt => { setAddr(evt.target.value) }}
                                 />
                             </div>
                             <div className='box'>
-                                <p>Email</p>
-                                <input type="text" />
-                            </div>
-                            <div className='box'>
-                                <p>Dia chi</p>
-                                <input type="text" />
-                            </div>
-                            <div className='box'>
                                 <p>So dien thoai</p>
-                                <input type="text" />
+                                <input type="text"
+                                    value={pn}
+                                    onChange={evt => { setPn(evt.target.value) }}
+
+                                />
+                            </div>
+                            <div className='box'>
+                                <p>Password</p>
+                                <button onClick={() => { setIsOpenPopupPaid(1) }}>Doi mat khau</button>
                             </div>
                             <div className='box'>
                                 <p>Paid</p>
@@ -139,10 +199,10 @@ const Setting = () => {
                             <div>
 
                             </div>
-                            <button>
+                            <button className='save-button' onClick={saveHandle}>
                                 Save
                             </button>
-                            <button>
+                            <button className='del-button'>
                                 Delete
                             </button>
                         </div>
