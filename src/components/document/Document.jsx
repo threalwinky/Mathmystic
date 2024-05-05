@@ -1,17 +1,24 @@
 /*Module before File after */
 import { useState, useEffect, React } from 'react'
 import { Trans, withTranslation, useTranslation } from 'react-i18next';
-import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, setDoc, updateDoc } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
 import { useMediaQuery } from 'react-responsive'
+import { ToastContainer, toast } from 'react-toastify';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import { Fade, Slide } from 'react-slideshow-image';
-import { Worker } from '@react-pdf-viewer/core';
+// import { Worker } from '@react-pdf-viewer/core';
 import ReactPlayer from 'react-player/file'
 import 'react-slideshow-image/dist/styles.css'
+
 
 import db from '../../../firebase'
 import './Document.css'
 import MathmysticPet from '../../assets/img/MathmysticPet.png';
 import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
+import { motion } from 'framer-motion';
+
+
 import Document1 from '../../assets/vid/V1.mp4'
 import Document2 from '../../assets/vid/V2.mp4'
 import Document3 from '../../assets/vid/V3.mp4'
@@ -47,202 +54,262 @@ import Ins4 from '../../assets/img/Doc/Ins/Ins4.png'
 import Ins5 from '../../assets/img/Doc/Ins/Ins5.png'
 
 const Document = () => {
-  /* Necessary function */
-  const [t, i18n] = useTranslation()
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1050px)'
-  })
+    /* Necessary function */
+    const [t, i18n] = useTranslation()
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 1050px)'
+    })
 
-  const [choose, setChoose] = useState(1)
+    const responsive = {
+        superLargeDesktop: {
+            breakpoint: { max: 4000, min: 3000 },
+            items: 5
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1
+        }
+    };
 
-  const [docContent, setDocContent] = useState('1')
-  // const [value, setValue] = useState('1')
-  const projects = [
-    { imgUrl: DocVn1 },
-    { imgUrl: DocVn2 },
-    { imgUrl: DocVn3 },
-    { imgUrl: DocVn4 },
-    { imgUrl: DocVn5 },
-    { imgUrl: DocVn6 },
-    { imgUrl: DocVn7 },
-    { imgUrl: DocVn8 },
-    { imgUrl: DocVn9 },
-    { imgUrl: DocVn10 },
-  ];
+    const [choose, setChoose] = useState(1)
 
-  const projects2 = [
-    { imgUrl: DocEn1 },
-    { imgUrl: DocEn2 },
-    { imgUrl: DocEn3 },
-    { imgUrl: DocEn4 },
-    { imgUrl: DocEn5 },
-    { imgUrl: DocEn6 },
-    { imgUrl: DocEn7 },
-    { imgUrl: DocEn8 },
-    { imgUrl: DocEn9 },
-    { imgUrl: DocEn10 },
-  ];
-  const projects3 = [
-    { imgUrl: Ins1 },
-    { imgUrl: Ins2 },
-    { imgUrl: Ins3 },
-    { imgUrl: Ins4 },
-    { imgUrl: Ins5 },
-
-  ];
-
-  useEffect(() => {
-    // console.log(docContent)
-
-  }, [])
-
-  const DocElement5 = () => {
-    return (
-      <>
+    const [docContent, setDocContent] = useState('1')
+    // const [value, setValue] = useState('1')
+    const projects = [
+      { imgUrl: DocVn1 },
+      { imgUrl: DocVn2 },
+      { imgUrl: DocVn3 },
+      { imgUrl: DocVn4 },
+      { imgUrl: DocVn5 },
+      { imgUrl: DocVn6 },
+      { imgUrl: DocVn7 },
+      { imgUrl: DocVn8 },
+      { imgUrl: DocVn9 },
+      { imgUrl: DocVn10 },
+    ];
+  
+    const projects2 = [
+      { imgUrl: DocEn1 },
+      { imgUrl: DocEn2 },
+      { imgUrl: DocEn3 },
+      { imgUrl: DocEn4 },
+      { imgUrl: DocEn5 },
+      { imgUrl: DocEn6 },
+      { imgUrl: DocEn7 },
+      { imgUrl: DocEn8 },
+      { imgUrl: DocEn9 },
+      { imgUrl: DocEn10 },
+    ];
+    const projects3 = [
+      { imgUrl: Ins1 },
+      { imgUrl: Ins2 },
+      { imgUrl: Ins3 },
+      { imgUrl: Ins4 },
+      { imgUrl: Ins5 },
+  
+    ];
+  
+    useEffect(() => {
+      // console.log(docContent)
+  
+    }, [])
+  
+    const DocElement5 = () => {
+      return (
+        <>
+          <div className="slide-container document-slide">
+            <Slide {...{ duration: 100, autoplay: false, indicators: true }}>
+              {projects.map((fadeImage, index) => (
+                <div key={index}>
+                  <img style={{ width: '100%', borderRadius: 30 }} src={fadeImage.imgUrl} />
+                  {/* <h2>{fadeImage.caption}</h2> */}
+                </div>
+              ))}
+            </Slide>
+          </div>
+        </>
+      )
+    }
+  
+    const DocElement1 = () => {
+      return (
+        <>
         <div className="slide-container document-slide">
-          <Slide {...{ duration: 100, autoplay: false, indicators: true }}>
-            {projects.map((fadeImage, index) => (
-              <div key={index}>
-                <img style={{ width: '100%', borderRadius: 30 }} src={fadeImage.imgUrl} />
-                {/* <h2>{fadeImage.caption}</h2> */}
-              </div>
-            ))}
-          </Slide>
-        </div>
-      </>
-    )
-  }
-
-  const DocElement1 = () => {
-    return (
-      <>
-      <div className="slide-container document-slide">
-        <iframe
-          allowFullScreen="allowfullscreen"
-          scrolling="no" className="fp-iframe"
-          style={{ border: "1px solid lightgray", width: isDesktopOrLaptop ? "80%" : '90%', height: isDesktopOrLaptop ? "1000px" : "250px", padding: 20 }}
-          src="https://heyzine.com/flip-book/2ac410fc4e.html">
-        </iframe>
-        {/* <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 1px solid lightgray; width: 100%; height: 400px;" src="https://heyzine.com/flip-book/2ac410fc4e.html"></iframe> */}
-          {/* <div>
-            213
-          </div> */}
-</div>
-      </>
-    )
-
-  }
-
-  const DocElement2 = () => {
-    return (
-      <>
-        {/* <div className="slide-container document-slide">
-          <Slide {...{ duration: 100, autoplay: false, indicators: true }}>
-            {projects2.map((fadeImage, index) => (
-              <div key={index}>
-                <img style={{ width: '100%', borderRadius: 30 }} src={fadeImage.imgUrl} />
-              </div>
-            ))}
-          </Slide>
-        </div> */}
-        <iframe
-          allowfullscreen="allowfullscreen"
-          scrolling="no" className="fp-iframe"
-          style={{ border: "1px solid lightgray", width: isDesktopOrLaptop ? "80%" : '90%', height: isDesktopOrLaptop ? "1000px" : "250px", padding: 20 }}
-          src="https://heyzine.com/flip-book/9f0a65b367.html">
-        </iframe>
-        {/* <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 1px solid lightgray; width: 100%; height: 400px;" src=""></iframe> */}
-      </>
-    )
-  }
-
-  const DocElement3 = () => {
-    return (
-      <>
-        <div className="slide-container document-slide">
-          {/* <Slide {...{ duration: 100, autoplay: false, indicators: true }}>
-            {projects3.map((fadeImage, index) => (
-              <div key={index}>
-                <img style={{ width: '50%', borderRadius: 30 }} src={fadeImage.imgUrl} />
-              </div>
-            ))}
-          </Slide> */}
           <iframe
-          allowfullscreen="allowfullscreen"
-          scrolling="no" clasName="fp-iframe"
-          style={{ border: "1px solid lightgray", width: isDesktopOrLaptop ? "80%" : '90%', height: isDesktopOrLaptop ? "1000px" : "250px", padding: 20 }}
-          src="https://heyzine.com/flip-book/9f0a65b367.html">
-        </iframe>
-        </div>
-      </>
-    )
-  }
+            allowFullScreen="allowfullscreen"
+            scrolling="no" className="fp-iframe w-full max-xl:h-72 aspect-video "
+            // style={{ border: "1px solid lightgray", width: isDesktopOrLaptop ? "80%" : '90%', height: isDesktopOrLaptop ? "1000px" : "250px", padding: 20 }}
+            
+            src="data/demo.html">
+          </iframe>
+          {/* <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 1px solid lightgray; width: 100%; height: 400px;" src="https://heyzine.com/flip-book/2ac410fc4e.html"></iframe> */}
+            {/* <div>
+              213
+            </div> */}
+  </div>
+        </>
+      )
+  
+    }
+  
+    const DocElement2 = () => {
+      return (
+        <>
+          {/* <div className="slide-container document-slide">
+            <Slide {...{ duration: 100, autoplay: false, indicators: true }}>
+              {projects2.map((fadeImage, index) => (
+                <div key={index}>
+                  <img style={{ width: '100%', borderRadius: 30 }} src={fadeImage.imgUrl} />
+                </div>
+              ))}
+            </Slide>
+          </div> */}
+          <iframe
+            allowfullscreen="allowfullscreen"
+            scrolling="no" className="fp-iframe"
+            style={{ border: "1px solid lightgray", width: isDesktopOrLaptop ? "80%" : '90%', height: isDesktopOrLaptop ? "1000px" : "250px", padding: 20 }}
+            src="./data/hdsd.html">
+          </iframe>
+          {/* <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 1px solid lightgray; width: 100%; height: 400px;" src=""></iframe> */}
+        </>
+      )
+    }
+  
+    const DocElement3 = () => {
+      return (
+        <>
+          <div className="slide-container document-slide">
+            {/* <Slide {...{ duration: 100, autoplay: false, indicators: true }}>
+              {projects3.map((fadeImage, index) => (
+                <div key={index}>
+                  <img style={{ width: '50%', borderRadius: 30 }} src={fadeImage.imgUrl} />
+                </div>
+              ))}
+            </Slide> */}
+            <iframe
+            allowfullscreen="allowfullscreen"
+            scrolling="no" className="fp-iframe self-center"
+            
+            style={{ border: "", width: isDesktopOrLaptop ? "80%" : '90%', height: isDesktopOrLaptop ? "1000px" : "500px" }}
+            src="./data/hdsd.html">
+          </iframe>
+          </div>
+        </>
+      )
+    }
+  
+    const DocElement4 = () => {
+      return (
+        <>
+          <div className="slide-container document-slide2">
+            <Slide {...{ duration: 100, autoplay: false, infinite: false, indicators: true }}>
+              <div>
+                <ReactPlayer
+                  {...{ controls: true, width: '80%', height: '90%' }}
+                  style={{ margin: 'auto' }}
+                  url={Document1} />
+                <h3>Cách dựng hình chóp</h3>
+              </div>
+  
+              <div>
+                <ReactPlayer
+                  {...{ controls: true, width: '90%', height: '90%' }}
+                  style={{ margin: 'auto' }}
+                  url={Document2} />
+                <h3>Cách dựng hình chóp đáy tứ giác</h3>
+              </div>
+  
+              <div>
+                <ReactPlayer
+                  {...{ controls: true, width: '100%', height: '90%' }}
+                  style={{ margin: 'auto' }}
+                  url={Document3} />
+                <h3>Cách dựng hình chóp có cạnh bên vuông đáy</h3>
+              </div>
+  
+              <div>
+                <ReactPlayer
+                  {...{ controls: true, width: '100%', height: '90%' }}
+                  style={{ margin: 'auto' }}
+                  url={Document4} />
+                <h3>Cách dựng hình nón</h3>
+              </div>
+              <ReactPlayer
+                {...{ controls: true, width: '100%', height: '80%' }}
+                style={{ margin: 'auto' }}
+                url={Document5} />
+            </Slide>
+          </div>
+        </>
+      )
+    }
+  
+    const Choose = () => {
+      if (docContent == '1') return (
+        <DocElement1></DocElement1>
+      )
+      if (docContent == '2') return (
+        <DocElement2></DocElement2>
+      )
+      if (docContent == '3') return (
+        <DocElement3></DocElement3>
+      )
+      if (docContent == '4') return (
+        <DocElement4></DocElement4>
+      )
+    }
 
-  const DocElement4 = () => {
+
     return (
-      <>
-        <div className="slide-container document-slide2">
-          <Slide {...{ duration: 100, autoplay: false, infinite: false, indicators: true }}>
-            <div>
-              <ReactPlayer
-                {...{ controls: true, width: '80%', height: '90%' }}
-                style={{ margin: 'auto' }}
-                url={Document1} />
-              <h3>Cách dựng hình chóp</h3>
-            </div>
+        <div 
+        id="document"
+        className='document bg-gradient-to-br
+        from-[#40bcff] from-2%
+        via-[#ACE2E1] via-50%
+        
+        to-[#41C9E2] to-100%
+             w-screen h-fit flex items-center justify-center
+               flex-col
+             pb-10
+            
+               
+             '>
 
-            <div>
-              <ReactPlayer
-                {...{ controls: true, width: '90%', height: '90%' }}
-                style={{ margin: 'auto' }}
-                url={Document2} />
-              <h3>Cách dựng hình chóp đáy tứ giác</h3>
-            </div>
+            <motion.h1
 
-            <div>
-              <ReactPlayer
-                {...{ controls: true, width: '100%', height: '90%' }}
-                style={{ margin: 'auto' }}
-                url={Document3} />
-              <h3>Cách dựng hình chóp có cạnh bên vuông đáy</h3>
-            </div>
+                initial={{ scale: 0, opacity: 0 }}
+                // animate={{ scale: 1, opacity: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0.2 } }}
+                transition={{ delay: 0, duration: 0.1 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                className='mb-5  p-8 px-10 
+                
+                bg-gradient-to-br
+                from-[#ACE2E1] from-5%
+                via-[#41C9E2] via-50%
+                to-[#ACE2E1] to-90%
+                
+                
+                shadow-zinc-300 
+                rounded-3xl shadow-lg text-4xl font-rbt font-bold
+                text-white
+                [text-shadow:_-3px_3px_4px_var(--lb)]'
+                viewport={{ once: true }}
+            >
+                Document
+            </motion.h1>
+            
 
-            <div>
-              <ReactPlayer
-                {...{ controls: true, width: '100%', height: '90%' }}
-                style={{ margin: 'auto' }}
-                url={Document4} />
-              <h3>Cách dựng hình nón</h3>
-            </div>
-            <ReactPlayer
-              {...{ controls: true, width: '100%', height: '80%' }}
-              style={{ margin: 'auto' }}
-              url={Document5} />
-          </Slide>
-        </div>
-      </>
-    )
-  }
-
-  const Choose = () => {
-    if (docContent == '1') return (
-      <DocElement1></DocElement1>
-    )
-    if (docContent == '2') return (
-      <DocElement2></DocElement2>
-    )
-    if (docContent == '3') return (
-      <DocElement3></DocElement3>
-    )
-    if (docContent == '4') return (
-      <DocElement4></DocElement4>
-    )
-  }
-  return (
-    <div className='document' id='document'>
-      <h1><Trans>Document</Trans></h1>
-      <div className='document-choose-container'>
-        <div className='document-choose'>
+            <div className='document-choose-container m-0 p-0'>
+        <div className='document-choose !m-0'>
           <div
             className={'document-choose-box document-choose-box-1' + (choose == 1 ? ' choose' : '')}
             onClick={() => { setChoose(1), setDocContent(1) }}
@@ -264,12 +331,16 @@ const Document = () => {
 
         </div>
       </div>
-
-      <div className='document-content'>
-        <Choose></Choose>
+      <div className='w-full flex justify-center items-center'>
+      <div className='document-content w-full '>
+        <Choose
+         className=" " 
+        ></Choose>
       </div>
-    </div>
-  )
+      </div>
+      
+        </div>
+    )
 }
 
 export default Document

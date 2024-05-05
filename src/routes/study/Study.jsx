@@ -3,8 +3,7 @@ import { useState, useEffect, React } from 'react'
 import { Trans, withTranslation, useTranslation } from 'react-i18next';
 import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
 import { useMediaQuery } from 'react-responsive'
-import NavBarWoutMenu from '../../components/navbar/NavBarWoutMenu'
-
+import Navbar from '../../components/navbar/Navbar';
 
 import db from '../../../firebase'
 import './Study.css'
@@ -99,13 +98,13 @@ const Study = () => {
       {!loading ? <Loading /> :
 
         <div>
-          <NavBarWoutMenu />
+          <Navbar show={"1"} />
 
-          <div className='study'>
+          <div className='study header-background-color2'>
             <Choose />
           </div>
 
-          <div className='study-toolbar'>
+          <div className='study-toolbar font-rbt'>
             <div
               className={'elm ' + (choose == 1 ? "choose" : " ")}
               onClick={() => { setChoose(1) }} >

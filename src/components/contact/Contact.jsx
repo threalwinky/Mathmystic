@@ -5,6 +5,7 @@ import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateD
 import { useMediaQuery } from 'react-responsive'
 import emailjs from '@emailjs/browser';
 
+import { toast } from 'react-toastify';
 import db from '../../../firebase'
 import './Contact.css'
 import MathmysticPet from '../../assets/img/MathmysticPet.png';
@@ -28,6 +29,12 @@ const Contact = () => {
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(0)
   const form = useRef();
+
+  const sendMessageTest = (e) => {
+    e.preventDefault()
+    toast("123344564565")
+  }
+
   const sendMessage = (e) => {
     
     e.preventDefault()
@@ -47,21 +54,22 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        'service_iy2pnna',
-        'template_5g23zwj',
+        'service_mydzg9f',
+        'template_d4jzs54',
         form.current, {
-        publicKey: 'juRQ3AGP4z6m8siES',
+        publicKey: '399iFop6Z5xjtf5UI',
       })
       .then(
         () => {
+          toast.success("Tin nhắn đã được gửi thành công")
           console.log('SUCCESS!');
         },
         (error) => {
+          toast.success("Lỗi! Tin nhắn không được gửi")
           console.log('FAILED...', error.text);
         },
       );
     setTimeout(() => setLoading(0), 1000)
-
 
   }
 
@@ -77,14 +85,16 @@ const Contact = () => {
 
           <div className="contact-box-form-row">
             <input
-              type="text"
+              type='text'
+              className= '  placeholder-white placeholder:font-normal placeholder-opacity-75 font-bold  font-rbt focus:placeholder-black'
               placeholder={t('Last Name')}
               value={lastname}
               onChange={evt => setLastname(evt.target.value)}
               name='lastname'
             />
             <input
-              type="text"
+              type='text'
+              className='placeholder-white placeholder:font-normal placeholder-opacity-75 font-bold font-rbt focus:placeholder-black'
               placeholder={t('First Name')}
               value={firstname}
               onChange={evt => setFirstname(evt.target.value)}
@@ -93,14 +103,16 @@ const Contact = () => {
           </div>
           <div className="contact-box-form-row">
             <input
-              type="text"
+              type='text'
+              className='placeholder-white placeholder:font-normal placeholder-opacity-75 font-bold font-rbt focus:placeholder-black'
               placeholder={t('Email address')}
               value={email}
               onChange={evt => setEmail(evt.target.value)}
               name='email'
             />
             <input
-              type="text"
+              type='text'
+              className='placeholder-white placeholder:font-normal placeholder-opacity-75 font-bold font-rbt focus:placeholder-black'
               placeholder={t('Phone number')}
               value={phonenumber}
               onChange={evt => setPhoneNumber(evt.target.value)}
@@ -109,7 +121,8 @@ const Contact = () => {
           </div>
           <div className="contact-box-form-textarea">
             <textarea
-              type="text"
+              type='text'
+              className='placeholder-white placeholder:font-normal placeholder-opacity-75 font-bold font-rbt focus:placeholder-black'
               rows={6}
               placeholder={t('Message')}
               value={message}

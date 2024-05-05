@@ -37,9 +37,12 @@
             align-items: center;
             justify-content: center;
             h2{
-                font-weight:350;
-                font-size: var(--font-medium);
+                font-weight:700;
+                font-size: 2.25rem;
+                line-height: 2.5rem;
                 margin: 20px;
+                text-shadow: -2px 2px 2px var(--ly);
+                font-family: Roboto Slab;
             }
             .contact-box-form-row {
                 width: 100%;
@@ -53,17 +56,17 @@
                     color: #fff;
                     margin: 0 0 8px 0;
                     padding: 18px 26px;
-                    font-weight: 500;
-                    font-size: var(--font-small);
+                    font-weight: 400;
+                    font-size: 1rem;
                     letter-spacing: 0.8px;
                     transition: 0.3s ease-in-out;
 
                     width: 100%;
                     margin: 5px 0px;
                     padding: 18px ;
-                    font-size: var(--font-small);
+                    font-size: 1rem;
                     letter-spacing: 0.8px;
-                    font-weight: 350;
+                    font-weight: 400;
                     &::placeholder{
                         color: white;
                     }
@@ -93,8 +96,8 @@
                     color: #fff;
                     margin: 0 0 8px 0;
                     padding: 18px 26px;
-                    font-weight: 500;
-                    font-size: var(--font-small);
+                    font-weight: 400;
+                    font-size: 1rem;
                     letter-spacing: 0.8px;
                     transition: 0.3s ease-in-out;
 
@@ -104,8 +107,8 @@
 
                     margin: 5px 0px;
                     padding: 18px;
-                    font-size: var(--font-small);
-                    font-weight: 350;
+                    font-size: 1rem;
+                    font-weight: 400;
                     &::placeholder{
                         color: white;
                     }
@@ -130,9 +133,12 @@
                     background-position: right bottom;
                     transition: all .5s ease-out;
                     border: 1px solid white;
-                    font-size: var(--font-small);
-                    font-weight:350;
+                    font-size: 1rem;
+                    font-weight: 400;
                     padding: 10px 50px;
+                    color: black;
+                    font-family: Roboto Slab;
+                    font-weight: 400;
                 }
 
                 button:hover {
@@ -236,7 +242,7 @@
                 padding: 70px;
                 background-color: none;
                 h2{
-                    font-weight:350;
+                    font-weight: 400;
                     margin: 20px;
                 }
                 .contact-box-form-row {
@@ -251,16 +257,16 @@
                         color: #fff;
                         margin: 0 0 8px 0;
                         padding: 18px 26px;
-                        font-weight: 500;
-                        font-size: var(--font-small);
+                        font-weight: 400;
+                        font-size: 1rem;
                         letter-spacing: 0.8px;
                         transition: 0.3s ease-in-out;
     
                         width: 100%;
                         margin: 5px;
                         padding: 18px ;
-                        font-size: var(--font-small);
-                        font-weight: 350;
+                        font-size: 1rem;
+                        font-weight: 400;
                     }
     
                     input:focus {
@@ -289,8 +295,8 @@
                         color: #fff;
                         margin: 0 0 8px 0;
                         padding: 18px 26px;
-                        font-weight: 500;
-                        font-size: var(--font-small);
+                        font-weight: 400;
+                        font-size: 1rem;
                         letter-spacing: 0.8px;
                         transition: 0.3s ease-in-out;
     
@@ -300,8 +306,8 @@
     
                         margin: 5px;
                         padding: 18px;
-                        font-size: var(--font-small);
-                        font-weight: 300;
+                        font-size: 1rem;
+                        font-weight: 400;
                         &::placeholder{
                             color: white;
                         }
@@ -328,8 +334,8 @@
                         background-position: right bottom;
                         transition: all .5s ease-out;
                         border: 1px solid white;
-                        font-size: var(--font-small);
-                        font-weight:350;
+                        font-size: 1rem;
+                        font-weight: 400;
                         padding: 10px 50px;
                     }
     
@@ -403,16 +409,16 @@
                         color: #fff;
                         margin: 0 0 8px 0;
                         padding: 18px 26px;
-                        font-weight: 500;
-                        font-size: var(--font-small);
+                        font-weight: 400;
+                        font-size: 1rem;
                         letter-spacing: 0.8px;
                         transition: 0.3s ease-in-out;
     
                         width: 100%;
                         margin: 5px;
                         padding: 18px ;
-                        font-size: var(--font-small);
-                        font-weight: 350;
+                        font-size: 1rem;
+                        font-weight: 400;
                     }
     
                     input:focus {
@@ -443,8 +449,8 @@
                         color: #fff;
                         margin: 0 0 8px 0;
                         padding: 18px 26px;
-                        font-weight: 500;
-                        font-size: var(--font-small);
+                        font-weight: 400;
+                        font-size: 1rem;
                         letter-spacing: 0.8px;
                         transition: 0.3s ease-in-out;
     
@@ -454,8 +460,8 @@
     
                         margin: 5px;
                         padding: 18px;
-                        font-size: var(--font-small);
-                        font-weight: 300;
+                        font-size: 1rem;
+                        font-weight: 400;
                         /* &::placeholder{
                             color: rgb(0, 0, 0);
                         } */
@@ -481,13 +487,13 @@
                         background-position: right bottom;
                         transition: all .5s ease-out;
                         border: 1px solid white;
-                        font-size: var(--font-small);
-                        font-weight:350;
+                        font-size: 1rem;
+                        font-weight: 400;
                         padding: 10px 50px;
                     }
     
                     button:hover {
-    
+                        color: white;
                         background-position: left bottom;
                     }
                 }

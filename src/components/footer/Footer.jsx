@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
         </div>
         <div className='right'>
-          <div className='social'>
+          <div className='social flex'>
             <a href="https://www.facebook.com/people/Mathmystic/61553045231824/">
               <svg
                 viewBox="0 0 512 512"

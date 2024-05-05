@@ -1,6 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  scroll-behavior: smooth;
+  
+}
+::-webkit-scrollbar {
+    background: transparent;
+    height: 8px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0.25rem;
+    background: rgb(135, 213, 255);
+}
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 0.25rem;
+    background: rgb(50, 153, 255);
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
 body {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
+    line-height: normal;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
@@ -8,13 +36,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
-}
-
 :root {
-    /* --font-family: 'Manrope', sans-serif; */
     --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
     --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
     --color-bg: #040C18;
@@ -32,9 +54,6 @@ code {
     --color-green: rgba(62, 197, 254, 1);
     --color-light-green: #b6e6fd;
     --color-white: #fff;
-}
-
-:root {
     --primary-color: #1f68fa;
     --light-text-color: #f5f6f7;
     --light-placeholder-color: #ced4de;
@@ -42,23 +61,14 @@ code {
     --shadow-dilute: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
     --shadow-conc: 2px 4px 8px 0 rgba(46, 61, 73, 0.2);
     --transition: all 0.2s ease-in-out;
-    --font-large: clamp(3rem, 4vw, 20rem);
-    --font-normal: clamp(2rem, 3vw, 5rem);
-    --font-medium: clamp(1.5rem, 2vw, 3rem);
-    --font-medium-store: clamp(1rem, 2vw, 2rem);
-    --font-small: clamp(1rem, 2vw, 1rem);
-    --font-small-chat : clamp(1rem, 1vw, 1.5rem);
-    --font-tiny: clamp(0.6rem, 2vw, 1rem);
-    --font-tiny-chatbot: clamp(0.5rem, 1vw, 1rem);
-    --font-tiny-chat: clamp(0.5rem, 3vw, 0.7rem);
-    --font-small-nav: clamp(1rem, 4vw, 1.2rem);
+    --lr: #e43a3a;
+    --lb: #008DDA;
+    --lo: #ffd000;
+    --ly: #FFBB70;
 }
 .popup-content{
-    width: fit-content !important;
-    height: fit-content !important;
-    position: relative;
-}
-select{
-    padding: 10px 20px;
-    /* width: %; */
+    /* padding: 20px; */
+    width: fit-content !important; 
+    height: fit-content;
+    border-radius: 0.375rem;
 }

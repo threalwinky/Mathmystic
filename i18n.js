@@ -171,7 +171,9 @@ i18n
           "Or go to the cart page" : 'Hoặc đi đến giỏ hàng',
           "Or go to the purchase page" : 'Hoặc đi đến trang đơn mua',
           "Cancel" : "Hủy",
-          "Game" : "Trò chơi"
+          "Game" : "Trò chơi",
+          "Please fill in completely" : "Vui lòng nhập đầy đủ thông tin",
+          "Account is registrated. Please sign in again" : "Tài khoản được đăng ký thành công. Vui lòng đăng nhập lại để sử dụng"
         }
       }
     },

@@ -11,13 +11,12 @@ import db from '../../../firebase'
 import './SignIn.css'
 import MathmysticPet from '../../assets/img/MathmysticPet.png';
 import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
-import { NavBarWoutMenu } from '../../components';
+
 import './SignIn.css'
 import { Loading } from '../../containers';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import PopupSuccess from '../../containers/modal/PopupSuccess';
-import PopupFailLogIn1 from '../../containers/modal/PopupFailLogIn1';
-import PopupFailLogIn2 from '../../containers/modal/PopupFailLogIn2';
+import Navbar from '../../components/navbar/Navbar';
+
 const SignIn = () => {
     /* Necessary function */
     const [t, i18n] = useTranslation()
@@ -30,9 +29,7 @@ const SignIn = () => {
 
     const [loading, setLoading] = useState(0)
     // toast('123')
-    const [isOpenPopupSuccess, setIsOpenPopupSuccess] = useState(0)
-    const [isOpenPopupFail1, setIsOpenPopupFail1] = useState(0)
-    const [isOpenPopupFail2, setIsOpenPopupFail2] = useState(0)
+  
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     var GoogleAuthentication = () => {
@@ -67,7 +64,7 @@ const SignIn = () => {
                                 localStorage.setItem('userAvatar', user.photoURL)
                                 localStorage.setItem('userName', user.displayName)
                                 window.location.href = '/'
-                                localStorage.setItem('loggedin', '1')
+                                localStorage.setItem("lg", "Đăng nhập thành công")
                             }, 500)
                         }
                         else {
@@ -75,9 +72,9 @@ const SignIn = () => {
                             localStorage.setItem('user', userEmail)
                             localStorage.setItem('userAvatar', user.photoURL)
                             localStorage.setItem('userName', user.displayName)
-                            // window.location.href = '/'
-                            setIsOpenPopupSuccess(1)
-                            localStorage.setItem('loggedin', '1')
+                            window.location.href = '/'
+                            localStorage.setItem("lg", "Đăng nhập thành công")
+                          
                         }
 
                     })
@@ -112,8 +109,8 @@ const SignIn = () => {
                     if (foundUser !== undefined) {
                         if (password !== foundUser.password) {
                             console.log(123)
-                            // setIsOpenPopupSuccess(true)
-                            setIsOpenPopupFail1(true)
+                            
+                          
                         }
                         else {
                             console.log('right')
@@ -121,14 +118,13 @@ const SignIn = () => {
                             localStorage.setItem('userAvatar', foundUser.avatar)
                             localStorage.setItem('userName', foundUser.name)
 
-                            // window.location.href = '/'
-                            localStorage.setItem('loggedin', '1')
-                            setIsOpenPopupSuccess(true)
+                            window.location.href = '/'
+                            localStorage.setItem("lg", "Đăng nhập thành công")
+                          
                         }
                     }
                     else {
-                        setIsOpenPopupFail2(true)
-                        // PopUp('Không tìm thấy tài khoản')
+                 
                     }
                 })
 
@@ -146,7 +142,7 @@ const SignIn = () => {
 
                 <div className='App'>
                     {/* <div className='gradient__bg'> */}
-                    <NavBarWoutMenu />
+                    <Navbar show={"1"} />
                     {/* </div> */}
                     <form className='sign_in'>
                         <div className='sign_in-container'>
@@ -186,10 +182,7 @@ const SignIn = () => {
                         </div>
 
                     </form>
-                    {/* <button onClick={() => setIsOpenPopupSuccess(true)}>Open Popup</button> */}
-                    {isOpenPopupSuccess ? <PopupSuccess setIsOpenPopupSuccess={setIsOpenPopupSuccess} /> : ""}
-                    {isOpenPopupFail1 ? <PopupFailLogIn1 setIsOpenPopupFail1={setIsOpenPopupFail1} /> : ""}
-                    {isOpenPopupFail2 ? <PopupFailLogIn2 setIsOpenPopupFail2={setIsOpenPopupFail2} /> : ""}
+                   
                 </div>
 
             </div>}

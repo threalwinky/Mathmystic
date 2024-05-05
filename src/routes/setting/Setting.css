@@ -10,7 +10,7 @@
     background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
     display: flex;
     height: fit-content;
-    height: calc(fit-content);
+    height: 100vh;
     background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
     
     .setting-container{
@@ -35,18 +35,19 @@
                     
                     img{
                         border-radius: 50%;
-                       
+                        aspect-ratio: 1/1;
                     }
                     .caption{
                         position: absolute;
                         color: white;
-                        margin-left: -80px;
-                        margin-top: 160px;
+                        margin-left: 120px;
+                        margin-top: -40px;
                         color: black;
                         background-color: rgb(255, 255, 255);
                         padding: 5px 15px;
                         border-radius: 10px;
                         cursor: pointer;
+                        
                         label{
                             cursor: pointer;
                         }
@@ -59,7 +60,7 @@
             }
             .content{
                 padding: 30px 30px;
-                display: flex;
+             
                 flex-direction: column;
                 justify-content: center;
             }
@@ -71,6 +72,9 @@
             flex-direction: column;
             gap: 20px;
             .box{
+                /* background-color: #00b3ff;  */
+                padding: 5px 15px;
+                border-radius: 10px;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;

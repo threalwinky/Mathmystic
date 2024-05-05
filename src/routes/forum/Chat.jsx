@@ -3,17 +3,17 @@ import { useState, useEffect, React } from 'react'
 import { Trans, withTranslation, useTranslation } from 'react-i18next';
 import { Timestamp, addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
 import { useMediaQuery } from 'react-responsive'
-import { Headpage, Loading, NotFound } from '../../containers'
+import { Headpage } from '../../containers'
 import { Link, useParams } from "react-router-dom";
 import './Chat.css'
-import { Footer, NavBarWoutMenuLogo } from "../../components";
+import { Footer, NavBar } from "../../components";
 import { TbTriangleFilled, TbTriangleInvertedFilled } from "react-icons/tb";
 import { IoEyeSharp } from "react-icons/io5";
 import { FaComment } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineArrowCircleLeft } from "react-icons/md";
-import PopupFailChat1 from "../../containers/modal/PopupFailChat1";
+
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
@@ -36,7 +36,6 @@ const Chat = ({ chatId }) => {
     const [foundChat, setFoundChat] = useState([])
     const [messageContent, setMessageContent] = useState('')
     const [foundUser, setFoundUser] = useState([])
-    const [isOpenPopupFailChat1, setIsOpenPopupFailChat1] = useState(0)
     const fetchPost = async () => {
 
         await getDocs(collection(db, "message"))
@@ -126,7 +125,6 @@ const Chat = ({ chatId }) => {
     const addMessage = () => {
         if (localStorage.getItem('user') == undefined) {
             // PopUp('Vui long dang nhap de gui cau tra loi')
-            setIsOpenPopupFailChat1(1)
         }
         else {
             setMessageContent('')
@@ -189,12 +187,12 @@ const Chat = ({ chatId }) => {
 
     return (
         <div>
-            {foundChat == undefined ? <NotFound /> :
+            {foundChat == undefined ? <div /> :
 
                 <div>
                     {!loading ? <Headpage /> :
                         <div>
-                            <NavBarWoutMenuLogo />
+                            <NavBar />
 
 
                             <div className="chat-body">
@@ -342,7 +340,7 @@ const Chat = ({ chatId }) => {
                         </div>
 
                     }
-                    {isOpenPopupFailChat1 ? <PopupFailChat1 setIsOpenPopupFailChat1={setIsOpenPopupFailChat1} /> : ""}
+                    
                 </div>
 
             }

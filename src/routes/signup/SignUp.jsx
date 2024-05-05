@@ -5,7 +5,6 @@ import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateD
 import { useMediaQuery } from 'react-responsive'
 import './SignUp.css'
 import { Link } from 'react-router-dom'
-import { NavBarWoutMenu } from '../../components';
 import { FcGoogle } from "react-icons/fc";
 
 import db from '../../../firebase'
@@ -14,9 +13,8 @@ import MathmysticPet from '../../assets/img/MathmysticPet.png';
 import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
 import { Loading } from '../../containers';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import PopupSuccessSignUp1 from '../../containers/modal/PopupSuccessSignUp1';
-import PopupFailSignUp2 from '../../containers/modal/PopupFailSignUp2';
-import PopupFailSignUp1 from '../../containers/modal/PopupFailSignUp1';
+import Navbar from '../../components/navbar/Navbar';
+import { toast } from 'react-toastify';
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
 const SignUp = () => {
@@ -34,9 +32,7 @@ const SignUp = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [rpassword, setRpassword] = useState('')
-  const [isOpenPopupSuccessSignUp1, setIsOpenPopupSuccessSignUp1] = useState(0)
-  const [isOpenPopupFailSignUp1, setIsOpenPopupFailSignUp1] = useState(0)
-  const [isOpenPopupFailSignUp2, setIsOpenPopupFailSignUp2] = useState(0)
+
   var GoogleAuthentication = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -68,8 +64,8 @@ const SignUp = () => {
                 localStorage.setItem('user', userEmail)
                 localStorage.setItem('userAvatar', user.photoURL)
                 localStorage.setItem('userName', user.displayName)
-                // window.location.href = '/'
-                localStorage.setItem('loggedin', '1')
+                window.location.href = '/'
+                localStorage.setItem("lg", "Đăng ký và đăng nhập thành công")
 
               }, 500)
             }
@@ -79,7 +75,8 @@ const SignUp = () => {
               localStorage.setItem('userAvatar', user.photoURL)
               localStorage.setItem('userName', user.displayName)
               // window.location.href = '/'
-              setIsOpenPopupSuccessSignUp1(1)
+              window.location.href = '/'
+              localStorage.setItem("lg", "Đăng ký và đăng nhập thành công")
               localStorage.setItem('loggedin', '1')
             }
 
@@ -95,9 +92,11 @@ const SignUp = () => {
   const addUser = async (e) => {
     e.preventDefault();
     try {
-
-      if (password !== rpassword) {
-        setIsOpenPopupFailSignUp1(1)
+      if (password == "" || name == "" || email == ""){
+        toast.error(t("Please fill in completely"))
+      }
+      else if (password !== rpassword) {
+        toast.error(t("You have entered unmatched passwords"))
         // window.alert(`Password don't match`)
       }
       else {
@@ -109,7 +108,7 @@ const SignUp = () => {
             const foundUser = (newData.find(x => x.email == email))
             console.log(foundUser)
             if (foundUser !== undefined) {
-              setIsOpenPopupFailSignUp2(1)
+              toast.error(t("The email have been taken to sign up"))
               // window.alert('Email have been taken')
             }
             else {
@@ -124,9 +123,11 @@ const SignUp = () => {
                 addr: '',
                 pn: ''
               });
-              setIsOpenPopupSuccessSignUp1(1)
+       
               // console.log('Account created')
               // window.alert('Account created')
+              // window.location.href = '/'
+              toast.success(t("Account is registrated. Please sign in again"))
             }
             // deleteDoc(doc(db, 'account', newData.find(x => x.username === "vv3").id))
           })
@@ -146,7 +147,7 @@ const SignUp = () => {
 
         <div className='App'>
           <div className='gradient__bg'>
-            <NavBarWoutMenu />
+            <Navbar show={"1"} />
           </div>
           <form className='sign_up'>
             <div className='sign_up-container'>
@@ -206,9 +207,7 @@ const SignUp = () => {
             </div>
 
           </form>
-          {isOpenPopupSuccessSignUp1 ? <PopupSuccessSignUp1 setIsOpenPopupSuccessSignUp1={setIsOpenPopupSuccessSignUp1} /> : ""}
-          {isOpenPopupFailSignUp1 ? <PopupFailSignUp1 setIsOpenPopupFailSignUp1={setIsOpenPopupFailSignUp1} /> : ""}
-          {isOpenPopupFailSignUp2 ? <PopupFailSignUp2 setIsOpenPopupFailSignUp2={setIsOpenPopupFailSignUp2} /> : ""}
+  
         </div>
 
 
