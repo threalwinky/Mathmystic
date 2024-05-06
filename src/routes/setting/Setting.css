@@ -10,7 +10,7 @@
     background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
     display: flex;
     height: fit-content;
-    height: 100vh;
+    height: fit-content;
     background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
     
     .setting-container{
@@ -98,7 +98,7 @@
                 }
             }
             .save-button{
-                background-color: rgb(163, 255, 163);
+                background-color: rgb(90, 255, 90);
             }
             .del-button{
                 background-color: rgb(255, 163, 163);
@@ -152,7 +152,7 @@
                     }
                 }
                 .save-button{
-                    background-color: rgb(163, 255, 163);
+                    background-color: rgb(90, 255, 90);
                 }
                 .del-button{
                     background-color: rgb(255, 163, 163);

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
 import db from '../../../firebase'
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 const PopupPaid = ({ setIsOpenPopupPaid }) => {
 
   const [code, setCode] = useState('')
@@ -39,7 +39,7 @@ const PopupPaid = ({ setIsOpenPopupPaid }) => {
 
   const paidUpdate = (i) => {
     // updateDoc(collection())
-    if (i.use == 1){
+    if (i.use == 1) {
       toast.error('Mã code đã được sử dụng')
       return 0
     }
@@ -47,20 +47,20 @@ const PopupPaid = ({ setIsOpenPopupPaid }) => {
       use: 1
     })
     updateDoc(doc(db, 'account', foundUser.id), {
-      paid : "pro"
+      paid: "pro"
     })
     toast.success('Tài khoản đã được kích hoạt pro!');
-    setTimeout(() => {window.location.reload()}, 3000)
+    setTimeout(() => { window.location.reload() }, 3000)
   }
 
   const paidHandle = () => {
     // console.log(code.toLowerCase())
     // setIsOpenPopupPaid.bind(this, false)
     // setIsOpenPopupPaid(false)
-    for (var i of codes){
+    for (var i of codes) {
       if (code == '') return 0
       // console.log(i)
-      if (i.src.toLowerCase() == code.toLowerCase()){
+      if (i.src.toLowerCase() == code.toLowerCase()) {
         // console.log("Yes")
         paidUpdate(i)
         return 0

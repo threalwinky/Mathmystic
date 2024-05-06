@@ -19,27 +19,49 @@
   <body style="margin: 0px; overflow: hidden">
     <a-scene embedded arjs>
       <!-- <a-marker preset=""> -->
-      <a-marker preset="custom" type="pattern" url="https://raw.githubusercontent.com/threalwinky/Mathmystic/main/ar/p.patt">
-        <!-- we use cors proxy to avoid cross-origin problems -->
-        <!--
-          ⚠️⚠️⚠️
-          https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
-          You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
-          ⚠️⚠️⚠️
-        -->
-        <a-sphere color="red" radius="1" material='opacity: 0.5;'></a-sphere>
+      <a-marker
+        preset="custom"
+        type="pattern"
+        url="https://raw.githubusercontent.com/threalwinky/Mathmystic/main/ar/pattern-globular.patt"
+      >
+   
+                <a-sphere color="red" radius="1" material='opacity: 0.5;'></a-sphere>
 
       </a-marker>
-      <a-marker preset="custom" type="pattern" url="https://raw.githubusercontent.com/threalwinky/Mathmystic/main/ar/p2.patt">
-        <!-- we use cors proxy to avoid cross-origin problems -->
-        <!--
-          ⚠️⚠️⚠️
-          https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
-          You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
-          ⚠️⚠️⚠️
-        -->
-        <a-cylinder color="blue" radius="1" height="3" material='opacity: 0.5;'></a-cylinder>
-
+     
+      <a-marker
+        preset="custom"
+        type="pattern"
+        url="https://raw.githubusercontent.com/threalwinky/Mathmystic/main/ar/pattern-cone.patt"
+      >
+      
+        <a-cone color="tomato" radius-bottom="0.6" radius-top="0" material='opacity: 0.5' height="2" ></a-cone>
+      </a-marker>
+       <a-marker
+        preset="custom"
+        type="pattern"
+        url="https://raw.githubusercontent.com/threalwinky/Mathmystic/main/ar/pattern-cylinder.patt"
+      >
+      
+        <a-cylinder
+          color="blue"
+          radius="1"
+          height="3"
+          material="opacity: 0.5;"
+        ></a-cylinder>
+      </a-marker>
+      <a-marker
+        preset="custom"
+        type="pattern"
+        url="https://raw.githubusercontent.com/threalwinky/Mathmystic/main/ar/pattern-rec.patt"
+      >
+        ơ
+        <a-cylinder
+          color="blue"
+          radius="1"
+          height="3"
+          material="opacity: 0.5;"
+        ></a-cylinder>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>

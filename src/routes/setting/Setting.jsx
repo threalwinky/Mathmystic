@@ -13,6 +13,9 @@ import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
 import Headpage from '../../containers/headpage/Headpage';
 import Navbar from '../../components/navbar/Navbar';
 import PopupPaid from '../../containers/modal/PopupPaid';
+import single from '../../assets/img/single.png'
+import group from '../../assets/img/group.png'
+
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,6 +43,9 @@ const Setting = () => {
 
     const [pn, setPn] = useState('')
 
+    const [code, setCode] = useState('')
+
+    const [codes, setCodes] = useState([])
     // const [c, setC] = useState(0)
     // const test = () => {
     //     const ad = new Audio(b)
@@ -54,6 +60,38 @@ const Setting = () => {
     //     // console.log(d.getFullYear())
     //     setPassword(d.getHours() + "" + d.getMinutes() + "" + "")
     // }
+
+    const paidUpdate = (i) => {
+        // updateDoc(collection())
+        if (i.use == 1) {
+            toast.error('Mã code đã được sử dụng')
+            return 0
+        }
+        updateDoc(doc(db, 'code', i.id), {
+            use: 1
+        })
+        updateDoc(doc(db, 'account', foundUser.id), {
+            paid: "pro"
+        })
+        toast.success('Tài khoản đã được kích hoạt pro!');
+        setTimeout(() => { window.location.reload() }, 3000)
+    }
+
+    const paidHandle = () => {
+        // console.log(code.toLowerCase())
+        // setIsOpenPopupPaid.bind(this, false)
+        // setIsOpenPopupPaid(false)
+        for (var i of codes) {
+            if (code == '') return 0
+            // console.log(i)
+            if (i.src.toLowerCase() == code.toLowerCase()) {
+                // console.log("Yes")
+                paidUpdate(i)
+                return 0
+            }
+        }
+        toast.error('Mã code không đúng')
+    }
 
     useEffect(() => {
         getDocs(collection(db, "account"))
@@ -81,6 +119,17 @@ const Setting = () => {
                     setPn(foundUser2.pn)
                 })
         });
+        getDocs(collection(db, "code"))
+            .then((querySnapshot) => {
+                const newData = querySnapshot.docs
+                    .map((doc) => ({ ...doc.data(), id: doc.id }));
+                // const foundUser2 = (newData.find(x => x.email == localStorage.getItem('user')))
+                setCodes(newData)
+                console.log(newData)
+                // console.log(newData)
+                // setName(foundUser2.name)
+                // setLoading(1)
+            })
         setTimeout(() => { setLoading(1) }, 1000)
 
     }, [])
@@ -130,7 +179,7 @@ const Setting = () => {
                                                 >
                                                     <path d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z" />
                                                 </svg>
-                                                Edit
+                                                <Trans>Edit</Trans>
                                             </div>
 
 
@@ -151,12 +200,25 @@ const Setting = () => {
                                 {/* <label htmlFor="">123</label> */}
                                 {/* </input> */}
                             </div>
+                            <div className={`
+                                self-center mt-5 ${foundUser.paid == 'pro' ? " bg-purple-500" : " bg-green-300"}
+                                 p-1 px-5 rounded-lg font-rbt text-base
+                                 capitalize
+                                 text-white
+                                [text-shadow:_-3px_3px_10px_green]
+                                 border-solid  shadow-[2px_2px_10px_2px_rgba(255,255,255,0.8)]
+                             `}>
+                                <p>
+                                    <Trans>{foundUser.paid}</Trans>
+                                </p>
+                            </div>
                             <div className="content flex max-xl:hidden">
 
-                                <p>Ten : </p>
-                                <p>Email : </p>
-                                <p>Dia chi : </p>
-                                <p>So dien thoai : </p>
+
+                                <p><Trans>Name</Trans> : {foundUser.name}</p>
+                                <p><Trans>Email</Trans> : {foundUser.email}</p>
+                                <p><Trans>Address</Trans> : {foundUser.addr}</p>
+                                <p><Trans>Phone number</Trans> : {foundUser.pn}</p>
 
                             </div>
                         </div>
@@ -214,10 +276,10 @@ const Setting = () => {
 
                             <Tabs>
                                 <TabList>
-                                    <Tab>Account</Tab>
-                                    <Tab>Billing</Tab>
-                                    <Tab>Password</Tab>
-                                    <Tab>Notification</Tab>
+                                    <Tab><Trans>Account</Trans></Tab>
+                                    <Tab><Trans>Billing</Trans></Tab>
+                                    <Tab><Trans>Password</Trans></Tab>
+                                    <Tab><Trans>Notification</Trans></Tab>
 
                                 </TabList>
                                 <div>
@@ -226,7 +288,7 @@ const Setting = () => {
                                 <TabPanel>
                                     <div className='w-full flex flex-col gap-5'>
                                         <div className='w-full flex flex-col gap-2'>
-                                            <p className='mx-5 font-semibold'>Email</p>
+                                            <p className='mx-5 font-semibold'><Trans>Email</Trans></p>
                                             <input type="text"
                                                 value={email}
                                                 onChange={evt => { setEmail(evt.target.value) }}
@@ -235,7 +297,7 @@ const Setting = () => {
                                             />
                                         </div>
                                         <div className='w-full flex flex-col gap-2'>
-                                            <p className='mx-5 font-semibold'>Ten</p>
+                                            <p className='mx-5 font-semibold'><Trans>Name</Trans></p>
                                             <input
                                                 type="text"
                                                 value={name}
@@ -245,7 +307,7 @@ const Setting = () => {
                                         </div>
 
                                         <div className='w-full flex flex-col gap-2'>
-                                            <p className='mx-5 font-semibold'>Dia chi</p>
+                                            <p className='mx-5 font-semibold'><Trans>Address</Trans></p>
                                             <input type="text"
                                                 value={addr}
                                                 onChange={evt => { setAddr(evt.target.value) }}
@@ -253,7 +315,7 @@ const Setting = () => {
                                             />
                                         </div>
                                         <div className='w-full flex flex-col gap-2'>
-                                            <p className='mx-5 font-semibold'>So dien thoai</p>
+                                            <p className='mx-5 font-semibold'><Trans>Phone number</Trans></p>
                                             <input type="text"
                                                 value={pn}
                                                 onChange={evt => { setPn(evt.target.value) }}
@@ -261,85 +323,228 @@ const Setting = () => {
                                             />
                                         </div>
                                         <div className='flex flex-row max-xl:flex-row gap-3 self-end'>
-                                        <button className='del-button rounded-lg p-2 px-5'>
-                                            Delete
-                                        </button>
-                                        <button className='save-button rounded-lg p-2 px-5' onClick={saveHandle}>
-                                            Save
-                                        </button>
-                                        
+                                            <button className='del-button rounded-lg p-2 px-5
+                                            
+                                            
+                                 p-1 px-5 rounded-lg font-rbt text-base
+                                 capitalize
+                                 text-white
+                                [text-shadow:_-3px_3px_8px_red]
+                                 border-solid  
+                                            
+                                            '>
+                                                Delete
+                                            </button>
+                                            <button className='save-button rounded-lg p-2 px-5
+                                            
+                                            
+                                            p-1 px-5 rounded-lg font-rbt text-base
+                                 capitalize
+                                 text-white
+                                [text-shadow:_-3px_3px_15px_#000]
+                                 border-solid  
+                                            ' onClick={saveHandle}>
+                                                Save
+                                            </button>
+
                                         </div>
-                                        
+
                                     </div>
 
                                 </TabPanel>
                                 <TabPanel>
-                                    <p>
-                                        <b>Luigi</b> (<i>Japanese: ルイージ Hepburn: Ruīji, [ɾɯ.iː.dʑi̥]</i>) (<i>English: /luˈiːdʒi/;
-                                            Italian: [luˈiːdʒi]</i>) is a fictional character featured in video games and related media
-                                        released by Nintendo. Created by prominent game designer Shigeru Miyamoto, Luigi is portrayed
-                                        as the slightly younger but taller fraternal twin brother of Nintendo's mascot Mario, and
-                                        appears in many games throughout the Mario franchise, often as a sidekick to his brother.
-                                    </p>
-                                    <p>
-                                        Source:{' '}
-                                        <a href="https://en.wikipedia.org/wiki/Luigi" target="_blank">
-                                            Wikipedia
-                                        </a>
-                                    </p>
+                                    <div className='study-container'>
+                                        {/* <div className='study-confirm'>
+                                    <div className='study-confirm-top'>
+                                        <h1>Free</h1>
+                                        <h2>0$/month</h2>
+                                        <div>
+                                            <div></div>
+                                            <h3>
+                                                duoc su dung cac cong cu hoc tap mien phi
+                                            </h3>
+                                        </div>
+                                        <div>
+                                            <div></div>
+                                            <h3>
+                                                xem cac video bai giang va tai lieu co ban
+                                            </h3>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <button onClick={() => { setMode('free') }}>Let's go</button>
+                                </div> */}
+                                        <div className='font-rbt flex flex-row max-xl:flex-col gap-10 w-full justify-evenly pt-10'>
+                                        <div className='border-green-400 border-solid border-t-[10px] bg-green-200 p-10 rounded-xl'>
+                                            
+                                                <div className='flex flex-col '>
+                                                    <img src={single} alt="" className='mt-3 w-28 mb-7 aspect-square self-center' />
+                                                    <h1 className='font-bold text-4xl 
+                                                
+                                                    capitalize
+                                                   
+                                                   [text-shadow:_-3px_3px_50px_green]
+                                                    border-solid 
+                                                  self-center
+                                                    
+                                                    mb-3
+                                                    
+                                                    '><Trans>Free</Trans></h1>
+                                                 
+                                                    <div>
+                                                        <div></div>
+                                                        <li className='font-rbt text-lg  [text-shadow:_-3px_3px_50px_green]'>
+                                                            <Trans>Use free learning tools</Trans>
+                                                        </li>
+                                                    </div>
+                                                    <div>
+                                                        <div></div>
+                                                        <li className='font-rbt text-lg  [text-shadow:_-3px_3px_50px_green]'>
+                                                            <Trans>Watch the basic music and videos</Trans>
+                                                        </li>
+                                                    </div>
+                                                    <div>
+                                                        <div></div>
+                                                        <li className='font-rbt text-lg  [text-shadow:_-3px_3px_50px_green]'>
+                                                            <Trans>Join the forum</Trans>
+                                                        </li>
+                                                    </div>
+                                                    <div>
+                                                        <div></div>
+                                                        <li className='font-rbt text-lg  [text-shadow:_-3px_3px_50px_green]'>
+                                                            <Trans>Use web games</Trans>
+                                                        </li>
+                                                    </div>
+                                                    <div>
+                                                        <div></div>
+                                                        {/* <li className='font-rbt text-lg  [text-shadow:_-3px_3px_50px_green]'>
+                                                            <Trans>duoc hoi bai va tra loi boi gia su</Trans>
+                                                        </li> */}
+                                                    </div>
+                                                    <h2 className='font-bold text-4xl 
+                                                      [text-shadow:_-3px_3px_50px_green]
+                                                      border-solid 
+                                                        ml-5
+                                                        m-6
+                                                        self-center
+                                                    '></h2>
+                                                </div>
+                                                <div>
+                                                </div>
+                                                <div>
+                                                    {/* <input
+                                                        type="text"
+                                                        placeholder='Type the code'
+                                                        value={code}
+                                                        className='w-full p-2 rounded-lg mt-4'
+                                                        onChange={evt => { setCode(evt.target.value) }}
+                                                    />
+                                                    <button className='w-full bg-green-400 
+                                                    p-2 px-5 rounded-lg font-rbt text-base
+                                                    capitalize
+                                                    
+                                                   [text-shadow:_-3px_3px_15px_#000]
+                                                    border-solid 
+                                                    mt-3
+                                                    ' onClick={() => { paidHandle() }}>Confirm</button> */}
+                                                    {/* <div className="">
+                                                    <button onClick={setIsOpenPopupPaid.bind(this, false)}>
+                                                        Ok
+                                                    </button>
+                                                </div> */}
+                                                </div>
+                                            </div>
+                                            <div className='border-purple-400 border-solid border-t-[10px] bg-purple-200 p-10 rounded-xl'>
+                                                <div className='flex flex-col'>
+                                                <img src={group} alt="" className='w-36 aspect-square self-center'/>
+                                                    <h1 className='font-bold text-4xl 
+                                                
+                                                    capitalize
+                                                   
+                                                   [text-shadow:_-3px_3px_50px_purple]
+                                                    border-solid 
+                                                  self-center
+                                                    
+                                                    mb-3
+                                                    
+                                                    '>Pro</h1>
+                                                 
+                                                    <div>
+                                                        <div></div>
+                                                        <li className='font-rbt text-lg  [text-shadow:_-3px_3px_50px_purple]'>
+                                                            <Trans>Use free learning tools</Trans>
+                                                        </li>
+                                                    </div>
+                                                    <div>
+                                                        <div></div>
+                                                        <li className='font-rbt text-lg  [text-shadow:_-3px_3px_50px_purple]'>
+                                                            <Trans>Watch all musics and videos</Trans>
+                                                        </li>
+                                                    </div>
+                                                    <div>
+                                                        <div></div>
+                                                        <li className='font-rbt text-lg  [text-shadow:_-3px_3px_50px_purple]'>
+                                                            <Trans>Be asked questions and answered by the tutor</Trans>
+                                                        </li>
+                                                    </div>
+                                                    <div>
+                                                        <div></div>
+                                                        <li className='font-rbt text-lg  [text-shadow:_-3px_3px_50px_purple]'>
+                                                            <Trans>Join the forum</Trans>
+                                                        </li>
+                                                    </div>
+                                                    <div>
+                                                        <div></div>
+                                                        <li className='font-rbt text-lg  [text-shadow:_-3px_3px_50px_purple]'>
+                                                            <Trans>Use web games</Trans>
+                                                        </li>
+                                                    </div>
+                                                    <h2 className='font-bold text-4xl 
+                                                      [text-shadow:_-3px_3px_50px_purple]
+                                                      border-solid 
+                                                        ml-5
+                                                        m-6
+                                                        self-center
+                                                    '></h2>
+                                                </div>
+                                                <div>
+                                                </div>
+                                                <div>
+                                                    <input
+                                                        type="text"
+                                                        placeholder='Type the code'
+                                                        value={code}
+                                                        className='w-full p-2 px-5 rounded-lg mt-0'
+                                                        onChange={evt => { setCode(evt.target.value) }}
+                                                    />
+                                                    <button className='w-full bg-purple-400 
+                                                    p-2 px-4 rounded-lg font-rbt text-base
+                                                    capitalize
+                                                    
+                                                   [text-shadow:_-3px_3px_50px_#000]
+                                                    border-solid 
+                                                    mt-3
+                                                    ' onClick={() => { paidHandle() }}>Confirm</button>
+                                                    {/* <div className="">
+                                                    <button onClick={setIsOpenPopupPaid.bind(this, false)}>
+                                                        Ok
+                                                    </button>
+                                                </div> */}
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
                                 </TabPanel>
                                 <TabPanel>
-                                    <p>
-                                        <b>Princess Peach</b> (<i>Japanese: ピーチ姫 Hepburn: Pīchi-hime, [piː.tɕi̥ çi̥.me]</i>)
-                                        is a character in Nintendo's Mario franchise. Originally created by Shigeru Miyamoto,
-                                        Peach is the princess of the fictional Mushroom Kingdom, which is constantly under
-                                        attack by Bowser. She often plays the damsel in distress role within the series and
-                                        is the lead female. She is often portrayed as Mario's love interest and has appeared
-                                        in Super Princess Peach, where she is the main playable character.
-                                    </p>
-                                    <p>
-                                        Source:{' '}
-                                        <a href="https://en.wikipedia.org/wiki/Princess_Peach" target="_blank">
-                                            Wikipedia
-                                        </a>
-                                    </p>
+                                    
                                 </TabPanel>
                                 <TabPanel>
-                                    <p>
-                                        <b>Yoshi</b> (<i>ヨッシー Yosshī, [joɕ.ɕiː]</i>) (<i>English: /ˈjoʊʃi/ or /ˈjɒʃi/</i>), once
-                                        romanized as Yossy, is a fictional anthropomorphic dinosaur who appears in
-                                        video games published by Nintendo. Yoshi debuted in Super Mario World (1990) on the
-                                        Super Nintendo Entertainment System as Mario and Luigi's sidekick. Yoshi later starred
-                                        in platform and puzzle games, including Super Mario World 2: Yoshi's Island, Yoshi's Story
-                                        and Yoshi's Woolly World. Yoshi also appears in many of the Mario spin-off games, including
-                                        Mario Party and Mario Kart, various Mario sports games, and Nintendo's crossover fighting
-                                        game series Super Smash Bros. Yoshi belongs to the species of the same name, which is
-                                        characterized by their variety of colors.
-                                    </p>
-                                    <p>
-                                        Source:{' '}
-                                        <a href="https://en.wikipedia.org/wiki/Yoshi" target="_blank">
-                                            Wikipedia
-                                        </a>
-                                    </p>
+                                  
                                 </TabPanel>
-                                <TabPanel>
-                                    <p>
-                                        <b>Toad</b> (<i>Japanese: キノピオ Hepburn: Kinopio</i>) is a fictional character who primarily
-                                        appears in Nintendo's Mario franchise. Created by Japanese video game designer Shigeru Miyamoto,
-                                        he is portrayed as a citizen of the Mushroom Kingdom and is one of Princess Peach's most loyal
-                                        attendants; constantly working on her behalf. He is usually seen as a non-player character (NPC)
-                                        who provides assistance to Mario and his friends in most games, but there are times when Toad(s)
-                                        takes center stage and appears as a protagonist, as seen in Super Mario Bros. 2, Wario's Woods,
-                                        Super Mario 3D World, and Captain Toad: Treasure Tracker.
-                                    </p>
-                                    <p>
-                                        Source:{' '}
-                                        <a href="https://en.wikipedia.org/wiki/Toad_(Nintendo)" target="_blank">
-                                            Wikipedia
-                                        </a>
-                                    </p>
-                                </TabPanel>
+
                             </Tabs>
 
 

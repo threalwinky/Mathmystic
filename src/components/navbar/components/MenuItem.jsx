@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-
+import { Trans } from "react-i18next";
 const variants = {
   open: {
     y: 0,
@@ -37,7 +37,7 @@ export const MenuItem = ({ i, name, Icon, link }) => {
       <div />
       <p className="text-placeholder pl-5 text-lg font-semibold font-rbt" >
 
-        {name}
+        <Trans>{name}</Trans>
       </p>
 
     </motion.a>
