@@ -5,7 +5,7 @@ import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateD
 import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
 import { FcGoogle } from "react-icons/fc";
-
+import { toast } from 'react-toastify';
 
 import db from '../../../firebase'
 import './SignIn.css'
@@ -108,8 +108,7 @@ const SignIn = () => {
                     console.log(foundUser)
                     if (foundUser !== undefined) {
                         if (password !== foundUser.password) {
-                            console.log(123)
-                            
+                            toast.error(t("Wrong password"))
                           
                         }
                         else {
@@ -124,7 +123,7 @@ const SignIn = () => {
                         }
                     }
                     else {
-                 
+                        toast.error(t("User not found"))
                     }
                 })
 

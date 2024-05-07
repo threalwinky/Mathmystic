@@ -60,7 +60,7 @@ const Introduction = () => {
                 '
             // viewport={{ once: true }}
             >
-                Introduction
+                <Trans>Introduction</Trans>
             </motion.h1>
             {/* First */}
             <div className='flex max-xl:flex-col justify-center items-center gap-12'>
@@ -74,10 +74,10 @@ const Introduction = () => {
                     </div>
 
                     <p className='mt-5 text-white font-rbt font-medium text-xl [text-shadow:_-1px_1px_1px_red]'>
-                        học sinh, sinh viên Việt Nam đang học hình học, và với mong muốn lan tỏa lợi ích giáo dục đối với tất cả học sinh nói chung và học sinh khiếm thị nói riêng
+                    <Trans>Vietnamese students are studying geometry, and with the desire to spread educational benefits to all students in general and visually impaired students in particular.</Trans>
 
                     </p>
-                    <p className='text-white font-semibold font-rbt  text-2xl [text-shadow:_-3px_3px_4px_red]'> {"Mô hình toán học ra đời!"} </p> 
+                    <p className='text-white font-semibold font-rbt  text-2xl [text-shadow:_-3px_3px_4px_red]'> {t("Mathmystic was invented!")} </p> 
                 </div>
                 <div className='w-full'>
                     <img className='' src={Learning} alt="" />

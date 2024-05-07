@@ -129,8 +129,7 @@ const Header = () => {
                                 exit={{ opacity: 0, transition: { duration: 0.2 } }}
                                 transition={{ delay: 0, duration: 0.3 }}
                             >
-                                Chúng tôi sẽ giới thiệu một sản phẩm toán học độc đáo cho tất cả các bạn học sinh và giáo viên. Hơn cả
-                                một sản phẩm, đây còn là một cách thức mới, sáng tạo và thú vị để tìm hiểu và trải nghiệm hình học.
+                               <Trans>We will introduce a unique math product to all students and teachers. More than a product, it is a new, creative and fun way to learn and experience geometry.</Trans>
                             </motion.li>
                             <motion.li className='list-disc list-inside my-3 text-[#F8F6E3] text-xl [text-shadow:_3px_3px_3px_var(--lb)]'
                                 initial={{ scale: 0, opacity: 0 }}
@@ -138,8 +137,7 @@ const Header = () => {
                                 exit={{ opacity: 0, transition: { duration: 0.2 } }}
                                 transition={{ delay: 0, duration: 0.5 }}
                             >
-                                Điểm khác biệt của dự án là việc kết hợp bộ dụng cụ mô hình và trang web hướng dẫn
-                                học tập để tạo ra một trải nghiệm học tập toàn diện.
+                                <Trans>What differentiates the project is the combination of model kits and a learning guide website to create a comprehensive learning experience.</Trans>
                             </motion.li>
                             <motion.li className='list-disc list-inside my-3 text-[#F8F6E3] text-xl [text-shadow:_3px_3px_3px_var(--lb)]'
                                 initial={{ scale: 0, opacity: 0 }}
@@ -147,8 +145,9 @@ const Header = () => {
                                 exit={{ opacity: 0, transition: { duration: 0.2 } }}
                                 transition={{ delay: 0, duration: 0.7 }}
                             >
-                                Các bài giảng được nhóm dự án thiết kế đơn giản nhưng đầy đủ các tài nguyên phục vụ cho việc
-                                học tập hình học, từ đó khuyến khích làm việc nhóm song song với hình thành thói quen tự học.
+                                <Trans>
+                                The lectures are designed by the project team to be simple but full of resources for learning geometry, thereby encouraging group work in parallel with forming self-study habits.
+                                </Trans>
                             </motion.li>
 
 
@@ -177,7 +176,7 @@ const Header = () => {
                                             <path d="M19 9h-4V3H9v6H5l7 8zM4 19h16v2H4z" />
                                         </svg>
                                         <p className='font-rbt font-medium'>
-                                            Tải xuống ngay
+                                           <Trans>Download now</Trans>
                                         </p>
                                     </motion.button>
                                 }

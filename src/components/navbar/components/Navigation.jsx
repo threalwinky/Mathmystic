@@ -76,9 +76,9 @@ export const Navigation = ({ scrolled, setOpen, isGuest }) => (
 );
 
 const itemIds2 = [0, 1, 2, 3, 4, 5];
-const name2 = ["Sign In/Sign up",  "Store", "Cart", "Purchase", "Forum", "Setting"]
-const icons2 = [User, Store, Cart, Purchase, Forum, Setting]
-const links2 = ["/signin",  "store", "cart", "purchase", "forum", "setting"]
+const name2 = ["Sign in", "Study space", "Store", "Cart", "Purchase", "Forum"]
+const icons2 = [User,  Study, Store, Cart, Purchase, Forum]
+const links2 = ["/signin",  "/study", "store", "cart", "purchase", "forum"]
 
 const itemIds = [0, 1, 2, 3, 4, 5, 6, 7];
 const name = ["Profile", "Study space", "Store", "Cart", "Purchase", "Games", "Forum", "Setting"]

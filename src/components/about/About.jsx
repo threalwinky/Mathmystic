@@ -101,7 +101,7 @@ const About = () => {
                  mt-10'
                 viewport={{ once: true }}
             >
-                Mô hình toán học
+                <Trans>About</Trans>
             </motion.h1>
             {/* First */}
             <div className='flex flex-col items-center justify-center mx-56 max-xl:w-full max-xl:px-8'>
@@ -115,7 +115,7 @@ const About = () => {
                     transition={{ delay: 0, duration: 0.2 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                 >
-                    Cách sử dụng
+                    <Trans>How to use</Trans>
                 </motion.h2>
                 <motion.ul
                     className='px-5'
@@ -177,7 +177,7 @@ const About = () => {
                     transition={{ delay: 0, duration: 0.8 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                 >
-                    Bộ sưu tập
+                    <Trans>Collection</Trans>
                 </motion.h2>
             <div className='px-56 max-xl:px-14 w-screen'>
             <Carousel 

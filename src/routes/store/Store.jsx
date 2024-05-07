@@ -1,62 +1,77 @@
 /*Module before File after */
-import { useState, useEffect, React } from 'react'
-import { Trans, withTranslation, useTranslation } from 'react-i18next';
-import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
-import { useMediaQuery } from 'react-responsive'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useState, useEffect, React } from "react";
+import { Trans, withTranslation, useTranslation } from "react-i18next";
+import {
+    addDoc,
+    collection,
+    deleteDoc,
+    doc,
+    getDocs,
+    onSnapshot,
+    query,
+    updateDoc,
+} from "firebase/firestore";
+import { useMediaQuery } from "react-responsive";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { AnimatePresence, motion } from "framer-motion";
 
-
-import db from '../../../firebase'
-import './Store.css'
-import MathmysticPet from '../../assets/img/MathmysticPet.png';
-import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
-import { Headpage } from '../../containers';
+import db from "../../../firebase";
+import "./Store.css";
+import MathmysticPet from "../../assets/img/MathmysticPet.png";
+import MathmysticLogo from "../../assets/img/MathmysticLogo.png";
+import { Headpage } from "../../containers";
+import Navbar from "../../components/navbar/Navbar";
 
 const Store = () => {
     /* Necessary function */
-    const [t, i18n] = useTranslation()
+    const [t, i18n] = useTranslation();
     const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 1050px)'
-    })
+        query: "(min-width: 1050px)",
+    });
 
-    const [loading, setLoading] = useState(0)
+    const [loading, setLoading] = useState(0);
 
     useEffect(() => {
-        setTimeout(() => { setLoading(1) }, 1000)
-    },[])
-    
+        setTimeout(() => {
+            setLoading(1);
+        }, 1000);
+    }, []);
+
     return (
         <div>
-            {!loading ? <Headpage/> : 
-            
-            <div className='w-screen h-screen max-xl:h-screen header-background-color2'>
-
-                    <div>
-                        <div>
-                            {/* <img src="https://mathmystic.vn/assets/Store1_1-D2ZoX1ZJ.jpeg" alt="" /> */}
+            {!loading ? (
+                <Headpage />
+            ) : (
+                <div className="w-screen h-screen max-xl:h-screen header-background-color2 pt-24">
+                    <Navbar show="1" />
+                    <div className="grid grid-cols-[0.2fr_1fr]">
+                        <div className="bg-red-300 ">
+123
                         </div>
-                        <div>
-                            <motion.div
-                             className='w-12 bg-red-300'
-                            initial={{height : 12}}
-                            
-                                whileHover={{height : 24}}
-                            >
-                            
-
-
-
-                            </motion.div>
+                        <div className="store">
+                        <div className="flex items-center justify-center">
+                            <img src="https://placewaifu.com/image/200" alt="" />
                         </div>
+                        <div className="flex items-center justify-center">
+                            <img src="https://placewaifu.com/image/200" alt="" />
+                        </div>
+                        <div className="flex items-center justify-center">
+                            <img src="https://placewaifu.com/image/200" alt="" />
+                        </div>
+                        <div className="flex items-center justify-center">
+                            <img src="https://placewaifu.com/image/200" alt="" />
+                        </div>
+                        <div className="flex items-center justify-center">
+                            <img src="https://placewaifu.com/image/200" alt="" />
+                        </div>
+                        </div>
+                       
                     </div>
-                    
-            </div>
-            
-            }
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default Store
+export default Store;

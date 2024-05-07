@@ -304,7 +304,7 @@ const Document = () => {
                 [text-shadow:_-3px_3px_4px_var(--lb)]'
                 viewport={{ once: true }}
             >
-                Document
+                <Trans>Document</Trans>
             </motion.h1>
             
 

@@ -83,7 +83,7 @@ const Feature = () => {
                 '
                 // viewport={{ once: true }}
             >
-                Feature
+                <Trans>Feature</Trans>
             </motion.h1>
             {/* First */}
             <div className='flex flex-row max-xl:flex-col-reverse justify-center items-center gap-12 mb-16'>
@@ -105,7 +105,7 @@ const Feature = () => {
                         transition={{ delay: 0, duration: 0.2 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                     >
-                        FEATURES OF THE WEBSITE
+                        <Trans>FEATURES OF THE WEBSITE</Trans>
                     </motion.h2>
                     <motion.ul
                     // style={{ scale: 0, opacity: 0 }}
@@ -123,7 +123,7 @@ const Feature = () => {
                             whileInView={{ x: 0 }}
                             // viewport={{ once: true }}
                         >
-                            Instructions from A to Z: Our website provides step-by-step instructions for creating spatial geometric models from basic to complex.
+                            <Trans>Instructions from A to Z: Our website provides step-by-step instructions for creating spatial geometric models from basic to complex.</Trans>
                         </motion.li>
                         <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x:-300 }}
@@ -133,7 +133,7 @@ const Feature = () => {
                             whileInView={{ x: 0 }}
                             // viewport={{ once: true }}
                         >
-                            Interactive lectures: You will practice moving, rotating, and creating spatial geometry according to instructions. This gives you a deeper understanding and more confidence when working with models.
+                            <Trans>Interactive lectures: You will practice moving, rotating, and creating spatial geometry according to instructions. This gives you a deeper understanding and more confidence when working with models.</Trans>
                         </motion.li>
 
                         <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
@@ -144,7 +144,7 @@ const Feature = () => {
                             whileInView={{ x: 0 }}
                             // viewport={{ once: true }}
                         >
-                            Hướng dẫn từ A đến Z: Trang web của chúng tôi cung cấp hướng dẫn từng bước để tạo ra các mô hình hình học không gian từ cơ bản đến phức tạp.
+                            <Trans>Documentation and examples: In addition to instructions, the site also provides a rich documentation and examples. You can refer to them to enhance your knowledge and create unique models. </Trans>
                         </motion.li>
 
 
@@ -163,7 +163,7 @@ const Feature = () => {
                         transition={{ delay: 0, duration: 0.2 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                     >
-                        FEATURES OF THE WEBSITE
+                        <Trans>SOLID GEOMETRIC MODEL</Trans>
                     </motion.h2>
                     <motion.ul
                     // style={{ scale: 0, opacity: 0 }}
@@ -180,29 +180,25 @@ const Feature = () => {
                             whileInView={{ x: 0 }}
                             // viewport={{ once: true }}
                         >
-                            Instructions from A to Z: Our website provides step-by-step instructions for creating spatial geometric models from basic to complex.
+                            <Trans>We have developed a complete geometric modeling kit with a simple, easy-to-use, environmentally friendly design that includes a perforated wooden base, antennas, rubber bands and necessary accessories. other.</Trans>
                         </motion.li>
                         <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x: 300 }}
-                            // animate={{ x:300 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
                             transition={{ delay: 0, duration: 0.5 }}
                             whileInView={{ x: 0 }}
-                            // viewport={{ once: true }}
                         >
-                            Interactive lectures: You will practice moving, rotating, and creating spatial geometry according to instructions. This gives you a deeper understanding and more confidence when working with models.
+                            <Trans>Through that structure, users can interact and create many different spatial models, helping the spatial learning model become more familiar.</Trans>
                         </motion.li>
 
-                        <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
+                        {/* <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x: 300 }}
-                            // animate={{ x:300 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
                             transition={{ delay: 0, duration: 0.7 }}
                             whileInView={{ x: 0 }}
-                            // viewport={{ once: true }}
                         >
                             Hướng dẫn từ A đến Z: Trang web của chúng tôi cung cấp hướng dẫn từng bước để tạo ra các mô hình hình học không gian từ cơ bản đến phức tạp.
-                        </motion.li>
+                        </motion.li> */}
 
 
                     </motion.ul>
@@ -232,7 +228,9 @@ const Feature = () => {
                         transition={{ delay: 0, duration: 0.2 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                     >
-                        FEATURES OF THE WEBSITE
+                        <Trans>CULTIVATE THINKING, CONNECT KNOWLEDGE,</Trans><Trans>
+
+LIGHT FOR EVERY HEART</Trans>
                     </motion.h2>
                     <motion.ul
                     // style={{ scale: 0, opacity: 0 }}
@@ -249,28 +247,24 @@ const Feature = () => {
                             whileInView={{ x: 0 }}
                             // viewport={{ once: true }}
                         >
-                            Instructions from A to Z: Our website provides step-by-step instructions for creating spatial geometric models from basic to complex.
+                            <Trans>The special feature of this project is that it is a finished product completely new to the market, helping to create a teaching medium accessible geometry.</Trans>
                         </motion.li>
                         <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x:-300 }}
-                            // animate={{ x:-300 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
                             transition={{ delay: 0, duration: 0.5 }}
                             whileInView={{ x: 0 }}
-                            // viewport={{ once: true }}
                         >
-                            Interactive lectures: You will practice moving, rotating, and creating spatial geometry according to instructions. This gives you a deeper understanding and more confidence when working with models.
+                            <Trans>Part of the profits from this project will be Dedicated to the Model Creation Fund, to support visually impaired people access to geometry education and promote creativity each person.</Trans>
                         </motion.li>
 
                         <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x:-300 }}
-                            // animate={{ x:-300 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
                             transition={{ delay: 0, duration: 0.7 }}
                             whileInView={{ x: 0 }}
-                            // viewport={{ once: true }}
                         >
-                            Hướng dẫn từ A đến Z: Trang web của chúng tôi cung cấp hướng dẫn từng bước để tạo ra các mô hình hình học không gian từ cơ bản đến phức tạp.
+                            <Trans>We are committed to contributing to the community and society and educational work.</Trans>
                         </motion.li>
 
 

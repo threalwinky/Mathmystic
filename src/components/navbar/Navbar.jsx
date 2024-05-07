@@ -137,7 +137,7 @@ const Navbar = ({ show }) => {
                                 `}
                                         onClick={() => setChoose(1)}
                                     >
-                                        Trang chủ</p>
+                                        <Trans>Home</Trans></p>
                                 </a>
                                 <a href='/#introduction'>
                                     <p
@@ -148,7 +148,7 @@ const Navbar = ({ show }) => {
                                 max-xl:hidden
                                 `}
                                         onClick={() => setChoose(2)}
-                                    >Giới thiệu</p>
+                                    ><Trans>Introduction</Trans></p>
                                 </a>
                                 <a href='/#feature'>
                                     <p
@@ -160,7 +160,7 @@ const Navbar = ({ show }) => {
                                 `}
                                         onClick={() => setChoose(3)}
 
-                                    >Tính năng</p>
+                                    ><Trans>Feature</Trans></p>
                                 </a>
                                 <a href='/#about'>
                                     <p
@@ -171,7 +171,7 @@ const Navbar = ({ show }) => {
                                 
                                 `}
                                         onClick={() => setChoose(4)}
-                                    >Mô hình toán học</p>
+                                    ><Trans>About</Trans></p>
                                 </a>
                                 <a href='/#document'>
                                     <p
@@ -182,7 +182,7 @@ const Navbar = ({ show }) => {
                                 
                                 `}
                                         onClick={() => setChoose(5)}
-                                    >Tài liệu</p>
+                                    ><Trans>Document</Trans></p>
                                 </a>
                                 <a href='/#contact'>
                                     <p
@@ -193,7 +193,7 @@ const Navbar = ({ show }) => {
                                 
                                 `}
                                         onClick={() => setChoose(6)}
-                                    >Liên hệ</p>
+                                    ><Trans>Contact</Trans></p>
                                 </a>
 
                             </div>

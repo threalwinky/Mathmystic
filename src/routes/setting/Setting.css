@@ -10,7 +10,6 @@
     background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
     display: flex;
     height: fit-content;
-    height: fit-content;
     background: linear-gradient(90.21deg, #3ec5fe -5.91%, #b5e7fe 111.58%);
     
     .setting-container{
@@ -113,7 +112,7 @@
 /*PC ver*/
 @media screen and (min-width: 700px) {
     .setting{
-        height: 100vh;
+        min-height: 100vh;
         .setting-container{
             display: flex;
             flex-direction: row;

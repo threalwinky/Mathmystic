@@ -10,7 +10,9 @@ html {
     height: 8px;
     width: 8px;
 }
-
+* {
+    box-sizing: border-box;
+  }
 ::-webkit-scrollbar-thumb {
     border-radius: 0.25rem;
     background: rgb(135, 213, 255);
