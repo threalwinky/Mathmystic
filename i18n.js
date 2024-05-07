@@ -100,6 +100,8 @@ i18n
           "Message" : "Tin nhắn",
           "Send" : "Gửi",
         "Get In Touch" : "Liên Hệ",
+        "Share" : "Chia sẻ",
+        "Save" : "Lưu",
         "Description" : "Mô tả",
         "Comments" : "Bình luận",
           " Location : 18, Le Thuc Hoach Street, Phu Tho Hoa Ward, Tan Phu District, Ho Minh City" : " Địa chỉ : Số 18, đường Lê Thúc Hoạch, P. Phú Thọ Hoà, Q. Tân Phú, Tp. Hồ Chí Minh",
