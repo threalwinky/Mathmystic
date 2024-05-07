@@ -19,6 +19,7 @@ import Audio from './component/Audio'
 import { useParams, useLocation } from 'react-router-dom';
 import Document from './component/Document';
 import Videos from './component/Videos';
+import { Headpage } from "../../containers";
 
 const Study = () => {
   /* Necessary function */
@@ -30,7 +31,9 @@ const Study = () => {
   const [mode, setMode] = useState('no')
   const [choose, setChoose] = useState(1)
   useEffect(() => {
-    setLoading(1)
+    setTimeout(() => {
+            setLoading(1);
+        }, 1000);
 
   }, [])
   const params = useParams()
@@ -95,7 +98,7 @@ const Study = () => {
 
   return (
     <div>
-      {!loading ? <Loading /> :
+      {!loading ?  <Headpage /> :
 
         <div>
           <Navbar show={"1"} />
