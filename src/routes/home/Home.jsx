@@ -14,7 +14,9 @@ import 'reactjs-popup/dist/index.css';
 import { Ellipsis } from './HomeIcon';
 import Navbar from '../../components/navbar/Navbar';
 import Header from '../../components/header/Header';
-import { About, Introduction, NavBar, Chatbot, Document, Contact, Feature, Footer } from '../../components';
+import { About, Introduction, NavBar, Document, Contact, Feature, Footer } from '../../components';
+import { Chatbot } from '../../containers';
+
 const Home = () => {
     /* Necessary function */
     const [t, i18n] = useTranslation()

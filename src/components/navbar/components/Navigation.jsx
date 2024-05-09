@@ -2,8 +2,8 @@ import * as React from "react";
 import { isDragActive, motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import { Cart, Fight, Forum, LogOut, Profile, Purchase, Setting, Store, Study, User } from "./MenuItemIcon";
-
-
+import { useState } from "react";
+import db from "../../../../firebase";
 const variants = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2 }
@@ -12,6 +12,8 @@ const variants = {
     transition: { staggerChildren: 0.05, staggerDirection: -1 }
   }
 };
+
+
 
 const logOut = () => {
   // console.log(isGuest)
@@ -22,13 +24,13 @@ const logOut = () => {
   localStorage.removeItem('userName')
   localStorage.clear()
   window.location.href = '/'
- 
+
   localStorage.setItem('lg', "Đăng xuất thành công")
 }
 
 
 
-export const Navigation = ({ scrolled, setOpen, isGuest }) => (
+export const Navigation = ({ scrolled, setOpen, isGuest, foundUser }) => (
   <div>
     <a onClick={() => { setOpen() }} className={`${scrolled == true ? "right-10 top-4" : "right-10 top-9"}  absolute`}>
 
@@ -44,9 +46,17 @@ export const Navigation = ({ scrolled, setOpen, isGuest }) => (
         />
       </svg>
     </a>
+    <div className="absolute top-[6rem] flex items-center  w-60 pl-5 gap-3 bg-[rgb(252,254,255)]  p-2 ml-4 rounded-xl">
+      <img src={foundUser.avatar} className="w-14 aspect-square rounded-full" alt="" />
+      <div className="flex flex-col font-rbt ">
+      <p className="font-semibold text-lg truncate">{foundUser.name}</p>
+      <p className="truncate w-36">{foundUser.email}</p>
+      </div>
+      
+    </div>
     <motion.ul variants={variants}
 
-      className="p-[1rem] absolute top-[5rem] w-[18rem]"
+      className="p-[1rem] absolute top-[10rem] w-[18rem]"
     >
 
       {isGuest ?
@@ -77,10 +87,10 @@ export const Navigation = ({ scrolled, setOpen, isGuest }) => (
 
 const itemIds2 = [0, 1, 2, 3, 4, 5];
 const name2 = ["Sign in", "Study space", "Store", "Cart", "Purchase", "Forum"]
-const icons2 = [User,  Study, Store, Cart, Purchase, Forum]
-const links2 = ["/signin",  "/study", "store", "cart", "purchase", "forum"]
+const icons2 = [User, Study, Store, Cart, Purchase, Forum]
+const links2 = ["/signin", "/study", "store", "cart", "purchase", "forum"]
 
 const itemIds = [0, 1, 2, 3, 4, 5, 6, 7];
 const name = ["Profile", "Study space", "Store", "Cart", "Purchase", "Games", "Forum", "Setting"]
-const icons = [ Profile, Study, Store, Cart, Purchase, Fight, Forum, Setting]
-const links = [ "/profile", "/study", "store", "cart", "purchase", "fight", "forum", "setting"]
+const icons = [Profile, Study, Store, Cart, Purchase, Fight, Forum, Setting]
+const links = ["/profile", "/study", "store", "cart", "purchase", "fight", "forum", "setting"]

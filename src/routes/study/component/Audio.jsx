@@ -423,7 +423,7 @@ const Audio = ({ params }) => {
     }
 
     return (
-        <div className='audio' onDoubleClick={() => {handle()}}>
+        <div className='audio h-screen flex justify-center items-center' onDoubleClick={() => {handle()}}>
 
             {/* <Link to={"/study/audio/hdtr2"}><button>{params.id}</button></Link> */}
             {/* <Link to={"/study/audio/abc"}><button>{params.id}</button></Link> */}

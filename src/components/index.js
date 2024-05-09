@@ -1,8 +1,9 @@
 export { default as NavBar } from './navbar/Navbar'
+export { default as NavBar2 } from './navbar/Navbar2'
 export { default as Header } from './header/Header'
 export { default as Introduction } from './introduction/Introduction'
 export { default as About } from './about/About'
-export { default as Chatbot } from './chatbot/Chatbot'
+
 export { default as Document } from './document/Document'
 export { default as Contact } from './contact/Contact'
 export { default as Feature } from './feature/Feature'

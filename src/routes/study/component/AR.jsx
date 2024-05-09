@@ -22,7 +22,7 @@ const AR = () => {
     // var template = { __html: __html };
     
     return (
-        <div>
+        <div className='h-screen flex justify-center items-center'>
               {/* <AFrameRenderer inherent={true}>
         <Marker parameters={{ preset: "hiro" }}>
           <a-box color="blue" position="0 0.09 0" scale="0.4 0.8 0.8">

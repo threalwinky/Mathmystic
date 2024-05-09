@@ -14,7 +14,7 @@ import {
 } from "firebase/firestore";
 import { useMediaQuery } from "react-responsive";
 import "./Forum.css";
-import { Chatbot } from "../../components";
+import { Chatbot } from "../../containers";
 import { Headpage, Loading } from "../../containers";
 import { Link, useParams } from "react-router-dom";
 import Chat from "./Chat";

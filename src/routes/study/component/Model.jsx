@@ -19,13 +19,16 @@ const Model = () => {
 
 
     return (
-        <div style={{ width: "90%", height: "80vh" }}>
+        <div className='h-screen flex justify-center items-center'>
+            <div style={{ width: "90%", height: "80vh" }}>
             <iframe src="https://www.geogebra.org/classic/nf6e6pad?embed" name="report" height="100%" width="100%"
                 allowFullScreen style={{ border: "1px solid #e4e4e4", borderRadius: 4 }}
                 frameBorder="0">
 
             </iframe>
         </div>
+        </div>
+        
     )
 }
 

@@ -151,7 +151,7 @@ const Videos = () => {
               className="aspect-video bg-sky-300 p-3 rounded-xl"
 
             />
-            <div className=' p-14 py-4 overflow-y-scroll'>
+            <div className=' p-20 max-xl:p-6 py-4 overflow-y-scroll'>
               <div className='bg-sky-300 rounded-xl p-3'>
                 <p className='font-semibold text-2xl'>{i.title}</p>
                 <p className='font-normal text-lg mt-5 text-sm'>Được đăng bởi </p>
@@ -235,12 +235,12 @@ const Videos = () => {
                   </p>
                 </div>
                 <div>
-                  <p  className='text-lg font-semibold mt-4'> <Trans>Comments</Trans></p>
+                  <p className='text-lg font-semibold mt-4'> <Trans>Comments</Trans></p>
                 </div>
                 <div>
-                  <p  className='text-lg font-semibold mt-2 h-0'> <Trans> </Trans></p>
+                  <p className='text-lg font-semibold mt-2 h-0'> <Trans> </Trans></p>
                 </div>
-              
+
               </div>
 
 
@@ -267,22 +267,20 @@ const Videos = () => {
   return (
     <>
       {foundUser.paid == 'free' ? <NotPaid /> :
-        <div className='flex w-[90%] h-fit flex-col mt-20 max-xl:mt-[50rem] font-rbt'>
-
-
-
+        <div className='flex  h-screen flex-col pt-24 max-xl:pt-[8rem] font-rbt  overflow-y-scroll'>
 
           <div className='flex max-xl:flex-col-reverse'>
             <motion.div
 
 
-              className='mt-3  flex flex-col overflow-y-scroll h-[42rem] bg-sky-300 gap-4'>
+              className='mt-3 mx-10 flex flex-col overflow-y-scroll h-screen bg-sky-300 gap-4 rounded-xl'>
               {/* <select name="" id="" value={selected} onChange={evt => setSelected(evt.target.value)}>
                 <option value="1">Cách dựng hình chóp</option>
                 <option value="2">Cách dựng hình chóp đáy tứ giác</option>
                 <option value="3">Cách dựng hình chóp có cạnh bên vuông với đáy</option>
                 <option value="4">Cách dựng hình nón</option>
               </select> */}
+
               {videos?.map((vd, id) => (
                 <motion.div
                   whileTap={{ scale: [1.1, 1] }}
@@ -294,7 +292,9 @@ const Videos = () => {
                 p-2 px-5'>
 
                   <img src={vd.tn} alt="" className='w-32 aspect-square rounded-xl' />
-                  <p className='truncate w-40'>{vd.title}</p>
+                  <p className='truncate 
+                  
+                  w-40 max-xl:w-full'>{vd.title}</p>
                 </motion.div>
               ))}
             </motion.div>

@@ -21,6 +21,7 @@ import db from '../../../firebase'
 import './Chat.css'
 import MathmysticPet from '../../assets/img/MathmysticPet.png';
 import MathmysticLogo from '../../assets/img/MathmysticLogo.png'
+import { toast } from 'react-toastify';
 
 const Chat = ({ chatId }) => {
     /* Necessary function */
@@ -123,8 +124,9 @@ const Chat = ({ chatId }) => {
     }, [])
 
     const addMessage = () => {
-        if (localStorage.getItem('user') == undefined) {
+        if (localStorage.getItem('user') == 'guest') {
             // PopUp('Vui long dang nhap de gui cau tra loi')
+            toast.info("Vui lòng đăng nhập để gửi câu trả lời")
         }
         else {
             setMessageContent('')
@@ -192,10 +194,10 @@ const Chat = ({ chatId }) => {
                 <div>
                     {!loading ? <Headpage /> :
                         <div>
-                            <NavBar />
+                            <NavBar show={"1"} />
 
 
-                            <div className="chat-body">
+                            <div className="chat-body header-background-color2">
 
 
                                 <div className="chat-container">

@@ -9,8 +9,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import 'react-toastify/dist/ReactToastify.css';
 import { Scrollbar } from 'react-scrollbars-custom';
 import db from '../firebase'
-import { Forum, Home, Setting, SignIn, SignUp, Study, Test } from './routes';
+import { Cart, Fight, Forum, Home, Product, Purchase, Setting, SignIn, SignUp, Study, Test, UpdateProduct } from './routes';
 import Store from './routes/store/Store';
+import { NotFound } from './containers';
 
 const App = () => {
   /* Necessary function */
@@ -42,6 +43,12 @@ const App = () => {
         <Route path="study/audio/:id" element={<Study />}></Route>
         <Route path="study/doc/:id" element={<Study />}></Route>
         <Route path="study/videos" element={<Study />}></Route>
+        <Route path="fight" element={<Fight />}></Route>
+        <Route path="product/:id" element={<Product />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="purchase" element={<Purchase />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="up" element={<UpdateProduct />} />
       </Routes>
       <ToastContainer
         position="top-right"

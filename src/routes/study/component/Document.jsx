@@ -20,15 +20,15 @@ const Document = ({ params }) => {
     const [selected, setSelected] = useState("so-tay-hinh-hoc")
 
     useEffect(() => {
-// console.log(params.id)
-setSelected(params.id)
+        // console.log(params.id)
+        setSelected(params.id)
         // console.log(selected)
     }, [])
 
 
 
     return (
-        <div className='study-document'>
+        <div className='h-screen flex justify-center items-center flex-col'>
 
             {/* <p>{params.id}</p> */}
             {/* <p>{selected}</p> */}
@@ -42,12 +42,12 @@ setSelected(params.id)
                 allowFullScreen="allowfullscreen"
                 scrolling="no" className="fp-iframe"
                 style={{
-                    border: "1px solid lightgray",
-                    //   width: isDesktopOrLaptop ? "80%" : '90%', 
-                      height: isDesktopOrLaptop ? "100%" : "100%", 
+                    // border: "1px solid lightgray",
+                      width: isDesktopOrLaptop ? "80%" : '90%', 
+                    height: isDesktopOrLaptop ? "70%" : "70%",
                     padding: 0
                 }}
-                src={ selected == "so-tay-hinh-hoc" ? "https://heyzine.com/flip-book/2a810dd29f.html" : "https://heyzine.com/flip-book/9f0a65b367.html"}>
+                src={selected == "so-tay-hinh-hoc" ? "/data/hdsd.html" : "/data/demo.html"}>
             </iframe>
         </div>
     )

@@ -63,6 +63,26 @@ const Navbar = ({ show }) => {
         return () => window.removeEventListener("scroll", onScroll);
 
     }, [])
+
+    const [foundUser, setFoundUser] = useState([]);
+    useEffect(() => {
+      
+    
+      getDocs(collection(db, "account")).then((querySnapshot) => {
+        const newData = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        const foundUser2 = newData.find(
+          (x) => x.email == localStorage.getItem("user")
+        );
+        setFoundUser(foundUser2);
+        // setLoading(1)
+      });
+    
+    
+    }, []);
+
     const [open, setOpen] = useCycle(false, true)
 
     const containerRef = useRef(null);
@@ -285,11 +305,11 @@ const Navbar = ({ show }) => {
                 <motion.div
                     className={`top-0 right-0 bottom-0 ${open == true ? "bg-sky-300" : "bg-none"} w-[17.4rem] fixed`}
                     variants={sidebar} />
-                {open == true ? <Navigation scrolled={scrolled} setOpen={setOpen} isGuest={isGuest} /> : ""}
+                {open == true ? <Navigation scrolled={scrolled} setOpen={setOpen} isGuest={isGuest} foundUser={foundUser} /> : ""}
 
 
             </motion.nav>
-
+                                    
         </div>
 
     )

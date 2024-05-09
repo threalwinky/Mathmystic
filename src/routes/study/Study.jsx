@@ -3,7 +3,7 @@ import { useState, useEffect, React } from 'react'
 import { Trans, withTranslation, useTranslation } from 'react-i18next';
 import { addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, query, updateDoc } from 'firebase/firestore'
 import { useMediaQuery } from 'react-responsive'
-import Navbar from '../../components/navbar/Navbar';
+import Navbar2 from '../../components/navbar/Navbar2';
 
 import db from '../../../firebase'
 import './Study.css'
@@ -98,9 +98,9 @@ const Study = () => {
       {!loading ? <Loading /> :
 
         <div>
-          <Navbar show={"1"} />
+          <Navbar2 show={"1"} />
 
-          <div className='study header-background-color2'>
+          <div className=' header-background-color2'>
             <Choose />
           </div>
 
@@ -132,9 +132,9 @@ const Study = () => {
             </div>
           </div>
 
-          <Footer>
+          {/* <Footer> */}
 
-          </Footer>
+          {/* </Footer> */}
 
         </div>
 
