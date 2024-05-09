@@ -28,7 +28,7 @@ const Document = ({ params }) => {
 
 
     return (
-        <div className='h-screen flex justify-center items-center flex-col'>
+        <div className='w-full h-screen flex justify-center items-center flex-col'>
 
             {/* <p>{params.id}</p> */}
             {/* <p>{selected}</p> */}

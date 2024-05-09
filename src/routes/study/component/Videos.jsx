@@ -267,7 +267,7 @@ const Videos = () => {
   return (
     <>
       {foundUser.paid == 'free' ? <NotPaid /> :
-        <div className='flex  h-screen flex-col pt-24 max-xl:pt-[8rem] font-rbt  overflow-y-scroll'>
+        <div className='w-full flex  h-screen flex-col pt-24 max-xl:pt-[8rem] font-rbt  overflow-y-scroll'>
 
           <div className='flex max-xl:flex-col-reverse'>
             <motion.div

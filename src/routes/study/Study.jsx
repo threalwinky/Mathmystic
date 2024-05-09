@@ -20,6 +20,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import Document from './component/Document';
 import Videos from './component/Videos';
 import { Headpage } from "../../containers";
+import Navbar2 from '../../components/navbar/Navbar2';
 
 const Study = () => {
   /* Necessary function */
@@ -101,9 +102,9 @@ const Study = () => {
       {!loading ?  <Headpage /> :
 
         <div>
-          <Navbar show={"1"} />
+          <Navbar2 show={"1"} />
 
-          <div className='study header-background-color2'>
+          <div className='w-full study header-background-color2'>
             <Choose />
           </div>
 

@@ -46,14 +46,15 @@ export const Navigation = ({ scrolled, setOpen, isGuest, foundUser }) => (
         />
       </svg>
     </a>
-    <div className="absolute top-[6rem] flex items-center  w-60 pl-5 gap-3 bg-[rgb(252,254,255)]  p-2 ml-4 rounded-xl">
+    {localStorage.getItem('user') == 'guest' ? "" : <div className="absolute top-[6rem] flex items-center  w-60 pl-5 gap-3 bg-[rgb(252,254,255)]  p-2 ml-4 rounded-xl">
       <img src={foundUser.avatar} className="w-14 aspect-square rounded-full" alt="" />
       <div className="flex flex-col font-rbt ">
       <p className="font-semibold text-lg truncate">{foundUser.name}</p>
       <p className="truncate w-36">{foundUser.email}</p>
       </div>
       
-    </div>
+    </div>}
+    
     <motion.ul variants={variants}
 
       className="p-[1rem] absolute top-[10rem] w-[18rem]"

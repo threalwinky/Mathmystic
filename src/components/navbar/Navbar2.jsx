@@ -113,7 +113,7 @@ const Navbar2 = ({ show }) => {
 
             </div>
             <div className={
-                `${scrolled == 0 ? "bg-none p-[2rem_2.5rem]" : "bg-sky-400 p-[0.8rem_2.5rem] shadow-lg shadow-slate-700"} 
+                `${0  ? "bg-none p-[2rem_2.5rem]" : "bg-sky-400 p-[0.8rem_2.5rem] shadow-lg shadow-slate-700"} 
             bg-none fixed top-0 w-full h-fit z-10
             transition-[0.5s_ease-in-out]
             `}>
