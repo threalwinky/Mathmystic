@@ -45,7 +45,7 @@ const MainProduct = ({ productInfo }) => {
       return (
         <div>
           {/* {starscnt} */}
-          <div className='stars'>
+          <div className='stars flex'>
             <svg
               viewBox="0 0 1024 1024"
               fill="currentColor"
@@ -101,7 +101,7 @@ const MainProduct = ({ productInfo }) => {
     const Stars2 = () => {
       return (
         <div>
-          <div className='stars'>
+          <div className='stars flex'>
             <svg
               viewBox="0 0 1024 1024"
               fill="currentColor"
@@ -237,12 +237,29 @@ const MainProduct = ({ productInfo }) => {
       deleteDoc(doc(db, 'pcomment', idDeletePcomment))
     }
   
-    
+    const Description = ({ des }) => {
+      if (des == "Hot")
+      return (
+          <div className="font-rbt text-red-600">
+              <p>
+                  <Trans>{des}</Trans>
+              </p>
+          </div>
+      )
+      else if (des == "Special") 
+      return (
+          <div className="font-rbt text-green-600">
+              <p>
+                  <Trans>{des}</Trans>
+              </p>
+          </div>
+      )
+  }
     return (
       <div>
       {!loading ? <Headpage /> :
 
-        <div className='product-container'>
+        <div className='product-container font-rbt text-lg'>
 
 
           <div className='product' id='home'>
@@ -268,7 +285,7 @@ const MainProduct = ({ productInfo }) => {
             </div>
             <div className='product-content'>
               <div className='main'>
-                <span>{productInfo.description}</span>
+                <span> <Description/> </span>
                 <h1><Trans>{productInfo.name}</Trans></h1>
               </div>
               <div className='intro'>

@@ -142,7 +142,7 @@ const Purchase = () => {
                 <div>
                     <div>
                         <Navbar />
-                        <div className='cart-body'>
+                        <div className='cart-body pt-20'>
 
                             <div className='cart-container'>
 

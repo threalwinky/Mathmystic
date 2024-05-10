@@ -50,8 +50,8 @@ const Feature = () => {
 
         <div id="feature" className='bg-gradient-to-br
             from-[#ED9455] from-20%
-             via-[#FFBB70] via-50%
-             to-[#ED9455] to-80%
+             via-[#b6650e] via-50%
+             to-[#ff8b38] to-80%
              w-screen h-fit flex items-center justify-center
                flex-col
                py-10 px-24 
@@ -98,7 +98,7 @@ const Feature = () => {
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <motion.h2
-                        className='text-3xl font-semibold font-rbt text-center text-[#FFFBDA] [text-shadow:_-3px_3px_4px_var(--ly)]'
+                        className='text-3xl font-semibold font-rbt text-center text-[#FFFBDA] [:_-3px_3px_4px_var(--ly)]'
                         style={{ scale: 0, opacity: 0 }}
                         // animate={{ scale: 1, opacity: 1 }}
                         exit={{ x: 0, transition: { duration: 0.2 } }}
@@ -114,7 +114,7 @@ const Feature = () => {
                     // transition={{ delay: 0, duration: 0.5 }}
                     // whileInView={{ scale:1, opacity:1}}
                     >
-                        <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
+                        <motion.li className='text-white [:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x:-300 }}
                             initial={false}
                             // animate={{ scale: 1, opacity: 1 }}
@@ -125,7 +125,7 @@ const Feature = () => {
                         >
                             <Trans>Instructions from A to Z: Our website provides step-by-step instructions for creating spatial geometric models from basic to complex.</Trans>
                         </motion.li>
-                        <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
+                        <motion.li className='text-white [:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x:-300 }}
                             // animate={{ scale: 1, opacity: 1 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
@@ -136,7 +136,7 @@ const Feature = () => {
                             <Trans>Interactive lectures: You will practice moving, rotating, and creating spatial geometry according to instructions. This gives you a deeper understanding and more confidence when working with models.</Trans>
                         </motion.li>
 
-                        <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
+                        <motion.li className='text-white [:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x:-300 }}
                             // animate={{ x:-300 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
@@ -156,7 +156,7 @@ const Feature = () => {
 
                 <div className='flex flex-col items-center gap-2'>
                     <motion.h2
-                        className='text-3xl font-semibold font-rbt text-center  text-white [text-shadow:_-3px_3px_4px_var(--ly)]'
+                        className='text-3xl font-semibold font-rbt text-center  text-white [:_-3px_3px_4px_var(--ly)]'
                         style={{ scale: 0, opacity: 0 }}
                         // animate={{ scale: 1, opacity: 1 }}
                         exit={{ x: 0, transition: { duration: 0.2 } }}
@@ -172,7 +172,7 @@ const Feature = () => {
                     // transition={{ delay: 0, duration: 0.5 }}
                     // whileInView={{ scale:1, opacity:1}}
                     >
-                        <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
+                        <motion.li className='text-white [:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x: 300 }}
                             // animate={{ x:300 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
@@ -182,7 +182,7 @@ const Feature = () => {
                         >
                             <Trans>We have developed a complete geometric modeling kit with a simple, easy-to-use, environmentally friendly design that includes a perforated wooden base, antennas, rubber bands and necessary accessories. other.</Trans>
                         </motion.li>
-                        <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
+                        <motion.li className='text-white [:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x: 300 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
                             transition={{ delay: 0, duration: 0.5 }}
@@ -191,7 +191,7 @@ const Feature = () => {
                             <Trans>Through that structure, users can interact and create many different spatial models, helping the spatial learning model become more familiar.</Trans>
                         </motion.li>
 
-                        {/* <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
+                        {/* <motion.li className='text-white [:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x: 300 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
                             transition={{ delay: 0, duration: 0.7 }}
@@ -221,7 +221,7 @@ const Feature = () => {
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <motion.h2
-                        className='text-3xl font-semibold font-rbt text-center  text-white [text-shadow:_-3px_3px_4px_var(--ly)]'
+                        className='text-3xl font-semibold font-rbt text-center  text-white [:_-3px_3px_4px_var(--ly)]'
                         style={{ scale: 0, opacity: 0 }}
                         // animate={{ scale: 1, opacity: 1 }}
                         exit={{ x: 0, transition: { duration: 0.2 } }}
@@ -239,7 +239,7 @@ LIGHT FOR EVERY HEART</Trans>
                     // transition={{ delay: 0, duration: 0.5 }}
                     // whileInView={{ scale:1, opacity:1}}
                     >
-                        <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
+                        <motion.li className='text-white [:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x:-300 }}
                             // animate={{ scale: 1, opacity: 1 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
@@ -249,7 +249,7 @@ LIGHT FOR EVERY HEART</Trans>
                         >
                             <Trans>The special feature of this project is that it is a finished product completely new to the market, helping to create a teaching medium accessible geometry.</Trans>
                         </motion.li>
-                        <motion.li className='text-white [text-shadow:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
+                        <motion.li className='text-white [:_-3px_3px_4px_var(--ly)] list-disc list-inside my-3  font-rbt  text-xl'
                             style={{ x:-300 }}
                             exit={{ x: 0, transition: { duration: 0.2 } }}
                             transition={{ delay: 0, duration: 0.5 }}

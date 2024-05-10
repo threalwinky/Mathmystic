@@ -31,7 +31,7 @@ const Introduction = () => {
 
         <div id="introduction" className='bg-gradient-to-br
         from-rose-300 from-20%
-         via-red-300 via-50%
+         via-red-400 via-50%
          
          to-rose-400 to-100%
              w-screen h-fit flex items-center justify-center

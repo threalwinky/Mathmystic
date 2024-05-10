@@ -24,6 +24,7 @@ import { Headpage } from "../../containers";
 import { Footer } from "../../components";
 import Navbar from "../../components/navbar/Navbar";
 import { Stars } from "./Stars";
+import { Link } from "react-router-dom";
 
 const Store = () => {
     /* Necessary function */
@@ -37,6 +38,9 @@ const Store = () => {
 
     const store1 = [];
     const [products, setProducts] = useState([]);
+    const [products1, setProducts1] = useState([]);
+    const [products2, setProducts2] = useState([]);
+    const [products3, setProducts3] = useState([]);
     useEffect(() => {
         getDocs(collection(db, "product")).then((querySnapshot) => {
             const newData = querySnapshot.docs.map((doc) => ({
@@ -46,6 +50,31 @@ const Store = () => {
 
             setProducts(newData);
             console.log(newData);
+            var newData1 = []
+            for (var i of newData){
+                console.log(i)
+                if (i.type == "bo-mo-hinh"){
+                    newData1.push(i)
+                }
+            }
+            console.log(newData1)
+            setProducts1(newData1)
+            var newData2 = []
+            for (var i of newData){
+                console.log(i)
+                if (i.type == "phu-kien"){
+                    newData2.push(i)
+                }
+            }
+            setProducts2(newData2)
+            var newData3 = []
+            for (var i of newData){
+                console.log(i)
+                if (i.type == "khac"){
+                    newData3.push(i)
+                }
+            }
+            setProducts3(newData3)
             // setLoading(1)
         });
     }, []);
@@ -57,18 +86,34 @@ const Store = () => {
         ))
         return m.substring(0, m.length - 3)
     }
-    const Description = ({des}) => {
+    const Description = ({ des }) => {
+        if (des == "Hot")
         return (
-            <>
-            {des}
-            </>
+            <div className="font-rbt text-red-600">
+                <p>
+                    <Trans>{des}</Trans>
+                </p>
+            </div>
         )
+        else if (des == "Special") 
+        return (
+            <div className="font-rbt text-green-600">
+                <p>
+                    <Trans>{des}</Trans>
+                </p>
+            </div>
+        )
+    }
+    const Choose2 = () => {
+        if (selected == 1) return "Bộ mô hình"
+        if (selected == 2) return "Phụ kiện"
+        if (selected == 3) return "Khác"
     }
     const Choose = () => {
         if (selected == 1)
             return (
                 <div>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-10 3xl:gap-10 lg:gap-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 gap-10 3xl:gap-10 lg:gap-10">
                         {/* <div className="w-full flex  items-center justify-center flex-col">
                         <div className=" max-w-80 max-h-80 w-full flex flex-col  ">
                             <div className=" w-full h-full  overflow-y-hidden flex flex-col">
@@ -106,13 +151,14 @@ const Store = () => {
                             </div>
                         </div>
                     </div> */}
-                        {products?.map((product, id) => (
-                            <div className="w-full  p-3 max-xl:p-10 max-xl:py-0 " key={id}>
+                        {products1?.map((product, id) => (
+                            <div key={id}>
+                                {product.type == "bo-mo-hinh" ? <div className="w-full  p-3 max-xl:p-10 max-xl:py-0 " key={id}>
                                 <div className="bg-white rounded-xl flex flex-col justify-between  h-full p-4 cursor-pointer ">
                                     <div>
                                         <div className=" ">
-                                            <div className="">
-                                                <img className="" src={product.imgUrl} alt="" />
+                                            <div className=" flex justify-center">
+                                                <img className=" self-center justify-self-center aspect-square" src={product.imgUrl} alt="" />
                                             </div>
                                         </div>
                                         <div className="flex flex-col justify-between ">
@@ -120,12 +166,12 @@ const Store = () => {
                                                 <div>
 
                                                     <div>
-                                                        
+
                                                         <Description des={product.description} />
                                                         <p className="font-semibold text-xl">
                                                             {product.name}
                                                         </p>
-                                                        <p>bo mo hinh</p>
+                                                        <p>Bộ mô hình</p>
                                                     </div>
 
                                                 </div>
@@ -141,63 +187,189 @@ const Store = () => {
                                                 </p>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <Stars starscnt={3}></Stars>
+                                                <Stars starscnt={5}></Stars>
                                                 <p>Da ban {product.count}</p>
                                             </div>
                                         </div>
                                         <div className="self-end justify-self-end flex gap-2">
 
                                             <button
-                                                className="bg-blue-300 rounded-lg p-2 px-5
+                                                className="bg-blue-500 rounded-lg p-2 px-5
                                 p-1 px-5 rounded-lg font-rbt text-base
                                  capitalize
                                  text-white
-                                [text-shadow:_-3px_3px_15px_#000]
+                                [text-shadow:_-3px_3px_30px_#000]
                                  border-solid  "
                                             >
                                                 Add to cart
                                             </button>
-                                            <button
-                                                className="bg-green-300 rounded-lg p-2 px-5
+                                            <Link to={"/product/" + product.id}><button
+                                                className="bg-green-500 rounded-lg p-2 px-5
                                 p-1 px-5 rounded-lg font-rbt text-base
                                  capitalize
                                  text-white
-                                [text-shadow:_-3px_3px_15px_#000]
+                                [text-shadow:_-3px_3px_30px_#000]
                                  border-solid  "
                                             >
                                                 View details
-                                            </button>
+                                            </button></Link>
+                                            
                                         </div>
                                     </div>
 
                                 </div>
+                            </div> : ""}
                             </div>
+                            
                         ))}
                     </div>
                 </div>
             );
         if (selected == 2)
             return (
-                <div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mdl:gap-4 lg:gap-10">
-                        <div className="w-full  flex flex-col items-center justify-center">
-                            <img src="https://placewaifu.com/image/200" alt="" />
-                        </div>
-                        <div className="w-full  flex flex-col items-center justify-center">
-                            <img src="https://placewaifu.com/image/200" alt="" />
-                        </div>
-                    </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 gap-10 3xl:gap-10 lg:gap-10">
+                    {products2?.map((product, id) => (
+                            <div className="w-full  p-3 max-xl:p-10 max-xl:py-0 " key={id}>
+                                <div className="bg-white rounded-xl flex flex-col justify-between  h-full p-4 cursor-pointer ">
+                                    <div>
+                                        <div className=" ">
+                                        <div className=" flex justify-center">
+                                                <img className=" self-center justify-self-center aspect-square" src={product.imgUrl} alt="" />
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-col justify-between ">
+                                            <div className="font-rbt  p-2 py-8 max-xl:p-8 flex flex-col justify-around gap-10">
+                                                <div>
+
+                                                    <div>
+
+                                                        <Description des={product.description} />
+                                                        <p className="font-semibold text-xl">
+                                                            {product.name}
+                                                        </p>
+                                                        <p>Phụ kiện</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <div className="mb-5 max-xl:ml-8">
+                                            <div className="flex gap-2 text-lg ">
+                                                <p className="text-red-600 ">{changeMoney(product.price)}đ</p>
+                                                <p className="line-through text-slate-600">
+                                                    {changeMoney(product.priceno)}đ
+                                                </p>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <Stars starscnt={5}></Stars>
+                                                <p>Da ban {product.count}</p>
+                                            </div>
+                                        </div>
+                                        <div className="self-end justify-self-end flex gap-2">
+
+                                            <button
+                                                className="bg-blue-500 rounded-lg p-2 px-5
+                                p-1 px-5 rounded-lg font-rbt text-base
+                                 capitalize
+                                 text-white
+                                [text-shadow:_-3px_3px_30px_#000]
+                                 border-solid  "
+                                            >
+                                                Add to cart
+                                            </button>
+                                            <Link to={"/product/" + product.id}><button
+                                                className="bg-green-500 rounded-lg p-2 px-5
+                                p-1 px-5 rounded-lg font-rbt text-base
+                                 capitalize
+                                 text-white
+                                [text-shadow:_-3px_3px_30px_#000]
+                                 border-solid  "
+                                            >
+                                                View details
+                                            </button></Link>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        ))}
                 </div>
             );
         if (selected == 3)
             return (
-                <div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mdl:gap-4 lg:gap-10">
-                        <div className="w-full  flex flex-col items-center justify-center">
-                            <img src="https://placewaifu.com/image/200" alt="" />
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 gap-10 3xl:gap-10 lg:gap-10">
+                {products3?.map((product, id) => (
+                        <div className="w-full  p-3 max-xl:p-10 max-xl:py-0 " key={id}>
+                            <div className="bg-white rounded-xl flex flex-col justify-between  h-full p-4 cursor-pointer ">
+                                <div>
+                                    <div className=" ">
+                                        <div className="">
+                                            <img className="" src={product.imgUrl} alt="" />
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col justify-between ">
+                                        <div className="font-rbt  p-2 py-8 max-xl:p-8 flex flex-col justify-around gap-10">
+                                            <div>
+
+                                                <div>
+
+                                                    <Description des={product.description} />
+                                                    <p className="font-semibold text-xl">
+                                                        {product.name}
+                                                    </p>
+                                                    <p>Bộ mô hình</p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col">
+                                    <div className="mb-5 max-xl:ml-8">
+                                        <div className="flex gap-2 text-lg ">
+                                            <p className="text-red-600 ">{changeMoney(product.price)}đ</p>
+                                            <p className="line-through text-slate-600">
+                                                {changeMoney(product.priceno)}đ
+                                            </p>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <Stars starscnt={5}></Stars>
+                                            <p>Da ban {product.count}</p>
+                                        </div>
+                                    </div>
+                                    <div className="self-end justify-self-end flex gap-2">
+
+                                        <button
+                                            className="bg-blue-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt text-base
+                             capitalize
+                             text-white
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid  "
+                                        >
+                                            Add to cart
+                                        </button>
+                                        <Link to={"/product/" + product.id}><button
+                                            className="bg-green-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt text-base
+                             capitalize
+                             text-white
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid  "
+                                        >
+                                            View details
+                                        </button></Link>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    ))}
+            </div>
             );
     };
     useEffect(() => {
@@ -246,10 +418,24 @@ const Store = () => {
                             <div className="hidden max-xl:flex p-3">
                                 <div className="flex-item">
                                     <motion.div
-                                        className="menu-item absolute"
+                                        className="menu-item absolute text-white [text-shadow:_-3px_3px_15px_#fff] font-rbt text-xl"
                                         onClick={toggleHoverMenu}
+
                                     >
-                                        <p>Lua chon</p>
+                                        <div className=" border-solid border-2 flex items-center px-8 rounded-xl cursor-pointer justify-between">
+                                            <p className="p-2 rounded-xl "><Choose2/></p>
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="currentColor"
+                                                height="1em"
+                                                width="1em"
+
+                                            >
+                                                <path d="M11.178 19.569a.998.998 0 001.644 0l9-13A.999.999 0 0021 5H3a1.002 1.002 0 00-.822 1.569l9 13z" />
+                                            </svg>
+
+                                        </div>
+
                                         <motion.div
                                             className="sub-menu"
                                             initial="exit"
@@ -257,7 +443,12 @@ const Store = () => {
                                             variants={subMenuAnimate}
                                         >
                                             <div className="" />
-                                            <div className="bg-green-300 p-3 rounded-xl ">
+                                            <div className="bg-gradient-to-tr
+        from-[#30bfd8] from-40%
+        via-[#7facf5] via-100%
+        
+        to-[white] to-100% p-3 rounded-xl 
+        border-solid border-2 border-slate-600">
                                                 <div className="">
                                                     <p
                                                         onClick={() => {
@@ -265,7 +456,7 @@ const Store = () => {
                                                         }}
                                                         className="ml-5 mr-10 hover:scale-105 hover:border-solid hover:border-b-2 hover:border-black cursor-pointer "
                                                     >
-                                                        Bo mo hinh
+                                                        Bộ mô hình
                                                     </p>
                                                 </div>
                                                 <div>
@@ -275,7 +466,7 @@ const Store = () => {
                                                         }}
                                                         className="ml-5 mr-10 hover:scale-105 hover:border-solid hover:border-b-2 hover:border-black cursor-pointer"
                                                     >
-                                                        Phu kien
+                                                        Phụ kiện
                                                     </p>
                                                 </div>
                                                 <div>
@@ -285,7 +476,7 @@ const Store = () => {
                                                         }}
                                                         className="ml-5 mr-10 hover:scale-105 hover:border-solid hover:border-b-2 hover:border-black cursor-pointer"
                                                     >
-                                                        Khac
+                                                        Khác
                                                     </p>
                                                 </div>
                                             </div>
@@ -303,20 +494,20 @@ const Store = () => {
         to-[white] to-100%
                             
                             border-solid border-r-2 border-slate-400 flex-col
-                            font-rbt text-lg p-5 
+                            font-rbt text-lg p-5 text-white [text-shadow:_-3px_3px_15px_#fff]
                             "
                             >
-                                <div className="font-semibold text-2xl">
-                                    <p>Lua chon</p>
+                                <div className="font-semibold text-2xl mb-8">
+                                    <p><Choose2/></p>
                                 </div>
                                 <div className="">
                                     <p
                                         onClick={() => {
                                             setSelected(1);
                                         }}
-                                        className="ml-5 mr-10 hover:scale-105 hover:border-solid hover:border-b-2 hover:border-black cursor-pointer "
+                                        className="ml-5 mr-10 hover:scale-105 hover:border-solid hover:border-b-2 hover:border-white cursor-pointer mb-3 "
                                     >
-                                        Bo mo hinh
+                                        Bộ mô hình
                                     </p>
                                 </div>
                                 <div>
@@ -324,9 +515,9 @@ const Store = () => {
                                         onClick={() => {
                                             setSelected(2);
                                         }}
-                                        className="ml-5 mr-10 hover:scale-105 hover:border-solid hover:border-b-2 hover:border-black cursor-pointer"
+                                        className="ml-5 mr-10 hover:scale-105 hover:border-solid hover:border-b-2 hover:border-white cursor-pointer mb-3"
                                     >
-                                        Phu kien
+                                        Phụ kiện
                                     </p>
                                 </div>
                                 <div>
@@ -334,9 +525,9 @@ const Store = () => {
                                         onClick={() => {
                                             setSelected(3);
                                         }}
-                                        className="ml-5 mr-10 hover:scale-105 hover:border-solid hover:border-b-2 hover:border-black cursor-pointer"
+                                        className="ml-5 mr-10 hover:scale-105 hover:border-solid hover:border-b-2 hover:border-white cursor-pointer mb-3"
                                     >
-                                        Khac
+                                        Khác
                                     </p>
                                 </div>
                             </div>
