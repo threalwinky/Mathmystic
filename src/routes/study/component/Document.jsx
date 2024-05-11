@@ -32,12 +32,16 @@ const Document = ({ params }) => {
 
             {/* <p>{params.id}</p> */}
             {/* <p>{selected}</p> */}
-            <select name="" id="" value={selected}
+            <div className='flex justify-center items-center gap-2 bg-white p-2 rounded-2xl'>
+            <p>Chọn tài liệu muốn đọc</p>
+            <select name="" id="" value={selected} className='p-2 outline-none rounded-xl'
                 onChange={evt => setSelected(evt.target.value)}
             >
                 <option value="so-tay-hinh-hoc">Sổ tay hình học</option>
                 <option value="sach-huong-dan-su-dung">Sách hướng dẫn sử dụng</option>
             </select>
+            </div>
+            
             <iframe
                 allowFullScreen="allowfullscreen"
                 scrolling="no" className="fp-iframe"
@@ -47,7 +51,7 @@ const Document = ({ params }) => {
                     height: isDesktopOrLaptop ? "70%" : "70%",
                     padding: 0
                 }}
-                src={selected == "so-tay-hinh-hoc" ? "/data/hdsd.html" : "/data/demo.html"}>
+                src={selected == "so-tay-hinh-hoc" ? "/data/pro.html" : "/data/hdsd.html"}>
             </iframe>
         </div>
     )

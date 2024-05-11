@@ -188,12 +188,11 @@ const Store = () => {
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 <Stars starscnt={5}></Stars>
-                                                <p>Da ban {product.count}</p>
+                                                <p>Đã bán {product.count}</p>
                                             </div>
                                         </div>
                                         <div className="self-end justify-self-end flex gap-2">
-
-                                            <button
+                                            <a href="/cart">  <button
                                                 className="bg-blue-500 rounded-lg p-2 px-5
                                 p-1 px-5 rounded-lg font-rbt text-base
                                  capitalize
@@ -201,8 +200,9 @@ const Store = () => {
                                 [text-shadow:_-3px_3px_30px_#000]
                                  border-solid  "
                                             >
-                                                Add to cart
-                                            </button>
+                                                <Trans>Add to cart</Trans>
+                                            </button></a>
+                                          
                                             <Link to={"/product/" + product.id}><button
                                                 className="bg-green-500 rounded-lg p-2 px-5
                                 p-1 px-5 rounded-lg font-rbt text-base
@@ -211,7 +211,7 @@ const Store = () => {
                                 [text-shadow:_-3px_3px_30px_#000]
                                  border-solid  "
                                             >
-                                                View details
+                                                <Trans>View details</Trans>
                                             </button></Link>
                                             
                                         </div>

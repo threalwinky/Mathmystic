@@ -176,6 +176,7 @@ i18n
           "You have been successfully added your product to cart" : "Bạn đã thêm hàng vào giỏ hàng thành công",
           "Confirm" : "Xác nhận",
           "History" : "Lịch sử",
+          "View details" : "Xem thêm",
           "You have successfully signed up and logged in" : "Bạn đã đăng nhập thành công",
           "Login Successful" : "Đăng nhập thành công",
           "You have been successfully bought our products" : "Bạn đã mua thành công sản phẩm của chúng tôi",

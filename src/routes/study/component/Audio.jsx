@@ -431,68 +431,70 @@ const Audio = ({ params }) => {
             {/* <Link to={"/study/audio/abcde"}><button>{params.id}</button></Link> */}
 
             {/* {selected.pr} */}
+            <div className='flex justify-center items-center gap-2 bg-white p-2 rounded-2xl'>
 
+            
             <label for="cars"><Trans>Choose audio:</Trans></label>
             {/* {params.check} */}
-            <select name="cars" id="cars" value={params.id} 
+            <select name="cars" id="cars" value={params.id} className='p-2 outline-none rounded-xl'
             onChange={evt => window.location.href = ((params.check != 1) ?  `${evt.target.value}` : `/study/audio/${evt.target.value}`)}>
-                <option value='hdtr1'>hdtr1</option>
-                <option value='hdtr2'>hdtr2</option>
-                <option value='hdtr4'>hdtr4</option>
-                <option value='hdtr5'>hdtr5</option>
-                <option value='hdtr6'>hdtr6</option>
-                <option value='hdtr7'>hdtr7</option>
-                <option value='hdtr8'>hdtr8</option>
-                <option value='hdtr9'>hdtr9</option>
-                <option value='hdtr10'>hdtr10</option>
-                <option value='hdtr11'>hdtr11</option>
-                <option value='hdtr12'>hdtr12</option>
-                <option value='hdtr13'>hdtr13</option>
-                <option value='hdtr14'>hdtr14</option>
-                <option value='muclucta'>muclucta</option>
-                <option value='tr1tv'>tr1tv</option>
-                <option value='tr3tv'>tr3tv</option>
-                <option value='tr5tv'>tr5tv</option>
-                <option value='tr7tv'>tr7tv</option>
-                <option value='tr9tv'>tr9tv</option>
-                <option value='tr11tv'>tr11tv</option>
-                <option value='tr13tv'>tr13tv</option>
-                <option value='tr15tv'>tr15tv</option>
-                <option value='tr17tv'>tr17tv</option>
-                <option value='tr19tv'>tr19tv</option>
-                <option value='tr21tv'>tr21tv</option>
-                <option value='tr23tv'>tr23tv</option>
-                <option value='tr25tv'>tr25tv</option>
-                <option value='tr27tv'>tr27tv</option>
-                <option value='tr29tv'>tr29tv</option>
-                <option value='tr31tv'>tr31tv</option>
-                <option value='tr33tv'>tr33tv</option>
-                <option value='tr35tv'>tr35tv</option>
-                <option value='tr37tv'>tr37tv</option>
-                <option value='tr41tv'>tr41tv</option>
-                <option value='tr2ta'>tr2ta</option>
-                <option value='tr4ta'>tr4ta</option>
-                <option value='tr6ta'>tr6ta</option>
-                <option value='tr8ta'>tr8ta</option>
-                <option value='tr10ta'>tr10ta</option>
-                <option value='tr12ta'>tr12ta</option>
-                <option value='tr14ta'>tr14ta</option>
-                <option value='tr16ta'>tr16ta</option>
-                <option value='tr18ta'>tr18ta</option>
-                <option value='tr20ta'>tr20ta</option>
-                <option value='tr22ta'>tr22ta</option>
-                <option value='tr24ta'>tr24ta</option>
-                <option value='tr26ta'>tr26ta</option>
-                <option value='tr28ta'>tr28ta</option>
-                <option value='tr30ta'>tr30ta</option>
-                <option value='tr32ta'>tr32ta</option>
-                <option value='tr34ta'>tr34ta</option>
-                <option value='tr36ta'>tr36ta</option>
-                <option value='tr38ta'>tr38ta</option>
-                <option value='tr42ta'>tr42ta</option>
+                <option value='hdtr1'>Hướng dẫn trang 1</option>
+                <option value='hdtr2'>Hướng dẫn trang 2</option>
+                <option value='hdtr4'>Hướng dẫn trang 4</option>
+                <option value='hdtr5'>Hướng dẫn trang 5</option>
+                <option value='hdtr6'>Hướng dẫn trang 6</option>
+                <option value='hdtr7'>Hướng dẫn trang 7</option>
+                <option value='hdtr8'>Hướng dẫn trang 8</option>
+                <option value='hdtr9'>Hướng dẫn trang 9</option>
+                <option value='hdtr10'>Hướng dẫn trang 10</option>
+                <option value='hdtr11'>Hướng dẫn trang 11</option>
+                <option value='hdtr12'>Hướng dẫn trang 12</option>
+                <option value='hdtr13'>Hướng dẫn trang 13</option>
+                <option value='hdtr14'>Hướng dẫn trang 14</option>
+                <option value='muclucta'>Mục lục tiếng Anh</option>
+                <option value='tr1tv'>Trang 1 tiếng Việt</option>
+                <option value='tr3tv'>Trang 3 tiếng Việt</option>
+                <option value='tr5tv'>Trang 5 tiếng Việt</option>
+                <option value='tr7tv'>Trang 7 tiếng Việt</option>
+                <option value='tr9tv'>Trang 9 tiếng Việt</option>
+                <option value='tr11tv'>Trang 11 tiếng Việt</option>
+                <option value='tr13tv'>Trang 13 tiếng Việt</option>
+                <option value='tr15tv'>Trang 15 tiếng Việt</option>
+                <option value='tr17tv'>Trang 17 tiếng Việt</option>
+                <option value='tr19tv'>Trang 19 tiếng Việt</option>
+                <option value='tr21tv'>Trang 21 tiếng Việt</option>
+                <option value='tr23tv'>Trang 23 tiếng Việt</option>
+                <option value='tr25tv'>Trang 25 tiếng Việt</option>
+                <option value='tr27tv'>Trang 27 tiếng Việt</option>
+                <option value='tr29tv'>Trang 29 tiếng Việt</option>
+                <option value='tr31tv'>Trang 31 tiếng Việt</option>
+                <option value='tr33tv'>Trang 33 tiếng Việt</option>
+                <option value='tr35tv'>Trang 35 tiếng Việt</option>
+                <option value='tr37tv'>Trang 37 tiếng Việt</option>
+                <option value='tr41tv'>Trang 41 tiếng Việt</option>
+                <option value='tr2ta'>Trang 2 tiếng Anh</option>
+                <option value='tr4ta'>Trang 4 tiếng Anh</option>
+                <option value='tr6ta'>Trang 6 tiếng Anh</option>
+                <option value='tr8ta'>Trang 8 tiếng Anh</option>
+                <option value='tr10ta'>Trang 10 tiếng Anh</option>
+                <option value='tr12ta'>Trang 12 tiếng Anh</option>
+                <option value='tr14ta'>Trang 14 tiếng Anh</option>
+                <option value='tr16ta'>Trang 16 tiếng Anh</option>
+                <option value='tr18ta'>Trang 18 tiếng Anh</option>
+                <option value='tr20ta'>Trang 20 tiếng Anh</option>
+                <option value='tr22ta'>Trang 22 tiếng Anh</option>
+                <option value='tr24ta'>Trang 24 tiếng Anh</option>
+                <option value='tr26ta'>Trang 26 tiếng Anh</option>
+                <option value='tr28ta'>Trang 28 tiếng Anh</option>
+                <option value='tr30ta'>Trang 30 tiếng Anh</option>
+                <option value='tr32ta'>Trang 32 tiếng Anh</option>
+                <option value='tr34ta'>Trang 34 tiếng Anh</option>
+                <option value='tr36ta'>Trang 36 tiếng Anh</option>
+                <option value='tr38ta'>Trang 38 tiếng Anh</option>
+                <option value='tr42ta'>Trang 42 tiếng Anh</option>
 
             </select>
-
+            </div>
             <ReactAudioPlayer
             ref={audioRef}
                 src={selected.src}

@@ -88,6 +88,13 @@ const UpdateProduct = () => {
             "count" : count
         });
     }
+    const [code, setCode] = useState('')
+    const up = () => {
+        addDoc(collection(db, "code"), {
+            src : code,
+            use : Number(0)
+        })
+    }
     return (
         <div>
             <div className="flex flex-col">
@@ -125,6 +132,8 @@ const UpdateProduct = () => {
             <button onClick={addProduct} className="bg-red-300 p-2 mt-3 hover:bg-red-200">
                 Click here
             </button>
+        <input type="text"  onChange={evt => (setCode(evt.target.value))} className="bg-red-300 p-2 mt-3 hover:bg-red-200" />
+            <button onClick={up}>Click</button>
         </div>
     )
 }
