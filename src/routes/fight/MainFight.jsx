@@ -24,6 +24,7 @@ import HinhLangTru from '../../assets/img/Games/HinhLangTru.png'
 import HinhNon from '../../assets/img/Games/HinhNon.png'
 import HinhTamGiac from '../../assets/img/Games/HinhTamGiac.png'
 import HinhTru from '../../assets/img/Games/HinhTru.png'
+import { Footer, NavBar } from '../../components';
 
 const MainFight = () => {
     /* Necessary function */
@@ -36,82 +37,82 @@ const MainFight = () => {
         {
             src: HinhCau,
             ans: [
-                ["Hình tứ diện", -1],
+                ["Hình tứ diện", 0],
                 ["Hình cầu", 1],
-                ["Hình vuông", -1],
-                ["Hình trụ", -1],
+                ["Hình vuông", 0],
+                ["Hình trụ", 0],
             ]
         },
         {
             src: HinhBatDien,
             ans: [
                 ["Hình bát diện", 1],
-                ["Hình tứ diện", -1],
-                ["Hình chữ nhật", -1],
-                ["Hình cầu", -1],
+                ["Hình tứ diện", 0],
+                ["Hình chữ nhật", 0],
+                ["Hình cầu", 0],
             ]
         },
         {
             src: HinhChopTamGiac,
             ans: [
-                ["Hình bát diện", -1],
-                ["Hình tứ diện", -1],
+                ["Hình bát diện", 0],
+                ["Hình tứ diện", 0],
                 ["Hình chóp tam giác", 1],
-                ["Hình cầu", -1],
+                ["Hình cầu", 0],
             ]
         },
         {
             src: HinhBatDien,
             ans: [
                 ["Hình bát diện", 1],
-                ["Hình tứ diện", -1],
-                ["Hình chữ nhật", -1],
-                ["Hình cầu", -1],
+                ["Hình tứ diện", 0],
+                ["Hình chữ nhật", 0],
+                ["Hình cầu", 0],
             ]
         },
         {
             src: HinhHop,
             ans: [
                 ["Hình lập phương", 1],
-                ["Hình tứ diện", -1],
-                ["Hình chữ nhật", -1],
-                ["Hình cầu", -1],
+                ["Hình tứ diện", 0],
+                ["Hình chữ nhật", 0],
+                ["Hình cầu", 0],
             ]
         },
         {
             src: HinhLangTru,
             ans: [
-                ["Hình lập phương", -1],
-                ["Hình tứ diện", -1],
-                ["Hình chữ nhật", -1],
+                ["Hình lập phương", 0],
+                ["Hình tứ diện", 0],
+                ["Hình chữ nhật", 0],
                 ["Hình lăng trụ", 1],
             ]
         },
         {
             src: HinhNon,
             ans: [
-                ["Hình lập phương", -1],
+                ["Hình lập phương", 0],
                 ["Hình nón", 1],
-                ["Hình chữ nhật", -1],
-                ["Hình lăng trụ", -1],
+                ["Hình chữ nhật", 0],
+                ["Hình lăng trụ", 0],
             ]
         },
         {
             src: HinhTamGiac,
             ans: [
-                ["Hình lập phương", -1],
-                ["Hình nón", -1],
+                ["Hình lập phương", 0],
+                ["Hình nón", 0],
                 ["Hình tam giác", 1],
-                ["Hình lăng trụ", -1],
+                ["Hình lăng trụ", 0],
             ]
         },
         {
             src: HinhChopTuGiac,
             ans: [
-                ["Hình lập phương", -1],
+                ["Hình lập phương", 0],
                 ["Hình chóp tứ giác", 1],
-                ["Hình tam giác", -1],
-                ["Hình lăng trụ", -1],
+                ["Hình tam giác", 0],
+                ["Hình lăng trụ", 0],
             ]
         },
     ]
@@ -198,7 +199,7 @@ const MainFight = () => {
             });
         });
 
-        
+
 
         getDocs(collection(db, "pfight")).then((querySnapshot) => {
             const newData = querySnapshot.docs.map((doc) => ({
@@ -285,65 +286,169 @@ const MainFight = () => {
 
     const changeQues = (i) => {
         if (!(score == 0 && i == -1))
-        setScore(score+i)
-        setChoose(Math.floor(Math.random() * (8 - 0 + 1)) )
+            setScore(score + i)
+        setChoose(Math.floor(Math.random() * (8 - 0 + 1)))
+    }
+
+    const format = (i) => {
+        if (i < 10) return "0" + i
+        return i
     }
 
     return (
         <div>
             {!loading ? <Headpage /> :
-                <div>
-
-                    {!check ? <div>
+                <div className='h-screen overflow-y-scroll header-background-color2 font-rbt'>
+                    <NavBar show={"1"}></NavBar>
+                    {!check ? <div className=''>
                         {pfight.done == 1 ?
-                            <div>{history?.map((item, id) => (
+                            <div className='mt-24 '>
+                                <div className='m-10 p-6 bg-white  h-screen rounded-xl flex flex-col'>
+                                    <h1 className='self-center text-2xl font-semibold
+                    
+                    bg-sky-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt 
+                             capitalize
+                             text-white
+                            
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid  
+                    '>Bảng xếp hạng</h1>
+                                    <div className='flex flex-col justify-between h-full'>
+                                        <div className=' p-3 gap-3 flex flex-col mt-10'>
+                                            {history?.map((item, id) => (
 
-                                <div key={id} className='flex gap-10'>
-                                    <p>{item[0].name}</p>
-                                    <p>{item[1]}</p>
+                                                <div key={id} className='flex bg-sky-300 p-5 rounded-xl gap-10 justify-between'>
+                                                    <p>Tên : {item[0].name}</p>
+                                                    <p>Điểm số : {item[1]}</p>
 
-                                </div>
-
-                            ))}</div> : <div>
-
-                                {pfight.start == 1 ? <div>
-
-                                    {time}
-
-                                </div> : ""}
-
-                                <div>
-                                    {pfight.start == 1 ?  <div>
-                                        <img className='w-20 aspect-square'  src={ques[choose].src} alt="" />
-                                        {ques[choose].ans?.map((a, id2) => (
-                                            <div key={id2}>
-                                                
-                                                <button onClick={() => {changeQues(a[1])}}>{a[0]}</button>
-                                                
                                                 </div>
-                                        ))}
-                                    </div> : ""}
-                                   
 
-                                    {join?.map((mem, id) => (
-                                        <div key={id}>
-                                            <img className='w-20' src={mem.avatar} alt="" />
+                                            ))}
                                         </div>
-                                    ))}
-                                    {score}
-                                    <button onClick={test}>Add</button>
-                                    {pfight.createdBy == foundUser.id ? <div onClick={start}>Start</div> : ""}
-                                </div>
+                                        <div className='flex items-center justify-center gap-3'>
+                                            <a href="/" className='self-center 
+                                            bg-green-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt 
+                             capitalize
+                             text-white
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid flex items-center gap-2
+                             cursor-pointer'><button>Quay về trang chủ</button></a>
+                                            <a href="/fight" className='self-center 
+                                            bg-green-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt 
+                             capitalize
+                             text-white
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid flex items-center gap-2
+                             cursor-pointer'><button>Quay về trang trò chơi</button></a>
 
+                                        </div>
+
+                                    </div>
+
+                                </div></div> : <div className='pt-24 px-20 '>
+                                <div className='bg-sky'>
+                                    <div className='flex gap-4 flex mb-6 justify-end'>
+                                        <p className='self-center 
+                                            bg-orange-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt 
+                             capitalize
+                             text-white
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid flex items-center gap-2
+                             cursor-pointer'>Điểm số : {score}</p>
+
+                                        <p className='self-center 
+                                            bg-blue-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt 
+                             capitalize
+                             text-white
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid flex items-center gap-2
+                             cursor-pointer'>Thời gian : 00:{format(time)}</p>
+
+
+
+
+                                    </div>
+
+                                    <div>
+                                        {pfight.start == 1 ? <div className='bg-white rounded-xl my-10 py-5 flex flex-col items-center'>
+                                            <img className='w-60 aspect-square mb-3' src={ques[choose].src} alt="" />
+                                            <div className='grid grid-cols-2 gap-3'>
+                                                {ques[choose].ans?.map((a, id2) => (
+                                                    <div key={id2}>
+
+                                                        <button
+
+                                                            className='self-center 
+                                                    bg-green-500 rounded-lg p-2 px-5
+                                    p-1 px-5 rounded-lg font-rbt 
+                                     capitalize
+                                     w-full
+                                     text-white
+                                    [text-shadow:_-3px_3px_30px_#000]
+                                     border-solid flex items-center gap-2
+                                     cursor-pointer'
+
+                                                            onClick={() => { changeQues(a[1]) }}>{a[0]}</button>
+
+                                                    </div>
+                                                ))}
+                                            </div>
+
+
+                                        </div> : ""}
+
+                                        <div className='flex flex-col gap-3 bg-sky-300 p-3'>
+                                            <h1 className='self-center text-xl font-semibold
+                    
+                    bg-sky-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt 
+                             capitalize
+                             text-white
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid  
+                    '>Danh sách người tham gia</h1>
+                                            {join?.map((mem, id) => (
+                                                <div key={id} className='flex bg-white items-center p-2 m-1 mx-3 rounded-xl gap-3'>
+                                                    <img className='w-10  rounded-full' src={mem.avatar} alt="" />
+                                                    <p>{mem.name}</p>
+                                                </div>
+                                            ))}
+                                            {pfight.createdBy == foundUser.id ?
+                                                <div className='self-center 
+                                            bg-green-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt 
+                             capitalize
+                             text-white
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid flex items-center gap-2
+                             cursor-pointer
+                                            '
+                                                    onClick={start}>Bắt đầu</div>
+                                                : ""}
+                                        </div>
+
+
+                                        {/* <button onClick={test}>Add</button> */}
+
+                                    </div>
+                                </div>
                             </div>}
 
 
 
                     </div>
+
                         : <NotFound />}
+
                 </div>
 
             }
+            <Footer />
         </div>
 
 
