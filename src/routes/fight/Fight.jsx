@@ -101,17 +101,42 @@ const Fight = () => {
                             {pfights?.map((pfight, id) => (
                                 <div key={id} className={`gap-10 bg-white p-3 rounded-xl ${pfight.done == 0 ? "flex" : "hidden"} justify-between`}>
                                     <div className='flex items-center justify-center gap-4'>
-                                    <img className='w-10 rounded-full ' src={pfight.createdByAvatar} alt="" />
-                                    Phòng của {pfight.createdByName}
+                                        <img className='w-10 rounded-full ' src={pfight.createdByAvatar} alt="" />
+                                        Phòng của {pfight.createdByName}
                                     </div>
-                                    
-                                    <button onClick={() => { directPfight(pfight.id) }}>Tham gia</button>
+
+                                    <button onClick={() => { directPfight(pfight.id) }} className='self-center text-base font-semibold
+                    
+                    bg-green-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt 
+                             capitalize
+                             text-white
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid flex items-center gap-2'>Tham gia
+                               <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      height="2em"
+      width="2em"
+ 
+    >
+      <path d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+    </svg>
+                             
+                             </button>
                                     {/* <button onClick={() => { deletePfight(pfight.id) }}>Delete</button> */}
                                 </div>
                             ))}
                         </div>
 
-                        <button onClick={addPfight}>Tạo phòng</button>
+                        <button onClick={addPfight} className='self-center text-base font-semibold
+                    
+                    bg-green-500 rounded-lg p-2 px-5
+                            p-1 px-5 rounded-lg font-rbt 
+                             capitalize
+                             text-white
+                            [text-shadow:_-3px_3px_30px_#000]
+                             border-solid  '>Tạo phòng</button>
                     </div>
                 </div>
 
