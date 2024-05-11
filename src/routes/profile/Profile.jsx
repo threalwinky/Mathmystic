@@ -318,7 +318,7 @@ const Profile = () => {
 
 
                                                 <p className='w-full bg-white p-5 rounded-xl flex justify-between'><Trans>Name</Trans> : <p>{foundUser.name}</p></p>
-                                                <p className='w-full bg-white p-5 rounded-xl flex justify-between'><Trans>Email</Trans> : <p>{foundUser.rmail}</p></p>
+                                                <p className='w-full bg-white p-5 rounded-xl flex justify-between'><Trans>Email</Trans> : <p>{foundUser.realEmail}</p></p>
                                                 <p className='w-full bg-white p-5 rounded-xl flex justify-between'><Trans>Address</Trans> : <p>{foundUser.addr}</p></p>
                                                 <p className='w-full bg-white p-5 rounded-xl flex justify-between'><Trans>Phone number</Trans> : <p>{foundUser.pn}</p></p>
                                                 {/* <p className='w-full bg-white'><Trans>Email</Trans> : {foundUser.email}</p> */}
