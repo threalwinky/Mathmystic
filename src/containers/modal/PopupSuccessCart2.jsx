@@ -1,8 +1,8 @@
 import { AiOutlineCloseSquare } from "react-icons/ai";
 import { Trans } from "react-i18next";
-
+import paid from '../../assets/img/paid.jpeg'
 import './Popup.css'
-const PopupSuccessCart2 = ({ setIsOpenPopupSuccessCart2, setIsOpenPopupSuccessCart1 }) => {
+const PopupSuccessCart2 = ({ setIsOpenPopupSuccessCart2, setIsOpenPopupSuccessCart1}, total) => {
   return (
     <div
       onClick={() => setIsOpenPopupSuccessCart2(false)}
@@ -90,8 +90,13 @@ const PopupSuccessCart2 = ({ setIsOpenPopupSuccessCart2, setIsOpenPopupSuccessCa
           </div>
           <div className="popup-text">
             <p><Trans>You have been successfully bought our products</Trans> </p>
+            <p><Trans>Vui lòng thực hiện các bước sau để thanh toán</Trans> </p>
+            <p><Trans>Bước 1 : Quét mã sau để thanh toán số tiền là {total}</Trans> </p>
+            <img src={paid} className="w-96" alt="" />
+            <p><Trans>Bước 2 : Thực hiện đến quầy để xác nhận</Trans> </p>
             {/* <br /> */}
             <p> </p>
+            
           </div>
           <div className="popup-button">
             <button onClick={() => {setIsOpenPopupSuccessCart1(false); setIsOpenPopupSuccessCart2(false)}}>

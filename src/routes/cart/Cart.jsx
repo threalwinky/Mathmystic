@@ -377,7 +377,7 @@ const Cart = () => {
             totalMoney={totalPrice} /> : ""
 
           }
-          {isOpenPopupSuccessCart2 ? <PopupSuccessCart2 setIsOpenPopupSuccessCart2={setIsOpenPopupSuccessCart2} /> : ""}
+          {isOpenPopupSuccessCart2 ? <PopupSuccessCart2 total={totalMoney} setIsOpenPopupSuccessCart2={setIsOpenPopupSuccessCart2} /> : ""}
           {isOpenPopupFailCart1 ? <PopupFailCart1 setIsOpenPopupFailCart1={setIsOpenPopupFailCart1} /> : ""}
         </div>
 

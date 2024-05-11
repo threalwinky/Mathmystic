@@ -77,12 +77,12 @@ const PopupSuccessCart1 = ({ setIsOpenPopupSuccessCart1, totalMoney, imgUrl, fu}
                  />
                 <input 
                 type="text" 
-                placeholder="Phone number" 
+                placeholder="Số điện thoại" 
                 required={true} 
                 onChange={evt => {setCartPhoneNumber(evt.target.value)}} />
                 <input 
                 type="text" 
-                placeholder="Address" 
+                placeholder="Địa chỉ" 
                 required={true} 
                 onChange={evt => {setCartAddress(evt.target.value)}} />
                 {/* <input type="text" /> */}
