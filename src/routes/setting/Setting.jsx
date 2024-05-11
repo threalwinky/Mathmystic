@@ -201,7 +201,7 @@ const Setting = () => {
                                 {/* </input> */}
                             </div>
                             <div className={`
-                                self-center mt-5 ${foundUser.paid == 'pro' ? " bg-purple-500" : " bg-green-300"}
+                                self-center mt-5 ${foundUser.paid == 'pro' ? " bg-purple-500" : " 500"}
                                  p-1 px-5 rounded-lg font-rbt text-base
                                  capitalize
                                  text-white

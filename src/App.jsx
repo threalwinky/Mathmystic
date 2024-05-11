@@ -9,7 +9,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import 'react-toastify/dist/ReactToastify.css';
 import { Scrollbar } from 'react-scrollbars-custom';
 import db from '../firebase'
-import { Cart, Fight, Forum, Home, MainFight, Product, Purchase, Setting, SignIn, SignUp, Study, Test, UpdateProduct } from './routes';
+import { Cart, Fight, Forum, Home, MainFight, Product, Profile, Purchase, Setting, SignIn, SignUp, Study, Test, UpdateProduct } from './routes';
 import Store from './routes/store/Store';
 import { NotFound } from './containers';
 
@@ -50,6 +50,7 @@ const App = () => {
         <Route path="purchase" element={<Purchase />} />
         <Route path="*" element={<NotFound />} />
         <Route path="up" element={<UpdateProduct />} />
+        <Route path="profile" element={<Profile />} />
       </Routes>
       <ToastContainer
         position="top-right"
