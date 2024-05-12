@@ -249,7 +249,7 @@ const MainFight = () => {
         })
     }
 
-    const [time, setTime] = useState(10)
+    const [time, setTime] = useState(30)
     const [score, setScore] = useState(0)
     useEffect(() => {
         if (pfight.start == 1) {
