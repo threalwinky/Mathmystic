@@ -20,9 +20,9 @@ const NotPaid = () => {
     
     return (
         <div>
-             Vui long kich hoat tai khoan de su dung tinh nang
+             Vui lòng kích hoạt gói học tập pro để sử dụng tính năng
              <br />
-             Click vao <a href='/setting'>day</a> de chuyen den trang cai dat
+             Nhấn vào <a href='/setting'>đây</a> để chuyển đến trang cài đặt
         </div>
     )
 }
